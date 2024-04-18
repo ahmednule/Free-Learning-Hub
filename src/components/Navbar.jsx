@@ -16,6 +16,8 @@ const Navbar = () => {
       </h2>
       <a
         href='https://github.com/developer-assets/Free-Learning-Hub'
+        target='_blank'
+        rel='website'
         className='border border-yellow-500 rounded-full py-2 px-5 tracking-tight dark:hover:text-black hover:bg-yellow-500 hover:text-white duration-300 transition-all'
       >
         CONTRIBUTE
