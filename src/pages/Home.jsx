@@ -1,8 +1,11 @@
 import React from 'react'
+import HomeL from '../layouts/HomeL'
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <div>
+      <HomeL />
+    </div>
   )
 }
 
