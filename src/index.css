@@ -17,8 +17,15 @@ body {
       transition: background-color 0.3s ease;
       cursor: pointer;
     }
-
     .custom-span:hover {
+      text-decoration: underline;
+    }
+    .dark-custom-span {
+      color: #1E88E5;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+    .dark-custom-span:hover {
       text-decoration: underline;
     }
   }

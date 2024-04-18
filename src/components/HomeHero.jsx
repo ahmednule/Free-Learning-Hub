@@ -39,7 +39,7 @@ const HomeHero = () => {
       <div className='text-center mt-8 text-xl'>
         <p>Get all learning resources in a 100% open source platform.</p>
         <p>We are currently focused on programming languages but we will expand in the near future.</p>
-        <p>You can contribute by working on <span className='custom-span'>bug fixes</span>, <span className='custom-span'>UI updates</span>, and <span className='custom-span'>learning materials</span> updates.</p>
+        <p>You can contribute by working on <span className='custom-span dark:dark-custom-span'>bug fixes</span>, <span className='custom-span dark:dark-custom-span'>UI updates</span>, and <span className='custom-span dark:dark-custom-span'>learning materials</span> updates.</p>
       </div>
 
       <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-32 mx-auto w-full'>
