@@ -7,7 +7,7 @@ const Navbar = () => {
 
 
   return (
-    <div className='flex w-full h-16 justify-between items-center px-4 border-b border-yellow-200'>
+    <div className='flex w-full h-16 container max-w-7xl justify-between items-center px-4 border-b border-yellow-200'>
       <h2
         onClick={() => navigate('/')}
         className='text-2xl font-bold cursor-pointer'
