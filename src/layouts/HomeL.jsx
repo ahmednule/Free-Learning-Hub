@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import HomeHero from '../components/HomeHero'
+import Contributors from '../components/Contributors'
 
 const HomeL = () => {
   return (
@@ -11,6 +12,12 @@ const HomeL = () => {
         </div>
         <div className='pt-16'>
           <HomeHero />
+        </div>
+        <div className='pt-24'>
+          <Contributors />
+        </div>
+        <div className='pt-32'>
+
         </div>
       </div>
     </div>
