@@ -13,19 +13,19 @@ const HomeHero = () => {
       id: 1,
       name: "Python",
       description: "Python is a versatile, high-level, interpreted, object-oriented programming language renowned for its simplicity and extensive libraries, making it ideal for various applications.",
-      link: "/learn/python"
+      link: "/"
     },
     {
       id: 2,
       name: "JavaScript",
       description: "JavaScript is a versatile, high-level, interpreted programming language known for its flexibility and ability to create interactive web applications.",
-      link: "/learn/javascript"
+      link: "/"
     },
     {
-      id: 3,
-      name: "HTML",
-      description: "HTML (HyperText Markup Language) is the standard markup language for creating web pages and web applications.",
-      link: "/learn/html"
+      "id": 3,
+      "name": "HTML & CSS",
+      "description": "Master the essential languages of web development: HTML and CSS. Learn to create structurally sound, responsive and visually appealing websites.",
+      "link": "/learn/html"
     }
   ]
 
