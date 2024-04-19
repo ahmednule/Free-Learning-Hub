@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import HomeHero from '../components/HomeHero'
 import Contributors from '../components/Contributors'
+import TextEditor from '../components/CodeEditor'
 
 const HomeL = () => {
   return (
@@ -17,7 +18,6 @@ const HomeL = () => {
           <Contributors />
         </div>
         <div className='pt-32'>
-
         </div>
       </div>
     </div>

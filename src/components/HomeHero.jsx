@@ -26,6 +26,12 @@ const HomeHero = () => {
       "name": "HTML & CSS",
       "description": "Master the essential languages of web development: HTML and CSS. Learn to create structurally sound, responsive and visually appealing websites.",
       "link": "/learn/html"
+    },
+    {
+      "id": 4,
+      "name": "Code Playground",
+      "description": "Explore, experiment, and learn in our interactive Code Playground. Test your code, try out new techniques, and unleash your creativity in a safe and supportive environment.",
+      "link": "/code-playground"
     }
   ]
 

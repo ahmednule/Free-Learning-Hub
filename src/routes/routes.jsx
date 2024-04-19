@@ -3,6 +3,7 @@ import Home from "../pages/Home";
 import Html from "../learn/html/Html";
 import HtmlLessons from "../learn/html/HtmlLessons";
 import AllSubjects from "../pages/AllSubjects";
+import CodePlayGround from "../pages/CodePlayGround";
 
 export const router = createHashRouter([
   {
@@ -10,8 +11,12 @@ export const router = createHashRouter([
     element: <Home />
   },
   {
+    path: "/code-playground",
+    element: <CodePlayGround />
+  },
+  {
     path: "/learn",
-    element: <AllSubjects />,
+    element: <AllSubjects />
   },
   {
     path: "/learn/html",

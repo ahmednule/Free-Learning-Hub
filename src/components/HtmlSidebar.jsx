@@ -1,7 +1,9 @@
 import React from 'react'
 import htmlTopics from '../assets/objects/htmlTopics.json'
+import { useNavigate } from 'react-router-dom';
 
 const HtmlSidebar = () => {
+  const navigate = useNavigate();
   const lessons = htmlTopics;
 
 
@@ -15,7 +17,7 @@ const HtmlSidebar = () => {
             <ul className='list-none ml-auto text-yellow-500 dark:text-blue-600'>
               {
                 lesson.topics.map((topic) => (
-                  <li key={topic.id} className='hover:underline text-right cursor-pointer w-full'> {topic.name} </li>
+                  <li key={topic.id} onClick={() => navigate(topic.link)} className='hover:underline text-right cursor-pointer w-full'> {topic.name} </li>
                 ))
               }
             </ul>

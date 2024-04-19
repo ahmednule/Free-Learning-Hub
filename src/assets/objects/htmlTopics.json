@@ -26,18 +26,28 @@
     "topics": [
       {
         "id": 1,
-        "name": "Overview of HTML and CSS",
+        "name": "Basic Elements",
         "link": "/learn/html/l4"
       },
       {
         "id": 2,
-        "name": "Roles of HTML and CSS",
+        "name": "Text Formating",
         "link": "/learn/html/l5"
       },
       {
         "id": 3,
-        "name": "Setting up IDE",
+        "name": "Link Creation",
         "link": "/learn/html/l6"
+      },
+      {
+        "id": 4,
+        "name": "Image Embedding",
+        "link": "/learn/html/l7"
+      },
+      {
+        "id": 5,
+        "name": "List Creation",
+        "link": "/learn/html/l8"
       }
     ]
   }
