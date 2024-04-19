@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import htmlTopics from '../../assets/objects/htmlTopics.json'
+import { FaAngleRight } from 'react-icons/fa6';
 
 const Intro = () => {
   const navigate = useNavigate();
@@ -32,6 +33,23 @@ const Intro = () => {
             ))
           }
         </article>
+        <div className='mt-36 flex justify-between'>
+          <button onClick={() => navigate("/learn")} className='flex group justify-center dark:text-gray-950 duration-300 transition-all bg-yellow-500 dark:bg-blue-600 py-2 rounded-lg dark:hover:bg-blue-800 hover:bg-yellow-600 px-5 gap-2'>
+            <span>
+              <FaAngleRight className='group-hover:-translate-x-[5px] duration-300 rotate-180 mt-1' />
+            </span>
+            <span>ALL TUTORIALS</span>
+          </button>
+          <button onClick={() => navigate("/learn/html/l1")} className='flex group justify-center dark:text-gray-950 duration-300 transition-all bg-yellow-500 dark:bg-blue-600 py-2 rounded-lg dark:hover:bg-blue-800 hover:bg-yellow-600 px-5 gap-2'>
+            <span>Overview of HTML & CSS</span>
+            <span>
+              <FaAngleRight className='group-hover:translate-x-[5px] duration-300 mt-1' />
+            </span>
+          </button>
+        </div>
+        <div className='mt-12'>
+          <a href="https://github.com/developer-assets/Free-Learning-Hub/blob/main/src/courses/html/Intro.jsx" target='_blank' rel='showcase-website' className='text-yellow-500 hover:underline cursor-pointer dark:text-blue-600'>Edit This Page</a>
+        </div>
       </div>
     </div>
   );

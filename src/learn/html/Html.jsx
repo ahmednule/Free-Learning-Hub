@@ -4,6 +4,7 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import { anOldHope } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import Navbar from '../../components/Navbar';
 import HtmlSidebar from '../../components/HtmlSidebar';
+import Footer from '../../components/Footer';
 
 const Html = () => {
   return (
@@ -19,6 +20,9 @@ const Html = () => {
           <div className='hidden md:block col-span-2 text-right pr-5 pt-10'>
             <HtmlSidebar />
           </div>
+        </div>
+        <div className='pt-32'>
+          <Footer />
         </div>
       </div>
     </div>

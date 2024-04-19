@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import CodeEditor from '../components/CodeEditor'
+import Footer from '../components/Footer'
 
 const CodePlayGround = () => {
   return (
@@ -9,6 +10,9 @@ const CodePlayGround = () => {
         <Navbar />
         <div className='pt-10 pb-32 mx-10 '>
           <CodeEditor />
+        </div>
+        <div>
+          <Footer />
         </div>
       </div>
     </div>
