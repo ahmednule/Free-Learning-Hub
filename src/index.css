@@ -12,22 +12,22 @@ body {
   @variants hover {
 
     /*span elements with links decoration */
-    .custom-span {
-      color: #F59E0B;
-      transition: background-color 0.3s ease;
+    .cs {
+      background-color: #F59E0B;
+      border-radius: 10px;
       cursor: pointer;
+      color: black;
+      padding: 0 5px;
     }
-    .custom-span:hover {
-      text-decoration: underline;
-    }
-    .dark-custom-span {
-      color: #1E88E5;
-      transition: background-color 0.3s ease;
+    .dcs {
+      background-color: #1E88E5;
+      border-radius: 10px;
+      color: white;
       cursor: pointer;
+      padding: 0 5px;
     }
-    .dark-custom-span:hover {
-      text-decoration: underline;
-    }
-  }
 
+
+
+  }
 }

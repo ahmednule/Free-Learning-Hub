@@ -4,7 +4,7 @@ import Navbar from '../../components/Navbar';
 import { useLocation } from 'react-router-dom';
 import LessonOne from '../../courses/html/LessonOne';
 import LessonTwo from '../../courses/html/LessonTwo';
-
+import LessonThree from '../../courses/html/LessonThree';
 
 const HtmlLessons = () => {
   const [lessonId, setLessonId] = useState('');
@@ -27,6 +27,7 @@ const HtmlLessons = () => {
             {/* Render the lesson component based on the current lesson ID */}
             {lessonId === 'l1' && <LessonOne />}
             {lessonId === 'l2' && <LessonTwo />}
+            {lessonId === 'l3' && <LessonThree />}
             {/* Add more conditions for additional lesson IDs */}
           </div>
           <div className='hidden md:block col-span-2 text-right pr-5 pt-10'>
