@@ -8,12 +8,12 @@ import Footer from '../../components/Footer';
 
 const Html = () => {
   return (
-    <div className='bg-gray-50 text-black dark:text-white dark:bg-gray-950 mx-auto'>
+    <div className='bg-gray-50 text-black dark:text-white relative dark:bg-gray-950 mx-auto'>
       <div className='container max-w-7xl mx-auto'>
         <div>
           <Navbar />
         </div>
-        <div className='grid md:grid-cols-6'>
+        <div className='grid md:grid-cols-6 pt-16'>
           <div className='col-span-4'>
             <Intro />
           </div>
@@ -21,9 +21,10 @@ const Html = () => {
             <HtmlSidebar />
           </div>
         </div>
-        <div className='pt-32'>
+        <div className='pt-32 pb-32'>
           <Footer />
         </div>
+        
       </div>
     </div>
   );

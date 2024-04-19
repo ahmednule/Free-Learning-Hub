@@ -43,7 +43,7 @@ const AllSubjects = () => {
           <Navbar />
         </div>
         <div>
-          <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-32 mx-auto w-full'>
+          <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8 pt-32 mx-auto w-full'>
             {SubjectsSelections.map((item) => (
               <div onClick={() => navigate(item.link)} key={item.id} className='max-w-sm group mx-auto cursor-pointer rounded-2xl flex justify-between dark:hover:bg-gray-900 hover:bg-gray-100 duration-300 transition-colors p-4'>
                 <div className='flex-[0.95]'>

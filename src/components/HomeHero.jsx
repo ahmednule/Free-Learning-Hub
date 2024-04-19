@@ -61,6 +61,12 @@ const HomeHero = () => {
           </div>
         ))}
       </div>
+      <div className='mt-16 w-full flex justify-center'>
+        <button onClick={() => navigate('/learn')} className='bg-yellow-500 hover:bg-yellow-600 dark:hover:bg-blue-800 text-gray-50 dark:text-gray-950 group dark:bg-blue-600 flex justify-center gap-4 py-3 px-10 rounded-lg font-bold text-xl'>
+          <span>SEE ALL</span>
+          <FaAngleRight className='mt-1 group-hover:translate-x-2 duration-200' />
+        </button>
+      </div>
     </div>
   );
 };
