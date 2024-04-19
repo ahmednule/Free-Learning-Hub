@@ -16,7 +16,7 @@ const CodeEditorOutput = ({ editorRef, language }) => {
     try {
       setIsLoading(true);
       const { run:result} = await executeCode(language, sourceCode);
-      setOutput(result.output);
+      setOutput(result.output.split("\n"));
       result.stderr ? setIsError(true) : setIsError(false);
       if(isError){
         toast.error("Error in code...");
@@ -43,7 +43,13 @@ const CodeEditorOutput = ({ editorRef, language }) => {
         </span>
       </button>
       <div className={outputContainerClass}>
-        {output ? output : "Click run code to see the output here..."}
+        {output ? 
+          output.map((line, index) => {
+            return(
+              <p key={index} >{line}</p>
+            )
+          })
+         : "Click run code to see the output here..."}
       </div>
     </div>
   );
