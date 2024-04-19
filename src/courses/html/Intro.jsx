@@ -1,8 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import htmlTopics from '../../assets/objects/htmlTopics.json'
 
 const Intro = () => {
   const navigate = useNavigate();
+  const lessons = htmlTopics;
 
 
   return (
@@ -15,14 +17,20 @@ const Intro = () => {
         </article>
         <article className='mt-10'>
           <h1 className='font-bold text-2xl md:text-3xl'>Whats Covered</h1>
-          <div className='mt-4 '>
-            <h3 className='text-xl'>1. Introduction to HTML & CSS</h3>
-            <ul className='list-disc pl-8 mt-2 text-yellow-500 dark:text-blue-600'>
-              <li onClick={() => navigate('/learn/html/l1')} className='hover:underline cursor-pointer w-fit'>Overview of HTML and CSS</li>
-              <li onClick={() => navigate('/learn/html/l2')} className='hover:underline cursor-pointer w-fit'>Roles of HTML and CSS</li>
-              <li onClick={() => navigate('/learn/html/l2')} className='hover:underline cursor-pointer w-fit'>Setting up IDE</li>
-            </ul>
-          </div>
+          {
+            lessons.map((lesson) => (
+              <div className='mt-4' key={lesson.id}>
+                <h3 className='text-xl'> {`${lesson.id}. ${lesson.name}`} </h3>
+                <ul className='list-disc pl-8 mt-2 text-yellow-500 dark:text-blue-600'>
+                  {
+                    lesson.topics.map((topic) => (
+                      <li key={topic.id} onClick={() => navigate(topic.link)} className='hover:underline cursor-pointer w-fit'> {topic.name} </li>
+                    ))
+                  }
+                </ul>
+              </div>
+            ))
+          }
         </article>
       </div>
     </div>

@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Introduction to HTML & CSS",
+    "topics": [
+      {
+        "id": 1,
+        "name": "Overview of HTML and CSS",
+        "link": "/learn/html/l1"
+      },
+      {
+        "id": 2,
+        "name": "Roles of HTML and CSS",
+        "link": "/learn/html/l2"
+      },
+      {
+        "id": 3,
+        "name": "Setting up IDE",
+        "link": "/learn/html/l3"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Foundational HTML",
+    "topics": [
+      {
+        "id": 1,
+        "name": "Overview of HTML and CSS",
+        "link": "/learn/html/l4"
+      },
+      {
+        "id": 2,
+        "name": "Roles of HTML and CSS",
+        "link": "/learn/html/l5"
+      },
+      {
+        "id": 3,
+        "name": "Setting up IDE",
+        "link": "/learn/html/l6"
+      }
+    ]
+  }
+]

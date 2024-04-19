@@ -7,7 +7,7 @@ import HtmlSidebar from '../../components/HtmlSidebar';
 
 const Html = () => {
   return (
-    <div className='bg-gray-50 text-black dark:text-white dark:bg-gray-950 mx-auto min-h-screen'>
+    <div className='bg-gray-50 text-black dark:text-white dark:bg-gray-950 mx-auto'>
       <div className='container max-w-7xl mx-auto'>
         <div>
           <Navbar />
