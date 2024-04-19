@@ -29,7 +29,7 @@ const CodeEditorOutput = ({ editorRef, language }) => {
       setIsLoading(false);
     }
   }
-  const outputContainerClass = `h-[80vh] border py-8 px-5 text-xl mt-[9px] rounded-lg ${isError ? 'border-red-500 text-red-500' : 'border-yellow-200 text-gray-950 dark:text-gray-50'}`;
+  const outputContainerClass = `h-[80vh] border py-8 px-5 text-xl mt-[9px] rounded-lg ${isError ? 'border-red-500 text-red-500' : 'border-yellow-200 dark:border-blue-200 text-gray-950 dark:text-gray-50'}`;
 
 
 
