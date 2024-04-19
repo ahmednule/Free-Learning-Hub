@@ -11,36 +11,36 @@ export const CODE_SNIPPETS = {
   javascript: `
 // JavaScript snippet
 function greet() {
+
   console.log('Hello, world!');
 }
 
-greet(); // Call the greet function
+greet();
     `,
   typescript: `
 // TypeScript snippet
 function greet(): void {
+
   console.log('Hello, world!');
 }
 
-greet(); // Call the greet function
+greet();
     `,
   python: `
 # Python snippet
 def greet():
   print("Hello, world!")
 
-greet() # Call the greet function
+greet()
     `,
   java: `
 // Java snippet
 public class Main {
   public static void main(String[] args) {
+
     System.out.println("Hello, world!");
   }
 }
-
-// Call the Main class
-Main.main(null);
     `,
   csharp: `
 // C# snippet
@@ -48,23 +48,22 @@ using System;
 
 class Program
 {
+
   static void Main()
   {
     Console.WriteLine("Hello, world!");
   }
 }
-
-// Call the Main method
-Program.Main();
     `,
   php: `
-// PHP snippet
 <?php
+// PHP snippet
+
 function greet() {
   echo "Hello, world!";
 }
 
-greet(); // Call the greet function
+greet();
 ?>
     `
 };

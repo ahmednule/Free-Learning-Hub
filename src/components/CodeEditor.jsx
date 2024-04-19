@@ -49,7 +49,7 @@ const CodeEditor = () => {
         </div>
       </div>
       <div>
-        <CodeEditorOutput />
+        <CodeEditorOutput editorRef={editorRef} language={language} />
       </div>
     </div>
   )
