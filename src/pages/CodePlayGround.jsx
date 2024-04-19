@@ -10,7 +10,6 @@ const CodePlayGround = () => {
         <div className='pt-10 pb-32 mx-10 '>
           <CodeEditor />
         </div>
-
       </div>
     </div>
   )

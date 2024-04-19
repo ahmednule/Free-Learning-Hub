@@ -3,6 +3,7 @@ import Editor from '@monaco-editor/react';
 import { useState } from 'react';
 import CodeEditorLang from './CodeEditorLang';
 import { CODE_SNIPPETS } from '../assets/objects/constants';
+import CodeEditorOutput from './CodeEditorOutput';
 
 const CodeEditor = () => {
   const isDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -30,27 +31,25 @@ const CodeEditor = () => {
 
 
   return (
-    <div>
+    <div className='grid lg:grid-cols-2 gap-3'>
       <div>
-        <CodeEditorLang language={language} onSelectLanguage={onChangeLanguage} />
+        <div>
+          <CodeEditorLang language={language} onSelectLanguage={onChangeLanguage} />
+        </div>
+        <div className='border border-yellow-200 dark:border-blue-600'>
+          <Editor
+            height="80vh"
+            theme={editorTheme}
+            language={language}
+            defaultValue={CODE_SNIPPETS[language]}
+            value={code}
+            onMount={onMount}
+            onChange={(value) => setCode(code)}
+          />
+        </div>
       </div>
-      <div className='border border-yellow-200 dark:border-blue-600'>
-      <Editor
-        height="75vh"
-        theme={editorTheme}
-        language={language}
-        defaultValue="
-// JavaScript snippet
-function greet() {
-  console.log('Hello, world!');
-}
-
-greet(); // Call the greet function
-        "
-        value={code}
-        onMount={onMount}
-        onChange={(value) => setCode(code)}
-      />
+      <div>
+        <CodeEditorOutput />
       </div>
     </div>
   )
