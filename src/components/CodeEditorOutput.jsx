@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import { executeCode } from './CodeEditorAPI';
 import { TbLoader3 } from 'react-icons/tb';
 import { toast } from 'react-toastify';
@@ -15,23 +15,26 @@ const CodeEditorOutput = ({ editorRef, language }) => {
 
     try {
       setIsLoading(true);
-      const { run:result} = await executeCode(language, sourceCode);
+      const { run: result } = await executeCode(language, sourceCode);
       setOutput(result.output.split("\n"));
-      result.stderr ? setIsError(true) : setIsError(false);
-      if(isError){
-        toast.error("Error in code...");
-      } else{
-        toast.success("Run complete!")
-      }
-    } catch(error){
+      setIsError(!!result.stderr);
+      // No need to show toasts here
+    } catch (error) {
       toast.error("Error processing code...");
     } finally {
       setIsLoading(false);
     }
   }
+
+  useEffect(() => {
+    if (isError) {
+      toast.error("Error in code...");
+    } else {
+      toast.success("Run complete!");
+    }
+  }, [isError]);
+
   const outputContainerClass = `h-[80vh] border py-8 px-5 text-xl mt-[9px] rounded-lg ${isError ? 'border-red-500 text-red-500' : 'border-yellow-200 dark:border-blue-600 text-gray-950 dark:text-gray-50'}`;
-
-
 
   return (
     <div>
@@ -45,14 +48,14 @@ const CodeEditorOutput = ({ editorRef, language }) => {
       <div className={outputContainerClass}>
         {output ? 
           output.map((line, index) => {
-            return(
-              <p key={index} >{line}</p>
+            return (
+              <p key={index}>{line}</p>
             )
           })
-         : "Click run code to see the output here..."}
+          : "Click run code to see the output here..."}
       </div>
     </div>
   );
 }
 
-export default CodeEditorOutput
+export default CodeEditorOutput;
