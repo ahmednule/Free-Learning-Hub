@@ -47,7 +47,7 @@ const CodeEditorOutput = ({ editorRef, language }) => {
         {output ? 
           output.map((line, index) => {
             return(
-              <p key={index} >{line}</p>
+              <p key={index}>{line}</p>
             )
           })
          : "Click run code to see the output here..."}

@@ -28,7 +28,7 @@ const HomeHero = () => {
       link: "/"
     },
     {
-      id: 4,
+      id: 5,
       name: "JavaScript",
       description: "JavaScript is a versatile, high-level, interpreted programming language known for its flexibility and ability to create interactive web applications.",
       link: "/"

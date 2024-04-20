@@ -36,18 +36,28 @@
       },
       {
         "id": 3,
-        "name": "Link Creation",
+        "name": "HTML Tags & Attributes",
         "link": "/learn/html/l6"
       },
       {
         "id": 4,
-        "name": "Image Embedding",
+        "name": "Semantic HTML",
         "link": "/learn/html/l7"
       },
       {
         "id": 5,
-        "name": "List Creation",
+        "name": "Link Creation",
         "link": "/learn/html/l8"
+      },
+      {
+        "id": 6,
+        "name": "Image Embedding",
+        "link": "/learn/html/l9"
+      },
+      {
+        "id": 7,
+        "name": "List Creation",
+        "link": "/learn/html/l10"
       }
     ]
   }

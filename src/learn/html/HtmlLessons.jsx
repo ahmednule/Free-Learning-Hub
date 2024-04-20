@@ -9,6 +9,7 @@ import LessonFour from '../../courses/html/LessonFour';
 import { FaCircle } from 'react-icons/fa6';
 import CodeEditor from '../../components/CodeEditor';
 import LessonFive from '../../courses/html/LessonFive';
+import ScrollTop from '../../components/ScrollTop';
 
 const HtmlLessons = () => {
   const [expanded, setExpanded] = useState(false);
@@ -41,6 +42,11 @@ const HtmlLessons = () => {
           <div className='hidden md:block col-span-2 text-right pr-5 pt-10'>
             <HtmlSidebar />
           </div>
+        </div>
+      </div>
+      <div className='fixed z-[7] bottom-20 right-10'>
+        <div>
+          <ScrollTop />
         </div>
       </div>
       <div className='hidden lg:block'>
