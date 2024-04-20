@@ -8,6 +8,7 @@ import LessonThree from '../../courses/html/LessonThree';
 import LessonFour from '../../courses/html/LessonFour';
 import { FaCircle } from 'react-icons/fa6';
 import CodeEditor from '../../components/CodeEditor';
+import LessonFive from '../../courses/html/LessonFive';
 
 const HtmlLessons = () => {
   const [expanded, setExpanded] = useState(false);
@@ -33,6 +34,7 @@ const HtmlLessons = () => {
             {lessonId === 'l2' && <LessonTwo />}
             {lessonId === 'l3' && <LessonThree />}
             {lessonId === 'l4' && <LessonFour />}
+            {lessonId === 'l5' && <LessonFive />}
 
             {/* Add more conditions for additional lesson IDs */}
           </div>
