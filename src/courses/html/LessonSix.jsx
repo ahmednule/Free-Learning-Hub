@@ -19,7 +19,12 @@ const LessonSix = () => {
   const codeString8 = `<p style="color: red; font-size: 16px;">Styled Text</p>`;
   const codeString9 = `<a href="https://www.example.com" target="_blank">Link</a>`;
   const codeString10 = `<input type="text" placeholder="Enter your name">`;
-  const codeString11 = `<input type="text">, <input type="checkbox">, <input type="submit">`;
+  const codeString11 = `
+<input type="text">
+<input type="checkbox">
+<input type="submit">
+
+`;
 
 
 
@@ -76,11 +81,6 @@ const LessonSix = () => {
           {codeString9}
         </SyntaxHighlighter>
         <h4 className='text-xl font-bold'>PLACEHOLDER Attribute</h4>
-        <p>The placeholder attribute provides a hint or example text for input fields. Example: </p>
-        <SyntaxHighlighter className="w-fit px-5 max-w-[90vw]" language='xml' style={isDarkTheme ? anOldHope : atelierEstuaryLight}>
-          {codeString10}
-        </SyntaxHighlighter>
-        <h4 className='text-xl font-bold'>TYPE Attribute</h4>
         <p>The placeholder attribute provides a hint or example text for input fields. Example: </p>
         <SyntaxHighlighter className="w-fit px-5 max-w-[90vw]" language='xml' style={isDarkTheme ? anOldHope : atelierEstuaryLight}>
           {codeString10}
