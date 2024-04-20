@@ -18,11 +18,7 @@ const CodeEditorOutput = ({ editorRef, language }) => {
       const { run:result} = await executeCode(language, sourceCode);
       setOutput(result.output.split("\n"));
       result.stderr ? setIsError(true) : setIsError(false);
-      if(isError){
-        toast.error("Error in code...");
-      } else{
-        toast.success("Run complete!");
-      }
+      isError ? toast.error("Error in code...") : toast.success("Run complete!");
     } catch(error){
       toast.error("Error processing code...");
     } finally {
@@ -32,11 +28,10 @@ const CodeEditorOutput = ({ editorRef, language }) => {
   const outputContainerClass = `h-[80vh] border py-8 px-5 text-xl mt-[9px] rounded-lg ${isError ? 'border-red-500 text-red-500' : 'border-yellow-200 dark:border-blue-600 text-gray-950 dark:text-gray-50'}`;
 
 
-
   return (
     <div>
       <p className='text-xl mt-[6px] mb-2'>Output:</p>
-      <button onClick={runCode} className='uppercase flex bg-gray-100 dark:bg-gray-900 text-gray-950 dark:text-gray-50 pl-3 border border-yellow-200 dark:border-blue-200 pr-3 hover:bg-yellow-500 dark:hover:bg-blue-600 rounded-md py-[6px]'>
+      <button onClick={!isLoading && runCode} className='uppercase flex bg-gray-100 dark:bg-gray-900 text-gray-950 dark:text-gray-50 pl-3 border border-yellow-200 dark:border-blue-200 pr-3 hover:bg-yellow-500 dark:hover:bg-blue-600 rounded-md py-[6px]'>
         <span>RUN CODE</span>
         <span>
           {isLoading ? <TbLoader3 size={20} className='ml-4 mt-[2px] animate-spin' /> : <FaDotCircle className='animate-ping ml-4 mt-[7px]' size={10} />}
