@@ -31,13 +31,18 @@ const CodeEditorOutput = ({ editorRef, language }) => {
       setIsLoading(false);
     }
   }
+
+  const alreadyRunning = () => {
+    toast.warn("Another code is running.");
+  }
+
   const outputContainerClass = `h-[80vh] border py-8 px-5 text-xl mt-[9px] rounded-lg ${isError ? 'border-red-500 text-red-500' : 'border-yellow-200 dark:border-blue-600 text-gray-950 dark:text-gray-50'}`;
 
 
   return (
     <div>
       <p className='text-xl mt-[6px] mb-2'>Output:</p>
-      <button disabled={isLoading} onClick={!isLoading && runCode} className='uppercase flex bg-gray-100 dark:bg-gray-900 text-gray-950 dark:text-gray-50 pl-3 border border-yellow-200 dark:border-blue-200 pr-3 hover:bg-yellow-500 dark:hover:bg-blue-600 rounded-md py-[6px]'>
+      <button disabled={isLoading} onClick={!isLoading ? runCode : alreadyRunning} className='uppercase flex bg-gray-100 dark:bg-gray-900 text-gray-950 dark:text-gray-50 pl-3 border border-yellow-200 dark:border-blue-200 pr-3 hover:bg-yellow-500 dark:hover:bg-blue-600 rounded-md py-[6px]'>
         <span>RUN CODE</span>
         <span>
           {isLoading ? <TbLoader3 size={20} className='ml-4 mt-[2px] animate-spin' /> : <FaDotCircle className='animate-ping ml-4 mt-[7px]' size={10} />}

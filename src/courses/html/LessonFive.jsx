@@ -69,7 +69,7 @@ const codeString8 = `
     <h1>Langing Page</h1>
     <p>The landing page is the most important. </p>
     <br>
-    <p>Always put a lot into it.</p>
+    <p>Always make it nice and interactive.</p>
     <hr>
     <p>CopyRight 2024 - All Rights Reserved</p>
   </body>
@@ -131,7 +131,7 @@ const codeString8 = `
         <SubFooter
           t1="Basic Elements"
           l1="/learn/html/l4"
-          t2="Link Creation"
+          t2="HTML Tags & Attributes"
           l2="/learn/html/l6"
           reset="/learn/html"
           edit="https://github.com/developer-assets/Free-Learning-Hub/blob/main/src/courses/html/LessonFive.jsx"

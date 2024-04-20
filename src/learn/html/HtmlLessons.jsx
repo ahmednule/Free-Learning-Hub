@@ -10,6 +10,7 @@ import { FaCircle } from 'react-icons/fa6';
 import CodeEditor from '../../components/CodeEditor';
 import LessonFive from '../../courses/html/LessonFive';
 import ScrollTop from '../../components/ScrollTop';
+import LessonSix from '../../courses/html/LessonSix';
 
 const HtmlLessons = () => {
   const [expanded, setExpanded] = useState(false);
@@ -36,6 +37,7 @@ const HtmlLessons = () => {
             {lessonId === 'l3' && <LessonThree />}
             {lessonId === 'l4' && <LessonFour />}
             {lessonId === 'l5' && <LessonFive />}
+            {lessonId === 'l6' && <LessonSix />}
 
             {/* Add more conditions for additional lesson IDs */}
           </div>
@@ -58,6 +60,7 @@ const HtmlLessons = () => {
             <button onClick={() => setExpanded(true)} className='text-green-500 cursor-pointer'>
               <FaCircle />
             </button>
+            <p className='text-gray-950 dark:text-gray-50 font-bold mt-[1px]'>CODE EDITOR</p>
           </div>
           <hr className={expanded ? 'h-[1px] w-[97%] mx-auto border-none bg-gray-950 mt-2 mb-4 dark:bg-gray-50' : 'hidden'} />
           {/* Extended panel body */}
