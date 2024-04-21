@@ -38,9 +38,6 @@ const Contributors = () => {
             <a href={user.html_url} className='cursor-pointer' >
               <img src={user.avatar_url} className='w-20 mx-auto h-20 rounded-full object-cover' alt={`Profile Picture of ${user.login}`} />
             </a>
-            <p className='text-sm text-center mt-1 text-yellow-500 hover:underline dark:text-blue-600'>
-              <a href={user.html_url} target="_blank" rel="noopener noreferrer">{user.login}</a>
-            </p>
           </div>
         ))}
       </div>
