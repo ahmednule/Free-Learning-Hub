@@ -33,7 +33,7 @@ const HtmlLessons = () => {
         <div>
           <Navbar />
         </div>
-        <div className='grid md:grid-cols-6 pt-16'>
+        <div className='grid md:grid-cols-6 min-h-screen pt-16'>
           <div className='col-span-4'>
             {/* Render the lesson component based on the current lesson ID */}
             <Suspense fallback={<div>Loading...</div>}>
