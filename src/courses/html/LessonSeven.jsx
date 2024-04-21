@@ -4,8 +4,11 @@ import SubFooter from '../../components/SubFooter'
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { anOldHope } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { atelierEstuaryLight } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { useNavigate } from 'react-router-dom';
 
 const LessonSeven = () => {
+  const navigate = useNavigate();
+
   const isDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
   const codeString1 = `
@@ -117,6 +120,9 @@ const LessonSeven = () => {
         <p>The <span className='cs dark:dcs'>&lt;time&gt;</span> element represents a specific period in time or a duration, such as dates, times, or durations of time.</p>
         <p>Using semantic HTML elements not only improves the accessibility and SEO of web pages but also enhances the readability and maintainability of the code. By choosing elements that accurately represent the content's meaning, developers can create more structured, understandable, and interoperable web documents.</p>
       </article>
+      <div className='flex flex-col gap-2'>
+        <button onClick={() => navigate('/projects/html/semantically-laid-website')} className='bg-green-500 py-2 px-12 rounded-lg font-bold justify-center items-center'>TRY PROJECT</button>
+      </div>
       <div>
         <SubFooter
           t1="HTML Tags & Attributes"
