@@ -1,0 +1,186 @@
+[
+  {
+    "id": 1,
+    "question": "What HTML element is used to define headings?",
+    "correct": 1,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "<h1> to <h6>"
+      },
+      {
+        "id": 2,
+        "answer": "<head> to <sub>"
+      },
+      {
+        "id": 3,
+        "answer": "<p> to <strong>"
+      },
+      {
+        "id": 4,
+        "answer": "<title> to <h6>"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "question": "Which heading element is the most significant?",
+    "correct": 1,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "<h1>"
+      },
+      {
+        "id": 2,
+        "answer": "<h2>"
+      },
+      {
+        "id": 3,
+        "answer": "<h3>"
+      },
+      {
+        "id": 4,
+        "answer": "<h6>"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "question": "What HTML element is used to create paragraphs?",
+    "correct": 1,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "<p>"
+      },
+      {
+        "id": 2,
+        "answer": "<paragraph>"
+      },
+      {
+        "id": 3,
+        "answer": "<text>"
+      },
+      {
+        "id": 4,
+        "answer": "<par>"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "question": "Which HTML element is used to render text in bold?",
+    "correct": 1,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "<b> and <strong>"
+      },
+      {
+        "id": 2,
+        "answer": "<i> and <em>"
+      },
+      {
+        "id": 3,
+        "answer": "<u>"
+      },
+      {
+        "id": 4,
+        "answer": "<s>"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "question": "Which HTML element italicizes text?",
+    "correct": 2,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "<b>"
+      },
+      {
+        "id": 2,
+        "answer": "<i> and <em>"
+      },
+      {
+        "id": 3,
+        "answer": "<u>"
+      },
+      {
+        "id": 4,
+        "answer": "<s>"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "question": "What HTML element underlines text?",
+    "correct": 3,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "<b>"
+      },
+      {
+        "id": 2,
+        "answer": "<i>"
+      },
+      {
+        "id": 3,
+        "answer": "<u>"
+      },
+      {
+        "id": 4,
+        "answer": "<s>"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "question": "Which HTML element creates a line break within text?",
+    "correct": 4,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "<break>"
+      },
+      {
+        "id": 2,
+        "answer": "<hr>"
+      },
+      {
+        "id": 3,
+        "answer": "<p>"
+      },
+      {
+        "id": 4,
+        "answer": "<br>"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "question": "What does the <hr> element create?",
+    "correct": 2,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "A page title"
+      },
+      {
+        "id": 2,
+        "answer": "A horizontal line"
+      },
+      {
+        "id": 3,
+        "answer": "An image"
+      },
+      {
+        "id": 4,
+        "answer": "A list"
+      }
+    ]
+  }
+]
