@@ -45,9 +45,9 @@ const HomeHero = () => {
     {
       "id": 2,
       "name": "HTML & CSS",
-      "description": "Master the essential languages of web development: HTML and CSS. Learn to create structurally sound, responsive and visually appealing websites.",
+      "description": "This project collection includes various challenges to help you practice and improve your skills in HTML and CSS to be able to create structurally sound, responsive and visually appealing websites.",
       "link": "/projects/html"
-    },
+    }
   ]
 
 

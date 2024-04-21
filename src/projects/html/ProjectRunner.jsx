@@ -39,7 +39,7 @@ const ProjectRunner = () => {
   }
 
   useEffect(() => {
-    if(projectId === "beginner-website"){
+    if(projectId === "first-basic-website"){
       setData(projectOne);
     } else {
       
