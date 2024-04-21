@@ -7,9 +7,29 @@
     "steps": [
       {
         "id": 1,
-        "content": "This project is still being worked on. You can contribute towards its success."
+        "content": "Create basic HTML layout with DOCTYPE and the html tags. Inside the html tags place a body and a head title. On opening tag of html add a tag called 'lang' and set it to 'en'. This shows the base language of the website."
+      },
+      {
+        "id": 2,
+        "content": "On the head add a meta tag with the name 'charset' and set it to 'utf-8'. Add another meta tag on the head with the name 'viewport' and set it to 'width=device-width, initial-scale=1.0. Meta tags are self closing.'"
+      },
+      {
+        "id": 3,
+        "content": "Set the title of the website to 'Semantic HTML'. On the main create 'header', 'main' and 'footer' tags."
+      },
+      {
+        "id": 4,
+        "content": "Inside the header tag, add a h1 element with a title describing the website. This is usually the name or a brief description of the website."
+      },
+      {
+        "id": 5,
+        "content": "Within the main tag, create at least two sections using the 'section' element. Each section should have a heading (h2) and some descriptive content."
+      },
+      {
+        "id": 6,
+        "content": "Inside the footer tag, add copyright information or any relevant information about the website."
       }
     ],
-    "code": "This project is still being worked on. You can contribute towards its success."
+    "code": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Semantic HTML</title>\n</head>\n<body>\n  <header>\n    <h1>Welcome to My Semantic Website</h1>\n  </header>\n  <main>\n    <section>\n      <h2>About Us</h2>\n      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>\n    </section>\n    <section>\n      <h2>Our Services</h2>\n      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>\n    </section>\n  </main>\n  <footer>\n    <p>&copy; 2024 Your Company</p>\n  </footer>\n</body>\n</html>"
   }
 ]
