@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import SubFooter from '../../components/SubFooter'
 import Footer from '../../components/Footer'
+import Quiz from './Questions/Quiz'
+import QuizThree from './Questions/QuizThree.json'
 
 const LessonThree = () => {
+  const [questions, setQuestions] = useState(false);
+
+
   return (
     <div className='px-4 mt-10'>
       <h1 className='font-bold text-2xl md:text-3xl'>Setting up IDE</h1>
@@ -19,6 +24,21 @@ const LessonThree = () => {
         </ol>
         <p>Remember, while setting up and learning to use an IDE may require some initial investment of time and effort, the benefits of increased efficiency and streamlined development processes are invaluable. Embrace the journey of mastering your IDE, and let it serve as a catalyst for your coding endeavors.</p>
       </article>
+      <div className='flex flex-col mb-10 gap-2'>
+        <button className='bg-green-500 py-2 px-12 rounded-lg font-bold justify-center items-center cursor-not-allowed'>NO PROJECT YET</button>
+        <button onClick={() => setQuestions(true)} className='bg-green-500 py-2 px-12 rounded-lg font-bold justify-center items-center'> {questions ? 'IN PROGRESS....' : 'COMPLETE QUIZ'} </button>
+      </div>
+
+      { questions && (
+        <div className='w-full h-[70vh]'>
+          <div className='bg-gray-200 rounded-md dark:bg-gray-800 h-full w-full'>
+            <Quiz data={QuizThree} />
+          </div>
+          <div>
+            <button onClick={() => setQuestions(false)} className='bg-green-500 py-2 w-full px-12 rounded-lg mt-6 font-bold justify-center items-center'> FINISH & CONTINUE </button>
+          </div>
+        </div>
+      )}
       <div>
         <SubFooter
           t1="Roles of HTML & CSS"

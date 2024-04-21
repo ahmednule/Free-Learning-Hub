@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import SubFooter from '../../components/SubFooter'
 import Footer from '../../components/Footer'
+import Quiz from './Questions/Quiz'
+import QuizTwo from './Questions/QuizTwo.json'
 
 const LessonTwo = () => {
+  const [questions, setQuestions] = useState(false);
+
+
+
   return (
     <div className='px-4 mt-10'>
       <h1 className='font-bold text-2xl md:text-3xl'>Roles of HTML & CSS</h1>
@@ -13,6 +19,21 @@ const LessonTwo = () => {
         <p>When HTML and CSS collaborate, they synergize to produce web pages that are both functional and visually enticing. While HTML lays the groundwork by providing the essential structure, CSS adds the creative flair that elevates the user experience. They constitute the cornerstone for individuals aspiring to venture into web development or establish their online presence. Acquiring proficiency in HTML equips one with the ability to publish content on the web, while mastering CSS empowers them to craft aesthetically pleasing designs.</p>
         <p>In essence, HTML and CSS are not just languages; they are the catalysts that propel the digital realm forward, enabling individuals to express their creativity and share information on a global scale.</p>
       </article>
+      <div className='flex flex-col mb-10 gap-2'>
+        <button className='bg-green-500 py-2 px-12 rounded-lg font-bold justify-center items-center cursor-not-allowed'>NO PROJECT YET</button>
+        <button onClick={() => setQuestions(true)} className='bg-green-500 py-2 px-12 rounded-lg font-bold justify-center items-center'> {questions ? 'IN PROGRESS....' : 'COMPLETE QUIZ'} </button>
+      </div>
+
+      { questions && (
+        <div className='w-full h-[70vh]'>
+          <div className='bg-gray-200 rounded-md dark:bg-gray-800 h-full w-full'>
+            <Quiz data={QuizTwo} />
+          </div>
+          <div>
+            <button onClick={() => setQuestions(false)} className='bg-green-500 py-2 w-full px-12 rounded-lg mt-6 font-bold justify-center items-center'> FINISH & CONTINUE </button>
+          </div>
+        </div>
+      )}
       <div>
         <SubFooter
           t1="Overview of HTML & CSS"

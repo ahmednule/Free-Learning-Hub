@@ -36,7 +36,6 @@ const LessonOne = () => {
         </div>
       )}
       
-      
       <div>
         <SubFooter
           t1="HTML & CSS"

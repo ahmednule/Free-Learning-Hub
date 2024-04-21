@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import SubFooter from '../../components/SubFooter'
 import Footer from '../../components/Footer'
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { anOldHope } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { atelierEstuaryLight } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { useNavigate } from 'react-router-dom';
+import Quiz from './Questions/Quiz'
+import QuizFour from './Questions/QuizFour.json'
 
 
 const LessonFour = () => {
+  const [questions, setQuestions] = useState(false);
   const navigate = useNavigate();
   const isDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
@@ -195,9 +198,21 @@ const codeString11 = `
         </ol>
         <p>Mastering these basic HTML elements lays a strong foundation for creating well-structured and semantically meaningful web pages. As you progress in your web development journey, you'll explore more elements and learn how to combine them to build sophisticated layouts and interfaces.</p>
       </article>
-      <div className='flex flex-col gap-2'>
-        <button onClick={() => navigate('/projects/html/first-basic-website')} className='bg-green-500 py-2 px-12 rounded-lg font-bold justify-center items-center'>TRY PROJECT</button>
+      <div className='flex flex-col mb-10 gap-2'>
+        <button onClick={() => navigate('/projects/html/first-basic-website')} className='bg-green-500 py-2 px-12 rounded-lg font-bold justify-center items-center cursor-not-allowed'>NO PROJECT YET</button>
+        <button onClick={() => setQuestions(true)} className='bg-green-500 py-2 px-12 rounded-lg font-bold justify-center items-center'> {questions ? 'IN PROGRESS....' : 'COMPLETE QUIZ'} </button>
       </div>
+
+      { questions && (
+        <div className='w-full h-[70vh]'>
+          <div className='bg-gray-200 rounded-md dark:bg-gray-800 h-full w-full'>
+            <Quiz data={QuizFour} />
+          </div>
+          <div>
+            <button onClick={() => setQuestions(false)} className='bg-green-500 py-2 w-full px-12 rounded-lg mt-6 font-bold justify-center items-center'> FINISH & CONTINUE </button>
+          </div>
+        </div>
+      )}
       <div>
         <SubFooter
           t1="Setting up IDE"

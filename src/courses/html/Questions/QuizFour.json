@@ -1,0 +1,232 @@
+[
+  {
+    "id": 1,
+    "question": "What does the <!DOCTYPE html> declaration specify?",
+    "correct": 1,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "The HTML version being used"
+      },
+      {
+        "id": 2,
+        "answer": "The page title"
+      },
+      {
+        "id": 3,
+        "answer": "The character encoding"
+      },
+      {
+        "id": 4,
+        "answer": "The document root"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "question": "Which HTML element serves as the root element of an HTML document?",
+    "correct": 2,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "<head>"
+      },
+      {
+        "id": 2,
+        "answer": "<html>"
+      },
+      {
+        "id": 3,
+        "answer": "<body>"
+      },
+      {
+        "id": 4,
+        "answer": "<!DOCTYPE html>"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "question": "What is the purpose of the <head> element in HTML?",
+    "correct": 3,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "To define the main content of the page"
+      },
+      {
+        "id": 2,
+        "answer": "To create a hyperlink"
+      },
+      {
+        "id": 3,
+        "answer": "To include meta-information about the document"
+      },
+      {
+        "id": 4,
+        "answer": "To display visible content on the page"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "question": "Which element specifies the title of an HTML document?",
+    "correct": 4,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "<head>"
+      },
+      {
+        "id": 2,
+        "answer": "<html>"
+      },
+      {
+        "id": 3,
+        "answer": "<body>"
+      },
+      {
+        "id": 4,
+        "answer": "<title>"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "question": "What is the main content of an HTML document enclosed within?",
+    "correct": 3,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "<head>"
+      },
+      {
+        "id": 2,
+        "answer": "<html>"
+      },
+      {
+        "id": 3,
+        "answer": "<body>"
+      },
+      {
+        "id": 4,
+        "answer": "<!DOCTYPE html>"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "question": "Which HTML element is used to create headings?",
+    "correct": 1,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "<h1> to <h6>"
+      },
+      {
+        "id": 2,
+        "answer": "<heading>"
+      },
+      {
+        "id": 3,
+        "answer": "<head>"
+      },
+      {
+        "id": 4,
+        "answer": "<header>"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "question": "Which element represents a paragraph of text in HTML?",
+    "correct": 4,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "<para>"
+      },
+      {
+        "id": 2,
+        "answer": "<text>"
+      },
+      {
+        "id": 3,
+        "answer": "<span>"
+      },
+      {
+        "id": 4,
+        "answer": "<p>"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "question": "What does the <a> element define in HTML?",
+    "correct": 1,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "Hyperlinks"
+      },
+      {
+        "id": 2,
+        "answer": "Images"
+      },
+      {
+        "id": 3,
+        "answer": "Paragraphs"
+      },
+      {
+        "id": 4,
+        "answer": "Lists"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "question": "Which element is used to embed images in HTML?",
+    "correct": 1,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "<img>"
+      },
+      {
+        "id": 2,
+        "answer": "<image>"
+      },
+      {
+        "id": 3,
+        "answer": "<picture>"
+      },
+      {
+        "id": 4,
+        "answer": "<image src=''>"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "question": "Which elements are used to create lists in HTML?",
+    "correct": 1,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "<ul>, <ol>, and <li>"
+      },
+      {
+        "id": 2,
+        "answer": "<list>, <order>, and <item>"
+      },
+      {
+        "id": 3,
+        "answer": "<ul>, <ol>, and <list>"
+      },
+      {
+        "id": 4,
+        "answer": "<unordered>, <ordered>, and <item>"
+      }
+    ]
+  }
+]
