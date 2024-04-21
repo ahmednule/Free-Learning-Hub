@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import RenderQuestions from './RenderQuestions';
 import projectOne from '../objects/projectOne.json';
+import projectTwo from '../objects/projectTwo.json';
 import HTMLBrowser from './HTMLBrowser';
 
 const ProjectRunner = () => {
@@ -41,7 +42,9 @@ const ProjectRunner = () => {
   useEffect(() => {
     if(projectId === "first-basic-website"){
       setData(projectOne);
-    } else {
+    } else if(projectId === "semantically-laid-website"){
+      setData(projectTwo);
+    } else{
       
     }
   }, [projectId]);

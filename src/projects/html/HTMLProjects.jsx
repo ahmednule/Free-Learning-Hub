@@ -14,6 +14,13 @@ const HTMLProjects = () => {
       more: 'This project focuses on checking if the user can layout a basic HTML webpage.',
       req: 'Learn HTML upto Basic Elements',
       link: '/projects/html/first-basic-website'
+    },
+    {
+      id: 2,
+      name: 'Semantically Laid Web Page',
+      more: 'This project gets the learner to structure a web page semantically, thereby improving SEO and interactivity.',
+      req: 'Learn upto Semantic HTML',
+      link: '/projects/html/semantically-laid-website'
     }
   ]
 

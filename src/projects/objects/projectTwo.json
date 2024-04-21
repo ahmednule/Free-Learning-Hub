@@ -1,0 +1,15 @@
+[
+  {
+    "id": 1,
+    "title": "Semantically Laid Web Page",
+    "upto": "Learn HTML upto Semantic HTML",
+    "description": "This project gets the learner to structure a web page semantically, thereby improving SEO and interactivity.",
+    "steps": [
+      {
+        "id": 1,
+        "content": "This project is still being worked on. You can contribute towards its success."
+      }
+    ],
+    "code": "This project is still being worked on. You can contribute towards its success."
+  }
+]
