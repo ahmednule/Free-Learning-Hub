@@ -4,9 +4,11 @@ import Footer from '../../components/Footer'
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { anOldHope } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { atelierEstuaryLight } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { useNavigate } from 'react-router-dom';
 
 
 const LessonFour = () => {
+  const navigate = useNavigate();
   const isDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
   const codeString1 = `
@@ -193,6 +195,10 @@ const codeString11 = `
         </ol>
         <p>Mastering these basic HTML elements lays a strong foundation for creating well-structured and semantically meaningful web pages. As you progress in your web development journey, you'll explore more elements and learn how to combine them to build sophisticated layouts and interfaces.</p>
       </article>
+      <div className='flex flex-col gap-2'>
+        <button className='bg-green-500 py-2 px-12 rounded-lg font-bold justify-center items-center'>TAKE QUIZ</button>
+        <button onClick={() => navigate('/projects/html/beginner-website')} className='bg-green-500 py-2 px-12 rounded-lg font-bold justify-center items-center'>TRY PROJECT</button>
+      </div>
       <div>
         <SubFooter
           t1="Setting up IDE"

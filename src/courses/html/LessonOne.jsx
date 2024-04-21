@@ -15,9 +15,6 @@ const LessonOne = () => {
         <p>Mastering HTML and CSS constitutes the initial stride towards embarking on a journey as a web developer. Armed with these indispensable tools, you can commence building your own websites, tailoring blog templates to your liking, or even forging a career in web design. Indeed, they are the cornerstone of the web, and acquiring proficiency in them unlocks a realm of digital creativity and opportunities.</p>
       </article>
       <div>
-        <button className='bg-green-500 py-2 px-12 rounded-lg font-bold justify-center items-center'>TAKE QUIZ</button>
-      </div>
-      <div>
         <SubFooter
           t1="HTML & CSS"
           l1="/learn/html"

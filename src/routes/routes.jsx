@@ -4,6 +4,7 @@ import Html from "../learn/html/Html";
 import HtmlLessons from "../learn/html/HtmlLessons";
 import AllSubjects from "../pages/AllSubjects";
 import CodePlayGround from "../pages/CodePlayGround";
+import ProjectContainer from "../projects/html/ProjectContainer";
 
 export const router = createHashRouter([
   {
@@ -23,7 +24,15 @@ export const router = createHashRouter([
     element: <Html />
   },
   {
+    path: "/projects/html",
+    element: <Html />
+  },
+  {
     path: "/learn/html/:lesson",
     element: <HtmlLessons />
+  },
+  {
+    path: "/projects/html/:project",
+    element: <ProjectContainer />
   }
 ]);

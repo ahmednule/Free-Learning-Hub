@@ -1,16 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import HtmlSidebar from '../../components/HtmlSidebar';
 import Navbar from '../../components/Navbar';
 import { useLocation } from 'react-router-dom';
-import LessonOne from '../../courses/html/LessonOne';
-import LessonTwo from '../../courses/html/LessonTwo';
-import LessonThree from '../../courses/html/LessonThree';
-import LessonFour from '../../courses/html/LessonFour';
 import { FaCircle } from 'react-icons/fa6';
 import CodeEditor from '../../components/CodeEditor';
-import LessonFive from '../../courses/html/LessonFive';
-import ScrollTop from '../../components/ScrollTop';
-import LessonSix from '../../courses/html/LessonSix';
+// import { Audio } from 'react-loader-spinner';
+
+// Using React.lazy to lazily load components
+const LessonOne = React.lazy(() => import('../../courses/html/LessonOne'));
+const LessonTwo = React.lazy(() => import('../../courses/html/LessonTwo'));
+const LessonThree = React.lazy(() => import('../../courses/html/LessonThree'));
+const LessonFour = React.lazy(() => import('../../courses/html/LessonFour'));
+const LessonFive = React.lazy(() => import('../../courses/html/LessonFive'));
+const LessonSix = React.lazy(() => import('../../courses/html/LessonSix'));
 
 const HtmlLessons = () => {
   const [expanded, setExpanded] = useState(false);
@@ -32,25 +34,21 @@ const HtmlLessons = () => {
         <div className='grid md:grid-cols-6 pt-16'>
           <div className='col-span-4'>
             {/* Render the lesson component based on the current lesson ID */}
-            {lessonId === 'l1' && <LessonOne />}
-            {lessonId === 'l2' && <LessonTwo />}
-            {lessonId === 'l3' && <LessonThree />}
-            {lessonId === 'l4' && <LessonFour />}
-            {lessonId === 'l5' && <LessonFive />}
-            {lessonId === 'l6' && <LessonSix />}
-
-            {/* Add more conditions for additional lesson IDs */}
+            <Suspense fallback={<div>Loading...</div>}>
+              {lessonId === 'l1' && <LessonOne />}
+              {lessonId === 'l2' && <LessonTwo />}
+              {lessonId === 'l3' && <LessonThree />}
+              {lessonId === 'l4' && <LessonFour />}
+              {lessonId === 'l5' && <LessonFive />}
+              {lessonId === 'l6' && <LessonSix />}
+            </Suspense>
           </div>
           <div className='hidden md:block col-span-2 text-right pr-5 pt-10'>
             <HtmlSidebar />
           </div>
         </div>
       </div>
-      <div className='fixed z-[7] bottom-20 right-10'>
-        <div>
-          <ScrollTop />
-        </div>
-      </div>
+      
       <div className='hidden lg:block'>
         <div className='w-screen overflow-hidden fixed bg-gray-200 dark:bg-gray-800 border border-yellow-500 dark:border-blue-600 rounded-md z-[10] bottom-0 left-0'>
           <div className='flex justify-start gap-10 items-center h-8 pl-4'>

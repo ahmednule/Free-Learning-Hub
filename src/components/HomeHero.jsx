@@ -33,6 +33,21 @@ const HomeHero = () => {
       description: "JavaScript is a versatile, high-level, interpreted programming language known for its flexibility and ability to create interactive web applications.",
       link: "/"
     }
+  ];
+
+  const projectSelection = [
+    {
+      "id": 1,
+      "name": "Code Playground",
+      "description": "Explore, experiment, and learn in our interactive Code Playground. Test your code, try out new techniques, and unleash your creativity in a safe and supportive environment.",
+      "link": "/code-playground"
+    },
+    {
+      "id": 2,
+      "name": "HTML & CSS",
+      "description": "Master the essential languages of web development: HTML and CSS. Learn to create structurally sound, responsive and visually appealing websites.",
+      "link": "/projects/html"
+    },
   ]
 
 
@@ -48,7 +63,11 @@ const HomeHero = () => {
         <p>You can contribute by working on <span className='custom-span dark:dark-custom-span'>bug fixes</span>, <span className='custom-span dark:dark-custom-span'>UI updates</span>, and <span className='custom-span dark:dark-custom-span'>learning materials</span> updates.</p>
       </div>
 
-      <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-32 mx-auto w-full'>
+      <div>
+        <h3 className='text-3xl font-bold text-center mt-32'>TUTORIALS</h3>
+      </div>
+
+      <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 mx-auto w-full'>
         {HomeSelections.map((item) => (
           <div onClick={() => navigate(item.link)} key={item.id} className='max-w-sm group mx-auto cursor-pointer rounded-2xl flex justify-between dark:hover:bg-gray-900 hover:bg-gray-100 duration-300 transition-colors p-4'>
             <div className='flex-[0.95]'>
@@ -61,12 +80,39 @@ const HomeHero = () => {
           </div>
         ))}
       </div>
+
       <div className='mt-16 w-full flex justify-center'>
         <button onClick={() => navigate('/learn')} className='bg-yellow-500 hover:bg-yellow-600 dark:hover:bg-blue-800 text-gray-50 dark:text-gray-950 group dark:bg-blue-600 flex justify-center gap-4 py-3 px-10 rounded-lg font-bold text-xl'>
           <span>SEE ALL</span>
           <FaAngleRight className='mt-1 group-hover:translate-x-2 duration-200' />
         </button>
       </div>
+
+      <div>
+        <h3 className='text-3xl font-bold text-center mt-32'>PROJECTS</h3>
+      </div>
+
+      <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 mx-auto w-full'>
+        {projectSelection.map((item) => (
+          <div onClick={() => navigate(item.link)} key={item.id} className='max-w-sm group mx-auto cursor-pointer rounded-2xl flex justify-between dark:hover:bg-gray-900 hover:bg-gray-100 duration-300 transition-colors p-4'>
+            <div className='flex-[0.95]'>
+              <div className='flex justify-start gap-3'>
+                <h2 className='text-xl font-semibold mb-2'>{item.name}</h2>
+                <FaAngleRight className='mt-2 hidden group-hover:flex duration-300' size={14} />
+              </div>
+              <p className='ml-2 text-sm'>{item.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className='mt-16 w-full flex justify-center'>
+        <button onClick={() => navigate('/projects')} className='bg-yellow-500 hover:bg-yellow-600 dark:hover:bg-blue-800 text-gray-50 dark:text-gray-950 group dark:bg-blue-600 flex justify-center gap-4 py-3 px-10 rounded-lg font-bold text-xl'>
+          <span>DISCOVER</span>
+          <FaAngleRight className='mt-1 group-hover:translate-x-2 duration-200' />
+        </button>
+      </div>
+
     </div>
   );
 };

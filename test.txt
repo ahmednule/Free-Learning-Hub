@@ -1,6 +1,0 @@
-<div>
-      <Intro />
-      <SyntaxHighlighter language="javascript" style={anOldHope} >
-      {codeString}
-    </SyntaxHighlighter>
-    </div>

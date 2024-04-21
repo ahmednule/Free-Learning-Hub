@@ -1,6 +1,5 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import Editor from '@monaco-editor/react';
-import { useState } from 'react';
 import CodeEditorLang from './CodeEditorLang';
 import { CODE_SNIPPETS } from '../assets/objects/constants';
 import CodeEditorOutput from './CodeEditorOutput';
