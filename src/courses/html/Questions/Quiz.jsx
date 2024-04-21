@@ -59,12 +59,12 @@ const Quiz = ({ data }) => {
       </div>
       {/* Correct and Wrong Messages */}
       {showCorrectMessage && (
-        <div className='bg-green-200 text-green-800 mx-4 p-2 text-center mt-2'>
+        <div className='bg-green-200 text-green-800 rounded-md mx-4 p-2 text-center mt-2'>
           <p>Correct! Moving to the next question...</p>
         </div>
       )}
       {showWrongMessage && (
-        <div className='bg-red-200 text-red-800 mx-4 p-2 text-center mt-2'>
+        <div className='bg-red-200 text-red-800 mx-4 p-2 rounded-md text-center mt-2'>
           <p>Oops! Try again.</p>
         </div>
       )}
