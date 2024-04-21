@@ -13,6 +13,7 @@ const LessonThree = React.lazy(() => import('../../courses/html/LessonThree'));
 const LessonFour = React.lazy(() => import('../../courses/html/LessonFour'));
 const LessonFive = React.lazy(() => import('../../courses/html/LessonFive'));
 const LessonSix = React.lazy(() => import('../../courses/html/LessonSix'));
+const LessonSeven = React.lazy(() => import('../../courses/html/LessonSeven'));
 
 const HtmlLessons = () => {
   const [expanded, setExpanded] = useState(false);
@@ -41,6 +42,7 @@ const HtmlLessons = () => {
               {lessonId === 'basic-elements' && <LessonFour />}
               {lessonId === 'text-formating' && <LessonFive />}
               {lessonId === 'html-tags-attributes' && <LessonSix />}
+              {lessonId === 'semantic-html' && <LessonSeven />}
             </Suspense>
           </div>
           <div className='hidden md:block col-span-2 text-right pr-5 pt-10'>

@@ -37,57 +37,57 @@ const LessonSix = () => {
         <p>Most HTML elements are defined by opening and closing tags. The opening tag indicates the beginning of an element, while the closing tag signifies its end. For example: <span className='cs dark:dcs'>&lt;p&gt;</span> denotes the start of a paragraph, and <span className='cs dark:dcs'>&lt;/p&gt;</span> marks its end.</p>
         <h4 className='text-xl font-bold'>Void Elements (Self Closing Tags)</h4>
         <p>Some elements do not require a closing tag and are known as void or self-closing elements. Examples include <span className='cs dark:dcs'>&lt;img&gt;</span>, <span className='cs dark:dcs'>&lt;br&gt;</span>, and <span className='cs dark:dcs'>&lt;input&gt;</span>. Void elements are terminated with a trailing slash, such as: </p>
-        <SyntaxHighlighter className="w-fit px-5 max-w-[90vw]" language='xml' style={isDarkTheme ? anOldHope : atelierEstuaryLight}>
+        <SyntaxHighlighter className="w-fit px-5 max-w-[97%]" language='xml' style={isDarkTheme ? anOldHope : atelierEstuaryLight}>
           {codeString1}
         </SyntaxHighlighter>
         <h4 className='text-xl font-bold'>Class Attribute</h4>
         <p>The class attribute specifies one or more class names for an element, allowing CSS to style multiple elements with the same class. Example:</p>
-        <SyntaxHighlighter className="w-fit px-5 max-w-[90vw]" language='xml' style={isDarkTheme ? anOldHope : atelierEstuaryLight}>
+        <SyntaxHighlighter className="w-fit px-5 max-w-[97%]" language='xml' style={isDarkTheme ? anOldHope : atelierEstuaryLight}>
           {codeString2}
         </SyntaxHighlighter>
         <h4 className='text-xl font-bold'>ID Attribute</h4>
         <p>The id attribute provides a unique identifier for an element. It is used for styling with CSS or targeting elements with JavaScript. Example: </p>
-        <SyntaxHighlighter className="w-fit px-5 max-w-[90vw]" language='xml' style={isDarkTheme ? anOldHope : atelierEstuaryLight}>
+        <SyntaxHighlighter className="w-fit px-5 max-w-[97%]" language='xml' style={isDarkTheme ? anOldHope : atelierEstuaryLight}>
           {codeString3}
         </SyntaxHighlighter>
         <h4 className='text-xl font-bold'>SRC Attribute</h4>
         <p>The src attribute specifies the source URL for elements like images, audio, video, iframes, etc. Example: </p>
-        <SyntaxHighlighter className="w-fit px-5 max-w-[90vw]" language='xml' style={isDarkTheme ? anOldHope : atelierEstuaryLight}>
+        <SyntaxHighlighter className="w-fit px-5 max-w-[97%]" language='xml' style={isDarkTheme ? anOldHope : atelierEstuaryLight}>
           {codeString4}
         </SyntaxHighlighter>
         <h4 className='text-xl font-bold'>ALT Attribute</h4>
         <p>The alt attribute provides alternative text for images, which is displayed if the image fails to load or for accessibility purposes. Example:</p>
-        <SyntaxHighlighter className="w-fit px-5 max-w-[90vw]" language='xml' style={isDarkTheme ? anOldHope : atelierEstuaryLight}>
+        <SyntaxHighlighter className="w-fit px-5 max-w-[97%]" language='xml' style={isDarkTheme ? anOldHope : atelierEstuaryLight}>
           {codeString5}
         </SyntaxHighlighter>
         <h4 className='text-xl font-bold'>HREF Attribute</h4>
         <p>The href attribute defines the URL for hyperlinks created with the <span className='cs dark:dcs'>&lt;a&gt;</span> element. Example:</p>
-        <SyntaxHighlighter className="w-fit px-5 max-w-[90vw]" language='xml' style={isDarkTheme ? anOldHope : atelierEstuaryLight}>
+        <SyntaxHighlighter className="w-fit px-5 max-w-[97%]" language='xml' style={isDarkTheme ? anOldHope : atelierEstuaryLight}>
           {codeString6}
         </SyntaxHighlighter>
         <h4 className='text-xl font-bold'>TITLE Attribute</h4>
         <p>The title attribute provides additional information about an element, typically displayed as a tooltip when the user hovers over the element. Example: </p>
-        <SyntaxHighlighter className="w-fit px-5 max-w-[90vw]" language='xml' style={isDarkTheme ? anOldHope : atelierEstuaryLight}>
+        <SyntaxHighlighter className="w-fit px-5 max-w-[97%]" language='xml' style={isDarkTheme ? anOldHope : atelierEstuaryLight}>
           {codeString7}
         </SyntaxHighlighter>
         <h4 className='text-xl font-bold'>STYLE Attribute</h4>
         <p>The style attribute allows inline CSS styling for an element. Example:</p>
-        <SyntaxHighlighter className="w-fit px-5 max-w-[90vw]" language='xml' style={isDarkTheme ? anOldHope : atelierEstuaryLight}>
+        <SyntaxHighlighter className="w-fit px-5 max-w-[97%]" language='xml' style={isDarkTheme ? anOldHope : atelierEstuaryLight}>
           {codeString8}
         </SyntaxHighlighter>
         <h4 className='text-xl font-bold'>TARGET Attribute</h4>
         <p>The target attribute specifies where to open the linked document when using <span className='cs dark:dcs'>&lt;a&gt;</span> elements. Example:</p>
-        <SyntaxHighlighter className="w-fit px-5 max-w-[90vw]" language='xml' style={isDarkTheme ? anOldHope : atelierEstuaryLight}>
+        <SyntaxHighlighter className="w-fit px-5 max-w-[97%]" language='xml' style={isDarkTheme ? anOldHope : atelierEstuaryLight}>
           {codeString9}
         </SyntaxHighlighter>
         <h4 className='text-xl font-bold'>PLACEHOLDER Attribute</h4>
         <p>The placeholder attribute provides a hint or example text for input fields. Example: </p>
-        <SyntaxHighlighter className="w-fit px-5 max-w-[90vw]" language='xml' style={isDarkTheme ? anOldHope : atelierEstuaryLight}>
+        <SyntaxHighlighter className="w-fit px-5 max-w-[97%]" language='xml' style={isDarkTheme ? anOldHope : atelierEstuaryLight}>
           {codeString10}
         </SyntaxHighlighter>
         <h4 className='text-xl font-bold'>TYPE Attribute</h4>
         <p>The type attribute specifies the type of the input element. Example:</p>
-        <SyntaxHighlighter className="w-fit px-5 max-w-[90vw]" language='xml' style={isDarkTheme ? anOldHope : atelierEstuaryLight}>
+        <SyntaxHighlighter className="w-fit px-5 max-w-[97%]" language='xml' style={isDarkTheme ? anOldHope : atelierEstuaryLight}>
           {codeString11}
         </SyntaxHighlighter>
         <p>These are just a few examples of HTML tags and attributes. Understanding how to use them effectively allows developers to create well-structured, accessible, and interactive web pages.</p>
