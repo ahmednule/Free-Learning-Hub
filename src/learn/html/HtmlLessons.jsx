@@ -19,6 +19,7 @@ const LessonEight = React.lazy(() => import('../../courses/html/LessonEight'));
 const HtmlLessons = () => {
   const [expanded, setExpanded] = useState(false);
   const [lessonId, setLessonId] = useState('');
+
   const location = useLocation();
 
   useEffect(() => {

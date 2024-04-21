@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import SubFooter from '../../components/SubFooter'
 import Footer from '../../components/Footer'
+import Quiz from './Questions/Quiz'
+import QuizOne from './Questions/QuizOne.json'
 
 const LessonOne = () => {
+  const [questions, setQuestions] = useState(false);
+
+
+
   return (
     <div className='px-4 mt-10'>
       <h1 className='font-bold text-2xl md:text-3xl'>Overview of HTML & CSS</h1>
@@ -14,6 +20,23 @@ const LessonOne = () => {
         <p>Together, HTML and CSS synergize to empower you to create websites that seamlessly blend functionality with aesthetics. While HTML furnishes the content and structure of your webpage, CSS embellishes it with style, ensuring that the content is not only informative but also visually appealing.</p>
         <p>Mastering HTML and CSS constitutes the initial stride towards embarking on a journey as a web developer. Armed with these indispensable tools, you can commence building your own websites, tailoring blog templates to your liking, or even forging a career in web design. Indeed, they are the cornerstone of the web, and acquiring proficiency in them unlocks a realm of digital creativity and opportunities.</p>
       </article>
+      <div className='flex flex-col mb-10 gap-2'>
+        <button className='bg-green-500 py-2 px-12 rounded-lg font-bold justify-center items-center cursor-not-allowed'>NO PROJECT YET</button>
+        <button onClick={() => setQuestions(true)} className='bg-green-500 py-2 px-12 rounded-lg font-bold justify-center items-center'> {questions ? 'IN PROGRESS....' : 'COMPLETE QUIZ'} </button>
+      </div>
+
+      { questions && (
+        <div className='w-full h-[70vh]'>
+          <div className='bg-gray-200 rounded-md dark:bg-gray-800 h-full w-full'>
+            <Quiz data={QuizOne} />
+          </div>
+          <div>
+            <button onClick={() => setQuestions(false)} className='bg-green-500 py-2 w-full px-12 rounded-lg mt-6 font-bold justify-center items-center'> FINISH & CONTINUE </button>
+          </div>
+        </div>
+      )}
+      
+      
       <div>
         <SubFooter
           t1="HTML & CSS"
