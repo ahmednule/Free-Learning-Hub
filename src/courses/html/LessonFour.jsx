@@ -196,15 +196,14 @@ const codeString11 = `
         <p>Mastering these basic HTML elements lays a strong foundation for creating well-structured and semantically meaningful web pages. As you progress in your web development journey, you'll explore more elements and learn how to combine them to build sophisticated layouts and interfaces.</p>
       </article>
       <div className='flex flex-col gap-2'>
-        <button className='bg-green-500 py-2 px-12 rounded-lg font-bold justify-center items-center'>TAKE QUIZ</button>
         <button onClick={() => navigate('/projects/html/beginner-website')} className='bg-green-500 py-2 px-12 rounded-lg font-bold justify-center items-center'>TRY PROJECT</button>
       </div>
       <div>
         <SubFooter
           t1="Setting up IDE"
-          l1="/learn/html/l3"
+          l1="/learn/html/setting-up-ide"
           t2="Text Formating"
-          l2="/learn/html/l5"
+          l2="/learn/html/text-formating"
           reset="/learn/html"
           edit="https://github.com/developer-assets/Free-Learning-Hub/blob/main/src/courses/html/LessonFour.jsx"
         />

@@ -19,7 +19,7 @@ const LessonOne = () => {
           t1="HTML & CSS"
           l1="/learn/html"
           t2="Roles of HTML & CSS"
-          l2="/learn/html/l2"
+          l2="/learn/html/roles-of-html-css"
           reset="/learn/html"
           edit="https://github.com/developer-assets/Free-Learning-Hub/blob/main/src/courses/html/LessonOne.jsx"
         />

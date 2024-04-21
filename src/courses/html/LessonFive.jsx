@@ -130,9 +130,9 @@ const codeString8 = `
       <div>
         <SubFooter
           t1="Basic Elements"
-          l1="/learn/html/l4"
+          l1="/learn/html/basic-elements"
           t2="HTML Tags & Attributes"
-          l2="/learn/html/l6"
+          l2="/learn/html/html-tags-attributes"
           reset="/learn/html"
           edit="https://github.com/developer-assets/Free-Learning-Hub/blob/main/src/courses/html/LessonFive.jsx"
         />

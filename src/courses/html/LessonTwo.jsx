@@ -16,9 +16,9 @@ const LessonTwo = () => {
       <div>
         <SubFooter
           t1="Overview of HTML & CSS"
-          l1="/learn/html/l1"
+          l1="/learn/html/overview-of-html-css"
           t2="Setting up IDE"
-          l2="/learn/html/l3"
+          l2="/learn/html/setting-up-ide"
           reset="/learn/html"
           edit="https://github.com/developer-assets/Free-Learning-Hub/blob/main/src/courses/html/LessonTwo.jsx"
         />

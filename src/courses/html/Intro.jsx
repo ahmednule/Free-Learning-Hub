@@ -40,7 +40,7 @@ const Intro = () => {
             </span>
             <span>ALL TUTORIALS</span>
           </button>
-          <button onClick={() => navigate("/learn/html/l1")} className='flex group justify-center dark:text-gray-950 duration-300 transition-all bg-yellow-500 dark:bg-blue-600 py-2 rounded-lg dark:hover:bg-blue-800 hover:bg-yellow-600 px-5 gap-2'>
+          <button onClick={() => navigate("/learn/html/overview-of-html-css")} className='flex group justify-center dark:text-gray-950 duration-300 transition-all bg-yellow-500 dark:bg-blue-600 py-2 rounded-lg dark:hover:bg-blue-800 hover:bg-yellow-600 px-5 gap-2'>
             <span>Overview of HTML & CSS</span>
             <span>
               <FaAngleRight className='group-hover:translate-x-[5px] duration-300 mt-1' />

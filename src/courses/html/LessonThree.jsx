@@ -22,9 +22,9 @@ const LessonThree = () => {
       <div>
         <SubFooter
           t1="Roles of HTML & CSS"
-          l1="/learn/html/l2"
+          l1="/learn/html/roles-of-html-css"
           t2="Basic Elements"
-          l2="/learn/html/l4"
+          l2="/learn/html/basic-elements"
           reset="/learn/html"
           edit="https://github.com/developer-assets/Free-Learning-Hub/blob/main/src/courses/html/LessonThree.jsx"
         />

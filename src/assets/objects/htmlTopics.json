@@ -6,17 +6,17 @@
       {
         "id": 1,
         "name": "Overview of HTML and CSS",
-        "link": "/learn/html/l1"
+        "link": "/learn/html/overview-of-html-css"
       },
       {
         "id": 2,
         "name": "Roles of HTML and CSS",
-        "link": "/learn/html/l2"
+        "link": "/learn/html/roles-of-html-css"
       },
       {
         "id": 3,
         "name": "Setting up IDE",
-        "link": "/learn/html/l3"
+        "link": "/learn/html/setting-up-ide"
       }
     ]
   },
@@ -27,37 +27,37 @@
       {
         "id": 1,
         "name": "Basic Elements",
-        "link": "/learn/html/l4"
+        "link": "/learn/html/basic-elements"
       },
       {
         "id": 2,
         "name": "Text Formating",
-        "link": "/learn/html/l5"
+        "link": "/learn/html/text-formating"
       },
       {
         "id": 3,
         "name": "HTML Tags & Attributes",
-        "link": "/learn/html/l6"
+        "link": "/learn/html/html-tags-attributes"
       },
       {
         "id": 4,
         "name": "Semantic HTML",
-        "link": "/learn/html/l7"
+        "link": "/learn/html/semantic-html"
       },
       {
         "id": 5,
         "name": "Link Creation",
-        "link": "/learn/html/l8"
+        "link": "/learn/html/link-creation"
       },
       {
         "id": 6,
         "name": "Image Embedding",
-        "link": "/learn/html/l9"
+        "link": "/learn/html/image-embedding"
       },
       {
         "id": 7,
         "name": "List Creation",
-        "link": "/learn/html/l10"
+        "link": "/learn/html/list-creation"
       }
     ]
   }

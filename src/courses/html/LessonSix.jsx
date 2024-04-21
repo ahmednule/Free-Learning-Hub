@@ -94,10 +94,10 @@ const LessonSix = () => {
       </article>
       <div>
         <SubFooter
-          t1="Text Formatting"
-          l1="/learn/html/l5"
+          t1="Text Formating"
+          l1="/learn/html/text-formating"
           t2="Semantic HTML"
-          l2="/learn/html/l7"
+          l2="/learn/html/semantic-html"
           reset="/learn/html"
           edit="https://github.com/developer-assets/Free-Learning-Hub/blob/main/src/courses/html/LessonSix.jsx"
         />

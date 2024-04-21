@@ -35,12 +35,12 @@ const HtmlLessons = () => {
           <div className='col-span-4'>
             {/* Render the lesson component based on the current lesson ID */}
             <Suspense fallback={<div>Loading...</div>}>
-              {lessonId === 'l1' && <LessonOne />}
-              {lessonId === 'l2' && <LessonTwo />}
-              {lessonId === 'l3' && <LessonThree />}
-              {lessonId === 'l4' && <LessonFour />}
-              {lessonId === 'l5' && <LessonFive />}
-              {lessonId === 'l6' && <LessonSix />}
+              {lessonId === 'overview-of-html-css' && <LessonOne />}
+              {lessonId === 'roles-of-html-css' && <LessonTwo />}
+              {lessonId === 'setting-up-ide' && <LessonThree />}
+              {lessonId === 'basic-elements' && <LessonFour />}
+              {lessonId === 'text-formating' && <LessonFive />}
+              {lessonId === 'html-tags-attributes' && <LessonSix />}
             </Suspense>
           </div>
           <div className='hidden md:block col-span-2 text-right pr-5 pt-10'>
