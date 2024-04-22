@@ -39,6 +39,7 @@ const CodeEditorOutput = ({ editorRef, language }) => {
   const outputContainerClass = `h-[80vh] border py-8 px-5 text-xl mt-[9px] rounded-lg ${isError ? 'border-red-500 text-red-500' : 'border-yellow-200 dark:border-blue-600 text-gray-950 dark:text-gray-50'}`;
 
 
+  
   return (
     <div>
       <p className='text-xl mt-[6px] mb-2'>Output:</p>

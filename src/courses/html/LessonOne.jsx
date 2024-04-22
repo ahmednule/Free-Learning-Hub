@@ -12,6 +12,7 @@ const LessonOne = () => {
   return (
     <div className='px-4 mt-10'>
       <h1 className='font-bold text-2xl md:text-3xl'>Overview of HTML & CSS</h1>
+
       <article className='mt-6 font-md flex flex-col gap-8 mb-20'>
         <p>HTML and CSS serve as the bedrock of web development, providing the essential tools for crafting captivating web pages.</p>
         <p>HTML, or HyperText Markup Language, functions much like a blueprint for a house. It builds up the structure and content of your web page through the use of tags, defining elements such as headings, paragraphs, and images. Essentially, HTML serves as the framework that holds the entire page together.</p>
@@ -20,6 +21,7 @@ const LessonOne = () => {
         <p>Together, HTML and CSS synergize to empower you to create websites that seamlessly blend functionality with aesthetics. While HTML furnishes the content and structure of your webpage, CSS embellishes it with style, ensuring that the content is not only informative but also visually appealing.</p>
         <p>Mastering HTML and CSS constitutes the initial stride towards embarking on a journey as a web developer. Armed with these indispensable tools, you can commence building your own websites, tailoring blog templates to your liking, or even forging a career in web design. Indeed, they are the cornerstone of the web, and acquiring proficiency in them unlocks a realm of digital creativity and opportunities.</p>
       </article>
+
       <div className='flex flex-col mb-10 gap-2'>
         <button className='bg-green-500 py-2 px-12 rounded-lg font-bold justify-center items-center cursor-not-allowed'>NO PROJECT YET</button>
         <button onClick={() => setQuestions(true)} className='bg-green-500 py-2 px-12 rounded-lg font-bold justify-center items-center'> {questions ? 'IN PROGRESS....' : 'COMPLETE QUIZ'} </button>
@@ -46,9 +48,11 @@ const LessonOne = () => {
           edit="https://github.com/developer-assets/Free-Learning-Hub/blob/main/src/courses/html/LessonOne.jsx"
         />
       </div>
+
       <div className='mt-24'>
         <Footer />
       </div>
+      
     </div>
   )
 }

@@ -8,9 +8,11 @@ const LessonThree = () => {
   const [questions, setQuestions] = useState(false);
 
 
+
   return (
     <div className='px-4 mt-10'>
       <h1 className='font-bold text-2xl md:text-3xl'>Setting up IDE</h1>
+
       <article className='mt-6 font-md flex flex-col gap-8 mb-20'>
         <p>Setting up an Integrated Development Environment (IDE) is akin to crafting a tailored workspace for coding, ensuring optimal productivity and efficiency. An IDE seamlessly integrates essential tools such as a text editor, debugger, and compiler into a unified application, simplifying the process of writing, testing, and managing code.</p>
         <p>Here’s a straightforward guide to setting up your IDE:</p>
@@ -24,6 +26,7 @@ const LessonThree = () => {
         </ol>
         <p>Remember, while setting up and learning to use an IDE may require some initial investment of time and effort, the benefits of increased efficiency and streamlined development processes are invaluable. Embrace the journey of mastering your IDE, and let it serve as a catalyst for your coding endeavors.</p>
       </article>
+
       <div className='flex flex-col mb-10 gap-2'>
         <button className='bg-green-500 py-2 px-12 rounded-lg font-bold justify-center items-center cursor-not-allowed'>NO PROJECT YET</button>
         <button onClick={() => setQuestions(true)} className='bg-green-500 py-2 px-12 rounded-lg font-bold justify-center items-center'> {questions ? 'IN PROGRESS....' : 'COMPLETE QUIZ'} </button>
@@ -39,6 +42,7 @@ const LessonThree = () => {
           </div>
         </div>
       )}
+
       <div>
         <SubFooter
           t1="Roles of HTML & CSS"
@@ -49,9 +53,11 @@ const LessonThree = () => {
           edit="https://github.com/developer-assets/Free-Learning-Hub/blob/main/src/courses/html/LessonThree.jsx"
         />
       </div>
+
       <div className='mt-24'>
         <Footer />
       </div>
+      
     </div>
   )
 }

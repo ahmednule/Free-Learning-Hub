@@ -85,15 +85,14 @@ const LessonSeven = () => {
   </footer>
   
   </body>
-  </html>
-
-`;
+  </html>`;
 
 
 
   return (
     <div className='px-4 mt-10'>
       <h1 className='font-bold text-2xl md:text-3xl'>Semantic HTML</h1>
+
       <article className='mt-6 font-md flex flex-col gap-8 mb-20'>
         <p>Semantic HTML refers to the use of HTML elements that carry meaning beyond their visual presentation. Semantic elements provide a clear structure to web documents, making it easier for both humans and machines to understand the content.</p>
         <SyntaxHighlighter className="w-fit px-5 max-w-[97%]" language='xml' style={isDarkTheme ? anOldHope : atelierEstuaryLight}>
@@ -124,6 +123,7 @@ const LessonSeven = () => {
         <p>The <span className='cs dark:dcs'>&lt;time&gt;</span> element represents a specific period in time or a duration, such as dates, times, or durations of time.</p>
         <p>Using semantic HTML elements not only improves the accessibility and SEO of web pages but also enhances the readability and maintainability of the code. By choosing elements that accurately represent the content's meaning, developers can create more structured, understandable, and interoperable web documents.</p>
       </article>
+
       <div className='flex flex-col mb-10 gap-2'>
         <button onClick={() => navigate('/projects/html/semantically-laid-website')} className='bg-green-500 py-2 px-12 rounded-lg font-bold justify-center items-center'>TRY OUT PROJECT</button>
         <button onClick={() => setQuestions(true)} className='bg-green-500 py-2 px-12 rounded-lg font-bold justify-center items-center'> {questions ? 'IN PROGRESS....' : 'COMPLETE QUIZ'} </button>
@@ -139,6 +139,7 @@ const LessonSeven = () => {
           </div>
         </div>
       )}
+
       <div>
         <SubFooter
           t1="HTML Tags & Attributes"
@@ -149,9 +150,11 @@ const LessonSeven = () => {
           edit="https://github.com/developer-assets/Free-Learning-Hub/blob/main/src/courses/html/LessonSeven.jsx"
         />
       </div>
+
       <div className='mt-24 relative'>
         <Footer />
       </div>
+      
     </div>
   )
 }

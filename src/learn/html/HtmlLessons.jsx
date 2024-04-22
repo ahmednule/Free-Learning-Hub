@@ -1,12 +1,12 @@
 import React, { useState, useEffect, Suspense } from 'react';
-import HtmlSidebar from '../../components/Sidebar';
+import Sidebar from '../../components/Sidebar';
 import Navbar from '../../components/Navbar';
 import { useLocation } from 'react-router-dom';
 import { FaCircle } from 'react-icons/fa6';
 import CodeEditor from '../../components/CodeEditor';
+import htmlTopics from '../../assets/objects/htmlTopics.json'
 // import { Audio } from 'react-loader-spinner';
 
-// Using React.lazy to lazily load components
 const LessonOne = React.lazy(() => import('../../courses/html/LessonOne'));
 const LessonTwo = React.lazy(() => import('../../courses/html/LessonTwo'));
 const LessonThree = React.lazy(() => import('../../courses/html/LessonThree'));
@@ -28,6 +28,8 @@ const HtmlLessons = () => {
     const newLessonId = urlParts[urlParts.length - 1];
     setLessonId(newLessonId);
   }, [location]);
+
+
 
   return (
     <div className='bg-gray-50 text-black dark:text-white dark:bg-gray-950 mx-auto'>
@@ -51,7 +53,7 @@ const HtmlLessons = () => {
             </Suspense>
           </div>
           <div className='hidden md:block col-span-2 text-right pr-5 pt-10'>
-            <HtmlSidebar />
+            <Sidebar data={htmlTopics} />
           </div>
         </div>
       </div>

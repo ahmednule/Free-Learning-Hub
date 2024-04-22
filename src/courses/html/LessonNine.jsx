@@ -12,9 +12,9 @@ const LessonNine = () => {
 
   const isDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-
   const codeString1 = `<img src="image.jpg" alt="Description of the image">`;
 
+  
 
   return (
     <div className='px-4 mt-10'>

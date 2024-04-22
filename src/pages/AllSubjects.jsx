@@ -7,8 +7,6 @@ import Footer from '../components/Footer'
 const AllSubjects = () => {
   let navigate = useNavigate();
 
-
-
   const SubjectsSelections = [
     {
       id: 1,
@@ -35,6 +33,7 @@ const AllSubjects = () => {
       link: "/"
     }
   ]
+  
 
 
   return (

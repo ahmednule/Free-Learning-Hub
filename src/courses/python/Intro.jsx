@@ -7,6 +7,7 @@ const Intro = () => {
   const navigate = useNavigate();
   const lessons = pythonTopics;
 
+  
 
   return (
     <div className='w-full px-6'>

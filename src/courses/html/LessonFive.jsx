@@ -21,48 +21,41 @@ const LessonFive = () => {
   <h4>Sub-heading.</h4>
   <h5>Sub-heading.</h5>
   <h6>Sub-heading.</h6>
-</body>
+</body>`;
 
-`;
 const codeString2 = `
 <body>
   <p>This is my first website.</p>
-</body>
+</body>`;
 
-`;
 const codeString3 = `
 <body>
   <b>Such text are rendered bold.</b>
   <strong>This is also bold.</strong>
-</body>
+</body>`;
 
-`;
 const codeString4 = `
 <body>
   <i>Such text are rendered italic.</i>
   <em>This is also italic.</em>
-</body>
+</body>`;
 
-`;
 const codeString5 = `
 <body>
   <u>This is used to create text with an underline.</u>
-</body>
+</body>`;
 
-`;
 const codeString6 = `
 <body>
   <s>This is tag creates a strike through.</s>
-</body>
+</body>`;
 
-`;
 const codeString7 = `
 <body>
   <p>Today is 20 <sup>th</sup> of April 2024.</p>
   <p>log <sub>10</sub> 67</p>
-</body>
+</body>`;
 
-`;
 const codeString8 = `
 <!DOCTYPE html>
 <html>
@@ -77,15 +70,14 @@ const codeString8 = `
     <hr>
     <p>CopyRight 2024 - All Rights Reserved</p>
   </body>
-</html>
-
-`;
+</html>`;
 
 
 
   return (
     <div className='px-4 mt-10'>
       <h1 className='font-bold text-2xl md:text-3xl'>Text Formating</h1>
+
       <article className='mt-6 font-md flex flex-col gap-8 mb-20'>
         <p>Text formatting in HTML is essential for presenting content in a visually appealing and structured manner. By employing various formatting elements and attributes, developers can enhance the readability and aesthetics of their web pages. Let's delve deeper into each aspect of text formatting:</p>
         <h4 className='text-xl font-bold'>Headings:</h4>
@@ -131,6 +123,7 @@ const codeString8 = `
         </SyntaxHighlighter>
         <p>By leveraging these text formatting elements and attributes judiciously, developers can create visually appealing and well-structured web pages that effectively communicate information to users.</p>
       </article>
+
       <div className='flex flex-col mb-10 gap-2'>
         <button className='bg-green-500 py-2 px-12 rounded-lg font-bold justify-center items-center cursor-not-allowed'>NO PROJECT YET</button>
         <button onClick={() => setQuestions(true)} className='bg-green-500 py-2 px-12 rounded-lg font-bold justify-center items-center'> {questions ? 'IN PROGRESS....' : 'COMPLETE QUIZ'} </button>
@@ -146,6 +139,7 @@ const codeString8 = `
           </div>
         </div>
       )}
+
       <div>
         <SubFooter
           t1="Basic Elements"
@@ -156,9 +150,11 @@ const codeString8 = `
           edit="https://github.com/developer-assets/Free-Learning-Hub/blob/main/src/courses/html/LessonFive.jsx"
         />
       </div>
+
       <div className='mt-24 relative'>
         <Footer />
       </div>
+      
     </div>
   )
 }

@@ -8,41 +8,36 @@ import { useNavigate } from 'react-router-dom';
 import Quiz from './Questions/Quiz'
 import QuizFour from './Questions/QuizFour.json'
 
-
 const LessonFour = () => {
   const [questions, setQuestions] = useState(false);
+
   const navigate = useNavigate();
   const isDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-  const codeString1 = `
-<!DOCTYPE html>
+  const codeString1 = `<!DOCTYPE html>`;
 
-`;
   const codeString2 = `
 <!DOCTYPE html>
 <html lang="en">
   
-</html>
+</html>`;
 
-`;
 const codeString3 = `
 <!DOCTYPE html>
 <html lang="en">
   <head>
 
   </head>
-</html>
+</html>`;
 
-`;
 const codeString4 = `
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Title of a webpage</title>
   </head>
-</html>
+</html>`;
 
-`;
 const codeString5 = `
 <!DOCTYPE html>
 <html lang="en">
@@ -52,9 +47,8 @@ const codeString5 = `
   <body>
     
   </body>
-</html>
+</html>`;
 
-`;
 const codeString6 = `
 <!DOCTYPE html>
 <html lang="en">
@@ -69,9 +63,8 @@ const codeString6 = `
     <h5>Level drops by one</h5>
     <h6>Lowest level</h6>
   </body>
-</html>
+</html>`;
 
-`;
 const codeString7 = `
 <!DOCTYPE html>
 <html lang="en">
@@ -81,9 +74,8 @@ const codeString7 = `
   <body>
     <p>This is a basic paragraph tag</p>
   </body>
-</html>
+</html>`;
 
-`;
 const codeString8 = `
 <!DOCTYPE html>
 <html lang="en">
@@ -93,9 +85,8 @@ const codeString8 = `
   <body>
     <a href="https://github.com">This is a link tag that takes user to GitHub</a>
   </body>
-</html>
+</html>`;
 
-`;
 const codeString9 = `
 <!DOCTYPE html>
 <html lang="en">
@@ -105,9 +96,8 @@ const codeString9 = `
   <body>
     <img src="https://unspash/image.png" alt="Alternative text">
   </body>
-</html>
+</html>`;
 
-`;
 const codeString10 = `
 <!DOCTYPE html>
 <html lang="en">
@@ -124,9 +114,8 @@ const codeString10 = `
       <li></li>
     </ul>
   </body>
-</html>
+</html>`;
 
-`;
 const codeString11 = `
 <!DOCTYPE html>
 <html lang="en">
@@ -139,15 +128,14 @@ const codeString11 = `
       <p> You can <span> USE </span> a span inside a paragraph tag </p>
     </div>
   </body>
-</html>
-
-`;
+</html>`;
 
 
 
   return (
     <div className='px-4 mt-10'>
       <h1 className='font-bold text-2xl md:text-3xl'>Basic HTML Elements</h1>
+
       <article className='mt-6 font-md flex flex-col gap-8 mb-20 overflow-x-hidden'>
         <p>Learning the basic elements of HTML is akin to grasping the fundamental building blocks of web development. These elements form the foundation upon which web pages are constructed, allowing developers to structure content and create meaningful user experiences. Here's an overview of some essential HTML elements:</p>
         <ol className='ml-2 flex flex-col gap-4'>
@@ -198,6 +186,7 @@ const codeString11 = `
         </ol>
         <p>Mastering these basic HTML elements lays a strong foundation for creating well-structured and semantically meaningful web pages. As you progress in your web development journey, you'll explore more elements and learn how to combine them to build sophisticated layouts and interfaces.</p>
       </article>
+
       <div className='flex flex-col mb-10 gap-2'>
         <button onClick={() => navigate('/projects/html/first-basic-website')} className='bg-green-500 py-2 px-12 rounded-lg font-bold justify-center items-center'>TRY OUT PROJECT</button>
         <button onClick={() => setQuestions(true)} className='bg-green-500 py-2 px-12 rounded-lg font-bold justify-center items-center'> {questions ? 'IN PROGRESS....' : 'COMPLETE QUIZ'} </button>
@@ -213,6 +202,7 @@ const codeString11 = `
           </div>
         </div>
       )}
+
       <div>
         <SubFooter
           t1="Setting up IDE"
@@ -223,9 +213,11 @@ const codeString11 = `
           edit="https://github.com/developer-assets/Free-Learning-Hub/blob/main/src/courses/html/LessonFour.jsx"
         />
       </div>
+
       <div className='mt-24'>
         <Footer />
       </div>
+      
     </div>
   )
 }

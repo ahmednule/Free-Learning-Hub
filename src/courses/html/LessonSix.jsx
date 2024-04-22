@@ -26,15 +26,14 @@ const LessonSix = () => {
   const codeString11 = `
 <input type="text">
 <input type="checkbox">
-<input type="submit">
-
-`;
+<input type="submit">`;
 
 
 
   return (
     <div className='px-4 mt-10'>
       <h1 className='font-bold text-2xl md:text-3xl'>HTML Tags and Attributes</h1>
+
       <article className='mt-6 font-md flex flex-col gap-8 mb-20'>
         <p>Understanding HTML tags and attributes is fundamental for creating structured and interactive web pages. HTML (HyperText Markup Language) utilizes tags to define elements and attributes to provide additional information about those elements. Here's an overview of HTML tags and attributes:</p>
         <h4 className='text-xl font-bold'>Open & Closing Tags (Container Tag)</h4>
@@ -96,6 +95,7 @@ const LessonSix = () => {
         </SyntaxHighlighter>
         <p>These are just a few examples of HTML tags and attributes. Understanding how to use them effectively allows developers to create well-structured, accessible, and interactive web pages.</p>
       </article>
+
       <div className='flex flex-col mb-10 gap-2'>
         <button className='bg-green-500 py-2 px-12 rounded-lg font-bold justify-center items-center cursor-not-allowed'>NO PROJECT YET</button>
         <button onClick={() => setQuestions(true)} className='bg-green-500 py-2 px-12 rounded-lg font-bold justify-center items-center'> {questions ? 'IN PROGRESS....' : 'COMPLETE QUIZ'} </button>
@@ -111,6 +111,7 @@ const LessonSix = () => {
           </div>
         </div>
       )}
+
       <div>
         <SubFooter
           t1="Text Formating"
@@ -121,9 +122,11 @@ const LessonSix = () => {
           edit="https://github.com/developer-assets/Free-Learning-Hub/blob/main/src/courses/html/LessonSix.jsx"
         />
       </div>
+
       <div className='mt-24 relative'>
         <Footer />
       </div>
+      
     </div>
   )
 }

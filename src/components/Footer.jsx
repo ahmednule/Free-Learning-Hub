@@ -11,7 +11,6 @@ const Footer = () => {
 
 
 
-
   return (
     <div className='pb-10 text-sm'>
       <div className='fixed z-[7] bottom-20 right-10'>
