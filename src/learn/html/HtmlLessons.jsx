@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Suspense } from 'react';
-import HtmlSidebar from '../../components/HtmlSidebar';
+import HtmlSidebar from '../../components/Sidebar';
 import Navbar from '../../components/Navbar';
 import { useLocation } from 'react-router-dom';
 import { FaCircle } from 'react-icons/fa6';

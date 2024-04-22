@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import Intro from '../../courses/html/Intro';
+import Intro from '../../courses/python/Intro';
 import Navbar from '../../components/Navbar';
 import Sidebar from '../../components/Sidebar';
 import Footer from '../../components/Footer';
 import { FaCircle } from 'react-icons/fa6';
 import CodeEditor from '../../components/CodeEditor';
-import htmlTopics from '../../assets/objects/htmlTopics.json'
+import pythonTopics from '../../assets/objects/pythonTopics.json'
 
 const Html = () => {
   const [expanded, setExpanded] = useState(false);
@@ -23,7 +23,7 @@ const Html = () => {
             <Intro />
           </div>
           <div className='hidden md:block col-span-2 text-right pr-5 pt-10'>
-            <Sidebar data={htmlTopics} />
+            <Sidebar data={pythonTopics} />
           </div>
         </div>
         <div className='pt-32 pb-10'>

@@ -1,10 +1,9 @@
 import React from 'react'
-import htmlTopics from '../assets/objects/htmlTopics.json'
 import { useNavigate } from 'react-router-dom';
 
-const HtmlSidebar = () => {
+const Sidebar = ({data}) => {
   const navigate = useNavigate();
-  const lessons = htmlTopics;
+  const lessons = data;
 
 
 
@@ -28,4 +27,4 @@ const HtmlSidebar = () => {
   )
 }
 
-export default HtmlSidebar
+export default Sidebar

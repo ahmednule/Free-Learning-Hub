@@ -25,7 +25,7 @@ const HomeHero = () => {
       id: 4,
       name: "Python",
       description: "Python is a versatile, high-level, interpreted, object-oriented programming language renowned for its simplicity and extensive libraries, making it ideal for various applications.",
-      link: "/"
+      link: "/learn/python"
     },
     {
       id: 5,
