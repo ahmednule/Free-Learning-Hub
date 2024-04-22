@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Footer from '../../components/Footer'
 import SubFooter from '../../components/SubFooter'
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { anOldHope } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { atelierEstuaryLight } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import Quiz from './Questions/Quiz'
+import QuizEight from './Questions/QuizEight.json'
 
 const LessonEight = () => {
+  const [questions, setQuestions] = useState(false);
+
   const isDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
   const codeString1 = `<a href="https://www.example.com">Visit Example Website</a>`;
@@ -62,6 +66,21 @@ const LessonEight = () => {
       <SyntaxHighlighter className="w-fit px-5 max-w-[97%]" language='xml' style={isDarkTheme ? anOldHope : atelierEstuaryLight}>
         {codeString6}
       </SyntaxHighlighter>
+      <div className='flex flex-col mb-10 gap-2'>
+        <button onClick={() => navigate('/projects/html/semantically-laid-website')} className='bg-green-500 py-2 px-12 rounded-lg font-bold justify-center items-center'>TRY OUT PROJECT</button>
+        <button onClick={() => setQuestions(true)} className='bg-green-500 py-2 px-12 rounded-lg font-bold justify-center items-center'> {questions ? 'IN PROGRESS....' : 'COMPLETE QUIZ'} </button>
+      </div>
+
+      { questions && (
+        <div className='w-full h-[70vh]'>
+          <div className='bg-gray-200 rounded-md dark:bg-gray-800 h-full w-full'>
+            <Quiz data={QuizEight} />
+          </div>
+          <div>
+            <button onClick={() => setQuestions(false)} className='bg-green-500 py-2 w-full px-12 rounded-lg mt-6 font-bold justify-center items-center'> FINISH & CONTINUE </button>
+          </div>
+        </div>
+      )}
       </article>
       <div>
         <SubFooter

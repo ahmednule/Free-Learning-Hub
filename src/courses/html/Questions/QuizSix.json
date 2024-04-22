@@ -1,0 +1,186 @@
+[
+  {
+    "id": 1,
+    "question": "What is the purpose of an opening tag in HTML?",
+    "correct": 1,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "Indicates the beginning of an element"
+      },
+      {
+        "id": 2,
+        "answer": "Indicates the end of an element"
+      },
+      {
+        "id": 3,
+        "answer": "Specifies the source URL for an element"
+      },
+      {
+        "id": 4,
+        "answer": "Provides alternative text for an element"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "question": "Which type of elements do not require a closing tag?",
+    "correct": 2,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "Container elements"
+      },
+      {
+        "id": 2,
+        "answer": "Void or self-closing elements"
+      },
+      {
+        "id": 3,
+        "answer": "Block-level elements"
+      },
+      {
+        "id": 4,
+        "answer": "Inline elements"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "question": "What does the class attribute specify in HTML?",
+    "correct": 1,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "One or more class names for an element"
+      },
+      {
+        "id": 2,
+        "answer": "A unique identifier for an element"
+      },
+      {
+        "id": 3,
+        "answer": "The source URL for an element"
+      },
+      {
+        "id": 4,
+        "answer": "Additional information about an element"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "question": "What does the id attribute provide in HTML?",
+    "correct": 2,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "The source URL for an element"
+      },
+      {
+        "id": 2,
+        "answer": "A unique identifier for an element"
+      },
+      {
+        "id": 3,
+        "answer": "One or more class names for an element"
+      },
+      {
+        "id": 4,
+        "answer": "Additional information about an element"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "question": "What does the src attribute specify in HTML?",
+    "correct": 3,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "One or more class names for an element"
+      },
+      {
+        "id": 2,
+        "answer": "A unique identifier for an element"
+      },
+      {
+        "id": 3,
+        "answer": "The source URL for an element"
+      },
+      {
+        "id": 4,
+        "answer": "Additional information about an element"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "question": "What does the alt attribute provide for images in HTML?",
+    "correct": 4,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "The source URL for an image"
+      },
+      {
+        "id": 2,
+        "answer": "The image caption"
+      },
+      {
+        "id": 3,
+        "answer": "The image width"
+      },
+      {
+        "id": 4,
+        "answer": "Alternative text"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "question": "What does the href attribute specify in HTML?",
+    "correct": 1,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "The URL for hyperlinks"
+      },
+      {
+        "id": 2,
+        "answer": "The source URL for images"
+      },
+      {
+        "id": 3,
+        "answer": "The placeholder text for input fields"
+      },
+      {
+        "id": 4,
+        "answer": "The type of input element"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "question": "What does the title attribute provide in HTML?",
+    "correct": 4,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "The URL for hyperlinks"
+      },
+      {
+        "id": 2,
+        "answer": "The source URL for images"
+      },
+      {
+        "id": 3,
+        "answer": "The placeholder text for input fields"
+      },
+      {
+        "id": 4,
+        "answer": "Additional information displayed as a tooltip"
+      }
+    ]
+  }
+]
