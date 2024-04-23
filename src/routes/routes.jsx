@@ -9,11 +9,21 @@ import Projects from "../pages/Projects";
 import HTMLProjects from "../projects/html/HTMLProjects";
 import Python from "../learn/python/Python";
 import PythonLessons from "../learn/python/PythonLessons";
+import ContinueWith from "../pages/ContinueWith";
+import Profile from "../pages/Profile";
 
 export const router = createHashRouter([
   {
     path: "/",
     element: <Home />
+  },
+  {
+    path: "/login",
+    element: <ContinueWith />
+  },
+  {
+    path: "/profile",
+    element: <Profile />
   },
   {
     path: "/code-playground",
