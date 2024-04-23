@@ -8,42 +8,42 @@ export const LANGUAGE_VERSIONS = {
 }
 
 export const CODE_SNIPPETS = {
-  javascript: `
-// JavaScript snippet
+  javascript: 
+`// JavaScript snippet
 function greet() {
 
   console.log('Hello, world!');
 }
 
 greet();
-    `,
-  typescript: `
-// TypeScript snippet
+`,
+  typescript: 
+`// TypeScript snippet
 function greet(): void {
 
   console.log('Hello, world!');
 }
 
 greet();
-    `,
-  python: `
-# Python snippet
+`,
+  python: 
+`# Python snippet
 def greet():
   print("Hello, world!")
 
 greet()
-    `,
-  java: `
-// Java snippet
+`,
+  java: 
+`// Java snippet
 public class Main {
   public static void main(String[] args) {
 
     System.out.println("Hello, world!");
   }
 }
-    `,
-  csharp: `
-// C# snippet
+`,
+  csharp: 
+`// C# snippet
 using System;
 
 class Program
@@ -54,9 +54,9 @@ class Program
     Console.WriteLine("Hello, world!");
   }
 }
-    `,
-  php: `
-<?php
+`,
+  php: 
+`<?php
 // PHP snippet
 
 function greet() {
@@ -65,5 +65,5 @@ function greet() {
 
 greet();
 ?>
-    `
+`
 };

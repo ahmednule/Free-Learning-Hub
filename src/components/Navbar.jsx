@@ -7,7 +7,7 @@ const Navbar = () => {
 
   return (
     <div className='fixed z-[5] w-full bg-gray-50 dark:bg-gray-950 mx-auto'>
-      <div className='flex w-full h-16 container max-w-7xl justify-between items-center px-4 border-b dark:border-blue-200 border-yellow-500'>
+      <div className='flex w-full h-16 container max-w-7xl justify-between items-center px-4 border-b dark:border-blue-600 border-yellow-500'>
         <h2
           onClick={() => navigate('/')}
           className='text-2xl font-bold cursor-pointer'
@@ -18,7 +18,7 @@ const Navbar = () => {
             <a href="https://github.com/developer-assets/Free-Learning-Hub" target='_blank' >
               <FaGithub 
                 size={30}
-                className='hover:text-gray-700 duration-300'
+                className='hover:text-gray-500 duration-300'
               />
             </a>
           <button

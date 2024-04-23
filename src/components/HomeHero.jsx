@@ -62,7 +62,8 @@ const HomeHero = () => {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    visible: { opacity: 1, y: 0, 
+    transition: { duration: 0.5 } },
   };
 
   const navigateTo = (link) => {
@@ -72,7 +73,7 @@ const HomeHero = () => {
   return (
     <div>
       <div className='min-h-screen'>
-        <div className='flex justify-center mt-14'>
+        <div className='flex justify-center mt-20'>
           <motion.img
             src={isDarkTheme ? LogoDark : LogoWhite}
             className='w-[40%] block'
@@ -106,23 +107,22 @@ const HomeHero = () => {
 
       <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 mx-auto w-full'>
         {HomeSelections.map((item) => (
-          <motion.div
+          <div
             key={item.id}
-            className='max-w-sm group mx-auto cursor-pointer rounded-2xl flex justify-between dark:hover:bg-gray-900 hover:bg-gray-100 duration-300 transition-colors p-4'
-            variants={itemVariants}
-            animate={controls}
-            initial='hidden'
-            whileHover={{ scale: 1.05 }}
             onClick={() => navigateTo(item.link)}
+            className='max-w-sm h-fit group border border-yellow-500 dark:border-blue-600 hover:scale-105 mx-auto cursor-pointer rounded-2xl flex justify-between dark:hover:bg-gray-900 hover:bg-gray-100 duration-300 transition-all p-4'
           >
             <div className='flex-[0.95]'>
               <div className='flex justify-start gap-3'>
                 <h2 className='text-xl font-semibold mb-2'>{item.name}</h2>
                 <FaAngleRight className='mt-2 hidden group-hover:flex duration-300' size={14} />
               </div>
-              <p className='ml-2 text-sm'>{item.description}</p>
+              <div className='flex justify-start gap-3'>
+                {/* Add some horizontal line with circle at the bottom */}
+                <p className='text-sm pl-4'>{item.description}</p>
+              </div>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
 
@@ -140,23 +140,22 @@ const HomeHero = () => {
         <h3 className='text-3xl font-bold text-center mt-32'>PROJECTS</h3>
       </div>
 
-      <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 mx-auto w-full'>
+      <div className='grid md:grid-cols-2 h-fit lg:grid-cols-3 gap-8 mt-8 mx-auto w-full'>
         {projectSelection.map((item) => (
           <motion.div
             key={item.id}
-            className='max-w-sm group mx-auto cursor-pointer rounded-2xl flex justify-between dark:hover:bg-gray-900 hover:bg-gray-100 duration-300 transition-colors p-4'
-            variants={itemVariants}
-            animate={controls}
-            initial='hidden'
-            whileHover={{ scale: 1.05 }}
             onClick={() => navigateTo(item.link)}
+            className='max-w-sm group border border-yellow-500 dark:border-blue-600 hover:scale-105 mx-auto cursor-pointer rounded-2xl flex justify-between dark:hover:bg-gray-900 hover:bg-gray-100 duration-300 transition-all p-4'
           >
             <div className='flex-[0.95]'>
               <div className='flex justify-start gap-3'>
                 <h2 className='text-xl font-semibold mb-2'>{item.name}</h2>
                 <FaAngleRight className='mt-2 hidden group-hover:flex duration-300' size={14} />
               </div>
-              <p className='ml-2 text-sm'>{item.description}</p>
+              <div className='flex justify-start gap-3'>
+                {/* Add some horizontal line with circle at the bottom */}
+                <p className='text-sm pl-4'>{item.description}</p>
+              </div>
             </div>
           </motion.div>
         ))}

@@ -27,15 +27,13 @@ const CodeEditor = () => {
     );
   };
 
-
-
   return (
     <div className='grid lg:grid-cols-2 gap-3'>
       <div>
         <div>
           <CodeEditorLang language={language} onSelectLanguage={onChangeLanguage} />
         </div>
-        <div className='border border-yellow-200 dark:border-blue-600'>
+        <div className='border border-yellow-500 dark:border-blue-600'>
           <Editor
             height="80vh"
             theme={editorTheme}

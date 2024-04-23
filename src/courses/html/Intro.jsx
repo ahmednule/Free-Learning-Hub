@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import htmlTopics from '../../assets/objects/htmlTopics.json'
-import { FaAngleRight } from 'react-icons/fa6';
+import { FaAngleDown, FaAngleRight } from 'react-icons/fa6';
 
 const Intro = () => {
   const navigate = useNavigate();
   const lessons = htmlTopics;
+  const [openLesson, setOpenLesson] = useState(0);
 
-  
+  const toggleLesson = (lessonId) => {
+    if(lessonId === openLesson){
+      setOpenLesson(0);
+    } else {
+      setOpenLesson(lessonId);
+    }
+  }
 
   return (
     <div className='w-full px-6'>
@@ -18,15 +25,23 @@ const Intro = () => {
           <p className='mt-5 ml-2 font-md'>HTML (HyperText Markup Language) serves as the cornerstone of web development, providing the structural framework upon which content is built. CSS (Cascading Style Sheets), on the other hand, brings life to HTML elements by defining their visual presentation, layout, and behavior. Together, these two technologies empower developers to create stunning and responsive web experiences.</p>
         </article>
         <article className='mt-10'>
-          <h1 className='font-bold text-2xl md:text-3xl'>Whats Covered</h1>
+          <h1 className='font-bold text-2xl md:text-3xl'>Whats Covered:-</h1>
           {
             lessons.map((lesson) => (
               <div className='mt-4' key={lesson.id}>
-                <h3 className='text-xl'> {`${lesson.id}. ${lesson.name}`} </h3>
-                <ul className='list-disc pl-8 mt-2 text-yellow-500 dark:text-blue-600'>
+                <div
+                  onClick={() => toggleLesson(Number(lesson.id))}
+                  className='text-xl sm:text-2xl bg-yellow-500 dark:bg-blue-600 h-16 flex justify-between rounded-md cursor-pointer items-center px-4'
+                >
+                  <h3> {`${lesson.id}. ${lesson.name}`} </h3>
+                  <FaAngleDown className={openLesson === lesson.id ? 'text-gray-950 dark:text-gray-50 rotate-180 duration-300' : 'text-gray-950 dark:text-gray-50 duration-300'} />
+                </div>
+                <ul className='list-disc mt-2 text-yellow-500 dark:text-blue-600'>
                   {
                     lesson.topics.map((topic) => (
-                      <li key={topic.id} onClick={() => navigate(topic.link)} className='hover:underline cursor-pointer w-fit'> {topic.name} </li>
+                      <div className='sm:text-xl flex flex-col'>
+                        <li key={topic.id} onClick={() => navigate(topic.link)} className={openLesson === lesson.id ? 'block border pl-5 mt-[3px] rounded cursor-pointer border-yellow-500 dark:border-blue-600 py-2 w-full' : 'hidden'}> {topic.name} </li>
+                      </div>
                     ))
                   }
                 </ul>
