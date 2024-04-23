@@ -13,18 +13,18 @@ body {
 
     /*span elements with links decoration */
     .cs {
-      background-color: #F59E0B;
-      border-radius: 10px;
+      color: #F59E0B;
       cursor: pointer;
-      color: black;
-      padding: 0 5px;
+    }
+    .cs:hover {
+      text-decoration: underline;
     }
     .dcs {
-      background-color: #1E88E5;
-      border-radius: 10px;
-      color: white;
+      color: #1E88E5;
       cursor: pointer;
-      padding: 0 5px;
+    }
+    .dcs:hover {
+      text-decoration: underline;
     }
   }
 }

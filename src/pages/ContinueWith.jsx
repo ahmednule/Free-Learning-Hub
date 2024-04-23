@@ -38,9 +38,13 @@ const ContinueWith = () => {
           <Navbar />
         </div>
         <div className="pt-32 h-[80vh] mx-auto">
-          <div className="flex justify-center cursor-pointer w-fit py-2 px-12 border border-yellow-200 hover:border-transparent hover:text-gray-50 hover:dark:text-gray-950 dark:border-blue-200 text-gray-950 dark:text-gray-50 text-2xl rounded-3xl mx-auto gap-8 hover:bg-yellow-500 hover:dark:bg-blue-600 duration-300 transition-colors">
-            <FcGoogle className="mt-1" />
-            <button onClick={signInWithGoogle}>Continue With Google</button>
+          <div className="flex justify-center mt-16" >
+            <div className="shadow shadow-gray-950 dark:shadow-gray-50 px-10 rounded-md">
+              <div onClick={signInWithGoogle} className="flex justify-center border cursor-pointer border-yellow-500 dark:border-blue-600 hover:bg-yellow-500 dark:hover:bg-blue-600 hover:dark:text-gray-950 rounded-md px-12 gap-3 my-14 duration-300">
+                <FcGoogle className="mt-[7px]" size={30} />
+                <button className="text-base sm:text-xl py-2">Login With Google</button>
+              </div>
+            </div>
           </div>
         </div>
         <div>
