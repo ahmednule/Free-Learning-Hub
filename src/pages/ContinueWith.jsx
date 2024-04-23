@@ -15,21 +15,12 @@ const ContinueWith = () => {
       const userData = await signInWithPopup(auth, googleProvider);
       toast.success("Sign In Successfull");
       console.log(userData);
-      // navigate('/');
+      navigate('/profile');
     } catch (err) {
       console.error(err);
       toast.error("Could not sign you in!");
     }
   };
-
-  useEffect(() => {
-    
-  
-    
-  }, []);
-  
-
-  
 
   return (
     <div className='bg-gray-50 text-black dark:text-white dark:bg-gray-950 mx-auto w-full min-h-screen'>

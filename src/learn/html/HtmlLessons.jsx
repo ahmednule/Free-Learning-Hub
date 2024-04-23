@@ -37,13 +37,13 @@ const HtmlLessons = () => {
         <div>
           <Navbar />
         </div>
-        <div className='flex gap-5 flex-row pt-16 min-h-screen'>
-          <div className='hidden md:block flex-[0.3] w-56 col-span-2'>
+        <div className='grid grid-cols-6 gap-5 pt-16 min-h-screen'>
+          <div className='hidden md:block col-span-2 w-56'>
             <div className='fixed overflow-y-scroll h-screen'>
               <Sidebar data={htmlTopics} />
             </div>
           </div>
-          <div className='flex-[0.7] col-span-4 ml-3 pl-3 pt-10'>
+          <div className='ml-3 pl-3 pt-10 col-span-4'>
             {/* Render the lesson component based on the current lesson ID */}
             <Suspense fallback={<div>Loading...</div>}>
               {lessonId === 'overview-of-html-css' && <LessonOne />}
