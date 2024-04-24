@@ -23,6 +23,10 @@
 
 
 
+- [Features 💪](#features-)
+- [Contributing 👨‍💻](#contributing-)
+- [Contributors 🤝](#contributors-)
+
 
 
 <a id="support"></a>
