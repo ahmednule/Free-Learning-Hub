@@ -17,6 +17,7 @@ const LessonSeven = React.lazy(() => import('../../courses/html/LessonSeven'));
 const LessonEight = React.lazy(() => import('../../courses/html/LessonEight'));
 const LessonNine = React.lazy(() => import('../../courses/html/LessonNine'));
 const LessonTen = React.lazy(() => import('../../courses/html/LessonTen'));
+const LessonEleven = React.lazy(() => import('../../courses/html/LessonEleven'));
 
 const HtmlLessons = () => {
   const [expanded, setExpanded] = useState(false);
@@ -61,6 +62,7 @@ const HtmlLessons = () => {
               {lessonId === 'link-creation' && <LessonEight />}
               {lessonId === 'image-embedding' && <LessonNine />}
               {lessonId === 'list-creation' && <LessonTen />}
+              {lessonId ==='style-definition' && <LessonEleven />}
             </Suspense>
           </div>
         </div>

@@ -56,7 +56,6 @@ ol {
   <dd>Description of Term 2</dd>
 </dl>`;
 
-
   return (
     <div className='mt-10 w-full pr-2 overflow-x-auto'>
       <h1 className='font-bold text-2xl md:text-3xl'>List Creation</h1>
