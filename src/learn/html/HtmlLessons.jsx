@@ -45,7 +45,11 @@ const HtmlLessons = () => {
           </div>
           <div className='ml-3 pl-3 pt-10 col-span-4'>
             {/* Render the lesson component based on the current lesson ID */}
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div className='mx-auto mt-28'>
+              <div class="flex-col gap-4 w-full flex items-center justify-center">
+                <div class="w-16 h-16 border-8 text-blue-400 text-4xl animate-spin border-gray-300 flex items-center justify-center border-t-blue-400 rounded-full"></div>
+              </div>
+            </div>}>
               {lessonId === 'overview-of-html-css' && <LessonOne />}
               {lessonId === 'roles-of-html-css' && <LessonTwo />}
               {lessonId === 'setting-up-ide' && <LessonThree />}

@@ -13,18 +13,40 @@ body {
 
     /*span elements with links decoration */
     .cs {
-      color: #F59E0B;
+      display: inline-block;
+      padding: 2px 8px;
+      font-size: 0.7rem;
+      border: 1px solid #121212;
+      border-radius: 6px;
+      background-color: #EEEEEE;
+      border-bottom-width: 3px;
+      font-weight: bold;
       cursor: pointer;
+      color: #FF6F00;
+      transition: background-color 0.3s, border-color 0.3s, color 0.3s;
     }
     .cs:hover {
-      text-decoration: underline;
+      background-color: #BDBDBD;
     }
     .dcs {
-      color: #1E88E5;
+      display: inline-block;
+      padding: 2px 8px;
+      font-size: 0.7rem;
+      border: 1px solid #FAFAFA;
+      border-radius: 6px;
+      background-color: #424242;
+      border-bottom-width: 3px;
+      font-weight: bold;
       cursor: pointer;
+      color: #1e88e5;
+      transition: background-color 0.3s, border-color 0.3s, color 0.3s;
     }
     .dcs:hover {
-      text-decoration: underline;
+      background-color: #616161;
     }
+    
+    
+    
+    
   }
 }
