@@ -16,7 +16,7 @@ const Html = () => {
         <div>
           <Navbar />
         </div>
-        <div className='grid grid-cols-6 gap-5 pt-16 min-h-screen'>
+        <div className='grid md:grid-cols-6 gap-5 pt-16 min-h-screen'>
           <div className='hidden md:block col-span-2 w-56'>
             <div className='fixed overflow-y-scroll h-screen'>
               <Sidebar data={htmlTopics} />
