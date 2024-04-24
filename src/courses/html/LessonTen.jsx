@@ -27,6 +27,36 @@ const LessonNine = () => {
   <li>Third item</li>
 </ol>`;
 
+  const codeString3 =`
+<ul>
+  <li>Main item 1
+    <ul>
+      <li>Sub-item 1</li>
+      <li>Sub-item 2</li>
+    </ul>
+  </li>
+    <li>Main item 2</li>
+</ul>`;
+
+  const codeString4 =`
+ul {
+  list-style-type: square; /* Change bullet style */
+}`;
+
+  const codeString5 =`
+ol {
+  list-style-type: upper-roman; /* Change numbering style */
+}`;
+
+  const codeString6 =`
+<dl>
+  <dt>Term 1</dt>
+  <dd>Description of Term 1</dd>
+  <dt>Term 2</dt>
+  <dd>Description of Term 2</dd>
+</dl>`;
+
+
   return (
     <div className='mt-10 w-full pr-2 overflow-x-auto'>
       <h1 className='font-bold text-2xl md:text-3xl'>List Creation</h1>
@@ -46,10 +76,26 @@ const LessonNine = () => {
           {codeString2}
         </SyntaxHighlighter>
         <p>This will display three ordered list items that are numbered.</p>
-        
-
-
-
+        <h4 className='text-xl font-bold'>Nested Lists</h4>
+        <p>You can also nest lists within other lists to create hierarchical structures as shown.</p>
+        <SyntaxHighlighter className="syntax" language='xml' style={isDarkTheme ? anOldHope : atelierEstuaryLight}>
+          {codeString3}
+        </SyntaxHighlighter>
+        <h4 className='text-xl font-bold'>Customizing List Styles</h4>
+        <p>You can customize the appearance of lists using CSS. For example, to change the bullet style of unordered lists.</p>
+        <SyntaxHighlighter className="syntax" language='css' style={isDarkTheme ? anOldHope : atelierEstuaryLight}>
+          {codeString4}
+        </SyntaxHighlighter>
+        <p>Or to change the numbering style of ordered lists.</p>
+        <SyntaxHighlighter className="syntax" language='css' style={isDarkTheme ? anOldHope : atelierEstuaryLight}>
+          {codeString5}
+        </SyntaxHighlighter>
+        <h4 className='text-xl font-bold'>Description Lists</h4>
+        <p>HTML also supports description lists, which consist of terms <span className='cs dark:dcs'>(dt)</span> and their descriptions <span className='cs dark:dcs'>(dd)</span>.</p>
+        <SyntaxHighlighter className="syntax" language='xml' style={isDarkTheme ? anOldHope : atelierEstuaryLight}>
+          {codeString6}
+        </SyntaxHighlighter>
+        <p>Lists are versatile and widely used in web development for various purposes, including navigation menus, product listings, and content organization. By mastering list creation in HTML, you can effectively structure your web content for better readability and user experience.</p>
       </article>
 
       <div className='flex max-w-[90vw] flex-col mb-10 gap-2'>
