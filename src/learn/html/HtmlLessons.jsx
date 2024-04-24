@@ -16,6 +16,7 @@ const LessonSix = React.lazy(() => import('../../courses/html/LessonSix'));
 const LessonSeven = React.lazy(() => import('../../courses/html/LessonSeven'));
 const LessonEight = React.lazy(() => import('../../courses/html/LessonEight'));
 const LessonNine = React.lazy(() => import('../../courses/html/LessonNine'));
+const LessonTen = React.lazy(() => import('../../courses/html/LessonTen'));
 
 const HtmlLessons = () => {
   const [expanded, setExpanded] = useState(false);
@@ -37,7 +38,7 @@ const HtmlLessons = () => {
         <div>
           <Navbar />
         </div>
-        <div className='grid md:grid-cols-6 gap-5 pt-16 min-h-screen'>
+        <div className='grid md:grid-cols-6 gap-5 pt-16 min-h-screen max-w-[100vw]'>
           <div className='hidden md:block col-span-2 w-56'>
             <div className='fixed overflow-y-scroll h-screen'>
               <Sidebar data={htmlTopics} />
@@ -59,6 +60,7 @@ const HtmlLessons = () => {
               {lessonId === 'semantic-html' && <LessonSeven />}
               {lessonId === 'link-creation' && <LessonEight />}
               {lessonId === 'image-embedding' && <LessonNine />}
+              {lessonId === 'list-creation' && <LessonTen />}
             </Suspense>
           </div>
         </div>

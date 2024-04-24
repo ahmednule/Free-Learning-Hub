@@ -7,8 +7,6 @@ import QuizOne from './Questions/QuizOne.json'
 const LessonOne = () => {
   const [questions, setQuestions] = useState(false);
 
-
-
   return (
     <div className='px-4 mt-10'>
       <h1 className='font-bold text-2xl md:text-3xl'>Overview of HTML & CSS</h1>
@@ -44,7 +42,6 @@ const LessonOne = () => {
           l1="/learn/html"
           t2="Roles of HTML & CSS"
           l2="/learn/html/roles-of-html-css"
-          reset="/learn/html"
           edit="https://github.com/developer-assets/Free-Learning-Hub/blob/main/src/courses/html/LessonOne.jsx"
         />
       </div>

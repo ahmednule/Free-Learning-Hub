@@ -10,9 +10,7 @@ import QuizSeven from './Questions/QuizSeven.json'
 
 const LessonSeven = () => {
   const [questions, setQuestions] = useState(false);
-
   const navigate = useNavigate();
-
   const isDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
   const codeString1 = `
@@ -87,15 +85,13 @@ const LessonSeven = () => {
   </body>
   </html>`;
 
-
-
   return (
-    <div className='px-4 mt-10'>
+    <div className='mt-10 w-full pr-2 overflow-x-auto'>
       <h1 className='font-bold text-2xl md:text-3xl'>Semantic HTML</h1>
 
       <article className='mt-6 font-md flex flex-col gap-8 mb-20'>
         <p>Semantic HTML refers to the use of HTML elements that carry meaning beyond their visual presentation. Semantic elements provide a clear structure to web documents, making it easier for both humans and machines to understand the content.</p>
-        <SyntaxHighlighter className="w-fit px-5 max-w-[97%]" language='xml' style={isDarkTheme ? anOldHope : atelierEstuaryLight}>
+        <SyntaxHighlighter className="syntax" language='xml' style={isDarkTheme ? anOldHope : atelierEstuaryLight}>
           {codeString1}
         </SyntaxHighlighter>
         <p>Here's an overview of semantic HTML:</p>
@@ -124,7 +120,7 @@ const LessonSeven = () => {
         <p>Using semantic HTML elements not only improves the accessibility and SEO of web pages but also enhances the readability and maintainability of the code. By choosing elements that accurately represent the content's meaning, developers can create more structured, understandable, and interoperable web documents.</p>
       </article>
 
-      <div className='flex flex-col mb-10 gap-2'>
+      <div className='flex max-w-[90vw] flex-col mb-10 gap-2'>
         <button onClick={() => navigate('/projects/html/semantically-laid-website')} className='bg-green-500 py-2 px-12 rounded-lg font-bold justify-center items-center'>TRY OUT PROJECT</button>
         <button onClick={() => setQuestions(true)} className='bg-green-500 py-2 px-12 rounded-lg font-bold justify-center items-center'> {questions ? 'IN PROGRESS....' : 'COMPLETE QUIZ'} </button>
       </div>
@@ -146,7 +142,6 @@ const LessonSeven = () => {
           l1="/learn/html/html-tags-attributes"
           t2="Link Creation"
           l2="/learn/html/link-creation"
-          reset="/learn/html"
           edit="https://github.com/developer-assets/Free-Learning-Hub/blob/main/src/courses/html/LessonSeven.jsx"
         />
       </div>

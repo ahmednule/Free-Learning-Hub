@@ -7,8 +7,6 @@ import QuizThree from './Questions/QuizThree.json'
 const LessonThree = () => {
   const [questions, setQuestions] = useState(false);
 
-
-
   return (
     <div className='px-4 mt-10'>
       <h1 className='font-bold text-2xl md:text-3xl'>Setting up IDE</h1>
@@ -49,7 +47,6 @@ const LessonThree = () => {
           l1="/learn/html/roles-of-html-css"
           t2="Basic Elements"
           l2="/learn/html/basic-elements"
-          reset="/learn/html"
           edit="https://github.com/developer-assets/Free-Learning-Hub/blob/main/src/courses/html/LessonThree.jsx"
         />
       </div>

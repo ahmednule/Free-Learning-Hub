@@ -44,9 +44,8 @@ body {
     .dcs:hover {
       background-color: #616161;
     }
-    
-    
-    
-    
+    .syntax {
+      @apply w-fit overflow-x-scroll max-w-[90vw] md:max-w-[60vw];
+    }
   }
 }
