@@ -21,8 +21,8 @@ body {
       background-color: #EEEEEE;
       border-bottom-width: 3px;
       font-weight: bold;
-      cursor: pointer;
       color: #FF6F00;
+      cursor: default;
       transition: background-color 0.3s, border-color 0.3s, color 0.3s;
     }
     .cs:hover {
@@ -37,7 +37,7 @@ body {
       background-color: #424242;
       border-bottom-width: 3px;
       font-weight: bold;
-      cursor: pointer;
+      cursor: default;
       color: #1e88e5;
       transition: background-color 0.3s, border-color 0.3s, color 0.3s;
     }
@@ -46,6 +46,9 @@ body {
     }
     .syntax {
       @apply w-fit overflow-x-scroll max-w-[90vw] md:max-w-[60vw];
+    }
+    .cl {
+      @apply text-yellow-500 dark:text-blue-600 hover:underline cursor-pointer
     }
   }
 }

@@ -10,31 +10,23 @@ const AllSubjects = () => {
   const SubjectsSelections = [
     {
       id: 1,
-      name: "Code Playground",
-      description: "Explore, experiment, and learn in our interactive Code Playground. Test your code, try out new techniques, and unleash your creativity in a safe and supportive environment.",
-      link: "/code-playground"
-    },
-    {
-      id: 2,
       name: "HTML & CSS",
       description: "Master the essential languages of web development: HTML and CSS. Learn to create structurally sound, responsive and visually appealing websites.",
       link: "/learn/html"
     },
     {
-      id: 4,
+      id: 2,
       name: "Python",
       description: "Python is a versatile, high-level, interpreted, object-oriented programming language renowned for its simplicity and extensive libraries, making it ideal for various applications.",
       link: "/learn/python"
     },
     {
-      id: 4,
+      id: 3,
       name: "JavaScript",
       description: "JavaScript is a versatile, high-level, interpreted programming language known for its flexibility and ability to create interactive web applications.",
       link: "/"
     }
   ]
-  
-
 
   return (
     <div className='bg-gray-50 text-black dark:text-white dark:bg-gray-950 mx-auto w-full min-h-screen'>

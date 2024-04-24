@@ -18,6 +18,7 @@ const LessonEight = React.lazy(() => import('../../courses/html/LessonEight'));
 const LessonNine = React.lazy(() => import('../../courses/html/LessonNine'));
 const LessonTen = React.lazy(() => import('../../courses/html/LessonTen'));
 const LessonEleven = React.lazy(() => import('../../courses/html/LessonEleven'));
+const LessonTwelve = React.lazy(() => import('../../courses/html/LessonTwelve'));
 
 const HtmlLessons = () => {
   const [expanded, setExpanded] = useState(false);
@@ -30,8 +31,6 @@ const HtmlLessons = () => {
     const newLessonId = urlParts[urlParts.length - 1];
     setLessonId(newLessonId);
   }, [location]);
-
-
 
   return (
     <div className='bg-gray-50 text-black dark:text-white dark:bg-gray-950 mx-auto'>
@@ -62,7 +61,8 @@ const HtmlLessons = () => {
               {lessonId === 'link-creation' && <LessonEight />}
               {lessonId === 'image-embedding' && <LessonNine />}
               {lessonId === 'list-creation' && <LessonTen />}
-              {lessonId ==='style-definition' && <LessonEleven />}
+              {lessonId === 'style-definition' && <LessonEleven />}
+              {lessonId === 'color-selection' && <LessonTwelve />}
             </Suspense>
           </div>
         </div>

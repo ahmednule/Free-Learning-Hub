@@ -11,6 +11,7 @@ import Python from "../learn/python/Python";
 import PythonLessons from "../learn/python/PythonLessons";
 import ContinueWith from "../pages/ContinueWith";
 import Profile from "../pages/Profile";
+import ColorPickerConverter from "../pages/ColorPickerConverter";
 
 export const router = createHashRouter([
   {
@@ -28,6 +29,10 @@ export const router = createHashRouter([
   {
     path: "/code-playground",
     element: <CodePlayGround />
+  },
+  {
+    path: "/color-picker",
+    element: <ColorPickerConverter />
   },
   {
     path: "/learn",

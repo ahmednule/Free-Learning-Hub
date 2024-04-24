@@ -12,34 +12,37 @@ const HomeHero = () => {
   const controls = useAnimation();
   const [ref, inView] = useInView();
 
-  const HomeSelections = [
+  const tutorials = [
     {
       id: 1,
-      name: "Code Playground",
-      description: "Explore, experiment, and learn in our interactive Code Playground. Test your code, try out new techniques, and unleash your creativity in a safe and supportive environment.",
-      link: "/code-playground"
-    },
-    {
-      id: 2,
       name: "HTML & CSS",
       description: "Master the essential languages of web development: HTML and CSS. Learn to create structurally sound, responsive and visually appealing websites.",
       link: "/learn/html"
     },
     {
-      id: 4,
+      id: 2,
       name: "Python",
       description: "Python is a versatile, high-level, interpreted, object-oriented programming language renowned for its simplicity and extensive libraries, making it ideal for various applications.",
       link: "/learn/python"
     },
     {
-      id: 5,
+      id: 3,
       name: "JavaScript",
       description: "JavaScript is a versatile, high-level, interpreted programming language known for its flexibility and ability to create interactive web applications.",
       link: "/"
     }
   ];
 
-  const projectSelection = [
+  const projects = [
+  {
+    id: 1,
+    name: "HTML & CSS",
+    description: "This project collection includes various challenges to help you practice and improve your skills in HTML and CSS to be able to create structurally sound, responsive and visually appealing websites.",
+    link: "/projects/html"
+  }
+  ];
+
+  const products = [
     {
     id: 1,
     name: "Code Playground",
@@ -48,9 +51,9 @@ const HomeHero = () => {
   },
   {
     id: 2,
-    name: "HTML & CSS",
-    description: "This project collection includes various challenges to help you practice and improve your skills in HTML and CSS to be able to create structurally sound, responsive and visually appealing websites.",
-    link: "/projects/html"
+    name: "Color Picker",
+    description: "Pick or convert colors between HEX, RGB and HSL while also being able to change the colors alpha or opacity to help you in your designs and stylings.",
+    link: "/color-picker"
   }
   ];
 
@@ -106,7 +109,7 @@ const HomeHero = () => {
       </div>
 
       <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 mx-auto w-full'>
-        {HomeSelections.map((item) => (
+        {tutorials.map((item) => (
           <div
             key={item.id}
             onClick={() => navigateTo(item.link)}
@@ -137,12 +140,12 @@ const HomeHero = () => {
       </div>
 
       <div>
-        <h3 className='text-3xl font-bold text-center mt-32'>PROJECTS</h3>
+        <h3 className='text-3xl font-bold text-center mt-56'>PROJECTS</h3>
       </div>
 
       <div className='grid md:grid-cols-2 h-fit lg:grid-cols-3 gap-8 mt-8 mx-auto w-full'>
-        {projectSelection.map((item) => (
-          <motion.div
+        {projects.map((item) => (
+          <div
             key={item.id}
             onClick={() => navigateTo(item.link)}
             className='max-w-sm group border border-yellow-500 dark:border-blue-600 hover:scale-105 mx-auto cursor-pointer rounded-2xl flex justify-between dark:hover:bg-gray-900 hover:bg-gray-100 duration-300 transition-all p-4'
@@ -157,7 +160,7 @@ const HomeHero = () => {
                 <p className='text-sm pl-4'>{item.description}</p>
               </div>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
 
@@ -170,6 +173,32 @@ const HomeHero = () => {
           <FaAngleRight className='mt-1 group-hover:translate-x-2 duration-200' />
         </button>
       </div>
+
+      <div>
+        <h3 className='text-3xl font-bold text-center mt-56'>PRODUCTS</h3>
+      </div>
+
+      <div className='grid md:grid-cols-2 h-fit lg:grid-cols-3 gap-8 mt-8 mx-auto w-full'>
+        {products.map((item) => (
+          <div
+            key={item.id}
+            onClick={() => navigateTo(item.link)}
+            className='max-w-sm group border border-yellow-500 dark:border-blue-600 hover:scale-105 mx-auto cursor-pointer rounded-2xl flex justify-between dark:hover:bg-gray-900 hover:bg-gray-100 duration-300 transition-all p-4'
+          >
+            <div className='flex-[0.95]'>
+              <div className='flex justify-start gap-3'>
+                <h2 className='text-xl font-semibold mb-2'>{item.name}</h2>
+                <FaAngleRight className='mt-2 hidden group-hover:flex duration-300' size={14} />
+              </div>
+              <div className='flex justify-start gap-3'>
+                {/* Add some horizontal line with circle at the bottom */}
+                <p className='text-sm pl-4'>{item.description}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
     </div>
   );
 };
