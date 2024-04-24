@@ -31,7 +31,7 @@ const Contributors = () => {
 
   return (
     <div>
-      <h2 className='text-center font-semibold text-2xl'>Special thanks to all contributers:</h2>
+      {/* <h2 className='text-center font-semibold text-2xl'>Special thanks to all contributers:</h2>
       <div className='flex justify-center mt-12'>
         {contributers.map(user => (
           <div key={user.id} className='p-4'>
@@ -40,7 +40,7 @@ const Contributors = () => {
             </a>
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   )
 }
