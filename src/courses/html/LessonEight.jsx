@@ -66,7 +66,7 @@ const LessonEight = () => {
       </article>
 
       <div className='flex flex-col mb-10 gap-2'>
-        <button onClick={() => navigate('/projects/html/semantically-laid-website')} className='bg-green-500 py-2 px-12 rounded-lg font-bold justify-center items-center'>TRY OUT PROJECT</button>
+        <button className='bg-green-500 py-2 px-12 rounded-lg font-bold justify-center items-center cursor-not-allowed'>NO PROJECT YET</button>
         <button onClick={() => setQuestions(true)} className='bg-green-500 py-2 px-12 rounded-lg font-bold justify-center items-center'> {questions ? 'IN PROGRESS....' : 'COMPLETE QUIZ'} </button>
       </div>
 

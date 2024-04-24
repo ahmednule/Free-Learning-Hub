@@ -1,3 +1,232 @@
 [
-  
+  {
+    "id": 1,
+    "question": "What HTML tag is commonly used to embed images?",
+    "correct": 1,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "<img>"
+      },
+      {
+        "id": 2,
+        "answer": "<div>"
+      },
+      {
+        "id": 3,
+        "answer": "<a>"
+      },
+      {
+        "id": 4,
+        "answer": "<p>"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "question": "How do you specify the source (URL) of an image in HTML?",
+    "correct": 1,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "Using the src attribute"
+      },
+      {
+        "id": 2,
+        "answer": "Using the href attribute"
+      },
+      {
+        "id": 3,
+        "answer": "Using the link attribute"
+      },
+      {
+        "id": 4,
+        "answer": "Using the url attribute"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "question": "What attribute is used to provide alternate text for an image?",
+    "correct": 4,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "src"
+      },
+      {
+        "id": 2,
+        "answer": "title"
+      },
+      {
+        "id": 3,
+        "answer": "href"
+      },
+      {
+        "id": 4,
+        "answer": "alt"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "question": "What attribute is used to specify the width of an image?",
+    "correct": 3,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "height"
+      },
+      {
+        "id": 2,
+        "answer": "size"
+      },
+      {
+        "id": 3,
+        "answer": "width"
+      },
+      {
+        "id": 4,
+        "answer": "length"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "question": "What attribute is used to specify the height of an image?",
+    "correct": 1,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "height"
+      },
+      {
+        "id": 2,
+        "answer": "size"
+      },
+      {
+        "id": 3,
+        "answer": "width"
+      },
+      {
+        "id": 4,
+        "answer": "length"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "question": "How do you make an image clickable in HTML?",
+    "correct": 3,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "Using the img attribute"
+      },
+      {
+        "id": 2,
+        "answer": "Using the alt attribute"
+      },
+      {
+        "id": 3,
+        "answer": "Wrapping it in an anchor tag (<a>)"
+      },
+      {
+        "id": 4,
+        "answer": "Using the href attribute"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "question": "What CSS style is commonly used to make images responsive?",
+    "correct": 4,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "width: 100%;"
+      },
+      {
+        "id": 2,
+        "answer": "height: auto;"
+      },
+      {
+        "id": 3,
+        "answer": "max-width: auto;"
+      },
+      {
+        "id": 4,
+        "answer": "max-width: 100%;"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "question": "How do you enable lazy loading for an image in HTML?",
+    "correct": 1,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "Using the loading=\"lazy\" attribute"
+      },
+      {
+        "id": 2,
+        "answer": "Using the lazy=\"true\" attribute"
+      },
+      {
+        "id": 3,
+        "answer": "Using the lazy-loading=\"true\" attribute"
+      },
+      {
+        "id": 4,
+        "answer": "Using the load=\"lazy\" attribute"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "question": "What image format supports transparent backgrounds?",
+    "correct": 2,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "JPG"
+      },
+      {
+        "id": 2,
+        "answer": "PNG"
+      },
+      {
+        "id": 3,
+        "answer": "GIF"
+      },
+      {
+        "id": 4,
+        "answer": "SVG"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "question": "What image format is commonly used for vector graphics?",
+    "correct": 4,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "JPG"
+      },
+      {
+        "id": 2,
+        "answer": "PNG"
+      },
+      {
+        "id": 3,
+        "answer": "GIF"
+      },
+      {
+        "id": 4,
+        "answer": "SVG"
+      }
+    ]
+  }
 ]
