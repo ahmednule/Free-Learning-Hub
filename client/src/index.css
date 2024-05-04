@@ -14,5 +14,6 @@ body {
   @apply w-[10px] bg-slate-200 rounded-3xl p-[2px];
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-slate-900 rounded-3xl m-[2px];
+  @apply bg-slate-900 rounded-3xl;
+  margin-left: 2px;
 }
