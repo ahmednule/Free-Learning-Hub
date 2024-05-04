@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 
 // DEFAULT ROUTE
-app.get('/api', (req, res) => {
+app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
