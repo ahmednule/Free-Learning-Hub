@@ -47,7 +47,7 @@ const LoginComponent = () => {
         <div className='mt-5'>
           <button className='flex justify-center w-full gap-3 bg-blue-500/5 border border-blue-500/15 hover:bg-blue-500/10 hover:border-blue-500/20 duration-200 cursor-pointer rounded-full py-[6px]'>
             <FcGoogle size={24} />
-            <span>Log In with Google</span>
+            <span>Continue with Google</span>
           </button>
         </div>
       </form>
