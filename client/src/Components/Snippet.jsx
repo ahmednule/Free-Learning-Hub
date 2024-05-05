@@ -14,25 +14,7 @@ const Snippet = (props) => {
     setTimeout(() => {
       setCopy(false);
     }, 3000);
-  }
-
-  codeString = `// JavaScript
-const express = require('express');
-const cors = require('cors');
-
-const app = express();
-app.use(cors());
-app.use(express.json())
-
-// DEFAULT ROUTE
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
-
-app.listen(3000, () => {
-  console.log('Hub relaxing on port 3000!');
-});`;
-  lang = 'javascript';
+  };
 
   return (
     
@@ -56,12 +38,12 @@ app.listen(3000, () => {
       </div>
       </div>
       <SyntaxHighlighter
-        language="javascript" 
+        language={lang} 
         style={atomOneDark}
         customStyle={{
           padding: '25px 10px',
           backgroundColor: '#030712',
-          borderRadius: '6px'
+          borderRadius: '6px',
         }}
       >
         {codeString}
