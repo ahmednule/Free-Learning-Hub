@@ -17,3 +17,12 @@ body {
   @apply bg-slate-900 rounded-3xl;
   margin-left: 2px;
 }
+
+/* Custom classes */
+.inputOne {
+  @apply w-full rounded bg-gray-950 h-9 outline-none border border-gray-500 pl-2 mt-2 focus-within:border-blue-500 duration-200;
+}
+
+.linkOne {
+  @apply text-blue-500 hover:text-blue-600 duration-200 cursor-pointer;
+}
