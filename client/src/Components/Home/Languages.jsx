@@ -1,4 +1,4 @@
-import Snippet from "../Snippet"
+import Snippet from "../General/Snippet"
 import Language from "./Language";
 
 const Languages = () => {
