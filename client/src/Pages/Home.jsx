@@ -4,6 +4,7 @@ import Hero from '../Components/Home/Hero'
 import Languages from '../Components/Home/Languages'
 import { TfiPlus } from "react-icons/tfi";
 import Footer from '../Components/Footer';
+import Testimonials from '../Components/Home/Testimonials';
 
 const Home = () => {
   return (
@@ -28,10 +29,13 @@ const Home = () => {
       <div className='mt-32'>
         <Languages />
       </div>
+      <div className='mt-32 px-3'>
+        <Testimonials />
+      </div>
       <div className='mt-32'>
 
       </div>
-      <div className='mt-32'>
+      <div className='mt-32 px-3'>
         <Footer />
       </div>
     </div>

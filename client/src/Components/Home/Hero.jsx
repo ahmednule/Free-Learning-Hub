@@ -4,9 +4,9 @@ const Hero = () => {
   return (
     <div className='flex flex-col lg:flex-row items-center justify-between gap-5 pt-10'>
       <div className='lg:max-w-[45%] flex flex-col gap-5'>
-        <h2 className='text-xl sm:text-3xl lg:text-6xl text-center lg:text-left'><span className='text-blue-500'>Learn Faster</span> with comprehensive tutorials.</h2>
+        <h2 className='text-2xl sm:text-4xl lg:text-6xl text-center lg:text-left'><span className='text-blue-500'>Learn Faster</span> with comprehensive tutorials.</h2>
         <div className=''>
-          <p className='text-center lg:text-left'>Free Learning Hub provides comrehensive tutorials, questions and projects on various programming languages. Take your first step into being getting to know programming by studying with us. Get your hands on tutorals covering:-</p>
+          <p className='text-center text-sm md:text-base lg:text-left'>Free Learning Hub provides comrehensive tutorials, questions and projects on various programming languages. Take your first step into being getting to know programming by studying with us. Get your hands on tutorals covering:-</p>
           <div className='text-blue-500 text-xl w-full flex items-center justify-center lg:justify-start'>
             <ReactTyped
               strings={[

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { FaDiscord, FaGithub } from "react-icons/fa6";
 
 const Footer = () => {
   const [currentYear, setCurrentYear] = useState(0);
@@ -17,12 +18,17 @@ const Footer = () => {
       <div>
         Main Footer Elements
       </div>
-      <div className="border-t border-gray-700 py-8 flex flex-col-reverse md:flex-row">
+      <div className="border-t border-gray-700 py-8 flex flex-col-reverse gap-5 md:justify-between md:flex-row">
         <div className="font-extralight text-xs">
           <p>Copyright &copy; {currentYear} Free Learning Hub</p>
         </div>
-        <div>
-
+        <div className="flex gap-1 text-xl items-center">
+          <a href="https://github.com/developer-assets/Free-Learning-Hub" target="_blank" rel="noreferer" className="p-2 hover:bg-gray-700 duration-200 cursor-pointer rounded-full">
+            <FaGithub />
+          </a>
+          <a href="https://discord.gg/BYDg4NXDZx" target="_blank" rel="noreferer" className="p-2 hover:bg-gray-700 duration-200 cursor-pointer rounded-full">
+            <FaDiscord />
+          </a>
         </div>
       </div>
     </div>
