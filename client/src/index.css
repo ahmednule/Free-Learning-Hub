@@ -11,7 +11,7 @@ body {
 
 /* Scrollbar styles */
 ::-webkit-scrollbar {
-  @apply w-[10px] bg-slate-200 rounded-3xl p-[2px];
+  @apply w-[6px] h-[6px] bg-slate-200 rounded-3xl;
 }
 ::-webkit-scrollbar-thumb {
   @apply bg-slate-900 rounded-3xl;
