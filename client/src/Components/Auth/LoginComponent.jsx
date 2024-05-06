@@ -10,11 +10,29 @@ const LoginComponent = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const [emailError, setEmailError] = useState('');
+
   const emailLogin = (e) => {
     e.preventDefault();
     setIsLoading(true);
 
-  }
+  };
+
+  const emailInput = (e) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const value = e.target.value.trim();
+    setEmail(value);
+    if (!emailRegex.test(value)) {
+      setEmailError('Invalid email address');
+    } else {
+      setEmailError('');
+    }
+  };
+
+  const passwordInput = (e) => {
+    const value = e.target.value.trim();
+    setPassword(value);
+  };
 
   return (
     <div className='w-full flex justify-center'>
@@ -25,14 +43,15 @@ const LoginComponent = () => {
           type="email"
           className='inputOne'
           placeholder='Email'
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={emailInput}
         />
+        <p className='text-red-500 pl-2'>{emailError}</p>
         <div className='inputOne flex justify-between items-center pr-2 gap-2'>
           <input
             type={showPassword ? 'text' : 'password'}
             className='w-full bg-transparent outline-none'
             placeholder='Password'
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={passwordInput}
           />
           <span className='cursor-pointer' onClick={() => setShowPassword(!showPassword)}>
             {showPassword ? <FaEyeSlash /> : <FaEye />}

@@ -88,20 +88,19 @@ export const login = async (req, res) => {
       username: fireUser.data().username,
       photoURL: fireUser.data().photoURL,
     };
-    return res.status(201).json({ message: 'User logged in successfully.', user: userData });
-
+    return res.status(200).json({ message: 'User logged in successfully.', user: userData });
   } catch (err) {
     console.log(err);
     return res.status(400).json({ msg: err.message });
   }
-}
+};
 
-export const logout = async () => {
+export const logout = async (req, res) => {
   try {
     await signOut(auth);
-    return res.status(201).json({ message: 'User logged out successfully.' });
+    return res.status(200).json({ message: 'User logged out successfully.' });
   } catch (err) {
     console.log(err);
     return res.status(400).json({ msg: err.message });
   }
-}
+};

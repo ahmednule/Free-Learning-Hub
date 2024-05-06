@@ -20,3 +20,7 @@ export const fetchUserDataFromCookie = () => {
   }
   return JSON.parse(userDataString);
 };
+
+export const deleteUserCookie = () => {
+  Cookies.remove('currentuserdata', { secure: true });
+};

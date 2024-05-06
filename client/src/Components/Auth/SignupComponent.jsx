@@ -41,9 +41,13 @@ const SignupComponent = () => {
         email,
         password
       });
-      toast.success('Success');
-      saveUserDataToCookie(response.data.user);
-      navigate('/profile');
+      if (response.status === 201){
+        toast.success('User created.');
+        saveUserDataToCookie(response.data.user);
+        navigate('/profile');
+      } else {
+        toast.error('User already exists.');
+      }
     } catch (err) {
       console.log(err);
       toast.error('Error creating user.');
