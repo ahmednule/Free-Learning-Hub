@@ -26,7 +26,7 @@ const Dashboard = () => {
   return (
     <div className='w-full flex flex-col lg:flex-row gap-4'>
       <div className='w-[400px] mx-auto px-3 bg-gray-950 rounded-xl pb-8'>
-        <img src={hasPhoto ? onlinePhotoURL : placeHolderImage} className='w-[320px] mx-auto mt-4 h-[320px] rounded-2xl object-cover' alt="User Profile Picture" />
+        <img src={hasPhoto ? onlinePhotoURL : placeHolderImage} className='w-[320px] mx-auto mt-4 h-[250px] rounded-2xl object-cover' alt="User Profile Picture" />
         <p className='mt-5 pl-5 font-semibold text-2xl'> {userInfo.fullName} </p>
         <div className='mt-10 border-b border-gray-700 w-full'>
           <p className='pl-5 text-green-500'> {userInfo.username} </p>
