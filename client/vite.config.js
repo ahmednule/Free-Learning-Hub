@@ -1,16 +1,29 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react-swc';
 
-// https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [react()],
-  server: { // Set up proxy
-    proxy: {
-      '/api': {
-        target: 'https://free-learning-hub-backend.vercel.app',
-        changeOrigin: true,
-        rewrite: (path) => path
-      }
+export default defineConfig(({ command }) => {
+  const isProduction = command === 'build'; // Check if it's a production build
+
+  const devProxy = {
+    '/api': {
+      target: 'http://localhost:3000',
+      changeOrigin: true,
+      rewrite: (path) => path
     }
-  },
-})
+  };
+
+  const prodProxy = {
+    '/api': {
+      target: 'https://free-learning-hub-backend.vercel.app/',
+      changeOrigin: true,
+      rewrite: (path) => path
+    }
+  };
+
+  return {
+    plugins: [react()],
+    server: {
+      proxy: isProduction ? prodProxy : devProxy
+    }
+  };
+});
