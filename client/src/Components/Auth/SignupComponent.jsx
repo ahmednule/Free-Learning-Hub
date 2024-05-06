@@ -32,7 +32,8 @@ const SignupComponent = () => {
   const emailLoginSender = async () => {
     setIsLoading(true);
     try {
-      const response = await Axios.post('/api/auth/signup',{
+      const url = import.meta.env.VITE_BACKEND_URL + '/api/auth/signup';
+      const response = await Axios.post(url,{
         fullName,
         username,
         email,
