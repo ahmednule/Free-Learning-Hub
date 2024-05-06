@@ -16,7 +16,7 @@ export default defineConfig(({ command }) => {
     '/api': {
       target: 'https://free-learning-hub-backend.vercel.app',
       changeOrigin: true,
-      rewrite: (path) => path
+      rewrite: (path) => path.startsWith('/api') ? path.replace('/api', '') : path
     }
   };
 
