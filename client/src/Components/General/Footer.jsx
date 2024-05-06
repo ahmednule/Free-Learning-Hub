@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FaDiscord, FaGithub } from "react-icons/fa6";
+import { FaDiscord, FaGithub, FaMailchimp } from "react-icons/fa6";
 
 const Footer = () => {
   const [currentYear, setCurrentYear] = useState(0);
@@ -28,6 +28,9 @@ const Footer = () => {
           </a>
           <a href="https://discord.gg/BYDg4NXDZx" target="_blank" rel="noreferer" className="p-2 hover:bg-gray-700 duration-200 cursor-pointer rounded-full">
             <FaDiscord />
+          </a>
+          <a href="mailto:999patrickobama@gmail.com" target="_blank" rel="noreferer" className="p-2 hover:bg-gray-700 duration-200 cursor-pointer rounded-full">
+            <FaMailchimp />
           </a>
         </div>
       </div>
