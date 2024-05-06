@@ -1,13 +1,13 @@
-import { PiFolderStarThin } from "react-icons/pi";
-import { FaAngleRight } from "react-icons/fa6";
-import { TfiPlus } from "react-icons/tfi";
-import { Link } from "react-router-dom";
+import React from 'react'
+import { FaAngleRight } from 'react-icons/fa6';
+import { PiFolderStarThin } from 'react-icons/pi';
 
-const Language = () => {
+const Modules = () => {
   const demoLanguages = [
     {
       id: 1,
       name: "Introduction to HTML & CSS",
+      level: "Begginer",
       description: "This module covers the fundamental building blocks of web development, including HTML for structuring content and CSS for styling"
     },
     {
@@ -23,10 +23,17 @@ const Language = () => {
   ];
 
   return (
-    <div className="flex flex-col gap-3">
+    <div>
+      <div className='mt-10 border-b border-gray-700 flex justify-between'>
+        <p>ALL MODULES</p>
+        <button>SEARCH</button>
+      </div>
+
+      <div className="grid lg:grid-cols-2 gap-3 mt-14 mb-36">
       {demoLanguages.map((lang) => {
         return (
-          <div key={lang.id} className="w-full bg-blue-500/5 border border-blue-500/15 hover:bg-blue-500/10 hover:border-blue-500/20 duration-200 cursor-pointer rounded-2xl flex p-4">
+          <div key={lang.id} className="w-full bg-blue-500/5 border border-blue-500/15 rounded-2xl hover:bg-blue-500/10 hover:border-blue-500/20 duration-200"  >
+          <div className=" cursor-pointer flex p-4">
             <div className="hidden lg:flex-[0.15] lg:flex items-center justify-center">
               <div className="w-14 h-14 bg-blue-500/35 rounded-full flex items-center justify-center text-white">
                 <PiFolderStarThin size={30} />
@@ -41,24 +48,21 @@ const Language = () => {
               </button>
             </div>
           </div>
+
+            <div className='w-[90%] bg-gray-800 rounded-md h-12 mx-auto mb-4 border border-gray-700'>
+              <div className='min-w-[30px] w-fit bg-lime-600 h-full rounded-md'>
+                <p className='text-gray-950 pt-[10px] font-semibold text-center'>
+                  0%
+                </p>
+              </div>
+            </div>
+          </div>
         )
       })}
-      <div className="w-full">
-        <div className="mt-6 bg-blue-500 hover:bg-blue-600 duration-200 mx-auto lg:mx-0 py-2 px-6 rounded text-gray-950 font-semibold w-fit group cursor-pointer">
-          <span className="group-hover:text-gray-800 duration-200">
-            <Link to={'/learn'}>
-              EXPLORE ALL MODULES
-            </Link>
-          </span>
-        </div>
-        <div className="w-full h-20 bg-gradient-to-b mt-14 from-transparent relative to-gray-900 border-b border-gray-600">
-          <div className='hidden md:block absolute bottom-0 left-0 -translate-x-[14px] translate-y-[14px] text-white'>
-            <TfiPlus size={30} />
-          </div>
-        </div>
-      </div>
+      
+    </div>
     </div>
   )
 }
 
-export default Language
+export default Modules
