@@ -14,7 +14,7 @@ export default defineConfig(({ command }) => {
 
   const prodProxy = {
     '/api': {
-      target: 'https://free-learning-hub-backend.vercel.app/',
+      target: 'https://free-learning-hub-backend.vercel.app',
       changeOrigin: true,
       rewrite: (path) => path
     }
