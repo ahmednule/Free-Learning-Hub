@@ -107,7 +107,7 @@ const SignupComponent = () => {
           type="text"
           className='inputOne'
           placeholder='Full Name'
-          value={fullName}
+          // value={fullName}
           onChange={fullNameInput}
         />
         <p className='text-red-500 pl-2'>{fullNameError}</p>
