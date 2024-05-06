@@ -21,17 +21,17 @@ const SignupComponent = () => {
   const [fullNameError, setFullNameError] = useState('');
   const [usernameError, setUsernameError] = useState('');
 
-  const emailLogin = (e) => {
+  const emailSignup = (e) => {
     e.preventDefault();
 
     if (!emailError && !passwordError && !fullNameError && !usernameError && email && password && fullName && username) {
-      emailLoginSender();
+      emailSingupSender();
     } else {
       toast.error('Invalid user data.');
     }
   };
 
-  const emailLoginSender = async () => {
+  const emailSingupSender = async () => {
     setIsLoading(true);
     try {
       const url = import.meta.env.VITE_BACKEND_URL + '/api/auth/signup';
@@ -107,6 +107,7 @@ const SignupComponent = () => {
           type="text"
           className='inputOne'
           placeholder='Full Name'
+          value={fullName}
           onChange={fullNameInput}
         />
         <p className='text-red-500 pl-2'>{fullNameError}</p>
@@ -114,6 +115,7 @@ const SignupComponent = () => {
           type="text"
           className='inputOne'
           placeholder='Username'
+          value={username}
           onChange={usernameInput}
         />
         <p className='text-red-500 pl-2'>{usernameError}</p>
@@ -121,6 +123,7 @@ const SignupComponent = () => {
           type="email"
           className='inputOne'
           placeholder='Email'
+          value={email}
           onChange={emailInput}
         />
         <p className='text-red-500 pl-2'>{emailError}</p>
@@ -129,6 +132,7 @@ const SignupComponent = () => {
             type={showPassword ? 'text' : 'password'}
             className='w-full bg-transparent outline-none'
             placeholder='Password'
+            value={password}
             onChange={passwordInput}
           />
           <span className='cursor-pointer' onClick={() => setShowPassword(!showPassword)}>
@@ -136,7 +140,7 @@ const SignupComponent = () => {
           </span>
         </div>
         <p className='text-red-500 pl-2'>{passwordError}</p>
-        <button onClick={emailLogin} className='h-9 w-full bg-green-500 rounded mt-2 text-gray-950 font-semibold hover:bg-green-600 hover:text-gray-900 duration-200'>
+        <button onClick={emailSignup} className='h-9 w-full bg-green-500 rounded mt-2 text-gray-950 font-semibold hover:bg-green-600 hover:text-gray-900 duration-200'>
           {isLoading? <CgSpinnerTwoAlt className='animate-spin mx-auto' size={24} /> : 'Sign Up'}
         </button>
         <p className='mt-3 text-sm'>Already have an account? <span className='linkOne'><Link to={'/login'}>Log In</Link></span></p>
@@ -148,7 +152,7 @@ const SignupComponent = () => {
         </div> */}
 
         {/* <div className='mt-5'>
-          <button className='flex justify-center w-full gap-3 bg-blue-500/5 border border-blue-500/15 hover:bg-blue-500/10 hover:border-blue-500/20 duration-200 cursor-pointer rounded-full py-[6px]'>
+          <button onClick={continueWithGoogle} className='flex justify-center w-full gap-3 bg-blue-500/5 border border-blue-500/15 hover:bg-blue-500/10 hover:border-blue-500/20 duration-200 cursor-pointer rounded-full py-[6px]'>
             <FcGoogle size={24} />
             <span>Continue with Google</span>
           </button>

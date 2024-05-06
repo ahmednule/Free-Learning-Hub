@@ -1,6 +1,50 @@
 import { auth, provider, db } from '../Config/firebase.js';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
-import { doc, setDoc, getDoc } from 'firebase/firestore';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup } from 'firebase/auth';
+import { doc, setDoc, getDoc, query, where, getDocs } from 'firebase/firestore';
+
+const generateUsername = (email, displayName) => {
+  const emailUsername = email.split('@')[0].toLowerCase().replace('.', '');
+  const displayNameUsername = displayName.split(' ')[0].toLowerCase();
+  const randomString = Math.random().toString(36).substring(2, 7);
+  const username = emailUsername + displayNameUsername + randomString;
+  return username;
+};
+
+export const signupWithGoogle = async (req, res) => {
+  try {
+    const googleResponse = await signInWithPopup(auth, provider);
+
+    if (!googleResponse || !googleResponse.user || !googleResponse.user.uid) {
+      return res.status(401).json({ msg: 'Google authentication failed.' });
+    }
+
+    const { uid, displayName, email, photoURL } = googleResponse.user;
+    const username = generateUsername(email, displayName);
+
+    // Check if the user exists in Firestore
+    const userQuery = query(db, 'users', where('uid', '==', uid));
+    const querySnapshot = await getDocs(userQuery);
+
+    if (!querySnapshot.empty) {
+      // User exists, fetch user data
+      const userDoc = querySnapshot.docs[0];
+      const userData = userDoc.data();
+      return res.status(200).json({ message: 'User logged in with Google.', user: userData });
+    } else {
+      // User doesn't exist, create a new user
+      const userDocRef = doc(db, 'users', uid);
+      const fireUser = await setDoc(userDocRef, {
+        fullName: fullName,
+        username: username,
+        photoURL: photoURL || "newUser.jpg",
+      });
+      return res.status(201).json({ message: 'User signed up with Google.', user: newUser });
+    }
+  } catch (error) {
+    console.error('Google authentication error:', error.message);
+    return res.status(500).json({ msg: 'Internal server error.' });
+  }
+};
 
 export const signup = async (req, res) => {
   const { fullName, username, email, password } = req.body;
@@ -75,7 +119,7 @@ export const login = async (req, res) => {
     const response = await signInWithEmailAndPassword(auth, email, password);
 
     if (!response || !response.user || !response.user.uid) {
-      return res.status(500).json({ msg: 'Invalid email or password.' });
+      return res.status(401).json({ msg: 'Invalid email or password.' });
     }
 
     const { uid } = response.user;

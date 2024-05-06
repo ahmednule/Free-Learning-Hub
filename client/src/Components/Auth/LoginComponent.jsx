@@ -1,10 +1,14 @@
 import { useState } from 'react'
 import { FaEye, FaEyeSlash } from 'react-icons/fa6'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { CgSpinnerTwoAlt } from "react-icons/cg";
 import { FcGoogle } from "react-icons/fc";
+import toast from 'react-hot-toast';
+import Axios from 'axios';
+import { saveUserDataToCookie } from '../../Helpers/handlecookie';
 
 const LoginComponent = () => {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [email, setEmail] = useState('');
@@ -14,8 +18,35 @@ const LoginComponent = () => {
 
   const emailLogin = (e) => {
     e.preventDefault();
-    setIsLoading(true);
 
+    if (!emailError && email) {
+      emailLoginSender();
+    } else {
+      toast.error('Invalid user data.');
+    }
+  };
+
+  const emailLoginSender = async () => {
+    setIsLoading(true);
+    const url = import.meta.env.VITE_BACKEND_URL + '/api/auth/login';
+    try {
+      const response = await Axios.post(url,{
+        email,
+        password
+      });
+      if (response.status === 200){
+        toast.success('Logged in successfully.');
+        saveUserDataToCookie(response.data.user);
+        navigate('/profile');
+      } else {
+        toast.error('Wrong email or password.');
+      }
+    } catch (err) {
+      console.log(err);
+      toast.error('Error logging in.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const emailInput = (e) => {
@@ -43,6 +74,7 @@ const LoginComponent = () => {
           type="email"
           className='inputOne'
           placeholder='Email'
+          value={email}
           onChange={emailInput}
         />
         <p className='text-red-500 pl-2'>{emailError}</p>
@@ -51,6 +83,7 @@ const LoginComponent = () => {
             type={showPassword ? 'text' : 'password'}
             className='w-full bg-transparent outline-none'
             placeholder='Password'
+            value={password}
             onChange={passwordInput}
           />
           <span className='cursor-pointer' onClick={() => setShowPassword(!showPassword)}>
@@ -63,18 +96,18 @@ const LoginComponent = () => {
         </button>
         <p className='mt-3 text-sm'>Don't have an account? <span className='linkOne'><Link to={'/signup'}>Sign Up</Link></span></p>
 
-        <div className='mt-12 flex justify-center items-center gap-3'>
+        {/* <div className='mt-12 flex justify-center items-center gap-3'>
           <hr className='w-[45%] h-[1px] border-none bg-gray-700' />
           <span>OR</span>
           <hr className='w-[45%] h-[1px] border-none bg-gray-700' />
-        </div>
+        </div> */}
 
-        <div className='mt-5'>
+        {/* <div className='mt-5'>
           <button className='flex justify-center w-full gap-3 bg-blue-500/5 border border-blue-500/15 hover:bg-blue-500/10 hover:border-blue-500/20 duration-200 cursor-pointer rounded-full py-[6px]'>
             <FcGoogle size={24} />
             <span>Continue with Google</span>
           </button>
-        </div>
+        </div> */}
       </form>
 
     </div>
