@@ -3,6 +3,7 @@ import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import Signup from "../Pages/Signup";
 import Learn from "../Pages/Learn";
+import Profile from "../Pages/Profile";
 
 export const  landingRoutes = createHashRouter([
   {
@@ -20,5 +21,9 @@ export const  landingRoutes = createHashRouter([
   {
     path: "/learn",
     element: <Learn />
+  },
+  {
+    path: '/profile',
+    element: <Profile />
   }
 ]);

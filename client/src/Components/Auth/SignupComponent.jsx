@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import { FaEye, FaEyeSlash } from 'react-icons/fa6'
-import { Await, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { CgSpinnerTwoAlt } from "react-icons/cg";
 import { FcGoogle } from "react-icons/fc";
 import toast from 'react-hot-toast';
 import Axios from 'axios';
+import { saveUserDataToCookie } from '../../Helpers/handlecookie.js';
 
 const SignupComponent = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -40,6 +41,9 @@ const SignupComponent = () => {
         password
       });
       toast.success('Success');
+
+      saveUserDataToCookie(response.data.user);
+
     } catch (err) {
       console.log(err);
       toast.error('Error creating user.');

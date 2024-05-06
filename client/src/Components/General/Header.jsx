@@ -1,8 +1,24 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { fetchUserDataFromCookie } from '../../Helpers/handlecookie.js';
+import placeHolderImage from '../../Images/userImage.jpg';
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [hasPhoto, setHasPhoto] = useState(false);
+  const [onlinePhotoURL, setOnlinePhotoURL] = useState('');
+
+  useEffect(() => {
+    const userData = fetchUserDataFromCookie();
+    if (userData) {
+      setIsLoggedIn(true);
+      if (userData.photoURL !== 'newUser.jpg') {
+        setHasPhoto(true);
+      }
+      setOnlinePhotoURL(userData.photoURL);
+    };
+    
+  }, [])
 
   return (
     <div>
@@ -15,7 +31,11 @@ const Header = () => {
         <div>
           {
             isLoggedIn ? (
-                <p>Profile Placeholder</p>
+                <div>
+                  <Link to={'/profile'}>
+                    <img src={hasPhoto ? onlinePhotoURL : placeHolderImage} className='h-8 w-8 border border-gray-700 object-cover rounded-full' alt="" />
+                  </Link>
+                </div>
             ) : (
               <div className='border border-gray-700 py-1 px-6 rounded-md hover:bg-gray-900 duration-200 cursor-pointer'>
                 <Link to={'/login'} >
