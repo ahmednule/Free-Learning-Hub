@@ -16,7 +16,7 @@ const Account = () => {
         toast.success('Logged out successfully');
         navigate('/login');
       } else {
-        toast.error('Error logging uuu out');
+        toast.error('Error logging out');
       }
     } catch (err) {
       console.log(err);
@@ -36,7 +36,6 @@ const Account = () => {
         </button>
 
       </div>
-
     </div>
   )
 }
