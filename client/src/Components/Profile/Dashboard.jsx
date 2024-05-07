@@ -10,23 +10,6 @@ const Dashboard = () => {
   const [userInfo, setUserInfo] = useState({});
   const [hasPhoto, setHasPhoto] = useState(false);
   const [onlinePhotoURL, setOnlinePhotoURL] = useState('');
-
-  const logout = async () => {
-    try {
-      const url = import.meta.env.VITE_BACKEND_URL + '/api/auth/logout';
-      const response = await Axios.post(url);
-      if (response.status === 200) {
-        deleteUserCookie();
-        toast.success('Logged out successfully');
-        navigate('/login');
-      } else {
-        toast.error('Error logging uuu out');
-      }
-    } catch (err) {
-      console.log(err);
-      toast.error('Error logging out');
-    }
-  };
   
   useEffect(() => {
     const userData = fetchUserDataFromCookie();
@@ -57,8 +40,6 @@ const Dashboard = () => {
       </div>
       <div className='w-full'>
         <div className='w-full h-44 bg-gray-950 rounded-xl'>
-          <button onClick={logout} className='text-red-500'>Logout</button>
-
         </div>
         <div className='w-full mt-5 h-44 bg-gray-950 rounded-xl'>
 

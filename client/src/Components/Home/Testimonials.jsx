@@ -1,6 +1,7 @@
 import testOne from '../../Images/testOne.jpg';
 import testTwo from '../../Images/testTwo.jpg';
 import testThree from '../../Images/testThree.jpg';
+import { FaQuoteLeft } from 'react-icons/fa6';
 
 const Testimonials = () => {
   const reviews = [
@@ -39,7 +40,10 @@ const Testimonials = () => {
               <img src={review.image} alt="" className='w-24 h-24 rounded-full object-cover mx-auto mt-4' />
               <p className='text-xl text-center mt-3'> {review.name} </p>
               <p className='italic text-center text-blue-500'> {review.occupation} </p>
-              <p className='text-gray-500 mt-6'> {review.testimonial} </p>
+              <div className='bg-blue-500/5 border mt-8 border-blue-500/15 hover:bg-blue-500/10 hover:border-blue-500/20 duration-200 cursor-pointer rounded-full mx-auto w-fit p-4'>
+                <FaQuoteLeft />
+              </div>
+              <p className='text-gray-500 mt-2'> {review.testimonial} </p>
             </div>
           )
         })}
