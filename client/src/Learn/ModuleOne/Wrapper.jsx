@@ -5,7 +5,7 @@ import htmlTopics from '../../Data/HtmlTopics.json'
 import { useLocation } from 'react-router-dom'
 import { LuLoader2 } from "react-icons/lu";
 
-const LessonOne = React.lazy(() => import('./Lessons/LessonOne'));
+const LessonOne = React.lazy(() => import('./LessonOne/LessonOne'));
 
 const Wrapper = () => {
   const [lessonId, setLessonId] = useState('');
