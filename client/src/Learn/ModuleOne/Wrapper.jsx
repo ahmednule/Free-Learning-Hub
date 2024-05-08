@@ -5,6 +5,7 @@ import htmlTopics from '../../Data/HtmlTopics.json'
 import { useLocation } from 'react-router-dom'
 import { LuLoader2 } from "react-icons/lu";
 import Footer from '../../Components/General/Footer'
+import LessonTwo from './LessonTwo/LessonTwo'
 
 const LessonOne = React.lazy(() => import('./LessonOne/LessonOne'));
 
@@ -40,6 +41,7 @@ const Wrapper = () => {
               </div>
             </div>}>
               {lessonId === 'basic-elements' && <LessonOne />}
+              {lessonId === 'text-formating' && <LessonTwo />}
             </Suspense>
             <div className='mt-32'>
               <Footer />

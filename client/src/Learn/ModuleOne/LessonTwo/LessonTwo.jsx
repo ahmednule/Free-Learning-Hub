@@ -4,7 +4,7 @@ import Quiz from '../../../Components/Modules/Quiz';
 import questions from './Quiz.json'
 import Subfooter from '../../../Components/Modules/Subfooter';
 
-const LessonOne = () => {
+const LessonTwo = () => {
   const [activeTab, setActiveTab] = useState(1);
 
   const videoId = 'ScMzIvxBSi4';
@@ -33,7 +33,7 @@ const LessonOne = () => {
           t1='ALL MODULES'
           l1='/learn'
           t2='Text Formating'
-          l2='/learn/html-css/text-formating'
+          l2='/learn/html-css/text-formatting'
           edit='https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/LessonOne'
         />
       </div>
@@ -41,4 +41,4 @@ const LessonOne = () => {
   )
 }
 
-export default LessonOne
+export default LessonTwo

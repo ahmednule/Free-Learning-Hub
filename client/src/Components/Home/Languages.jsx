@@ -35,6 +35,7 @@ app.listen(3000, () => {
           <Snippet
             codeString={codeString}
             lang="javascript"
+            title='JavaScript'
           />
         </div>
       </div>

@@ -7,7 +7,7 @@ const Subfooter = (props) => {
 
   return (
     <div>
-      <div className='flex flex-col md:flex-row w-full gap-3 md:justify-between '>
+      <div className='flex flex-col md:flex-row w-full gap-3 md:justify-between'>
         <Link to={l1} className='block w-full'>
           <button className='flex group justify-center w-full md:w-fit duration-200 transition-all bg-blue-500/15 border border-blue-500/25 hover:bg-blue-500/20 hover:border-blue-500/30 py-2 rounded-lg px-5 gap-2'>
             <span>
@@ -26,7 +26,7 @@ const Subfooter = (props) => {
         </Link>
       </div>
       <p className='linkOne mt-10'>
-        <Link to={edit}>Edit this page on GitHub</Link>
+        <a href={edit} target='_blank' rel='noreferer'>Edit this page on GitHub</a>
       </p>
     </div>
   )

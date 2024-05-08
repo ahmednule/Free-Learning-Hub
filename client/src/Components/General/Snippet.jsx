@@ -5,7 +5,7 @@ import { FiClipboard } from "react-icons/fi";
 import { TiTick } from "react-icons/ti";
 
 const Snippet = (props) => {
-  let { codeString, lang } = props;
+  let { codeString, lang, title } = props;
   const [copy, setCopy] = useState(false);
 
   const copyCode = () => {
@@ -17,10 +17,9 @@ const Snippet = (props) => {
   };
 
   return (
-    
-    <div className='rounded-[6px] border border-gray-700 mb-32 overflow-hidden mx-2'>
+    <div className='rounded-[6px] border border-gray-700 overflow-hidden mx-2'>
       <div className='bg-slate-800 h-10 rounded-t-[6px] flex items-center justify-between px-3'>
-      <p>JavaScript Code</p>
+      <p>{title} Code</p>
       <div className='cursor-pointer'>
       {
         copy? (
@@ -41,7 +40,7 @@ const Snippet = (props) => {
         language={lang} 
         style={atomOneDark}
         customStyle={{
-          padding: '25px 10px',
+          padding: '15px 10px',
           backgroundColor: '#030712',
           borderRadius: '6px',
         }}

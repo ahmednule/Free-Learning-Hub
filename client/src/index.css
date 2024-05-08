@@ -26,3 +26,7 @@ body {
 .linkOne {
   @apply text-blue-500 hover:text-blue-600 duration-200 cursor-pointer;
 }
+
+.code {
+  @apply text-sm border border-b-2 border-gray-500 rounded-md cursor-default mx-1;
+}
