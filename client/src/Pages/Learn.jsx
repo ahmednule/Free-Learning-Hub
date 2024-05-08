@@ -1,6 +1,6 @@
 import Footer from '../Components/General/Footer'
 import Header from '../Components/General/Header'
-import Modules from '../Components/General/Modules'
+import Modules from '../Components/Modules/Modules'
 
 const Learn = () => {
   return (

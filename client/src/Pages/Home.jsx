@@ -5,6 +5,7 @@ import Languages from '../Components/Home/Languages'
 import { TfiPlus } from "react-icons/tfi";
 import Footer from '../Components/General/Footer';
 import Testimonials from '../Components/Home/Testimonials';
+import Newsletter from '../Components/Home/Newsletter';
 
 const Home = () => {
   return (
@@ -29,7 +30,10 @@ const Home = () => {
       <div className='mt-32'>
         <Languages />
       </div>
-      <div className='mt-32 px-3'>
+      <div className='px-3 mt-32'>
+        <Newsletter />
+      </div>
+      <div className='px-3'>
         <Testimonials />
       </div>
       <div className='mt-32'>

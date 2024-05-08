@@ -30,7 +30,6 @@ const Testimonials = () => {
 
   return (
     <div className="bg-gradient-to-b from-gray-900 via-gray-950 to-gray-900 px-2 py-5">
-      <h2 className="text-blue-500">Testimonials</h2>
       <p className="text-xl sm:text-2xl text-center underline underline-offset-[30px] mb-10 md:text-4xl">What Our Users Say</p>
       <p className="text-center mt-20">Get to know why our users like our <br /> services and why they recommend us.</p>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 mt-20 pb-28 mx-auto">

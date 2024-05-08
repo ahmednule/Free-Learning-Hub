@@ -2,29 +2,12 @@ import { PiFolderStarThin } from "react-icons/pi";
 import { FaAngleRight } from "react-icons/fa6";
 import { TfiPlus } from "react-icons/tfi";
 import { Link } from "react-router-dom";
+import { allModules } from '../../Data/Modules.js'
 
 const Language = () => {
-  const demoLanguages = [
-    {
-      id: 1,
-      name: "Introduction to HTML & CSS",
-      description: "This module covers the fundamental building blocks of web development, including HTML for structuring content and CSS for styling"
-    },
-    {
-      id: 2,
-      name: "Python Basics",
-      description: "This module provides an introduction to Python programming language, covering basic syntax, data types, and control structures."
-    },
-    {
-      id: 3,
-      name: "Introduction to JavaScript",
-      description: "This module introduces the JavaScript programming language, covering basic concepts such as variables, functions, and control flow."
-    }
-  ];
-
   return (
     <div className="flex flex-col gap-3">
-      {demoLanguages.map((lang) => {
+      {allModules.map((lang) => {
         return (
           <div key={lang.id} className="w-full bg-blue-500/5 border border-blue-500/15 hover:bg-blue-500/10 hover:border-blue-500/20 duration-200 cursor-pointer rounded-2xl flex p-4">
             <div className="hidden lg:flex-[0.15] lg:flex items-center justify-center">

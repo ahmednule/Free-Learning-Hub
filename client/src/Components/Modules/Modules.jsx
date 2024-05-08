@@ -1,36 +1,13 @@
 import React from 'react'
 import { FaAngleRight } from 'react-icons/fa6';
 import { PiFolderStarThin } from 'react-icons/pi';
+import { allModules } from '../../Data/Modules.js'
 
 const Modules = () => {
-  const demoLanguages = [
-    {
-      id: 1,
-      name: "Introduction to HTML & CSS",
-      level: "Begginer",
-      description: "This module covers the fundamental building blocks of web development, including HTML for structuring content and CSS for styling"
-    },
-    {
-      id: 2,
-      name: "Python Basics",
-      description: "This module provides an introduction to Python programming language, covering basic syntax, data types, and control structures."
-    },
-    {
-      id: 3,
-      name: "Introduction to JavaScript",
-      description: "This module introduces the JavaScript programming language, covering basic concepts such as variables, functions, and control flow."
-    }
-  ];
-
   return (
     <div>
-      <div className='mt-10 border-b border-gray-700 flex justify-between'>
-        <p>ALL MODULES</p>
-        <button>SEARCH</button>
-      </div>
-
       <div className="grid lg:grid-cols-2 gap-3 mt-14 mb-36">
-      {demoLanguages.map((lang) => {
+      {allModules.map((lang) => {
         return (
           <div key={lang.id} className="w-full bg-blue-500/5 border border-blue-500/15 rounded-2xl hover:bg-blue-500/10 hover:border-blue-500/20 duration-200"  >
           <div className=" cursor-pointer flex p-4">
