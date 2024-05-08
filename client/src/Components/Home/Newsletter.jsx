@@ -13,7 +13,6 @@ const Newsletter = () => {
           />
           <button className='h-9 mt-[7px] px-6 hover:bg-green-600 duration-200 hover:text-gray-950 bg-green-500 rounded-md'>Subscribe</button>
         </div>
-        
       </div>
     </div>
   )

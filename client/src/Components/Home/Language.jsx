@@ -18,10 +18,12 @@ const Language = () => {
             <div className="lg:flex-[0.85] flex-1 flex flex-col justify-start gap-2">
               <p className="font-semibold text-left text-xl"> {lang.name} </p>
               <p className="text-xs lg:text-sm"> {lang.description} </p>
-              <button className="mr-auto flex items-center gap-[5px] text-blue-500 group">
-                <span>Get Started</span>
-                <FaAngleRight className="group-hover:translate-x-1 duration-200 mt-[1px]" />
-              </button>
+              <Link to={`/learn/register/${lang.id}`}>
+                <button className="mr-auto flex items-center gap-[5px] text-blue-500 group">
+                  <span>Get Started</span>
+                  <FaAngleRight className="group-hover:translate-x-1 duration-200 mt-[1px]" />
+                </button>
+              </Link>
             </div>
           </div>
         )
