@@ -17,24 +17,24 @@ const Snippet = (props) => {
   };
 
   return (
-    <div className='rounded-[6px] border border-gray-700 overflow-hidden mx-2'>
+    <div className='rounded-[6px] border w-[90vw] md:w-full container border-gray-700 overflow-hidden'>
       <div className='bg-slate-800 h-10 rounded-t-[6px] flex items-center justify-between px-3'>
-      <p>{title} Code</p>
-      <div className='cursor-pointer'>
-      {
-        copy? (
-          <div className='flex justify-end text-green-500 items-center gap-1'>
-            <TiTick size={20} />
-            <p>Copied!</p>
-          </div>
-        ) : (
-          <div onClick={copyCode} className='flex justify-end items-center gap-1'>
-            <FiClipboard size={20} />
-            <p>Copy</p>
-          </div>
-        )
-      }
-      </div>
+        <p>{title} Code</p>
+        <div className='cursor-pointer'>
+        {
+          copy? (
+            <div className='flex justify-end text-green-500 items-center gap-1'>
+              <TiTick size={20} />
+              <p>Copied!</p>
+            </div>
+          ) : (
+            <div onClick={copyCode} className='flex justify-end items-center gap-1'>
+              <FiClipboard size={20} />
+              <p>Copy</p>
+            </div>
+          )
+        }
+        </div>
       </div>
       <SyntaxHighlighter
         language={lang} 

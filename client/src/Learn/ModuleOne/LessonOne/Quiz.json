@@ -1,116 +1,231 @@
 [
   {
     "id": 1,
-    "question": "What is the main purpose of HTML?",
+    "question": "What does the <!DOCTYPE html> declaration specify?",
     "correct": 1,
     "choices": [
       {
         "id": 1,
-        "answer": "Structure web pages"
+        "answer": "The HTML version being used"
       },
       {
         "id": 2,
-        "answer": "Style web pages"
+        "answer": "The page title"
       },
       {
         "id": 3,
-        "answer": "Execute scripts"
+        "answer": "The character encoding"
       },
       {
         "id": 4,
-        "answer": "Manage databases"
+        "answer": "The document root"
       }
     ]
   },
   {
     "id": 2,
-    "question": "Which language is responsible for styling web pages?",
+    "question": "Which HTML element serves as the root element of an HTML document?",
     "correct": 2,
     "choices": [
       {
         "id": 1,
-        "answer": "HTML"
+        "answer": "<head>"
       },
       {
         "id": 2,
-        "answer": "CSS"
+        "answer": "<html>"
       },
       {
         "id": 3,
-        "answer": "JavaScript"
+        "answer": "<body>"
       },
       {
         "id": 4,
-        "answer": "PHP"
+        "answer": "<!DOCTYPE html>"
       }
     ]
   },
   {
     "id": 3,
-    "question": "How would you describe the relationship between HTML and CSS?",
+    "question": "What is the purpose of the <head> element in HTML?",
     "correct": 3,
     "choices": [
       {
         "id": 1,
-        "answer": "HTML styles elements"
+        "answer": "To define the main content of the page"
       },
       {
         "id": 2,
-        "answer": "CSS provides structure"
+        "answer": "To create a hyperlink"
       },
       {
         "id": 3,
-        "answer": "HTML creates structure, CSS styles it"
+        "answer": "To include meta-information about the document"
       },
       {
         "id": 4,
-        "answer": "CSS creates structure, HTML styles it"
+        "answer": "To display visible content on the page"
       }
     ]
   },
   {
     "id": 4,
-    "question": "What analogy best represents the roles of HTML and CSS?",
-    "correct": 1,
+    "question": "Which element specifies the title of an HTML document?",
+    "correct": 4,
     "choices": [
       {
         "id": 1,
-        "answer": "HTML is the frame, CSS is the paint"
+        "answer": "<head>"
       },
       {
         "id": 2,
-        "answer": "HTML is the paint, CSS is the frame"
+        "answer": "<html>"
       },
       {
         "id": 3,
-        "answer": "HTML is the architect, CSS is the builder"
+        "answer": "<body>"
       },
       {
         "id": 4,
-        "answer": "HTML is the builder, CSS is the architect"
+        "answer": "<title>"
       }
     ]
   },
   {
     "id": 5,
-    "question": "What benefit do developers gain from mastering HTML and CSS?",
+    "question": "What is the main content of an HTML document enclosed within?",
     "correct": 3,
     "choices": [
       {
         "id": 1,
-        "answer": "Creating interactive animations"
+        "answer": "<head>"
       },
       {
         "id": 2,
-        "answer": "Building complex databases"
+        "answer": "<html>"
       },
       {
         "id": 3,
-        "answer": "Crafting visually appealing web pages"
+        "answer": "<body>"
       },
       {
         "id": 4,
-        "answer": "Writing server-side scripts"
+        "answer": "<!DOCTYPE html>"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "question": "Which HTML element is used to create headings?",
+    "correct": 1,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "<h1> to <h6>"
+      },
+      {
+        "id": 2,
+        "answer": "<heading>"
+      },
+      {
+        "id": 3,
+        "answer": "<head>"
+      },
+      {
+        "id": 4,
+        "answer": "<header>"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "question": "Which element represents a paragraph of text in HTML?",
+    "correct": 4,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "<para>"
+      },
+      {
+        "id": 2,
+        "answer": "<text>"
+      },
+      {
+        "id": 3,
+        "answer": "<span>"
+      },
+      {
+        "id": 4,
+        "answer": "<p>"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "question": "What does the <a> element define in HTML?",
+    "correct": 1,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "Hyperlinks"
+      },
+      {
+        "id": 2,
+        "answer": "Images"
+      },
+      {
+        "id": 3,
+        "answer": "Paragraphs"
+      },
+      {
+        "id": 4,
+        "answer": "Lists"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "question": "Which element is used to embed images in HTML?",
+    "correct": 1,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "<img>"
+      },
+      {
+        "id": 2,
+        "answer": "<image>"
+      },
+      {
+        "id": 3,
+        "answer": "<picture>"
+      },
+      {
+        "id": 4,
+        "answer": "<image src=''>"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "question": "Which elements are used to create lists in HTML?",
+    "correct": 1,
+    "choices": [
+      {
+        "id": 1,
+        "answer": "<ul>, <ol>, and <li>"
+      },
+      {
+        "id": 2,
+        "answer": "<list>, <order>, and <item>"
+      },
+      {
+        "id": 3,
+        "answer": "<ul>, <ol>, and <list>"
+      },
+      {
+        "id": 4,
+        "answer": "<unordered>, <ordered>, and <item>"
       }
     ]
   }
