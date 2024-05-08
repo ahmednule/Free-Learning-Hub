@@ -19,7 +19,7 @@ const LessonOne = () => {
           allowFullScreen
         ></iframe>
       </div>
-      <div className='w-full h-10 sticky top-12 bg-gray-900 border-t border-b border-gray-700 mt-10 mb-6 flex justify-around'>
+      <div className='w-full h-10 sticky top-14 bg-gray-900 border-t border-b border-gray-700 mt-10 mb-6 flex justify-around'>
         <button onClick={() => setActiveTab(1)} className={activeTab === 1 ? 'h-full w-full bg-gray-800' : 'h-full w-full'}>TUTORIAL</button>
         <button onClick={() => setActiveTab(2)} className={activeTab === 2 ? 'h-full w-full bg-gray-800' : 'h-full w-full'}>QUIZ</button>
       </div>
