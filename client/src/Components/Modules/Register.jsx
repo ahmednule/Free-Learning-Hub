@@ -2,16 +2,17 @@ import React, { useState, useEffect } from 'react';
 import Header from '../General/Header';
 import Footer from '../General/Footer';
 import { allModules } from '../../Data/Modules.js';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Register = () => {
   const [isValid, setIsValid] = useState(false);
   const [toRegister, setToRegister] = useState(null);
 
+  const location = useLocation();
+
   useEffect(() => {
-    let id = window.location.hash;
-    id = id.split('/');
-    id = id.pop();
+    let id = location.pathname.split('/');
+    id = id[id.length - 1];
 
     if (!isNaN(id)){
       id = Number(id);
@@ -64,7 +65,7 @@ const Register = () => {
         </ul>
         <div className='flex justify-between gap-3 mt-32'>
           <button  className='bg-blue-500 py-2 px-6 rounded-md hover:bg-blue-600 hover:text-gray-950 duration-200'><Link>ALL MODULES</Link></button>
-          <button className='bg-green-500 py-2 px-6 rounded-md hover:bg-green-600 hover:text-gray-950 duration-200'>REGISTER</button>
+          <button className='bg-green-500 py-2 px-6 rounded-md hover:bg-green-600 hover:text-gray-950 duration-200'><Link to={toRegister.linkTwo}>REGISTER</Link></button>
         </div>
       </div>
       <div className='mt-32'>

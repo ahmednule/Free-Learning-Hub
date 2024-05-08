@@ -5,6 +5,7 @@ import Signup from "../Pages/Signup";
 import Learn from "../Pages/Learn";
 import Profile from "../Pages/Profile";
 import Register from "../Components/Modules/Register";
+import Wrapper from "../Learn/ModuleOne/Wrapper";
 
 export const  landingRoutes = createHashRouter([
   {
@@ -24,11 +25,17 @@ export const  landingRoutes = createHashRouter([
     element: <Learn />
   },
   {
-    path: "/learn/register/:lessonID",
+    path: "/learn/register/:moduleID",
     element: <Register />
   },
   {
     path: '/profile',
     element: <Profile />
-  }
+  },
+
+  // Modules routes
+  {
+    path: "/learn/html-css/:lessonID",
+    element: <Wrapper />
+  },
 ]);

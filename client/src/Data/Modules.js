@@ -5,6 +5,8 @@ export const allModules = [
     description: "This module covers the fundamental building blocks of web development, including HTML for structuring content and CSS for styling",
     learningLevel: "Beginner",
     learningLength: "Short to Medium",
+    linkOne: "/learn/html-css",
+    linkTwo: "/learn/html-css/basic-elements",
     objectives: [
       "Understand HTML's role in structuring web content.",
       "Learn the basics of HTML tags and elements.",
@@ -26,6 +28,8 @@ export const allModules = [
     description: "This module provides an introduction to Python programming language, covering basic syntax, data types, and control structures.",
     learningLevel: "Beginner",
     learningLength: "Short to Medium",
+    linkOne: "/learn/html-css",
+    linkTwo: "/learn/html-css/basic-elements",
     objectives: [
       "Learn the fundamentals of the Python programming language.",
       "Understand Python's syntax, data types, and control structures.",
@@ -47,6 +51,8 @@ export const allModules = [
     description: "This module introduces the JavaScript programming language, covering basic concepts such as variables, functions, and control flow.",
     learningLevel: "Beginner to Intermediate",
     learningLength: "Medium",
+    linkOne: "/learn/html-css",
+    linkTwo: "/learn/html-css/basic-elements",
     objectives: [
       "Gain a foundational understanding of JavaScript.",
       "Learn about JavaScript variables, functions, and control flow.",

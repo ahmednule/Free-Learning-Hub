@@ -1,0 +1,235 @@
+[
+  {
+    "id": 1,
+    "name": "Foundational HTML",
+    "topics": [
+      {
+        "id": 1,
+        "name": "Basic Elements",
+        "link": "/learn/html-css/basic-elements"
+      },
+      {
+        "id": 2,
+        "name": "Text Formating",
+        "link": "/learn/html-css/text-formating"
+      },
+      {
+        "id": 3,
+        "name": "HTML Tags & Attributes",
+        "link": "/learn/html-css/html-tags-attributes"
+      },
+      {
+        "id": 4,
+        "name": "Semantic HTML",
+        "link": "/learn/html-css/semantic-html"
+      },
+      {
+        "id": 5,
+        "name": "Link Creation",
+        "link": "/learn/html-css/link-creation"
+      },
+      {
+        "id": 6,
+        "name": "Image Embedding",
+        "link": "/learn/html-css/image-embedding"
+      },
+      {
+        "id": 7,
+        "name": "List Creation",
+        "link": "/learn/html-css/list-creation"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Essential HTML Concepts",
+    "topics": [
+      {
+        "id": 1,
+        "name": "Style Definition",
+        "link": "/learn/html/style-definition"
+      },
+      {
+        "id": 2,
+        "name": "Color Selection",
+        "link": "/learn/html/color-selection"
+      },
+      {
+        "id": 3,
+        "name": "Display Properties",
+        "link": "/learn/html/display-properties"
+      },
+      {
+        "id": 4,
+        "name": "Box Model Concept",
+        "link": "/learn/html/box-model-concept"
+      },
+      {
+        "id": 5,
+        "name": "Font Styling",
+        "link": "/learn/html/font-styling"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Intermediate HTML & CSS",
+    "topics": [
+      {
+        "id": 1,
+        "name": "Class Implementation",
+        "link": "/learn/html/class-implementation"
+      },
+      {
+        "id": 2,
+        "name": "Selector Types",
+        "link": "/learn/html/selector-types"
+      },
+      {
+        "id": 3,
+        "name": "Pseudo-class Usage",
+        "link": "/learn/html/pseudo-class-usage"
+      },
+      {
+        "id": 4,
+        "name": "UI Library Integration",
+        "link": "/learn/html/ui-library-integration"
+      },
+      {
+        "id": 5,
+        "name": "Grid Layout Design",
+        "link": "/learn/html/grid-layout-design"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Tailwind CSS Basics",
+    "topics": [
+      {
+        "id": 1,
+        "name": "Framework Introduction",
+        "link": "/learn/html/framework-introduction"
+      },
+      {
+        "id": 2,
+        "name": "Utility Classes",
+        "link": "/learn/html/utility-classes"
+      },
+      {
+        "id": 3,
+        "name": "Responsive Design with Tailwind",
+        "link": "/learn/html/responsive-design"
+      },
+      {
+        "id": 4,
+        "name": "Component Styling",
+        "link": "/learn/html/component-styling"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Advanced HTML Techniques",
+    "topics": [
+      {
+        "id": 1,
+        "name": "Table Designing",
+        "link": "/learn/html/table-designing"
+      },
+      {
+        "id": 2,
+        "name": "iFrame Embedding",
+        "link": "/learn/html/iframe-embedding"
+      },
+      {
+        "id": 3,
+        "name": "SVG Graphics Integration",
+        "link": "/learn/html/svg-graphics-integration"
+      },
+      {
+        "id": 4,
+        "name": "Video Embedding",
+        "link": "/learn/html/video-embedding"
+      },
+      {
+        "id": 5,
+        "name": "Audio Playback",
+        "link": "/learn/html/audio-playback"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Advanced HTML Techniques",
+    "topics": [
+      {
+        "id": 1,
+        "name": "Responsive Design",
+        "link": "/learn/html/responsive-design"
+      },
+      {
+        "id": 2,
+        "name": "Transition Effects",
+        "link": "/learn/html/transition-effects"
+      },
+      {
+        "id": 3,
+        "name": "Media Query Implementation",
+        "link": "/learn/html/media-query-implementation"
+      },
+      {
+        "id": 4,
+        "name": "Advanced Selector Usage",
+        "link": "/learn/html/advanced-selector-usage"
+      },
+      {
+        "id": 5,
+        "name": "Filter Application",
+        "link": "/learn/html/filter-application"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Expert HTML Skills",
+    "topics": [
+      {
+        "id": 1,
+        "name": "Animation Creation",
+        "link": "/learn/html/animation-creation"
+      },
+      {
+        "id": 2,
+        "name": "Flexbox Mastery",
+        "link": "/learn/html/flexbox-mastery"
+      },
+      {
+        "id": 3,
+        "name": "Custom Variable Utilization",
+        "link": "/learn/html/custom-variable-utilization"
+      },
+      {
+        "id": 4,
+        "name": "3D Transformation Techniques",
+        "link": "/learn/html/3d-transformation-techniques"
+      },
+      {
+        "id": 5,
+        "name": "Pseudo-element Utilization",
+        "link": "/learn/html/pseudo-element-utilization"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Additional Resources",
+    "topics": [
+      {
+        "id": 1,
+        "name": "Contributing Tutorial Submissions",
+        "link": "/resources/contributing-tutorial-submissions"
+      }
+    ]
+  }
+]
