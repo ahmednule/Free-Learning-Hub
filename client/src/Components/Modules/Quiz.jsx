@@ -43,7 +43,7 @@ const Quiz = ({ data }) => {
                 {data[currentQuestion].choices.map((choice) => (
                   <div key={choice.id} className='mb-2'>
                     <button
-                      className='bg-blue-500 hover:bg-blue-700 text-white dark:text-black font-bold py-2 px-4 rounded'
+                      className='bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded'
                       onClick={() => handleAnswerClick(choice.id)}
                     >
                       {choice.answer}

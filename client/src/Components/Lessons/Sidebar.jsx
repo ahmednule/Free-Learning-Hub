@@ -15,7 +15,7 @@ const Sidebar = ({data}) => {
   };
 
   return (
-    <div className='pb-32 pt-6 mr-6'>
+    <div className='pb-32 pt-6 mr-2'>
       {
         lessons.map((lesson) => (
           <div key={lesson.id} className='mt-1'>

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Tutorial from './Tutorial';
 import Quiz from '../../../Components/Modules/Quiz';
 import questions from './Quiz.json'
+import Subfooter from '../../../Components/Modules/Subfooter';
 
 const LessonOne = () => {
   const [activeTab, setActiveTab] = useState(1);
@@ -26,6 +27,16 @@ const LessonOne = () => {
       <div>
         {activeTab === 1 && <Tutorial />}
         {activeTab === 2 && <Quiz data={questions} />}
+      </div>
+      <div>
+        <Subfooter
+          t1='ALL MODULES'
+          l1='/learn'
+          t2='rhrh'
+          l2='hggh'
+          edit='fhhhth'
+        
+        />
       </div>
     </div>
   )

@@ -4,6 +4,7 @@ import Sidebar from '../../Components/Lessons/Sidebar'
 import htmlTopics from '../../Data/HtmlTopics.json'
 import { useLocation } from 'react-router-dom'
 import { LuLoader2 } from "react-icons/lu";
+import Footer from '../../Components/General/Footer'
 
 const LessonOne = React.lazy(() => import('./LessonOne/LessonOne'));
 
@@ -24,22 +25,25 @@ const Wrapper = () => {
         <Header />
       </div>
       {/* Main info */}
-      <div>
+      <div className='pr-3'>
         <div className='grid md:grid-cols-6 gap-5 pt-16 min-h-screen w-full'>
           <div className='hidden md:block col-span-2'>
-            <div className='fixed overflow-y-scroll h-screen'>
+            <div className='fixed overflow-y-scroll h-full'>
               <Sidebar data={htmlTopics} />
             </div>
           </div>
           <div className='pl-2 md:pl-10 lg:pl-0 pt-5 col-span-4'>
             {/* Render the lesson component based on the current lesson ID */}
-            <Suspense fallback={<div className='mx-auto mt-28'>
+            <Suspense className="min-h-screen" fallback={<div className='mx-auto mt-28'>
               <div className="flex-col gap-4 w-full flex items-center justify-center">
                 <LuLoader2 size={40} className='animate-spin' />
               </div>
             </div>}>
               {lessonId === 'basic-elements' && <LessonOne />}
             </Suspense>
+            <div className='mt-32'>
+              <Footer />
+            </div>
           </div>
         </div>
       </div>
