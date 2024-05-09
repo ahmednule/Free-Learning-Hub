@@ -29,7 +29,7 @@ const Mymodules = (props) => {
             <div className="lg:flex-[0.85] flex-1 flex flex-col justify-start gap-2">
               <p className="font-semibold text-left text-xl"> {lang.name} </p>
               <p className="text-xs lg:text-sm"> {lang.description} </p>
-              <Link to={`/learn/register/${lang.id}`}>
+              <Link to={`${lang.linkTwo}`}>
                 <button className="mr-auto flex items-center gap-[5px] text-blue-500 group">
                   <span>Continue learning</span>
                   <FaAngleRight className="group-hover:translate-x-1 duration-200 mt-[1px]" />
