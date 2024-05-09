@@ -21,3 +21,20 @@ export const registerModule = async (req, res) => {
   }
 
 };
+
+export const updateProgress = async (req, res) => {
+  const { uid, module, progress } = req.body;
+
+  try {
+    const userDocRef = doc(db, 'users', uid);
+    const fireUser = await updateDoc(userDocRef, {
+      [`modules.${module}.progress`]: progress
+    });
+
+    return res.status(201).json({ message: 'Progress updated successfully.' });
+    
+  } catch (err) {
+    return res.status(500).json({ msg: 'Something went wrong.' });
+  }
+
+};
