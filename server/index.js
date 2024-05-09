@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 
 import authRoutes from './Routes/Auth.route.js'
+import learnRoutes from './Routes/Learn.route.js'
 
 dotenv.config();
 const app = express();
@@ -18,6 +19,7 @@ app.get('/', (req, res) => {
 
 // USED OR USEFULL ROUTES
 app.use('/api/auth', authRoutes);
+app.use('/api/learn', learnRoutes);
 
 app.listen(PORT, () => {
   console.log(`Hub is relaxing on port ${PORT}`);
