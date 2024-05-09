@@ -1,10 +1,37 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import Allmodules from './Allmodules';
 import Mymodules from './Mymodules';
+import { fetchUserDataFromCookie } from '../../Helpers/handlecookie';
+import Axios from 'axios';
 
 const Modules = () => {
-  const [activeTab, setActiveTab] = useState(2);
+  const [activeTab, setActiveTab] = useState(1);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [progress, setProgress] = useState({});
+  const [uid, setUid] = useState("");
+
+  useEffect(() => {
+    const getUserData = async () => {
+      const userData = fetchUserDataFromCookie();
+      const url = import.meta.env.VITE_BACKEND_URL + '/api/learn/progress';
+      let userId = '';
+
+      if (userData) {
+        setIsLoggedIn(true);
+        setUid(userData.uid);
+        userId = userData.uid;
+
+        try {
+          const response = await Axios.post(url, { uid: userId } );
+          setProgress(response.data);
+        } catch (err) {
+          console.log(err);
+        }
+      }
+    };
+
+    getUserData();
+  }, []);
 
   return (
     <div>
@@ -20,11 +47,11 @@ const Modules = () => {
       )}
       
       <div className='mt-6'>
-        {activeTab === 1 && <Allmodules />}
-        {activeTab === 2 && <Mymodules />}
+        {activeTab === 1 && <Allmodules progress={progress} />}
+        {activeTab === 2 && <Mymodules progress={progress} />}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Modules
+export default Modules;

@@ -1,10 +1,10 @@
 import express from 'express';
-import { registerModule, updateProgress, getUserData } from '../Controllers/Learn.controller.js'
+import { registerModule, updateProgress, getUserProgress } from '../Controllers/Learn.controller.js'
 
 const router = express.Router();
 
 router.post('/register', registerModule);
 router.post('/update', updateProgress);
-router.get('/progress', getUserData);
+router.post('/progress', getUserProgress);
 
 export default router;
