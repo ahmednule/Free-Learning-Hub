@@ -55,7 +55,6 @@ export const updateProgress = async (req, res) => {
 
 };
 
-
 export const getUserProgress = async (req, res) => {
   const { uid } = req.body;
 
