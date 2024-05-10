@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "level": 10,
+    "videoID": "ScMzIvxBSi4",
+    "textOne": "ALL MODULES",
+    "linkOne": "/learn",
+    "textTwo": "Text Formating",
+    "linkTwo": "/learn/html-css/text-formating",
+    "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/LessonOne"
+  },
+  {
+    "id": 2,
+    "level": 20,
+    "videoID": "ScMzIvxBSi4",
+    "textOne": "Basic Elements",
+    "linkOne": "/learn/html-css/basic-elements",
+    "textTwo": "HTML Tags & Attributes",
+    "linkTwo": "/learn/html-css/html-tags-attributes",
+    "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/LessonTwo"
+  },
+  {
+    "id": 3,
+    "level": 30,
+    "videoID": "ScMzIvxBSi4",
+    "textOne": "Text Formating",
+    "linkOne": "/learn/html-css/text-formating",
+    "textTwo": "Semantic HTML",
+    "linkTwo": "/learn/html-css/semantic-html",
+    "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/LessonThree"
+  }
+]

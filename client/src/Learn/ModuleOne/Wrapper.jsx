@@ -1,16 +1,12 @@
 import React, { useState, useEffect, Suspense } from 'react'
-import Header from '../../Components/General/Header'
 import Sidebar from '../../Components/Lessons/Sidebar'
 import htmlTopics from '../../Data/HtmlTopics.json'
 import { useLocation } from 'react-router-dom'
-import { LuLoader2 } from "react-icons/lu";
-import Footer from '../../Components/General/Footer'
+import Loader from '../../Components/General/Loader'
 import { fetchUserDataFromCookie } from '../../Helpers/handlecookie'
 import Axios from 'axios'
 
-const LessonOne = React.lazy(() => import('./LessonOne/LessonOne'));
-const LessonTwo = React.lazy(() => import('./LessonTwo/LessonTwo'));
-const LessonThree = React.lazy(() => import('./LessonThree/LessonThree'));
+const Lesson = React.lazy(() => import('./Lesson'));
 
 const Wrapper = () => {
   const [lessonId, setLessonId] = useState('');
@@ -70,14 +66,12 @@ const Wrapper = () => {
               </div>
             )}
             {/* Render the lesson component based on the current lesson ID */}
-            <Suspense className="min-h-screen" fallback={<div className='mx-auto mt-28'>
-              <div className="flex-col gap-4 w-full flex items-center justify-center">
-                <LuLoader2 size={40} className='animate-spin' />
-              </div>
+            <Suspense className="min-h-screen" fallback={<div>
+              <Loader />
             </div>}>
-              {lessonId === 'basic-elements' && <LessonOne progress={progress} uid={uid} isLoggedIn={isLoggedIn} />}
-              {lessonId === 'text-formating' && <LessonTwo progress={progress} uid={uid} isLoggedIn={isLoggedIn} />}
-              {lessonId === 'html-tags-attributes' && <LessonThree progress={progress} uid={uid} isLoggedIn={isLoggedIn} />}
+              {lessonId === 'basic-elements' && <Lesson progress={progress} uid={uid} isLoggedIn={isLoggedIn} id={1} />}
+              {lessonId === 'text-formating' && <Lesson progress={progress} uid={uid} isLoggedIn={isLoggedIn} id={2} />}
+              {lessonId === 'html-tags-attributes' && <Lesson progress={progress} uid={uid} isLoggedIn={isLoggedIn} id={3} />}
             </Suspense>
           </div>
         </div>

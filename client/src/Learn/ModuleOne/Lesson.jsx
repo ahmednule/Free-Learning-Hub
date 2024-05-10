@@ -1,21 +1,34 @@
-import { useState, useEffect } from 'react';
-import Tutorial from './Tutorial';
-import Quiz from '../../../Components/Modules/Quiz';
-import questions from './Quiz.json';
-import Subfooter from '../../../Components/Modules/Subfooter';
+import React, { useState, useEffect, Suspense } from 'react';
+import Quiz from '../../Components/Modules/Quiz';
+import Subfooter from '../../Components/Modules/Subfooter';
+import Loader from '../../Components/General/Loader';
 import { TiTick } from 'react-icons/ti';
 import { CgSpinnerTwoAlt } from 'react-icons/cg';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
-import toast from 'react-hot-toast'
+import toast from 'react-hot-toast';
+import lessons from './Lessons.json';
 
-const LessonTwo = ({ progress, uid, isLoggedIn }) => {
-  const level = 20;
+// Import Quizes - *Use this method for now but we may need to optimize in future*
+import QuizOne from './LessonOne/Quiz.json';
+import QuizTwo from './LessonTwo/Quiz.json';
+import QuizThree from './LessonThree/Quiz.json';
 
+// Lazily import tutorials
+const TutorialOne = React.lazy(() => import('./LessonOne/Tutorial'));
+const TutorialTwo = React.lazy(() => import('./LessonTwo/Tutorial'));
+const TutorialThree = React.lazy(() => import('./LessonThree/Tutorial'));
+
+const Lesson = ({ progress, uid, isLoggedIn, id }) => {
   const [activeTab, setActiveTab] = useState(1);
   const [progressTwo, setProgressTwo] = useState(progress);
   const [isDone, setIsDone] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
+  // Get exact tutorial and fetch tutorial data
+  const activeTutorial = lessons.find((lesson) => lesson.id === id);
+  const level = Number(activeTutorial.level);
+  const videoId = activeTutorial.videoID;
 
   useEffect(() => {
     setProgressTwo(progress);
@@ -53,8 +66,6 @@ const LessonTwo = ({ progress, uid, isLoggedIn }) => {
     }
   };
 
-  const videoId = 'ScMzIvxBSi4';
-
   return (
     <div>
       <div className='w-full bg-gray-700 rounded-xl p-2 h-[60vh] max-h-96 flex items-center justify-center'>
@@ -75,8 +86,29 @@ const LessonTwo = ({ progress, uid, isLoggedIn }) => {
         </button>
       </div>
       <div>
-        {activeTab === 1 && <Tutorial />}
-        {activeTab === 2 && <Quiz data={questions} />}
+
+        {/* Load lessons */}
+        {activeTab === 1 && (
+          <Suspense fallback={<div>
+            <Loader />
+          </div>}>
+            {id === 1 && <TutorialOne />}
+            {id === 2 && <TutorialTwo />}
+            {id === 3 && <TutorialThree />}
+          </Suspense>
+        )}
+        
+        {/* Load qustions */}
+        {activeTab === 2 && (
+          <Suspense fallback={<div>
+            <Loader />
+          </div>}>
+            {id === 1 && <Quiz data={QuizOne} />}
+            {id === 2 && <Quiz data={QuizTwo} />}
+            {id === 3 && <Quiz data={QuizThree} />}
+          </Suspense>
+        )}
+
       </div>
       {isLoggedIn ? (
         isDone ? (
@@ -95,15 +127,15 @@ const LessonTwo = ({ progress, uid, isLoggedIn }) => {
       )}
       <div>
         <Subfooter
-          t1='Basic Elements'
-          l1='/learn/html-css/basic-elements'
-          t2='HTML Tags & Attributes'
-          l2='/learn/html-css/html-tags-attributes'
-          edit='https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/LessonTwo'
+          t1={activeTutorial.textOne}
+          l1={activeTutorial.linkOne}
+          t2={activeTutorial.textTwo}
+          l2={activeTutorial.linkTwo}
+          edit={activeTutorial.edit}
         />
       </div>
     </div>
   );
 }
 
-export default LessonTwo;
+export default Lesson;
