@@ -12,6 +12,8 @@ import toast from 'react-hot-toast'
 const LessonOne = (props) => {
   const { progress, uid, isLoggedIn } = props;
 
+  const level = 10;
+
   const [activeTab, setActiveTab] = useState(1);
   const [progressTwo, setProgressTwo] = useState(progress);
   const [isDone, setIsDone] = useState(false);
@@ -23,13 +25,13 @@ const LessonOne = (props) => {
 
   useEffect(() => {
     if (progressTwo) {
-      const progressValue = progressTwo['html-css'] ? progressTwo['html-css'].progress : 0;
-      if (progressValue >= 10) {
-        setIsDone(true);
-      } else {
-        setIsDone(false);
-      }
-      if (progress === 10) {
+      // const progressValue = progressTwo['html-css'] ? progressTwo['html-css'].progress : 0;
+      // if (progressValue >= 10) {
+      //   setIsDone(true);
+      // } else {
+      //   setIsDone(false);
+      // }
+      if (progress === level) {
         setIsDone(true);
       }
     }
@@ -42,7 +44,7 @@ const LessonOne = (props) => {
       const response = await Axios.post(url, {
         uid,
         module: 'html-css',
-        progress: 10
+        progress: level
       });
 
       if (response.status === 201) {
@@ -102,7 +104,8 @@ const LessonOne = (props) => {
       <div>
         <Subfooter
           t1='ALL MODULES'
-          l1='/learn' t2='Text Formating'
+          l1='/learn'
+          t2='Text Formating'
           l2='/learn/html-css/text-formating'
           edit='https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/LessonOne'
         />
