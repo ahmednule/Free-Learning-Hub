@@ -2,15 +2,15 @@ import { useState } from 'react'
 import { FaEye, FaEyeSlash } from 'react-icons/fa6'
 import { Link, useNavigate } from 'react-router-dom';
 import { CgSpinnerTwoAlt } from 'react-icons/cg';
-// import { FcGoogle } from 'react-icons/fc';
+import { FcGoogle } from 'react-icons/fc';
 import toast from 'react-hot-toast';
 import Axios from 'axios';
 import { saveUserDataToCookie } from '../../Helpers/handlecookie.js';
 
 // Google Auth Imports
-// import { signInWithPopup } from 'firebase/auth';
-// import { auth, googleProvider } from '../../Config/firebase';
-// import { signInWithGoogleHelper } from '../../Helpers/googleAuth.js';
+import { signInWithPopup } from 'firebase/auth';
+import { auth, googleProvider } from '../../Config/firebase';
+import { signInWithGoogleHelper } from '../../Helpers/googleAuth.js';
 
 const SignupComponent = () => {
   const navigate = useNavigate();
@@ -26,30 +26,35 @@ const SignupComponent = () => {
   const [fullNameError, setFullNameError] = useState('');
   const [usernameError, setUsernameError] = useState('');
 
-  // const signInWithGoogle = async () => {
-  //   setIsLoading(true);
-  //   try {
-  //     const userData = await signInWithPopup(auth, googleProvider);
-  //     toast.success("Sign In Successfull");
-  //     console.log(userData);
+  const signInWithGoogle = async () => {
+    setIsLoading(true);
+    try {
+      const userData = await signInWithPopup(auth, googleProvider);
+      console.log(userData);
 
-  //     const message = signInWithGoogleHelper(
-  //       userData.user.uid,
-  //       userData.user.displayName,
-  //       userData.user.email,
-  //       userData.user.photoURL
-  //     );
+      const message = await signInWithGoogleHelper(
+        userData.user.uid,
+        userData.user.displayName,
+        userData.user.email,
+        userData.user.photoURL
+      );
 
-  //     toast.success(message);
-  //     console.log(message);
-
-  //   } catch (err) {
-  //     console.error(err);
-  //     toast.error("Couldn't sign you in!");
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // };
+      if (message !== 'error') {
+        toast.success("Signin Successfull");
+        console.log(message);
+        saveUserDataToCookie(message);
+        window.location.reload();
+        navigate('/profile');
+      } else {
+        toast.error("Couldn't sign you in!");
+      }
+    } catch (err) {
+      console.error(err);
+      toast.error("Couldn't sign you in!");
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const emailSignup = (e) => {
     e.preventDefault();
@@ -177,19 +182,19 @@ const SignupComponent = () => {
           </button>
           <p className='mt-3 text-sm'>Already have an account? <span className='linkOne'><Link to={'/login'}>Log In</Link></span></p>
 
-          {/* <div className='mt-12 flex justify-center items-center gap-3'>
+          <div className='mt-12 flex justify-center items-center gap-3'>
             <hr className='w-[45%] h-[1px] border-none bg-gray-700' />
             <span>OR</span>
             <hr className='w-[45%] h-[1px] border-none bg-gray-700' />
-          </div> */}
+          </div>
         </form>
 
-        {/* <div className='mt-5'>
+        <div className='mt-5'>
           <button onClick={signInWithGoogle} className='flex justify-center w-full gap-3 bg-blue-500/5 border border-blue-500/15 hover:bg-blue-500/10 hover:border-blue-500/20 duration-200 cursor-pointer rounded-full py-[6px]'>
             <FcGoogle size={24} />
             <span>Continue with Google</span>
           </button>
-        </div> */}
+        </div>
 
       </div>
     </div>

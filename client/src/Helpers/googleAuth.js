@@ -1,6 +1,5 @@
-
 import { db } from '../Config/firebase';
-import { doc, setDoc, query, where, getDocs } from 'firebase/firestore';
+import { doc, setDoc, getDoc } from 'firebase/firestore';
 
 const generateUsername = (email, displayName) => {
   const emailUsername = email.split('@')[0].toLowerCase().replace('.', '');
@@ -15,13 +14,12 @@ const signInWithGoogleHelper = async (uid, displayName, email, photoURL) => {
 
   try {
     // Check if the user exists in Firestore
-    const userQuery = query(db, 'users', where('id', '==', uid));
-    const querySnapshot = await getDocs(userQuery);
+    const userDocRef = doc(db, 'users', uid);
+    const userDocSnapshot = await getDoc(userDocRef);
 
-    if (!querySnapshot.empty) {
+    if (userDocSnapshot.exists()) {
       // User exists, fetch user data
-      const userDoc = querySnapshot.docs[0];
-      const userData = userDoc.data();
+      const userData = userDocSnapshot.data();
       const userDataBack = {
         uid: uid,
         email: email,
@@ -29,7 +27,7 @@ const signInWithGoogleHelper = async (uid, displayName, email, photoURL) => {
         username: userData.username,
         photoURL: userData.photoURL,
       };
-      return 'User logged in with Google.';
+      return userDataBack;
     } else {
       // User doesn't exist, create a new user
       const userDocRef = doc(db, 'users', uid);
@@ -46,12 +44,12 @@ const signInWithGoogleHelper = async (uid, displayName, email, photoURL) => {
         username: username,
         photoURL: photoURL || "newUser.jpg",
       };
-      return 'User signed up with Google.'
+      return userDataBackTwo;
     }
 
   } catch (err) {
     console.error('Google authentication error:', err.message);
-    return 'Internal server error.';
+    return 'error';
   }
 };
 
