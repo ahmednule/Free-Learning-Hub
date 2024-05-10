@@ -37,6 +37,7 @@ const LoginComponent = () => {
       if (response.status === 200){
         toast.success('Logged in successfully.');
         saveUserDataToCookie(response.data.user);
+        window.location.reload();
         navigate('/profile');
       } else {
         toast.error('Wrong email or password.');

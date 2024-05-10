@@ -74,6 +74,7 @@ const SignupComponent = () => {
       if (response.status === 201){
         toast.success('User created.');
         saveUserDataToCookie(response.data.user);
+        window.location.reload();
         navigate('/profile');
       } else {
         toast.error('User already exists.');

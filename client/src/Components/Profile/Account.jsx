@@ -14,6 +14,7 @@ const Account = () => {
       if (response.status === 200) {
         deleteUserCookie();
         toast.success('Logged out successfully');
+        window.location.reload();
         navigate('/login');
       } else {
         toast.error('Error logging out');
