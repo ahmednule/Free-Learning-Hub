@@ -78,6 +78,7 @@ const SignupComponent = () => {
       });
       if (response.status === 201){
         toast.success('User created.');
+        toast.success('Email verification sent');
         saveUserDataToCookie(response.data.user);
         window.location.reload();
         navigate('/profile');

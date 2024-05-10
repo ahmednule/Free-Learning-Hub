@@ -1,5 +1,5 @@
 import { auth, db } from '../Config/firebase.js';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendEmailVerification } from 'firebase/auth';
 import { doc, setDoc, getDoc } from 'firebase/firestore';
 
 export const signup = async (req, res) => {
@@ -49,7 +49,12 @@ export const signup = async (req, res) => {
       username: username,
       photoURL: "newUser.jpg",
     };
-    return res.status(201).json({ message: 'User created successfully.', user: userData });
+
+    res.status(201).json({ message: 'User created successfully.', user: userData });
+
+    // Send verification email
+    await sendEmailVerification(auth.currentUser);
+
   } catch (err) {
     console.log(err);
     return res.status(400).json({ msg: err.message });
@@ -103,5 +108,27 @@ export const logout = async (req, res) => {
   } catch (err) {
     console.log(err);
     return res.status(400).json({ msg: err.message });
+  }
+};
+
+
+export const checkUserEmailVerification = async (req, res) => {
+  const { email } = req.body;
+
+  try {
+    const userRecord = await auth.getUserByEmail(email);
+
+    if (userRecord.emailVerified) {
+      return res.status(200).json({ message: 'Email verified.' });
+    } else {
+      return res.status(400).json({ message: 'Email not verified.' });
+    }
+  } catch (error) {
+    console.error('Error fetching user data:', error);
+    if (error.code === 'auth/user-not-found') {
+      return res.status(404).json({ message: 'User not found.' });
+    } else {
+      return res.status(500).json({ message: 'Internal server error.' });
+    }
   }
 };
