@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const Quiz = ({ data }) => {
   const [progress, setProgress] = useState(0);
@@ -70,6 +70,6 @@ const Quiz = ({ data }) => {
       )}
     </div>
   );
-};
+}
 
 export default Quiz;

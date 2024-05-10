@@ -55,12 +55,9 @@ const Wrapper = () => {
 
   return (
     <div>
-      <div className="fixed w-full container mx-auto z-10 backdrop-blur-2xl">
-        <Header />
-      </div>
       {/* Main info */}
       <div className='pr-3'>
-        <div className='grid md:grid-cols-6 gap-5 pt-16 min-h-screen w-full'>
+        <div className='grid md:grid-cols-6 gap-5 min-h-screen w-full'>
           <div className='hidden md:block col-span-2'>
             <div className='fixed overflow-y-scroll h-full'>
               <Sidebar data={htmlTopics} />
@@ -82,9 +79,6 @@ const Wrapper = () => {
               {lessonId === 'text-formating' && <LessonTwo progress={progress} uid={uid} isLoggedIn={isLoggedIn} />}
               {lessonId === 'html-tags-attributes' && <LessonThree progress={progress} uid={uid} isLoggedIn={isLoggedIn} />}
             </Suspense>
-            <div className='mt-32'>
-              <Footer />
-            </div>
           </div>
         </div>
       </div>

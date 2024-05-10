@@ -1,11 +1,10 @@
 import { useState } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import { FiClipboard } from "react-icons/fi";
-import { TiTick } from "react-icons/ti";
+import { FiClipboard } from 'react-icons/fi';
+import { TiTick } from 'react-icons/ti';
 
-const Snippet = (props) => {
-  let { codeString, lang, title } = props;
+const Snippet = ({ codeString, lang, title }) => {
   const [copy, setCopy] = useState(false);
 
   const copyCode = () => {
@@ -48,7 +47,7 @@ const Snippet = (props) => {
         {codeString}
       </SyntaxHighlighter>
     </div>
-  )
+  );
 }
 
-export default Snippet
+export default Snippet;

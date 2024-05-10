@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { FaEye, FaEyeSlash } from 'react-icons/fa6'
 import { Link, useNavigate } from 'react-router-dom';
-import { CgSpinnerTwoAlt } from "react-icons/cg";
-import { FcGoogle } from "react-icons/fc";
+import { CgSpinnerTwoAlt } from 'react-icons/cg';
+// import { FcGoogle } from 'react-icons/fc';
 import toast from 'react-hot-toast';
 import Axios from 'axios';
 import { saveUserDataToCookie } from '../../Helpers/handlecookie';
@@ -111,7 +111,8 @@ const LoginComponent = () => {
       </form>
 
     </div>
-  )
+  );
 }
 
-export default LoginComponent
+export default LoginComponent;
+

@@ -1,4 +1,3 @@
-import React from 'react'
 import Snippet from '../../../Components/General/Snippet';
 
 const Tutorial = () => {
@@ -141,7 +140,7 @@ const Tutorial = () => {
       <p>Mastering these basic HTML elements lays a strong foundation for creating well-structured and semantically meaningful web pages. As you progress in your web development journey, you'll explore more elements and learn how to combine them to build sophisticated layouts and interfaces.</p>
       </article>
     </div>
-  )
+  );
 }
 
-export default Tutorial
+export default Tutorial;

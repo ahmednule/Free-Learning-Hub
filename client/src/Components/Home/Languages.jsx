@@ -1,15 +1,14 @@
-import Snippet from "../General/Snippet"
-import Language from "./Language";
+import Snippet from '../General/Snippet';
+import Language from './Language';
 
 const Languages = () => {
-
   const codeString = `// JavaScript
 const express = require('express');
 const cors = require('cors');
 
 const app = express();
 app.use(cors());
-app.use(express.json())
+app.use(express.json());
 
 // DEFAULT ROUTE
 app.get('/', (req, res) => {
@@ -21,7 +20,7 @@ app.listen(3000, () => {
 });`;
 
   return (
-    <div className="flex flex-col lg:flex-row justify-between px-3">
+    <div className="flex flex-col lg:flex-row justify-between">
       <div className="lg:max-w-[47%] w-full flex flex-col gap-5">
         <h3 className="text-blue-500">Languages</h3>
         <p className="text-xl sm:text-3xl lg:text-6xl">Pick your <span className="text-blue-500">module</span> and start learning</p>
@@ -40,7 +39,7 @@ app.listen(3000, () => {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Languages
+export default Languages;

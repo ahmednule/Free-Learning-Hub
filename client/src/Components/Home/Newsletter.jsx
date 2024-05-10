@@ -1,7 +1,7 @@
-import Axios from 'axios'
 import { useState } from 'react';
-import { CgSpinnerTwoAlt } from "react-icons/cg";
+import { CgSpinnerTwoAlt } from 'react-icons/cg';
 import toast from 'react-hot-toast';
+import Axios from 'axios';
 
 const Newsletter = () => {
   const [email, setEmail] = useState('');
@@ -63,7 +63,7 @@ const Newsletter = () => {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Newsletter
+export default Newsletter;

@@ -1,8 +1,8 @@
-import { PiFolderStarThin } from "react-icons/pi";
-import { FaAngleRight } from "react-icons/fa6";
-import { TfiPlus } from "react-icons/tfi";
-import { Link } from "react-router-dom";
-import { allModules } from '../../Data/Modules.js'
+import { PiFolderStarThin } from 'react-icons/pi';
+import { FaAngleRight } from 'react-icons/fa6';
+import { TfiPlus } from 'react-icons/tfi';
+import { Link } from 'react-router-dom';
+import { allModules } from '../../Data/Modules.js';
 
 const Language = () => {
   return (
@@ -43,7 +43,7 @@ const Language = () => {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Language
+export default Language;

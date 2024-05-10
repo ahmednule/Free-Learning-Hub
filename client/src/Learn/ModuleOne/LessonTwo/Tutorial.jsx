@@ -1,4 +1,3 @@
-import React from 'react'
 import Snippet from '../../../Components/General/Snippet';
 
 const Tutorial = () => {
@@ -87,7 +86,7 @@ const Tutorial = () => {
         <p>By leveraging these text formatting elements and attributes judiciously, developers can create visually appealing and well-structured web pages that effectively communicate information to users.</p>
       </article>
     </div>
-  )
+  );
 }
 
-export default Tutorial
+export default Tutorial;

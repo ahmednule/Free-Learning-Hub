@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Tutorial from './Tutorial';
 import Quiz from '../../../Components/Modules/Quiz';
 import questions from './Quiz.json';
@@ -9,9 +9,7 @@ import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import toast from 'react-hot-toast'
 
-const LessonOne = (props) => {
-  const { progress, uid, isLoggedIn } = props;
-
+const LessonOne = ({ progress, uid, isLoggedIn }) => {
   const level = 10;
 
   const [activeTab, setActiveTab] = useState(1);
@@ -112,6 +110,6 @@ const LessonOne = (props) => {
       </div>
     </div>
   );
-};
+}
 
 export default LessonOne;

@@ -1,10 +1,7 @@
-import React from 'react'
 import { FaAngleRight } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 
-const Subfooter = (props) => {
-  const { t1, l1, t2, l2, edit } = props;
-
+const Subfooter = ({ t1, l1, t2, l2, edit }) => {
   return (
     <div>
       <div className='flex flex-col md:flex-row w-full gap-3 md:justify-between'>
@@ -29,7 +26,7 @@ const Subfooter = (props) => {
         <a href={edit} target='_blank' rel='noreferer'>Edit this page on GitHub</a>
       </p>
     </div>
-  )
+  );
 }
 
-export default Subfooter
+export default Subfooter;

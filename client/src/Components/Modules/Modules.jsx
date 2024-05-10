@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Allmodules from './Allmodules';
 import Mymodules from './Mymodules';
 import { fetchUserDataFromCookie } from '../../Helpers/handlecookie';
@@ -20,7 +20,6 @@ const Modules = () => {
         setIsLoggedIn(true);
         setUid(userData.uid);
         userId = userData.uid;
-
         try {
           const response = await Axios.post(url, { uid: userId } );
           setProgress(response.data);
@@ -52,6 +51,6 @@ const Modules = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Modules;

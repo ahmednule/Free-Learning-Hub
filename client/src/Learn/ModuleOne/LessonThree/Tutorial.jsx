@@ -1,4 +1,3 @@
-import React from 'react'
 import Snippet from '../../../Components/General/Snippet';
 
 const Tutorial = () => {
@@ -60,7 +59,7 @@ const Tutorial = () => {
         <p>These are just a few examples of HTML tags and attributes. Understanding how to use them effectively allows developers to create well-structured, accessible, and interactive web pages.</p>
       </article>
     </div>
-  )
+  );
 }
 
-export default Tutorial
+export default Tutorial;

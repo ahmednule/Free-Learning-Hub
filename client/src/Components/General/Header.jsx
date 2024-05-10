@@ -18,7 +18,7 @@ const Header = () => {
       setOnlinePhotoURL(userData.photoURL);
     };
     
-  }, [])
+  }, []);
 
   return (
     <div>
@@ -28,7 +28,12 @@ const Header = () => {
             <img src="./logo.webp" alt="Free Learning Hub Logo" className="h-10 w-fit" />
           </Link>
         </div>
-        <div>
+        <div className='flex justify-end gap-5 items-center'>
+          <div className='flex justify-end gap-3 items-center'>
+            <span className='text-gray-400 hover:text-gray-200 hover:scale-105 duration-200 cursor-pointer'>
+              <Link to={'/learn'}>Learn</Link>
+            </span>
+          </div>
           {
             isLoggedIn ? (
                 <div>
@@ -47,7 +52,7 @@ const Header = () => {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Header
+export default Header;
