@@ -55,7 +55,7 @@ const Wrapper = () => {
       <div className='pr-3'>
         <div className='grid md:grid-cols-6 gap-5 min-h-screen w-full'>
           <div className='hidden md:block col-span-2'>
-            <div className='fixed overflow-y-scroll h-full'>
+            <div className='overflow-y-scroll h-fit sticky top-16'>
               <Sidebar data={htmlTopics} />
             </div>
           </div>
