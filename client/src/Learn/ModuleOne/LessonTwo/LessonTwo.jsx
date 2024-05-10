@@ -25,7 +25,7 @@ const LessonTwo = (props) => {
 
   useEffect(() => {
     if (progressTwo) {
-      if (progress === level) {
+      if (progress >= level) {
         setIsDone(true);
       }
     }

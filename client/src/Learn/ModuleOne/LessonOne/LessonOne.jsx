@@ -31,7 +31,7 @@ const LessonOne = (props) => {
       // } else {
       //   setIsDone(false);
       // }
-      if (progress === level) {
+      if (progress >= level) {
         setIsDone(true);
       }
     }
