@@ -5,16 +5,17 @@ import htmlTopics from '../../Data/HtmlTopics.json'
 import { useLocation } from 'react-router-dom'
 import { LuLoader2 } from "react-icons/lu";
 import Footer from '../../Components/General/Footer'
-import LessonTwo from './LessonTwo/LessonTwo'
 import { fetchUserDataFromCookie } from '../../Helpers/handlecookie'
 import Axios from 'axios'
 
 const LessonOne = React.lazy(() => import('./LessonOne/LessonOne'));
+const LessonTwo = React.lazy(() => import('./LessonTwo/LessonTwo'));
+const LessonThree = React.lazy(() => import('./LessonThree/LessonThree'));
 
 const Wrapper = () => {
   const [lessonId, setLessonId] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [progress, setProgress] = useState({}); // Initialize progress state with an empty object
+  const [progress, setProgress] = useState({});
   const [uid, setUid] = useState("");
 
   const location = useLocation();
@@ -79,6 +80,7 @@ const Wrapper = () => {
             </div>}>
               {lessonId === 'basic-elements' && <LessonOne progress={progress} uid={uid} isLoggedIn={isLoggedIn} />}
               {lessonId === 'text-formating' && <LessonTwo progress={progress} uid={uid} isLoggedIn={isLoggedIn} />}
+              {lessonId === 'html-tags-attributes' && <LessonThree progress={progress} uid={uid} isLoggedIn={isLoggedIn} />}
             </Suspense>
             <div className='mt-32'>
               <Footer />
