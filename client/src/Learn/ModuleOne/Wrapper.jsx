@@ -19,7 +19,7 @@ const Wrapper = () => {
   const [uid, setUid] = useState("");
 
   const location = useLocation();
-  const total = 20;
+  const total = 30;
 
   useEffect(() => {
     const urlParts = location.pathname.split('/');

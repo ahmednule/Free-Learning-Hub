@@ -7,7 +7,7 @@ const Mymodules = (props) => {
   const { progress } = props;
 
   const htmlCssProgress = progress['html-css'] ? progress['html-css'].progress : 0;
-  const htmlCssTotal = 20;
+  const htmlCssTotal = 30;
 
   const modules = Object.keys(progress);
   const filteredModules = allModules.filter(module => modules.includes(module.unique));
