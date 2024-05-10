@@ -6,6 +6,9 @@ import { allModules } from '../../Data/Modules.js';
 const Mymodules = (props) => {
   const { progress } = props;
 
+  const htmlCssProgress = progress['html-css'] ? progress['html-css'].progress : 0;
+  const htmlCssTotal = 20;
+
   const modules = Object.keys(progress);
   const filteredModules = allModules.filter(module => modules.includes(module.unique));
 
@@ -18,6 +21,8 @@ const Mymodules = (props) => {
         </div>
       )}
       {filteredModules.map((lang) => {
+        const progressPercent = lang.unique === 'html-css' ? Math.round(htmlCssProgress / htmlCssTotal * 100) : 0;
+
         return (
           <div key={lang.id} className="w-full bg-blue-500/5 border border-blue-500/15 rounded-2xl hover:bg-blue-500/10 hover:border-blue-500/20 duration-200"  >
           <div className=" cursor-pointer flex p-4">
@@ -39,9 +44,9 @@ const Mymodules = (props) => {
           </div>
 
             <div className='w-[90%] bg-gray-800 rounded-md h-12 mx-auto mb-4 border border-gray-700'>
-              <div className='min-w-[30px] w-fit bg-lime-600 h-full rounded-md'>
+              <div className='min-w-[30px] bg-lime-500 h-full rounded-md' style={{ width: `${progressPercent}%` }}>
                 <p className='text-gray-950 pt-[10px] font-semibold text-center'>
-                  0%
+                  {progressPercent}%
                 </p>
               </div>
             </div>
