@@ -6,7 +6,7 @@ import { allModules } from '../../Data/Modules.js';
 const Mymodules = ({ progress }) => {
 
   const htmlCssProgress = progress['html-css'] ? progress['html-css'].progress : 0;
-  const htmlCssTotal = 30;
+  const htmlCssTotal = 40;
 
   const modules = Object.keys(progress);
   const filteredModules = allModules.filter(module => modules.includes(module.unique));

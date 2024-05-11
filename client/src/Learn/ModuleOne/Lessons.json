@@ -28,5 +28,15 @@
     "textTwo": "Semantic HTML",
     "linkTwo": "/learn/html-css/semantic-html",
     "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/LessonThree"
+  },
+  {
+    "id": 4,
+    "level": 40,
+    "videoID": "ScMzIvxBSi4",
+    "textOne": "HTML Tags & Attributes",
+    "linkOne": "/learn/html-css/html-tags-attributes",
+    "textTwo": "Link Creation",
+    "linkTwo": "/learn/html-css/link-creation",
+    "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/LessonFour"
   }
 ]

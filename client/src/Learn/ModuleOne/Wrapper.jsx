@@ -15,7 +15,7 @@ const Wrapper = () => {
   const [uid, setUid] = useState("");
 
   const location = useLocation();
-  const total = 30;
+  const total = 40;
 
   useEffect(() => {
     const urlParts = location.pathname.split('/');
@@ -55,11 +55,11 @@ const Wrapper = () => {
       <div className='pr-3'>
         <div className='grid md:grid-cols-6 gap-5 min-h-screen w-full'>
           <div className='hidden md:block col-span-2'>
-            <div className='overflow-y-scroll h-fit sticky top-16'>
+            <div className='overflow-y-scroll h-fit w-72 sticky top-16'>
               <Sidebar data={htmlTopics} />
             </div>
           </div>
-          <div className='pl-2 md:pl-10 lg:pl-0 pt-5 col-span-4'>
+          <div className='md:pl-10 lg:pl-0 pt-5 col-span-4 md:ml-4'>
             {!isLoggedIn && (
               <div className='w-full mb-6 h-6 bg-red-500 rounded'>
                 <p className='text-center'>Signin to save progress</p>
@@ -69,9 +69,12 @@ const Wrapper = () => {
             <Suspense className="min-h-screen" fallback={<div>
               <Loader />
             </div>}>
+
               {lessonId === 'basic-elements' && <Lesson progress={progress} uid={uid} isLoggedIn={isLoggedIn} id={1} />}
               {lessonId === 'text-formating' && <Lesson progress={progress} uid={uid} isLoggedIn={isLoggedIn} id={2} />}
               {lessonId === 'html-tags-attributes' && <Lesson progress={progress} uid={uid} isLoggedIn={isLoggedIn} id={3} />}
+              {lessonId === 'semantic-html' && <Lesson progress={progress} uid={uid} isLoggedIn={isLoggedIn} id={4} />}
+
             </Suspense>
           </div>
         </div>
