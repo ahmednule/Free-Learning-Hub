@@ -29,7 +29,7 @@ const Sidebar = ({data}) => {
               {
                 lesson.topics.map((topic) => (
                   <div key={topic.id} className='text-xs sm:text-base flex flex-col'>
-                    <li onClick={() => navigate(topic.link)} className={openLesson === lesson.id ? 'block border pl-5 mt-[3px] rounded cursor-pointer border-blue-500/70 py-[2px] w-full' : 'hidden'}> {topic.name} </li>
+                    <li onClick={() => navigate(topic.link)} className={openLesson === lesson.id ? 'block border pl-5 mt-[3px] rounded cursor-pointer border-blue-500/70 py-[2px] w-full' : 'hidden'}>{topic.id}. {topic.name} </li>
                   </div>
                 ))
               }

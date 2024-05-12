@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom'
 import Loader from '../../Components/General/Loader'
 import { fetchUserDataFromCookie } from '../../Helpers/handlecookie'
 import Axios from 'axios'
+import { FiSidebar } from "react-icons/fi";
 
 const Lesson = React.lazy(() => import('./Lesson'));
 
@@ -13,6 +14,7 @@ const Wrapper = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [progress, setProgress] = useState({});
   const [uid, setUid] = useState("");
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const location = useLocation();
   const total = 50;
@@ -53,7 +55,21 @@ const Wrapper = () => {
     <div>
       {/* Main info */}
       <div className='pr-3'>
-        <div className='grid md:grid-cols-6 gap-5 min-h-screen w-full'>
+        <div className='grid md:grid-cols-6 gap-5 min-h-screen w-full relative'>
+          <div onClick={() => setIsSidebarOpen(!isSidebarOpen)} className='sticky md:hidden top-14 bg-blue-500 p-2 rounded-md cursor-pointer z-10 left-0'>
+            <FiSidebar size={30} />
+          </div>
+          {isSidebarOpen && (
+            <div className='z-10 fixed bg-black -translate-y-6 h-full w-[350px]'>
+              <div className='absolute top-0'>
+                <div onClick={() => setIsSidebarOpen(!isSidebarOpen)} className='bg-blue-500 rounded-md p-2 w-fit cursor-pointer'>
+                  <FiSidebar size={30} />
+                </div>
+                <Sidebar data={htmlTopics} />
+              </div>
+            </div>
+          )}
+          
           <div className='hidden md:block col-span-2'>
             <div className='overflow-y-scroll h-fit w-72 sticky top-16'>
               <Sidebar data={htmlTopics} />
