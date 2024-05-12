@@ -38,5 +38,15 @@
     "textTwo": "Link Creation",
     "linkTwo": "/learn/html-css/link-creation",
     "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/LessonFour"
+  },
+  {
+    "id": 5,
+    "level": 50,
+    "videoID": "ScMzIvxBSi4",
+    "textOne": "Semantic HTML",
+    "linkOne": "/learn/html-css/semantic-html",
+    "textTwo": "Image Embedding",
+    "linkTwo": "/learn/html-css/image-embedding",
+    "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/LessonFive"
   }
 ]

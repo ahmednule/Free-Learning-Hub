@@ -14,12 +14,14 @@ import QuizOne from './LessonOne/Quiz.json';
 import QuizTwo from './LessonTwo/Quiz.json';
 import QuizThree from './LessonThree/Quiz.json';
 import QuizFour from './LessonFour/Quiz.json';
+import QuizFive from './LessonFive/Quiz.json';
 
 // Lazily import tutorials
 const TutorialOne = React.lazy(() => import('./LessonOne/Tutorial'));
 const TutorialTwo = React.lazy(() => import('./LessonTwo/Tutorial'));
 const TutorialThree = React.lazy(() => import('./LessonThree/Tutorial'));
 const TutorialFour = React.lazy(() => import('./LessonFour/Tutorial'));
+const TutorialFive = React.lazy(() => import('./LessonFive/Tutorial'));
 
 const Lesson = ({ progress, uid, isLoggedIn, id }) => {
   const [activeTab, setActiveTab] = useState(1);
@@ -98,6 +100,7 @@ const Lesson = ({ progress, uid, isLoggedIn, id }) => {
             {id === 2 && <TutorialTwo />}
             {id === 3 && <TutorialThree />}
             {id === 4 && <TutorialFour />}
+            {id === 5 && <TutorialFive />}
           </Suspense>
         )}
         
@@ -110,6 +113,7 @@ const Lesson = ({ progress, uid, isLoggedIn, id }) => {
             {id === 2 && <Quiz data={QuizTwo} />}
             {id === 3 && <Quiz data={QuizThree} />}
             {id === 4 && <Quiz data={QuizFour} />}
+            {id === 5 && <Quiz data={QuizFive} />}
           </Suspense>
         )}
 

@@ -15,7 +15,7 @@ const Wrapper = () => {
   const [uid, setUid] = useState("");
 
   const location = useLocation();
-  const total = 40;
+  const total = 50;
 
   useEffect(() => {
     const urlParts = location.pathname.split('/');
@@ -74,6 +74,7 @@ const Wrapper = () => {
               {lessonId === 'text-formating' && <Lesson progress={progress} uid={uid} isLoggedIn={isLoggedIn} id={2} />}
               {lessonId === 'html-tags-attributes' && <Lesson progress={progress} uid={uid} isLoggedIn={isLoggedIn} id={3} />}
               {lessonId === 'semantic-html' && <Lesson progress={progress} uid={uid} isLoggedIn={isLoggedIn} id={4} />}
+              {lessonId === 'link-creation' && <Lesson progress={progress} uid={uid} isLoggedIn={isLoggedIn} id={5} />}
 
             </Suspense>
           </div>
