@@ -36,16 +36,6 @@ const Tutorial = () => {
         <h4 className='text-xl font-bold'>Linking With Text Formating</h4>
         <p>You can apply text formatting, such as bold or italic, to the link text. You can replace "https://www.example.com" with the actual URL you want to link to and adjust other attributes as needed. By using these techniques, you can create effective and user-friendly navigation throughout your web pages.</p>
         <Snippet codeString={codeString6} lang={'html'} title={'HTML'} />
-
-
-
-
-
-
-
-
-
-
       </article>
     </div>
   );

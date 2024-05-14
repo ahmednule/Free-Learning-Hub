@@ -33,6 +33,9 @@ const Header = () => {
             <span className='text-gray-400 hover:text-gray-200 hover:scale-105 duration-200 cursor-pointer'>
               <Link to={'/learn'}>Learn</Link>
             </span>
+            <span className='text-gray-400 hover:text-gray-200 hover:scale-105 duration-200 cursor-pointer'>
+              <Link to={'/tools'}>Tools</Link>
+            </span>
           </div>
           {
             isLoggedIn ? (

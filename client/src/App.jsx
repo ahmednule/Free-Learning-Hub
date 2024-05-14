@@ -13,7 +13,8 @@ const Learn = React.lazy(() => import('./Pages/Learn'));
 const Profile = React.lazy(() => import('./Pages/Profile'));
 const Register = React.lazy(() => import('./Components/Modules/Register'));
 const Wrapper = React.lazy(() => import('./Learn/ModuleOne/Wrapper'));
-const Editor = React.lazy(() => import('./Pages/Editor'));
+const Tools = React.lazy(() => import('./Pages/Tools'));
+// const Editor = React.lazy(() => import('./Pages/Editor'));
 
 const App = () => {
   return (
@@ -34,7 +35,8 @@ const App = () => {
             <Route path="/learn/register/:moduleID" element={<Register />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/learn/html-css/:lessonID" element={<Wrapper />} />
-            <Route path='/code-editor' element={<Editor />} />
+            <Route path="/tools" element={<Tools />} />
+            {/* <Route path='/code-editor' element={<Editor />} /> */}
           </Routes>
         </Suspense>
       </div>
@@ -43,6 +45,6 @@ const App = () => {
       </div>
     </HashRouter>
   );
-};
+}
 
 export default App;
