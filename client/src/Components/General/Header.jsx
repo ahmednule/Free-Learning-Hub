@@ -28,13 +28,20 @@ const Header = () => {
           <h2 className='text-2xl md:text-3xl text-blue-500'>freeLearningHub</h2>
         </Link>
       </div>
-      <div className='flex justify-end gap-5 items-center'>
-        <div className='flex justify-end gap-3 items-center'>
+      <div className='flex justify-end gap-10 items-center'>
+        <div className='flex justify-end gap-5 items-center'>
           <span className='text-gray-400 hover:text-gray-200 hover:scale-105 duration-200 cursor-pointer'>
             <Link to={'/learn'}>Learn</Link>
           </span>
           <span className='text-gray-400 hover:text-gray-200 hover:scale-105 duration-200 cursor-pointer'>
             <Link to={'/tools'}>Tools</Link>
+          </span>
+          <span className='text-gray-400 hover:text-gray-200 hover:scale-105 duration-200 cursor-pointer'>
+            <a
+              href='https://github.com/developer-assets/Free-Learning-Hub'
+              target='_blank'
+              rel='noreferer'
+            >Contribute</a>
           </span>
         </div>
 
