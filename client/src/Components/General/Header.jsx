@@ -1,24 +1,29 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { fetchUserDataFromCookie } from '../../Helpers/handlecookie.js';
+import { useDispatch, useSelector } from 'react-redux';
 import placeHolderImage from '../../Images/userImage.jpg';
+import { updateUserState, getReduxUserData } from '../../Redux/user.slice';
+import { fetchUserDataFromCookie } from '../../Helpers/handlecookie.js';
 
 const Header = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [hasPhoto, setHasPhoto] = useState(false);
-  const [onlinePhotoURL, setOnlinePhotoURL] = useState('');
+  const dispatch = useDispatch();
+  const user = useSelector(getReduxUserData);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const userData = fetchUserDataFromCookie();
     if (userData) {
-      setIsLoggedIn(true);
-      if (userData.photoURL !== 'newUser.jpg') {
-        setHasPhoto(true);
-      }
-      setOnlinePhotoURL(userData.photoURL);
+      dispatch(updateUserState({
+        isLoggedIn: true,
+        userData: userData,
+      }));
     }
-    
-  }, []);
+    setIsLoading(false);
+  }, [dispatch]);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="flex h-14 justify-between items-center border-b border-b-gray-700 px-3">
@@ -37,10 +42,10 @@ const Header = () => {
           </span>
         </div>
         {
-          isLoggedIn ? (
+          user.isLoggedIn ? (
             <div>
               <Link to={'/profile'}>
-                <img src={hasPhoto ? onlinePhotoURL : placeHolderImage} className='h-8 w-8 border border-gray-700 object-cover rounded-full' alt='Profile Picture' />
+                <img src={user.userData.photoURL !== 'newUser.jpg' ? user.userData.photoURL : placeHolderImage} className='h-8 w-8 border border-gray-700 object-cover rounded-full' alt='Profile Picture' />
               </Link>
             </div>
           ) : (

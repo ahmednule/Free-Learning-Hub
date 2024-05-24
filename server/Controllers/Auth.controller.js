@@ -32,14 +32,19 @@ export const signup = async (req, res) => {
     }
 
     const { uid } = response.user;
+    const userImage = createPhotoURL();
+    const currentDate = new Date();
+    const creationDate = currentDate.toLocaleDateString();
 
     // Add extra data to Firestore
     const userDocRef = doc(db, 'users', uid);
     const fireUser = await setDoc(userDocRef, {
       fullName: fullName,
       username: username,
-      photoURL: "newUser.jpg",
+      photoURL: userImage,
+      isVerified: false,
       modules: {},
+      creationDate: creationDate,
     });
 
     const userData = {
@@ -47,13 +52,15 @@ export const signup = async (req, res) => {
       email: email,
       fullName: fullName,
       username: username,
-      photoURL: "newUser.jpg",
+      isVerified: false,
+      photoURL: userImage,
+      creationDate: creationDate,
     };
 
     res.status(201).json({ message: 'User created successfully.', user: userData });
 
     // Send verification email
-    await sendEmailVerification(auth.currentUser);
+    // await sendEmailVerification(auth.currentUser);
 
   } catch (err) {
     console.log(err);
@@ -84,15 +91,19 @@ export const login = async (req, res) => {
       return res.status(401).json({ msg: 'Invalid email or password.' });
     }
 
+    const currentDate = new Date();
+    const creationDate = currentDate.toLocaleDateString();
     const { uid } = response.user;
     const userDocRef = doc(db, 'users', uid);
     const fireUser = await getDoc(userDocRef);
     const userData = {
       uid: uid,
       email: email,
+      isVerified: true,
       fullName: fireUser.data().fullName,
       username: fireUser.data().username,
       photoURL: fireUser.data().photoURL,
+      creationDate: creationDate,
     };
     return res.status(200).json({ message: 'User logged in successfully.', user: userData });
   } catch (err) {
@@ -131,4 +142,23 @@ export const checkUserEmailVerification = async (req, res) => {
       return res.status(500).json({ message: 'Internal server error.' });
     }
   }
+};
+
+const createPhotoURL = () => {
+  const randomNumber = Math.floor(Math.random() * 5) + 1;
+  let photoURL = '';
+
+  if (randomNumber === 1) {
+    photoURL = 'https://raw.githubusercontent.com/developer-assets/public-hosting/main/freeLearningHub/Profiles/one.png'
+  } else if (randomNumber === 2) {
+    photoURL = 'https://raw.githubusercontent.com/developer-assets/public-hosting/main/freeLearningHub/Profiles/two.png'
+  } else if (randomNumber === 3) {
+    photoURL = 'https://raw.githubusercontent.com/developer-assets/public-hosting/main/freeLearningHub/Profiles/three.png'
+  } else if (randomNumber === 4) {
+    photoURL = 'https://raw.githubusercontent.com/developer-assets/public-hosting/main/freeLearningHub/Profiles/four.png'
+  } else {
+    photoURL = 'https://raw.githubusercontent.com/developer-assets/public-hosting/main/freeLearningHub/Profiles/five.png'
+  }
+
+  return photoURL;
 };
