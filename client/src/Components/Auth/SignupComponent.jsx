@@ -11,9 +11,12 @@ import { saveUserDataToCookie } from '../../Helpers/handlecookie.js';
 import { signInWithPopup } from 'firebase/auth';
 import { auth, googleProvider } from '../../Config/firebase';
 import { signInWithGoogleHelper } from '../../Helpers/googleAuth.js';
+import { useDispatch } from 'react-redux';
+import { updateUserState } from '../../Redux/user.slice.js';
 
 const SignupComponent = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [email, setEmail] = useState('');
@@ -41,9 +44,13 @@ const SignupComponent = () => {
 
       if (message !== 'error') {
         toast.success("Signin Successfull");
-        console.log(message);
         saveUserDataToCookie(message);
-        window.location.reload();
+        if (message) {
+          dispatch(updateUserState({
+            isLoggedIn: true,
+            userData: message,
+          }));
+        }
         navigate('/profile');
       } else {
         toast.error("Couldn't sign you in!");
@@ -78,9 +85,13 @@ const SignupComponent = () => {
       });
       if (response.status === 201){
         toast.success('User created.');
-        toast.success('Email verification sent');
         saveUserDataToCookie(response.data.user);
-        window.location.reload();
+        if (response.data.user) {
+          dispatch(updateUserState({
+            isLoggedIn: true,
+            userData: response.data.user,
+          }));
+        }
         navigate('/profile');
       } else {
         toast.error('User already exists.');

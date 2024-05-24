@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie';
 
 export const saveUserDataToCookie = (userData) => {
-  const { fullName, username, uid, email, photoURL } = userData;
+  const { fullName, username, uid, email, photoURL, isVerified, creationDate } = userData;
   const expiryDate = new Date();
   expiryDate.setDate(expiryDate.getDate() + 15);
   Cookies.set('currentuserdata', JSON.stringify({
@@ -9,7 +9,9 @@ export const saveUserDataToCookie = (userData) => {
     username,
     uid,
     email,
-    photoURL
+    photoURL,
+    isVerified,
+    creationDate,
   }), { expires: expiryDate, secure: true });
 };
 

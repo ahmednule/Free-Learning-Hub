@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import placeHolderImage from '../../Images/userImage.jpg';
 import { updateUserState, getReduxUserData } from '../../Redux/user.slice';
 import { fetchUserDataFromCookie } from '../../Helpers/handlecookie.js';
+import Spinner from './Spinner.jsx';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -21,10 +21,6 @@ const Header = () => {
     setIsLoading(false);
   }, [dispatch]);
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <div className="flex h-14 justify-between items-center border-b border-b-gray-700 px-3">
       <div>
@@ -41,21 +37,28 @@ const Header = () => {
             <Link to={'/tools'}>Tools</Link>
           </span>
         </div>
-        {
-          user.isLoggedIn ? (
-            <div>
-              <Link to={'/profile'}>
-                <img src={user.userData.photoURL !== 'newUser.jpg' ? user.userData.photoURL : placeHolderImage} className='h-8 w-8 border border-gray-700 object-cover rounded-full' alt='Profile Picture' />
-              </Link>
-            </div>
-          ) : (
-            <div className='border border-gray-700 py-1 px-6 rounded-md hover:bg-gray-900 duration-200 cursor-pointer'>
-              <Link to={'/login'} >
-                LOGIN
-              </Link>
-            </div>
-          )
-        }
+
+        {isLoading ? (
+          <div>
+            <Spinner />
+          </div>
+        ) : (
+          <>
+            {user.isLoggedIn ? (
+              <div>
+                <Link to={'/profile'}>
+                  <img src={user.userData.photoURL} className='h-8 w-8 border border-gray-700 object-cover rounded-full' alt='Profile Picture' />
+                </Link>
+              </div>
+            ) : (
+              <div className='border border-gray-700 py-1 px-6 rounded-md hover:bg-gray-900 duration-200 cursor-pointer'>
+                <Link to={'/login'} >
+                  LOGIN
+                </Link>
+              </div>
+            )}
+          </>
+        )}
       </div>
     </div>
   );

@@ -91,19 +91,17 @@ export const login = async (req, res) => {
       return res.status(401).json({ msg: 'Invalid email or password.' });
     }
 
-    const currentDate = new Date();
-    const creationDate = currentDate.toLocaleDateString();
     const { uid } = response.user;
     const userDocRef = doc(db, 'users', uid);
     const fireUser = await getDoc(userDocRef);
     const userData = {
       uid: uid,
       email: email,
-      isVerified: true,
+      isVerified: fireUser.data().isVerified,
       fullName: fireUser.data().fullName,
       username: fireUser.data().username,
       photoURL: fireUser.data().photoURL,
-      creationDate: creationDate,
+      creationDate: fireUser.data().creationDate,
     };
     return res.status(200).json({ message: 'User logged in successfully.', user: userData });
   } catch (err) {

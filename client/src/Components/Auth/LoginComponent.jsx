@@ -11,9 +11,12 @@ import { saveUserDataToCookie } from '../../Helpers/handlecookie';
 import { signInWithPopup } from 'firebase/auth';
 import { auth, googleProvider } from '../../Config/firebase';
 import { signInWithGoogleHelper } from '../../Helpers/googleAuth.js';
+import { useDispatch } from 'react-redux';
+import { updateUserState } from '../../Redux/user.slice.js';
 
 const LoginComponent = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [email, setEmail] = useState('');
@@ -36,9 +39,13 @@ const LoginComponent = () => {
 
       if (message !== 'error') {
         toast.success("Signin Successfull");
-        console.log(message);
         saveUserDataToCookie(message);
-        window.location.reload();
+        if (message) {
+          dispatch(updateUserState({
+            isLoggedIn: true,
+            userData: message,
+          }));
+        }
         navigate('/profile');
       } else {
         toast.error("Couldn't sign you in!");
@@ -72,7 +79,12 @@ const LoginComponent = () => {
       if (response.status === 200){
         toast.success('Logged in successfully.');
         saveUserDataToCookie(response.data.user);
-        window.location.reload();
+        if (response.data.user) {
+          dispatch(updateUserState({
+            isLoggedIn: true,
+            userData: response.data.user,
+          }));
+        }
         navigate('/profile');
       } else {
         toast.error('Wrong email or password.');
@@ -108,7 +120,7 @@ const LoginComponent = () => {
           <h2 className='text-xl font-semibold'>Log In</h2>
           <br />
           <input
-            type="email"
+            type='email'
             className='inputOne'
             placeholder='Email'
             value={email}
@@ -131,7 +143,7 @@ const LoginComponent = () => {
           <button onClick={emailLogin} className='h-9 w-full bg-green-500 rounded mt-2 text-gray-950 font-semibold hover:bg-green-600 hover:text-gray-900 duration-200'>
             {isLoading? <CgSpinnerTwoAlt className='animate-spin mx-auto' size={24} /> : 'Log In'}
           </button>
-          <p className='mt-3 text-sm'>Don't have an account? <span className='linkOne'><Link to={'/signup'}>Sign Up</Link></span></p>
+          <p className='mt-3 text-sm'>Don&apos;t have an account? <span className='linkOne'><Link to={'/signup'}>Sign Up</Link></span></p>
 
           <div className='mt-12 flex justify-center items-center gap-3'>
             <hr className='w-[45%] h-[1px] border-none bg-gray-700' />
