@@ -47,12 +47,12 @@ const Header = () => {
 
         {isLoading ? (
           <div>
-            <Spinner />
+            <Spinner width={20} />
           </div>
         ) : (
           <>
             {user.isLoggedIn ? (
-              <div>
+              <div className='bg-gray-900 rounded-full'>
                 <Link to={'/profile'}>
                   <img src={user.userData.photoURL} className='h-8 w-8 border border-gray-700 object-cover rounded-full' alt='Profile Picture' />
                 </Link>

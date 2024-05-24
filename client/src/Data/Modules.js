@@ -2,75 +2,61 @@ export const allModules = [
   {
     id: 1,
     unique: 'html-css',
-    name: "Introduction to HTML & CSS",
-    description: "This module covers the fundamental building blocks of web development, including HTML for structuring content and CSS for styling",
-    learningLevel: "Beginner",
-    learningLength: "Short to Medium",
+    name: "HTML & CSS (Web Development)",
+    description: "Embark on your journey into the world of web development with our comprehensive HTML & CSS module. This module serves as the cornerstone for aspiring web developers, providing a solid foundation in two essential technologies: HTML and CSS. HTML, or Hypertext Markup Language, is the backbone of the web, allowing developers to structure content and create meaningful web pages. You'll delve into the intricacies of HTML, mastering the art of crafting well-organized and semantically meaningful web content. CSS, or Cascading Style Sheets, is your key to enhancing the visual presentation of web pages. You'll learn how to apply styles, colors, layouts, and animations to transform your HTML content into stunning web experiences. Whether you're a complete beginner or looking to refresh your skills, our HTML & CSS module offers a comprehensive curriculum designed to empower you with the knowledge and skills needed to kickstart your journey as a web developer.",
     linkOne: "/learn/html-css",
     linkTwo: "/learn/html-css/basic-elements",
     objectives: [
-      "Understand HTML's role in structuring web content.",
-      "Learn the basics of HTML tags and elements.",
-      "Comprehend the purpose and usage of CSS for styling web pages.",
-      "Gain knowledge of CSS selectors, properties, and values.",
-      "Practice creating simple web pages using HTML and CSS."
+      {
+        name: "Understand HTML's role in structuring web content:",
+        desc: "Gain insight into how HTML serves as the foundation for organizing and presenting content on the web.",
+      },
+      {
+        name: "Learn the basics of HTML tags and elements:",
+        desc: "Explore the essential elements and tags used in HTML for structuring different types of content.",
+      },
+      {
+        name: "Comprehend the purpose and usage of CSS for styling web pages:",
+        desc: "Understand the role of CSS in enhancing the visual presentation and layout of web pages.",
+      },
+      {
+        name: "Gain knowledge of CSS selectors, properties, and values:",
+        desc: "Learn about CSS selectors used to target specific elements, along with various properties and values for styling.",
+      },
+      {
+        name: "Practice creating simple web pages using HTML and CSS:",
+        desc: "Apply the concepts learned to create basic web pages, combining HTML for content structure and CSS for styling.",
+      },
     ],
     whatYouWillLearn: [
-      "How to create structured content using HTML.",
-      "How to apply styles to web pages using CSS.",
-      "Basic techniques for designing simple web layouts.",
-      "How to link HTML and CSS files.",
-      "Introduction to responsive design principles."
-    ]
+      {
+        name: "Foundational HTML:",
+        desc: "Covering basic elements, text formatting, HTML tags & attributes, semantic HTML, link creation, image embedding, and list creation.",
+      },
+      {
+        name: "Essential HTML Concepts:",
+        desc: "Including style definition, color selection, display properties, box model concept, and font styling.",
+      },
+      {
+        name: "Intermediate HTML & CSS:",
+        desc: "Covering class implementation, selector types, pseudo-class usage, UI library integration, and grid layout design.",
+      },
+      {
+        name: "Tailwind CSS Basics:",
+        desc: "Introducing the Tailwind CSS framework, utility classes, responsive design with Tailwind, and component styling.",
+      },
+      {
+        name: "Advanced HTML Techniques:",
+        desc: "Exploring table designing, iframe embedding, SVG graphics integration, video embedding, and audio playback.",
+      },
+      {
+        name: "Advanced CSS Techniques:",
+        desc: "Covering responsive design, transition effects, media query implementation, advanced selector usage, and filter application.",
+      },
+      {
+        name: "Expert HTML Skills:",
+        desc: " Including animation creation, flexbox mastery, custom variable utilization, 3D transformation techniques, and pseudo-element utilization.",
+      },
+    ],
   },
-  // {
-  //   id: 2,
-  //   unique: 'python',
-  //   name: "Python Basics",
-  //   description: "This module provides an introduction to Python programming language, covering basic syntax, data types, and control structures.",
-  //   learningLevel: "Beginner",
-  //   learningLength: "Short to Medium",
-  //   linkOne: "/learn/html-css",
-  //   linkTwo: "/learn/html-css/basic-elements",
-  //   objectives: [
-  //     "Learn the fundamentals of the Python programming language.",
-  //     "Understand Python's syntax, data types, and control structures.",
-  //     "Gain proficiency in writing basic Python scripts.",
-  //     "Explore the concept of functions and modules in Python.",
-  //     "Practice problem-solving using Python."
-  //   ],
-  //   whatYouWillLearn: [
-  //     "Python syntax and basic programming concepts.",
-  //     "Data types such as strings, numbers, lists, tuples, and dictionaries.",
-  //     "Conditional statements and loops.",
-  //     "Functions and their usage.",
-  //     "Reading and writing files in Python."
-  //   ]
-  // },
-  // {
-  //   id: 3,
-  //   unique: 'javascript',
-  //   name: "Introduction to JavaScript",
-  //   description: "This module introduces the JavaScript programming language, covering basic concepts such as variables, functions, and control flow.",
-  //   learningLevel: "Beginner to Intermediate",
-  //   learningLength: "Medium",
-  //   linkOne: "/learn/html-css",
-  //   linkTwo: "/learn/html-css/basic-elements",
-  //   objectives: [
-  //     "Gain a foundational understanding of JavaScript.",
-  //     "Learn about JavaScript variables, functions, and control flow.",
-  //     "Explore DOM manipulation and event handling.",
-  //     "Understand asynchronous programming with JavaScript.",
-  //     "Practice building simple interactive web applications."
-  //   ],
-  //   whatYouWillLearn: [
-  //     "Basic JavaScript syntax and programming concepts.",
-  //     "Variables, data types, and operators in JavaScript.",
-  //     "Control flow structures such as if statements, loops, and switch cases.",
-  //     "Functions and their usage, including callback functions.",
-  //     "Introduction to the Document Object Model (DOM) and its manipulation.",
-  //     "Handling events and user interactions.",
-  //     "Asynchronous JavaScript using callbacks, promises, and async/await."
-  //   ]
-  // }
 ];
