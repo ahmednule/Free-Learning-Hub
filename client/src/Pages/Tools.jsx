@@ -7,8 +7,8 @@ const Tools = () => {
 			id: 1,
 			name: 'JSON Validator',
 			link: '/tools/json-validator',
-			description: 'Lorem Lorem Lorem LoremLorem Lorem Lorem'
-		}
+			description: 'Lorem Lorem Lorem LoremLorem Lorem Lorem',
+		},
 	]
 
   return (

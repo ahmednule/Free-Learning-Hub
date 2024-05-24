@@ -9,8 +9,6 @@ const Home = () => {
     <div className='flex flex-col gap-32'>
       <Hero />
 
-      {/* Patrnerships or companies major affiliates or sponsors */}
-
       <div className='w-full h-20 border-t border-gray-600 bg-gradient-to-b from-gray-900 relative to-transparent'>
         <div className='hidden md:block absolute top-0 left-0 -translate-x-[14px] -translate-y-[14px] text-white'>
           <TfiPlus size={30} />
@@ -25,7 +23,8 @@ const Home = () => {
       <div>
         <Newsletter />
         <Testimonials />
-      </div>      
+      </div>
+
     </div>
   );
 }

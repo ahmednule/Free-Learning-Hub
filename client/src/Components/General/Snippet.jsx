@@ -42,6 +42,7 @@ const Snippet = ({ codeString, lang, title }) => {
           padding: '15px 10px',
           backgroundColor: '#030712',
           borderRadius: '6px',
+          fontSize: '13px'
         }}
       >
         {codeString}

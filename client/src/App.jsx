@@ -20,22 +20,20 @@ const App = () => {
   return (
     <HashRouter>
       <div><Toaster/></div>
-      <div className='fixed w-full container mx-auto z-10 backdrop-blur-2xl'>
+      <div className='fixed top-0 left-0 right-0 w-full z-10 bg-gray-950'>
         <Header />
       </div>
-      <div className='pt-20 mx-3'>
-        <Suspense fallback={<div>
-          <Loader />
-        </div>}>
+      <div className='pt-16 mx-3'>
+        <Suspense fallback={<Loader />}>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/learn" element={<Learn />} />
-            <Route path="/learn/register/:moduleID" element={<Register />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/learn/html-css/:lessonID" element={<Wrapper />} />
-            <Route path="/tools" element={<Tools />} />
+            <Route path='/' element={<Home />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/signup' element={<Signup />} />
+            <Route path='/learn' element={<Learn />} />
+            <Route path='/learn/register/:moduleID' element={<Register />} />
+            <Route path='/profile' element={<Profile />} />
+            <Route path='/learn/html-css/:lessonID' element={<Wrapper />} />
+            <Route path='/tools' element={<Tools />} />
             {/* <Route path='/code-editor' element={<Editor />} /> */}
           </Routes>
         </Suspense>

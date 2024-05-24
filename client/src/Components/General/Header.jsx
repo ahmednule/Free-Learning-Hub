@@ -16,43 +16,41 @@ const Header = () => {
         setHasPhoto(true);
       }
       setOnlinePhotoURL(userData.photoURL);
-    };
+    }
     
   }, []);
 
   return (
-    <div>
-      <div className="flex h-14 justify-between items-center border-b border-b-gray-700 px-3">
-        <div>
-          <Link to={'/'}>
-            <img src="./logo.webp" alt="Free Learning Hub Logo" className="h-10 w-fit" />
-          </Link>
+    <div className="flex h-14 justify-between items-center border-b border-b-gray-700 px-3">
+      <div>
+        <Link to={'/'}>
+          <h2 className='text-2xl md:text-3xl text-blue-500'>freeLearningHub</h2>
+        </Link>
+      </div>
+      <div className='flex justify-end gap-5 items-center'>
+        <div className='flex justify-end gap-3 items-center'>
+          <span className='text-gray-400 hover:text-gray-200 hover:scale-105 duration-200 cursor-pointer'>
+            <Link to={'/learn'}>Learn</Link>
+          </span>
+          <span className='text-gray-400 hover:text-gray-200 hover:scale-105 duration-200 cursor-pointer'>
+            <Link to={'/tools'}>Tools</Link>
+          </span>
         </div>
-        <div className='flex justify-end gap-5 items-center'>
-          <div className='flex justify-end gap-3 items-center'>
-            <span className='text-gray-400 hover:text-gray-200 hover:scale-105 duration-200 cursor-pointer'>
-              <Link to={'/learn'}>Learn</Link>
-            </span>
-            <span className='text-gray-400 hover:text-gray-200 hover:scale-105 duration-200 cursor-pointer'>
-              <Link to={'/tools'}>Tools</Link>
-            </span>
-          </div>
-          {
-            isLoggedIn ? (
-                <div>
-                  <Link to={'/profile'}>
-                    <img src={hasPhoto ? onlinePhotoURL : placeHolderImage} className='h-8 w-8 border border-gray-700 object-cover rounded-full' alt="" />
-                  </Link>
-                </div>
-            ) : (
-              <div className='border border-gray-700 py-1 px-6 rounded-md hover:bg-gray-900 duration-200 cursor-pointer'>
-                <Link to={'/login'} >
-                  LOGIN
-                </Link>
-              </div>
-            )
-          }
-        </div>
+        {
+          isLoggedIn ? (
+            <div>
+              <Link to={'/profile'}>
+                <img src={hasPhoto ? onlinePhotoURL : placeHolderImage} className='h-8 w-8 border border-gray-700 object-cover rounded-full' alt='Profile Picture' />
+              </Link>
+            </div>
+          ) : (
+            <div className='border border-gray-700 py-1 px-6 rounded-md hover:bg-gray-900 duration-200 cursor-pointer'>
+              <Link to={'/login'} >
+                LOGIN
+              </Link>
+            </div>
+          )
+        }
       </div>
     </div>
   );

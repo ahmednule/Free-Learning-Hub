@@ -11,10 +11,10 @@ body {
 
 /* Scrollbar styles */
 ::-webkit-scrollbar {
-  @apply w-[6px] h-[6px] bg-slate-200 rounded-3xl;
+  @apply w-[6px] h-[6px] bg-slate-950 rounded-3xl;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-slate-900 rounded-3xl;
+  @apply bg-slate-800 hover:bg-slate-700 duration-300 rounded-3xl;
   margin-left: 2px;
 }
 
