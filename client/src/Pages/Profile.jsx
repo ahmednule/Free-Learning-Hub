@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Dashboard from '../Components/Profile/Dashboard';
-import Account from '../Components/Profile/Account';
+import Logout from '../Components/Profile/Logout';
 import { useSelector } from 'react-redux';
 import { getReduxUserData } from '../Redux/user.slice';
 import { RiDashboardFill } from 'react-icons/ri';
@@ -122,7 +122,7 @@ const Profile = () => {
         </div>
 
         {activeTab === 1 && <Dashboard />}
-        {activeTab === 2 && <Account />}
+        {activeTab === 9 && <Logout />}
       </div>
 
     </div>

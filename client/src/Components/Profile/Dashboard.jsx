@@ -9,6 +9,8 @@ import 'react-circular-progressbar/dist/styles.css';
 const Dashboard = () => {
   const userDataMain = useSelector(getReduxUserData);
 
+  console.log(userDataMain.isLoggedIn);
+
   return (
     <div className='w-full bg-gray-900 px-2 py-5 rounded-sm'>
 
