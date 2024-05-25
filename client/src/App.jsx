@@ -4,6 +4,7 @@ import { Toaster } from 'react-hot-toast';
 import Header from './Components/General/Header';
 import Footer from './Components/General/Footer';
 import Loader from './Components/General/Loader';
+import ScrollToTop from './Components/General/Forceup';
 
 // Lazy loading components
 const Home = React.lazy(() => import('./Pages/Home'));
@@ -20,6 +21,7 @@ const App = () => {
   return (
     <HashRouter>
       <div><Toaster/></div>
+      <ScrollToTop />
       <div className='fixed top-0 left-0 right-0 w-full z-10 bg-gray-950'>
         <Header />
       </div>
