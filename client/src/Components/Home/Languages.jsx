@@ -24,7 +24,7 @@ app.listen(3000, () => {
       <div className="lg:max-w-[47%] w-full flex flex-col gap-5">
         <h3 className="text-blue-500">Languages</h3>
         <p className="text-xl sm:text-3xl lg:text-6xl">Pick your <span className="text-blue-500">module</span> and start learning</p>
-        <p>Unlock comprehensive learning modules, where simplicity meets depth. Don't miss out on the opportunity to level up your knowledge!</p>
+        <p>Unlock comprehensive learning modules, where simplicity meets depth. Don&apos;t miss out on the opportunity to level up your knowledge!</p>
         <div className="lg:pl-3">
           <Language />
         </div>

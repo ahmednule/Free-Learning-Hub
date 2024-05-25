@@ -35,7 +35,7 @@ const Testimonials = () => {
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 mt-20 pb-28 mx-auto">
         { reviews.map((review) => {
           return (
-            <div key={review.id} className="bg-gray-800 rounded-xl px-3 pb-5">
+            <div key={review.id} className="bg-gray-800 rounded-xl px-3 pb-5 mx-auto max-w-sm">
               <img src={review.image} alt="" className='w-24 h-24 rounded-full object-cover mx-auto mt-4' />
               <p className='text-xl text-center mt-3'> {review.name} </p>
               <p className='italic text-center text-blue-500'> {review.occupation} </p>
