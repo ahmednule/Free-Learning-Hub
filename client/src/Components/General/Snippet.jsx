@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
@@ -16,7 +17,7 @@ const Snippet = ({ codeString, lang, title }) => {
   };
 
   return (
-    <div className='rounded-[6px] border w-[90vw] md:w-full container border-gray-700 overflow-hidden'>
+    <div className='rounded-[6px] border w-[90vw] md:w-full container border-gray-700 overflow-hidden mr-3'>
       <div className='bg-slate-800 h-10 rounded-t-[6px] flex items-center justify-between px-3'>
         <p>{title} Code</p>
         <div className='cursor-pointer'>
@@ -49,6 +50,12 @@ const Snippet = ({ codeString, lang, title }) => {
       </SyntaxHighlighter>
     </div>
   );
+}
+
+Snippet.propTypes = {
+  codeString: PropTypes.string.isRequired,
+  lang: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 }
 
 export default Snippet;

@@ -5,8 +5,6 @@ import Axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { getReduxUserData, updateProgressState } from '../../Redux/user.slice';
 import Spinner from '../../Components/General/Spinner';
-import { CircularProgressbar } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
 
 const Lesson = React.lazy(() => import('./Lesson'));
 
@@ -65,43 +63,20 @@ const Wrapper = () => {
     <div className='pt-5'>
 
       {!userDataMain.isLoggedIn && (
-        <div className='bg-reds-400 mx-2 p-2 text-gray-950 text-center rounded'>
+        <div className='bg-reds-400 mx-2 p-2 text-gray-950 text-center rounded max-w-3xl md:mx-auto'>
           <p>Login <Link to={'/login'} className='linkOne'>here</Link> to save your progress</p>
         </div>
       )}
 
-      <div className='px-2 w-full max-w-3xl mx-auto flex flex-col-reverse sm:flex-row  items-center h-full gap-10'>
-        <div className="w-32 h-32 sm:mt-20">
-          <CircularProgressbar
-            value={progressPercent}
-            text={`${progressPercent}%`}
-            styles={{
-              path: {
-                stroke: `rgba(214, 73, 99, 1)`,
-                strokeLinecap: 'round',
-              },
-              trail: {
-                stroke: '#4a5568',
-              },
-              text: {
-                fill: '#3B82F6',
-                fontSize: '24px',
-              },
-            }}
-          />
-        </div>
-        <h3 className='text-2xl sm:mt-10 font-semibold md:text-3xl'>HTML & CSS (Web Development)</h3>
-      </div>
-      
       <div className='px-2 w-full max-w-3xl mx-auto'>
         <Suspense className="min-h-screen" fallback={<div>
             <Loader />
           </div>}>
-            {lessonId === 'basic-elements' && <Lesson progress={progress}  id={1} />}
-            {lessonId === 'text-formating' && <Lesson progress={progress} id={2} />}
-            {lessonId === 'html-tags-attributes' && <Lesson progress={progress} id={3} />}
-            {lessonId === 'semantic-html' && <Lesson progress={progress} id={4} />}
-            {lessonId === 'link-creation' && <Lesson progress={progress} id={5} />}
+            {lessonId === 'basic-elements' && <Lesson progress={progress}  id={1} perc={progressPercent} />}
+            {lessonId === 'text-formating' && <Lesson progress={progress} id={2} perc={progressPercent} />}
+            {lessonId === 'html-tags-attributes' && <Lesson progress={progress} id={3} perc={progressPercent} />}
+            {lessonId === 'semantic-html' && <Lesson progress={progress} id={4} perc={progressPercent} />}
+            {lessonId === 'link-creation' && <Lesson progress={progress} id={5} perc={progressPercent} />}
         </Suspense>
       </div>
 

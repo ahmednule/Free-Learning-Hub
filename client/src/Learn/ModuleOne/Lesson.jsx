@@ -10,6 +10,8 @@ import lessons from './Lessons.json';
 import { getReduxUserData, updateProgressState } from '../../Redux/user.slice';
 import { useDispatch, useSelector } from 'react-redux';
 import Spinner from '../../Components/General/Spinner';
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 // Lazily import tutorials
 const TutorialOne = React.lazy(() => import('./LessonOne/Tutorial'));
@@ -18,7 +20,7 @@ const TutorialThree = React.lazy(() => import('./LessonThree/Tutorial'));
 const TutorialFour = React.lazy(() => import('./LessonFour/Tutorial'));
 const TutorialFive = React.lazy(() => import('./LessonFive/Tutorial'));
 
-const Lesson = ({ progress, id }) => {
+const Lesson = ({ progress, id, perc }) => {
   const dispatch = useDispatch();
   const userDataMain = useSelector(getReduxUserData);
 
@@ -81,9 +83,35 @@ const Lesson = ({ progress, id }) => {
   };
 
   return (
-    <div className='mt-10'>
+    <div>
 
-      <div className='mr-3'>
+      <div className='px-2 w-full max-w-3xl mx-auto mt-5 flex flex-col-reverse sm:flex-row items-center h-full gap-10'>
+        <div className="w-32 h-32">
+          <CircularProgressbar
+            value={perc}
+            text={`${perc}%`}
+            styles={{
+              path: {
+                stroke: `rgba(214, 73, 99, 1)`,
+                strokeLinecap: 'round',
+              },
+              trail: {
+                stroke: '#4a5568',
+              },
+              text: {
+                fill: '#3B82F6',
+                fontSize: '24px',
+              },
+            }}
+          />
+        </div>
+        <div>
+          <h3 className='text-2xl font-semibold md:text-3xl'>HTML & CSS (Web Development)</h3>
+          <p>Complete</p>
+        </div>
+      </div>
+
+      <div className='mr-3 mt-16'>
         <Suspense fallback={<div className='w-full flex justify-center min-h-screen'>
           <Spinner width={40} />
         </div>}>
@@ -126,6 +154,7 @@ const Lesson = ({ progress, id }) => {
 Lesson.propTypes = {
   progress: PropTypes.object.isRequired,
   id: PropTypes.number.isRequired,
+  perc: PropTypes.number.isRequired,
 }
 
 export default Lesson;
