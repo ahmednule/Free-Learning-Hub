@@ -26,7 +26,7 @@ const Footer = () => {
           <a href="https://github.com/developer-assets/Free-Learning-Hub" target="_blank" rel="noreferer" className="p-2 hover:bg-gray-700 duration-200 cursor-pointer rounded-full">
             <FaGithub />
           </a>
-          <a href="https://discord.gg/BYDg4NXDZx" target="_blank" rel="noreferer" className="p-2 hover:bg-gray-700 duration-200 cursor-pointer rounded-full">
+          <a href="https://discord.gg/mgjhY74Jrn" target="_blank" rel="noreferer" className="p-2 hover:bg-gray-700 duration-200 cursor-pointer rounded-full">
             <FaDiscord />
           </a>
           <a href="mailto:999patrickobama@gmail.com" target="_blank" rel="noreferer" className="p-2 hover:bg-gray-700 duration-200 cursor-pointer rounded-full">

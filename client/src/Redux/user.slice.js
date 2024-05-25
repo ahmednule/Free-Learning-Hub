@@ -4,6 +4,7 @@ const initialState = {
   isLoggedIn: false,
   userData: '',
   userProgress: '',
+  htmlCss: 5,
 }
 
 const userSlice = createSlice({

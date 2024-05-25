@@ -68,7 +68,7 @@ const Modules = () => {
         ) : (
           <>
             {activeTab === 1 && <Allmodules progress={progress} />}
-            {activeTab === 2 && <Mymodules progress={progress} />}
+            {activeTab === 2 && <Mymodules progress={progress} total={userDataMain.htmlCss} />}
           </>
         )}
       </div>

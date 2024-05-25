@@ -21,8 +21,7 @@ const Wrapper = () => {
 
   let htmlCssProgress = userDataMain.userProgress['html-css'] ? userDataMain.userProgress['html-css'].progress : 0;
   htmlCssProgress = Object.keys(htmlCssProgress).length;
-  const htmlCssTotal = 5;
-  const progressPercent = Math.round(htmlCssProgress / htmlCssTotal * 100);
+  const progressPercent = Math.round(htmlCssProgress / userDataMain.htmlCss * 100);
 
   useEffect(() => {
     const urlParts = location.pathname.split('/');
@@ -91,7 +90,7 @@ const Wrapper = () => {
             }}
           />
         </div>
-        <h3 className='text-2xl sm:mt-10 font-semibold md:text-3xl'>HTML & CSS (Web Devlopment)</h3>
+        <h3 className='text-2xl sm:mt-10 font-semibold md:text-3xl'>HTML & CSS (Web Development)</h3>
       </div>
       
       <div className='px-2 w-full max-w-3xl mx-auto'>

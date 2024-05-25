@@ -5,10 +5,9 @@ import { allModules } from '../../Data/Modules.js';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
-const Mymodules = ({ progress }) => {
+const Mymodules = ({ progress, total }) => {
   let htmlCssProgress = progress['html-css'] ? progress['html-css'].progress : 0;
   htmlCssProgress = Object.keys(htmlCssProgress).length;
-  const htmlCssTotal = 5;
 
   const modules = Object.keys(progress);
   const filteredModules = allModules.filter(module => modules.includes(module.unique));
@@ -22,7 +21,7 @@ const Mymodules = ({ progress }) => {
       )}
       <div className="flex flex-wrap gap-3 mt-5 mb-36">
         {filteredModules.map((lang) => {
-          const progressPercent = lang.unique === 'html-css' ? Math.round(htmlCssProgress / htmlCssTotal * 100) : 0;
+          const progressPercent = lang.unique === 'html-css' ? Math.round(htmlCssProgress / total * 100) : 0;
 
           return (
             <div key={lang.id} className="w-full max-w-sm bg-blue-500/5 border p-4 border-blue-500/15 rounded-2xl hover:bg-blue-500/10 hover:border-blue-500/20 duration-200">
@@ -62,6 +61,7 @@ const Mymodules = ({ progress }) => {
 
 Mymodules.propTypes = {
   progress: PropTypes.object.isRequired,
+  total: PropTypes.number.isRequired,
 };
 
 export default Mymodules;
