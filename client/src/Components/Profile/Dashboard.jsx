@@ -61,7 +61,7 @@ const Dashboard = () => {
           <div className='h-[90px] w-[140px] bg-gray-500/25 border cursor-pointer border-gray-500/40 hover:scale-105 hover:bg-gray-900 duration-200 rounded'>
           <div className='flex items-center gap-4 px-4 mt-2'>
               <TbTextPlus size={30} />
-              <span className='text-3xl'>0</span>
+              <span className='text-3xl'>1</span>
             </div>
             <p className='pl-4 mt-2'>All Modules</p>
           </div>
