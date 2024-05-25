@@ -1,7 +1,6 @@
 [
   {
     "id": 1,
-    "level": 10,
     "videoID": "ScMzIvxBSi4",
     "textOne": "ALL MODULES",
     "linkOne": "/learn",
@@ -11,7 +10,6 @@
   },
   {
     "id": 2,
-    "level": 20,
     "videoID": "ScMzIvxBSi4",
     "textOne": "Basic Elements",
     "linkOne": "/learn/html-css/basic-elements",
@@ -21,7 +19,6 @@
   },
   {
     "id": 3,
-    "level": 30,
     "videoID": "ScMzIvxBSi4",
     "textOne": "Text Formating",
     "linkOne": "/learn/html-css/text-formating",
@@ -31,7 +28,6 @@
   },
   {
     "id": 4,
-    "level": 40,
     "videoID": "ScMzIvxBSi4",
     "textOne": "HTML Tags & Attributes",
     "linkOne": "/learn/html-css/html-tags-attributes",
@@ -41,7 +37,6 @@
   },
   {
     "id": 5,
-    "level": 50,
     "videoID": "ScMzIvxBSi4",
     "textOne": "Semantic HTML",
     "linkOne": "/learn/html-css/semantic-html",

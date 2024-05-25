@@ -109,7 +109,7 @@ const Tutorial = () => {
 
   return (
     <div>
-      <h1 className='font-bold text-2xl md:text-3xl underline underline-offset-[16px] pb-10'>Basic HTML Elements</h1>
+      <h1 className=' text-xl md:text-2xl underline underline-offset-[16px] pb-10'>Basic HTML Elements</h1>
 
       <article className='mt-6 font-md flex flex-col gap-8 mb-20 overflow-hidden'>
       <p>Learning the basic elements of HTML is akin to grasping the fundamental building blocks of web development. These elements form the foundation upon which web pages are constructed, allowing developers to structure content and create meaningful user experiences. Here's an overview of some essential HTML elements:</p>

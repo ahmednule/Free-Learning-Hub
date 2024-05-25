@@ -44,7 +44,7 @@ export const updateProgress = async (req, res) => {
   try {
     const userDocRef = doc(db, 'users', uid);
     const fireUser = await updateDoc(userDocRef, {
-      [`modules.${module}.progress`]: progress
+      [`modules.${module}.progress.${progress}.done`]: true,
     });
 
     return res.status(201).json({ message: 'Progress updated successfully.' });

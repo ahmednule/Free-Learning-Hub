@@ -1,20 +1,15 @@
 import React, { useState, useEffect, Suspense } from 'react';
-import Quiz from '../../Components/Modules/Quiz';
+import PropTypes from 'prop-types';
 import Subfooter from '../../Components/Modules/Subfooter';
-import Loader from '../../Components/General/Loader';
 import { TiTick } from 'react-icons/ti';
 import { CgSpinnerTwoAlt } from 'react-icons/cg';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import toast from 'react-hot-toast';
 import lessons from './Lessons.json';
-
-// Import Quizes - *Use this method for now but we may need to optimize in future*
-import QuizOne from './LessonOne/Quiz.json';
-import QuizTwo from './LessonTwo/Quiz.json';
-import QuizThree from './LessonThree/Quiz.json';
-import QuizFour from './LessonFour/Quiz.json';
-import QuizFive from './LessonFive/Quiz.json';
+import { getReduxUserData, updateProgressState } from '../../Redux/user.slice';
+import { useDispatch, useSelector } from 'react-redux';
+import Spinner from '../../Components/General/Spinner';
 
 // Lazily import tutorials
 const TutorialOne = React.lazy(() => import('./LessonOne/Tutorial'));
@@ -23,16 +18,16 @@ const TutorialThree = React.lazy(() => import('./LessonThree/Tutorial'));
 const TutorialFour = React.lazy(() => import('./LessonFour/Tutorial'));
 const TutorialFive = React.lazy(() => import('./LessonFive/Tutorial'));
 
-const Lesson = ({ progress, uid, isLoggedIn, id }) => {
-  const [activeTab, setActiveTab] = useState(1);
+const Lesson = ({ progress, id }) => {
+  const dispatch = useDispatch();
+  const userDataMain = useSelector(getReduxUserData);
+
   const [progressTwo, setProgressTwo] = useState(progress);
   const [isDone, setIsDone] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Get exact tutorial and fetch tutorial data
   const activeTutorial = lessons.find((lesson) => lesson.id === id);
-  const level = Number(activeTutorial.level);
-  const videoId = activeTutorial.videoID;
+  const level = Number(activeTutorial.id);
 
   useEffect(() => {
     setProgressTwo(progress);
@@ -40,18 +35,32 @@ const Lesson = ({ progress, uid, isLoggedIn, id }) => {
 
   useEffect(() => {
     if (progressTwo) {
-      if (progress >= level) {
+      let temp = progress[String(level)];
+      if (temp && temp.done) {
         setIsDone(true);
       }
     }
-  }, [progressTwo]);
+  }, [progressTwo, level, progress]);
+
+  const fetchProgress = async () => {
+    const url = import.meta.env.VITE_BACKEND_URL + '/api/learn/progress';
+
+    if (userDataMain.userData) {
+      try {
+        const response = await Axios.post(url, { uid: userDataMain.userData.uid });
+        dispatch(updateProgressState({ userProgress: response.data }));
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  }
   
   const handleUpdateProgress = async () => {
     setIsLoading(true);
     const url = import.meta.env.VITE_BACKEND_URL + '/api/learn/update';
     try {
       const response = await Axios.post(url, {
-        uid,
+        uid: userDataMain.userData.uid,
         module: 'html-css',
         progress: level
       });
@@ -59,6 +68,7 @@ const Lesson = ({ progress, uid, isLoggedIn, id }) => {
       if (response.status === 201) {
         toast.success('Progress updated successfully');
         setIsDone(true);
+        fetchProgress();
       } else {
         toast.error('Error updating progress');
       }
@@ -71,54 +81,21 @@ const Lesson = ({ progress, uid, isLoggedIn, id }) => {
   };
 
   return (
-    <div>
-      <div className='w-full bg-gray-700 rounded-xl p-2 h-[60vh] max-h-96 flex items-center justify-center'>
-        <iframe
-          className='w-full rounded-md h-full'
-          src={`https://www.youtube.com/embed/${videoId}?autoplay=0`}
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
-      </div>
-      <div className='w-full h-10 sticky top-14 bg-gray-900 border-t border-b border-gray-700 mt-10 mb-6 flex justify-around'>
-        <button onClick={() => setActiveTab(1)} className={activeTab === 1 ? 'h-full w-full bg-gray-800' : 'h-full w-full'}>
-          TUTORIAL
-        </button>
-        <button onClick={() => setActiveTab(2)} className={activeTab === 2 ? 'h-full w-full bg-gray-800' : 'h-full w-full'}>
-          QUIZ
-        </button>
-      </div>
+    <div className='mt-10'>
+
       <div>
-
-        {/* Load lessons */}
-        {activeTab === 1 && (
-          <Suspense fallback={<div>
-            <Loader />
-          </div>}>
-            {id === 1 && <TutorialOne />}
-            {id === 2 && <TutorialTwo />}
-            {id === 3 && <TutorialThree />}
-            {id === 4 && <TutorialFour />}
-            {id === 5 && <TutorialFive />}
-          </Suspense>
-        )}
-        
-        {/* Load qustions */}
-        {activeTab === 2 && (
-          <Suspense fallback={<div>
-            <Loader />
-          </div>}>
-            {id === 1 && <Quiz data={QuizOne} />}
-            {id === 2 && <Quiz data={QuizTwo} />}
-            {id === 3 && <Quiz data={QuizThree} />}
-            {id === 4 && <Quiz data={QuizFour} />}
-            {id === 5 && <Quiz data={QuizFive} />}
-          </Suspense>
-        )}
-
+        <Suspense fallback={<div className='w-full flex justify-center min-h-screen'>
+          <Spinner width={40} />
+        </div>}>
+          {id === 1 && <TutorialOne />}
+          {id === 2 && <TutorialTwo />}
+          {id === 3 && <TutorialThree />}
+          {id === 4 && <TutorialFour />}
+          {id === 5 && <TutorialFive />}
+        </Suspense>
       </div>
-      {isLoggedIn ? (
+
+      {userDataMain.isLoggedIn ? (
         isDone ? (
           <div className='text-green-500 mb-10 text-xl flex gap-2 items-center'>
             <TiTick className='text-green-500 border border-green-700 rounded-full p-[1px]' size={25} />
@@ -144,6 +121,11 @@ const Lesson = ({ progress, uid, isLoggedIn, id }) => {
       </div>
     </div>
   );
+}
+
+Lesson.propTypes = {
+  progress: PropTypes.object.isRequired,
+  id: PropTypes.number.isRequired,
 }
 
 export default Lesson;

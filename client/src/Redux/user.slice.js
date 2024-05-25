@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   isLoggedIn: false,
   userData: '',
+  userProgress: '',
 }
 
 const userSlice = createSlice({
@@ -12,12 +13,15 @@ const userSlice = createSlice({
     updateUserState(state, action) {
       state.isLoggedIn = action.payload.isLoggedIn;
       state.userData = action.payload.userData;
+    },
+    updateProgressState(state, action) {
+      state.userProgress = action.payload.userProgress;
     }
   }
 });
 
 export const getReduxUserData = (state) => state.user;
 
-export const { updateUserState } = userSlice.actions;
+export const { updateUserState, updateProgressState } = userSlice.actions;
 
 export default userSlice.reducer;

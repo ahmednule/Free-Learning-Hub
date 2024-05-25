@@ -6,8 +6,9 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 const Mymodules = ({ progress }) => {
-  const htmlCssProgress = progress['html-css'] ? progress['html-css'].progress : 0;
-  const htmlCssTotal = 50;
+  let htmlCssProgress = progress['html-css'] ? progress['html-css'].progress : 0;
+  htmlCssProgress = Object.keys(htmlCssProgress).length;
+  const htmlCssTotal = 5;
 
   const modules = Object.keys(progress);
   const filteredModules = allModules.filter(module => modules.includes(module.unique));

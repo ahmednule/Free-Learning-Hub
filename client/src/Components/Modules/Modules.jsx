@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { getReduxUserData } from '../../Redux/user.slice';
+import { useSelector, useDispatch } from 'react-redux';
+import { getReduxUserData, updateProgressState } from '../../Redux/user.slice';
 import Allmodules from './Allmodules';
 import Mymodules from './Mymodules';
 import Axios from 'axios';
@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import Spinner from '../General/Spinner';
 
 const Modules = () => {
+  const dispatch = useDispatch();
   const userDataMain = useSelector(getReduxUserData);
 
   const [progress, setProgress] = useState({});
@@ -22,6 +23,7 @@ const Modules = () => {
         try {
           const response = await Axios.post(url, { uid: userDataMain.userData.uid });
           setProgress(response.data);
+          dispatch(updateProgressState({ userProgress: response.data }));
         } catch (err) {
           console.error('Error fetching user progress:', err);
         } finally {
@@ -33,7 +35,7 @@ const Modules = () => {
     };
 
     getUserProgress();
-  }, [userDataMain]);
+  }, [userDataMain, dispatch]);
 
   return (
     <div className='border border-gray-700 rounded-md'>
