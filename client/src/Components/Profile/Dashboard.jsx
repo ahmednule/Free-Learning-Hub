@@ -1,57 +1,83 @@
-import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom';
-import placeHolderImage from '../../Images/userImage.jpg'
-import { fetchUserDataFromCookie } from '../../Helpers/handlecookie';
-import { CiUser } from 'react-icons/ci';
-import { FaUserCog } from 'react-icons/fa';
-import { MdOutlineEmail } from 'react-icons/md';
+import { useSelector } from 'react-redux';
+import { getReduxUserData } from '../../Redux/user.slice';
+import { CircularProgressbar } from 'react-circular-progressbar';
+import { FaGraduationCap, FaAward } from 'react-icons/fa6';
+import { PiBookOpenTextFill } from 'react-icons/pi';
+import { TbTextPlus } from 'react-icons/tb';
+import 'react-circular-progressbar/dist/styles.css';
 
 const Dashboard = () => {
-  const navigate = useNavigate();
-  const [userInfo, setUserInfo] = useState({});
-  const [hasPhoto, setHasPhoto] = useState(false);
-  const [onlinePhotoURL, setOnlinePhotoURL] = useState('');
-  
-  useEffect(() => {
-    const userData = fetchUserDataFromCookie();
-    if (!userData) {
-      navigate('/login');
-    } else {
-      setUserInfo(userData);
-      if (userData.photoURL !== 'newUser.jpg') {
-        setHasPhoto(true);
-      }
-      setOnlinePhotoURL(userData.photoURL);
-    }
-    
-  }, []);
+  const userDataMain = useSelector(getReduxUserData);
 
   return (
-    <div className='w-full flex justify-center'>
-      <div className='rounded-xl bg-gray-950 p-2'>
+    <div className='w-full bg-gray-900 px-2 py-5 rounded-sm'>
 
-        <div className='h-64 relative w-[360px] rounded-t rounded-[80%] bg-gradient-to-br from-blue-600 to-cyan-600'>
-          <div className='absolute bottom-0 left-0 w-full'>
-            <img src={hasPhoto ? onlinePhotoURL : placeHolderImage} alt="User Profile Picture" className='rounded-full w-36 mx-auto translate-y-14 border border-gray-300 h-36 object-cover' />
+      <div className='flex flex-col md:flex-row flex-wrap gap-8'>
+
+        <div className='bg-gray-500/15 rounded-md py-4 px-7'>
+          <h2 className='text-2xl md:text-3xl text-center sm:text-left'>Your progress</h2>
+          <div className='flex flex-col sm:flex-row items-center gap-10'>
+            <div className="w-32 h-32 mt-5">
+              <CircularProgressbar
+                value={56}
+                text={`56%`}
+                styles={{
+                  path: {
+                    stroke: `rgba(214, 73, 99, 1)`,
+                    strokeLinecap: 'round',
+                  },
+                  trail: {
+                    stroke: '#4a5568',
+                  },
+                  text: {
+                    fill: '#3B82F6',
+                    fontSize: '24px',
+                  },
+                }}
+              />
+            </div>
+            <div>
+              <p className='md:text-2xl font-light mb-4 text-reds-400'>FLH Cubes</p>
+              <p className='text-sm md:text-base'>75 cubes</p>
+            </div>
           </div>
         </div>
 
-        <div className='mt-28 mb-10 text-xl flex flex-col gap-3'>
-          <div className='flex justify-start items-center pl-2 gap-5 border-b border-gray-700 py-3'>
-            <CiUser size={30} />
-            <p>{userInfo.fullName}</p>
+        <div className='w-[340px] py-4 px-6 bg-gray-500/15 rounded-md grid grid-cols-2 gap-5'>
+          <div className='h-[90px] w-[140px] bg-gray-500/25 border cursor-pointer border-gray-500/40 hover:scale-105 hover:bg-gray-900 duration-200 rounded'>
+            <div className='flex items-center gap-4 px-4 mt-2'>
+              <FaGraduationCap size={30} />
+              <span className='text-3xl'>0</span>
+            </div>
+            <p className='pl-4 mt-2'>Certifications</p>
           </div>
-          <div className='flex justify-start items-center pl-2 gap-5 border-b border-gray-700 py-3'>
-            <FaUserCog size={30} />
-            <p>{userInfo.username}</p>
+          <div className='h-[90px] w-[140px] bg-gray-500/25 border cursor-pointer border-gray-500/40 hover:scale-105 hover:bg-gray-900 duration-200 rounded'>
+          <div className='flex items-center gap-4 px-4 mt-2'>
+              <PiBookOpenTextFill size={30} />
+              <span className='text-3xl'>0</span>
+            </div>
+            <p className='pl-4 mt-2'>Your Modules</p>
           </div>
-          <div className='flex justify-start items-center pl-2 gap-5 border-b border-gray-700 py-3'>
-            <MdOutlineEmail size={30} />
-            <p>{userInfo.email}</p>
+          <div className='h-[90px] w-[140px] bg-gray-500/25 border cursor-pointer border-gray-500/40 hover:scale-105 hover:bg-gray-900 duration-200 rounded'>
+          <div className='flex items-center gap-4 px-4 mt-2'>
+              <TbTextPlus size={30} />
+              <span className='text-3xl'>0</span>
+            </div>
+            <p className='pl-4 mt-2'>All Modules</p>
+          </div>
+          <div className='h-[90px] w-[140px] bg-gray-500/25 border cursor-pointer border-gray-500/40 hover:scale-105 hover:bg-gray-900 duration-200 rounded'>
+          <div className='flex items-center gap-4 px-4 mt-2'>
+              <FaAward size={30} />
+              <span className='text-3xl'>0</span>
+            </div>
+            <p className='pl-4 mt-2'>Badges</p>
           </div>
         </div>
 
       </div>
+
+      <div></div>
+      
     </div>
   );
 }

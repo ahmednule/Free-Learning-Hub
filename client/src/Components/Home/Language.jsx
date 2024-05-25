@@ -16,9 +16,7 @@ const Language = () => {
   return (
     <div className="flex flex-col gap-3">
       {allModules.map((lang) => {
-        // Truncate the description to 20 words
         const truncatedDescription = truncateDescription(lang.description, 20);
-        
         return (
           <div key={lang.id} className="w-full bg-blue-500/5 border border-blue-500/15 hover:bg-blue-500/10 hover:border-blue-500/20 duration-200 cursor-pointer rounded-2xl flex p-4">
             <div className="hidden lg:flex-[0.15] lg:flex items-center justify-center">

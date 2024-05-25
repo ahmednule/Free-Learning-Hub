@@ -1,46 +1,130 @@
-import { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import Dashboard from '../Components/Profile/Dashboard'
-import Account from '../Components/Profile/Account'
-import { fetchUserDataFromCookie } from '../Helpers/handlecookie'
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Dashboard from '../Components/Profile/Dashboard';
+import Account from '../Components/Profile/Account';
+import { useSelector } from 'react-redux';
+import { getReduxUserData } from '../Redux/user.slice';
+import { RiDashboardFill } from 'react-icons/ri';
+import { PiBookOpenTextFill } from 'react-icons/pi';
+import { FaCodeMerge, FaGraduationCap, FaAward, FaAngleDown } from 'react-icons/fa6';
+import { FaRegEdit } from 'react-icons/fa';
+import { IoIosNotifications } from 'react-icons/io';
+import { MdContactSupport } from 'react-icons/md';
+import { LuLogOut } from 'react-icons/lu';
 
 const Profile = () => {
+  const userDataMain = useSelector(getReduxUserData);
   const navigate = useNavigate();
-  const [userInfo, setUserInfo] = useState();
+
   const [activeTab, setActiveTab] = useState(1);
+  const [dropdown, setDropdown] = useState(false);
   
   useEffect(() => {
-    const userData = fetchUserDataFromCookie();
-    if (!userData) {
+    if (!userDataMain.isLoggedIn) {
       navigate('/login');
-    } else {
-      setUserInfo(userData);
     }
-  }, []);
+  }, [userDataMain, navigate]);
+
+  const profNavs = [
+    {
+      id: 1,
+      name: "Dashboard",
+      icon: <RiDashboardFill size={24} />,
+    },
+    {
+      id: 2,
+      name: "My Modules",
+      icon: <PiBookOpenTextFill size={24} />,
+    },
+    {
+      id: 3,
+      name: "My Projects",
+      icon: <FaCodeMerge size={24} />,
+    },
+    {
+      id: 4,
+      name: "Certifications",
+      icon: <FaGraduationCap size={24} />,
+    },
+    {
+      id: 5,
+      name: "My Badges",
+      icon: <FaAward size={24} />,
+    },
+    {
+      id: 6,
+      name: "Customize",
+      icon: <FaRegEdit size={24} />,
+    },
+    {
+      id: 7,
+      name: "Notifications",
+      icon: <IoIosNotifications size={26} />,
+    },
+    {
+      id: 8,
+      name: "Support",
+      icon: <MdContactSupport size={24} />,
+    },
+    {
+      id: 9,
+      name: "Logout",
+      icon: <LuLogOut size={24} />,
+    }
+  ];
 
   return (
-    <div>
-      <div>
-        <div className='border-b border-gray-700 py-3 pl-4'>
-          <h2 className='text-xl md:text-2xl lg:text-4xl'>Welcome back.... </h2>
-          <p className='mt-3 italic'>Pick up right where you left or pick a module to start learning from <Link className='linkOne' to={'/learn'}>here</Link>.</p>
-        </div>
+    <div className='flex justify-start gap-10 pt-5'>
 
-        <div className='h-10 w-full border-b sticky z-10 top-14 bg-gray-950 border-gray-700 flex items-center justify-evenly'>
-          <div onClick={() => setActiveTab(1)} className={activeTab === 1 ? 'bg-gray-800 cursor-pointer w-full h-full' : 'w-full cursor-pointer h-full'}>
-            <button className='pt-[6px] w-full mx-auto font-semibold'>DASHBOARD</button>
-          </div>
-          <div onClick={() => setActiveTab(2)} className={activeTab === 2 ? 'bg-gray-800 cursor-pointer w-full h-full' : 'w-full cursor-pointer h-full'}>
-            <button className='pt-[6px] w-full mx-auto font-semibold'>ACCOUNT</button>
-          </div>
-        </div>
-
-        <div className='w-full bg-gray-800 pt-5 pb-20'>
-          {activeTab === 1 && <Dashboard data={userInfo} />}
-          {activeTab === 2 && <Account data={userInfo} />}
-        </div>
-
+      <div className='hidden bg-gray-900 rounded w-64 h-fit sticky px-2 top-20 py-5 md:flex flex-col gap-3'>
+        {profNavs.map((nav) => {
+          return (
+            <div
+              key={nav.id}
+              onClick={() => setActiveTab(nav.id)}
+              className={activeTab === nav.id ? 'flex gap-3 bg-gray-500/40 hover:bg-gray-500/55 py-2 px-3 duration-200 rounded-md items-center cursor-pointer' : 'flex hover:bg-gray-500/20 duration-200 py-2 px-3 rounded-md gap-3 items-center cursor-pointer'}
+            >
+              {nav.icon}
+              <span>{nav.name}</span>
+            </div>
+          )
+        })}
       </div>
+
+      <div className='w-full pb-20'>
+        <div className='md:hidden bg-gray-900 mb-4 p-2 sticky top-14 rounded-sm'>
+          <div
+            className='flex justify-around items-center cursor-pointer'
+            onClick={() => setDropdown(!dropdown)}
+          >
+            <p className='font-semibold'>OPTIONS</p>
+            <FaAngleDown
+              size={22}
+              className={dropdown ? 'text-gray-300 rotate-180' : 'text-gray-300'}
+            />
+          </div>
+          {dropdown && (
+            <div className='pt-5 flex flex-col gap-2'>
+              {profNavs.map((nav) => {
+                return (
+                  <div
+                    key={nav.id}
+                    onClick={() => { setActiveTab(nav.id); setDropdown(!dropdown)}}
+                    className={activeTab === nav.id ? 'flex gap-3 bg-gray-500/40 hover:bg-gray-500/55 py-2 px-3 duration-200 rounded-md items-center cursor-pointer' : 'flex hover:bg-gray-500/20 duration-200 py-2 px-3 rounded-md gap-3 items-center cursor-pointer'}
+                  >
+                    {nav.icon}
+                    <span>{nav.name}</span>
+                  </div>
+                )
+              })}
+            </div>
+          )}
+        </div>
+
+        {activeTab === 1 && <Dashboard />}
+        {activeTab === 2 && <Account />}
+      </div>
+
     </div>
   );
 }
