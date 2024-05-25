@@ -83,7 +83,7 @@ const Lesson = ({ progress, id }) => {
   return (
     <div className='mt-10'>
 
-      <div>
+      <div className='mr-3'>
         <Suspense fallback={<div className='w-full flex justify-center min-h-screen'>
           <Spinner width={40} />
         </div>}>
