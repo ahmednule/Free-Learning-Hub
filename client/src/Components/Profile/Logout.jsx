@@ -46,7 +46,7 @@ const Logout = () => {
         onClick={logout}
         className='flex items-center w-44 h-10 gap-3 bg-reds-400 text-gray-950 hover:bg-reds hover:text-gray-200 duration-200 py-1 px-5 rounded mt-3'
       >
-        {!isLoading && (<MdLogout size={22} />)}
+        {!isLoading && (<MdLogout className='ml-4' size={22} />)}
         <span>
           {isLoading ? <CgSpinnerTwoAlt size={22} className='ml-14 animate-spin' />  : 'LOGOUT'}
         </span>

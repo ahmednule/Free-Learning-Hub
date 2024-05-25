@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Dashboard from '../Components/Profile/Dashboard';
 import Logout from '../Components/Profile/Logout';
-import { useSelector } from 'react-redux';
-import { getReduxUserData } from '../Redux/user.slice';
+import { useSelector, useDispatch } from 'react-redux';
+import { getReduxUserData, updateProgressState } from '../Redux/user.slice';
 import { RiDashboardFill } from 'react-icons/ri';
 import { PiBookOpenTextFill } from 'react-icons/pi';
 import { FaCodeMerge, FaGraduationCap, FaAward, FaAngleDown } from 'react-icons/fa6';
@@ -12,19 +12,44 @@ import { IoIosNotifications } from 'react-icons/io';
 import { MdContactSupport } from 'react-icons/md';
 import { LuLogOut } from 'react-icons/lu';
 import Modules from '../Components/Profile/Modules';
+import Axios from 'axios';
+import Spinner from '../Components/General/Spinner';
 
 const Profile = () => {
   const userDataMain = useSelector(getReduxUserData);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [activeTab, setActiveTab] = useState(1);
   const [dropdown, setDropdown] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   
   useEffect(() => {
     if (!userDataMain.isLoggedIn) {
       navigate('/login');
     }
   }, [userDataMain, navigate]);
+
+  useEffect(() => {
+    const getUserProgress = async () => {
+      if (userDataMain.userData) {
+        const url = `${import.meta.env.VITE_BACKEND_URL}/api/learn/progress`;
+
+        try {
+          const response = await Axios.post(url, { uid: userDataMain.userData.uid });
+          dispatch(updateProgressState({ userProgress: response.data }));
+        } catch (err) {
+          console.error('Error fetching user progress:', err);
+        } finally {
+          setIsLoading(false);
+        }
+      } else {
+        setIsLoading(false);
+      }
+    };
+
+    getUserProgress();
+  }, [userDataMain.userData, dispatch]);
 
   const profNavs = [
     {
@@ -34,12 +59,12 @@ const Profile = () => {
     },
     {
       id: 2,
-      name: "My Modules",
+      name: "Modules",
       icon: <PiBookOpenTextFill size={24} />,
     },
     {
       id: 3,
-      name: "My Projects",
+      name: "Projects",
       icon: <FaCodeMerge size={24} />,
     },
     {
@@ -49,7 +74,7 @@ const Profile = () => {
     },
     {
       id: 5,
-      name: "My Badges",
+      name: "Badges",
       icon: <FaAward size={24} />,
     },
     {
@@ -83,7 +108,7 @@ const Profile = () => {
             <div
               key={nav.id}
               onClick={() => setActiveTab(nav.id)}
-              className={activeTab === nav.id ? 'flex gap-3 bg-gray-500/40 hover:bg-gray-500/55 py-2 px-3 duration-200 rounded-md items-center cursor-pointer' : 'flex hover:bg-gray-500/20 duration-200 py-2 px-3 rounded-md gap-3 items-center cursor-pointer'}
+              className={activeTab === nav.id ? 'flex gap-5 bg-gray-500/40 hover:bg-gray-500/55 py-2 px-3 duration-200 rounded-md items-center cursor-pointer' : 'flex hover:bg-gray-500/20 duration-200 py-2 px-3 rounded-md gap-5 items-center cursor-pointer'}
             >
               {nav.icon}
               <span>{nav.name}</span>
@@ -122,9 +147,18 @@ const Profile = () => {
           )}
         </div>
 
-        {activeTab === 1 && <Dashboard />}
-        {activeTab === 2 && <Modules />}
-        {activeTab === 9 && <Logout />}
+        {isLoading ? (
+          <div className='flex px-3 py-6 bg-gray-900 rounded-sm justify-center w-full'>
+            <Spinner width={25} />
+          </div>
+        ) : (
+          <>
+            {activeTab === 1 && <Dashboard />}
+            {activeTab === 2 && <Modules />}
+            {activeTab === 9 && <Logout />}
+          </>
+        )}
+
       </div>
 
     </div>
