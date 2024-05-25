@@ -107,7 +107,15 @@ const Lesson = ({ progress, id, perc }) => {
         </div>
         <div>
           <h3 className='text-2xl font-semibold md:text-3xl'>HTML & CSS (Web Development)</h3>
-          <p>Complete</p>
+          {userDataMain.isLoggedIn ? (
+            isDone ? (
+              <p className='mt-3 text-green-500'>Complete</p>
+            ) : (
+              <p className='mt-3'>Incomplete</p>
+            )
+          ) : (
+            <p className='mt-3 text-reds-400'>Login</p>
+          )}
         </div>
       </div>
 

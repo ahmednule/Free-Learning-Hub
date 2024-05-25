@@ -11,6 +11,7 @@ import { FaRegEdit } from 'react-icons/fa';
 import { IoIosNotifications } from 'react-icons/io';
 import { MdContactSupport } from 'react-icons/md';
 import { LuLogOut } from 'react-icons/lu';
+import Modules from '../Components/Profile/Modules';
 
 const Profile = () => {
   const userDataMain = useSelector(getReduxUserData);
@@ -122,6 +123,7 @@ const Profile = () => {
         </div>
 
         {activeTab === 1 && <Dashboard />}
+        {activeTab === 2 && <Modules />}
         {activeTab === 9 && <Logout />}
       </div>
 
