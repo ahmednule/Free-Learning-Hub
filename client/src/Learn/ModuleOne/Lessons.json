@@ -106,5 +106,14 @@
     "textTwo": "Class Implementation",
     "linkTwo": "/learn/html-css/class-implementation",
     "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/LessonTwelve"
+  },
+  {
+    "id": 13,
+    "videoID": "ScMzIvxBSi4",
+    "textOne": "Font Styling",
+    "linkOne": "/learn/html-css/font-styling",
+    "textTwo": "Selector Types",
+    "linkTwo": "/learn/html-css/selector-types",
+    "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson13"
   }
 ]
