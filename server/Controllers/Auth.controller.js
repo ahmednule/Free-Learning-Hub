@@ -44,6 +44,7 @@ export const signup = async (req, res) => {
       photoURL: userImage,
       isVerified: false,
       modules: {},
+      cubes: 25,
       creationDate: creationDate,
     });
 

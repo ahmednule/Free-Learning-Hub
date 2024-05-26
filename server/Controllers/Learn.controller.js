@@ -16,10 +16,14 @@ export const registerModule = async (req, res) => {
     progress: 0
   };
 
+  let pastCubes = await getCubes(uid);
+  pastCubes += 5;
+
   try {
     const userDocRef = doc(db, 'users', uid);
     const fireUser = await updateDoc(userDocRef, {
-      [`modules.${module}`]: languageProgress
+      [`modules.${module}`]: languageProgress,
+      cubes: pastCubes,
     });
 
     return res.status(201).json({ message: 'Module registered successfully.' });
@@ -41,10 +45,14 @@ export const updateProgress = async (req, res) => {
     return res.status(400).json({ msg: 'Module not found' });
   }
 
+  let pastCubes = await getCubes(uid);
+  pastCubes += 10;
+
   try {
     const userDocRef = doc(db, 'users', uid);
     const fireUser = await updateDoc(userDocRef, {
       [`modules.${module}.progress.${progress}.done`]: true,
+      cubes: pastCubes,
     });
 
     return res.status(201).json({ message: 'Progress updated successfully.' });
@@ -78,4 +86,23 @@ export const getUserProgress = async (req, res) => {
     console.error('Error fetching user data:', err);
     return res.status(500).json({ msg: 'Something went wrong.' });
   }
+};
+
+export const getCubes = async (uid) => {
+  try {
+    const userDocRef = doc(db, 'users', uid);
+    const userDocSnapshot = await getDoc(userDocRef);
+
+    if (!userDocSnapshot.exists()) {
+      return;
+    }
+
+    const userData = userDocSnapshot.data();
+    return userData.cubes;
+
+  } catch (err) {
+    console.error('Error fetching cubes:', err);
+    return;
+  }
+
 };

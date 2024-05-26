@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Dashboard from '../Components/Profile/Dashboard';
 import Logout from '../Components/Profile/Logout';
 import { useSelector, useDispatch } from 'react-redux';
-import { getReduxUserData, updateProgressState } from '../Redux/user.slice';
+import { getReduxUserData, updateProgressState, updateCubesState } from '../Redux/user.slice';
 import { RiDashboardFill } from 'react-icons/ri';
 import { PiBookOpenTextFill } from 'react-icons/pi';
 import { FaCodeMerge, FaGraduationCap, FaAward, FaAngleDown } from 'react-icons/fa6';
@@ -23,6 +23,19 @@ const Profile = () => {
   const [activeTab, setActiveTab] = useState(1);
   const [dropdown, setDropdown] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+
+  const getUserCubes = async () => {
+    if (userDataMain.userData) {
+      const url = `${import.meta.env.VITE_BACKEND_URL}/api/user/cubes`;
+
+      try {
+        const response = await Axios.post(url, { uid: userDataMain.userData.uid });
+        dispatch(updateCubesState({ userCubes: response.data.cubes }));
+      } catch (err) {
+        console.error('Error fetching user progress:', err);
+      }
+    }
+  };
   
   useEffect(() => {
     if (!userDataMain.isLoggedIn) {
@@ -38,6 +51,7 @@ const Profile = () => {
         try {
           const response = await Axios.post(url, { uid: userDataMain.userData.uid });
           dispatch(updateProgressState({ userProgress: response.data }));
+          getUserCubes();
         } catch (err) {
           console.error('Error fetching user progress:', err);
         } finally {

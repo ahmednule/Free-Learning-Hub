@@ -44,6 +44,7 @@ const signInWithGoogleHelper = async (uid, displayName, email, photoURL) => {
         isVerified: true,
         photoURL: photoURL || userImage,
         modules: {},
+        cubes: 25,
         creationDate: creationDate,
       });
       const userDataBackTwo = {

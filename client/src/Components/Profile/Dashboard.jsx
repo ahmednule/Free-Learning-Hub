@@ -10,6 +10,8 @@ const Dashboard = () => {
   const userDataMain = useSelector(getReduxUserData);
   const modules = Object.keys(userDataMain.userProgress).length;
 
+  const cubesPercentage = Math.floor(userDataMain.userCubes / userDataMain.cubes * 100);
+
   return (
     <div className='w-full bg-gray-900 px-2 py-5 rounded-sm'>
 
@@ -20,8 +22,8 @@ const Dashboard = () => {
           <div className='flex flex-col sm:flex-row items-center gap-10'>
             <div className="w-32 h-32 mt-5">
               <CircularProgressbar
-                value={56}
-                text={`56%`}
+                value={cubesPercentage}
+                text={`${cubesPercentage}%`}
                 styles={{
                   path: {
                     stroke: `rgba(214, 73, 99, 1)`,
@@ -39,7 +41,7 @@ const Dashboard = () => {
             </div>
             <div>
               <p className='md:text-2xl font-light mb-4 text-reds-400'>FLH Cubes</p>
-              <p className='text-sm md:text-base'>75 cubes</p>
+              <p className='text-sm md:text-base'>{userDataMain.userCubes} cubes</p>
             </div>
           </div>
         </div>

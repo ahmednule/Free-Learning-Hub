@@ -4,7 +4,7 @@ import { MdLogout } from 'react-icons/md'
 import { deleteUserCookie } from '../../Helpers/handlecookie';
 import { CgSpinnerTwoAlt } from 'react-icons/cg';
 import { useDispatch } from 'react-redux';
-import { updateUserState, updateProgressState } from '../../Redux/user.slice';
+import { updateUserState, updateProgressState, updateCubesState } from '../../Redux/user.slice';
 import toast from 'react-hot-toast';
 import Axios from 'axios';
 
@@ -26,6 +26,7 @@ const Logout = () => {
           userData: '',
         }));
         dispatch(updateProgressState({ userProgress: '' }));
+        dispatch(updateCubesState({ userCubes: '' }));
         toast.success('Logged out successfully');
         navigate('/login');
       } else {
