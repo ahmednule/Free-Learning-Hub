@@ -214,5 +214,14 @@
     "textTwo": "Video Embedding",
     "linkTwo": "/learn/html-css/video-embedding",
     "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson24"
+  },
+  {
+    "id": 25,
+    "videoID": "ScMzIvxBSi4",
+    "textOne": "SVG Graphics Integration",
+    "linkOne": "/learn/html-css/svg-graphics-integration",
+    "textTwo": "Audio PLayback",
+    "linkTwo": "/learn/html-css/audio-playback",
+    "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson25"
   }
 ]
