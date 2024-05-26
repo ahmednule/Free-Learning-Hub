@@ -61,5 +61,14 @@
     "textTwo": "Style Definition",
     "linkTwo": "/learn/html-css/style-definition",
     "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/LessonSeven"
+  },
+  {
+    "id": 8,
+    "videoID": "ScMzIvxBSi4",
+    "textOne": "List Creation",
+    "linkOne": "/learn/html-css/list-creation",
+    "textTwo": "Color Selection",
+    "linkTwo": "/learn/html-css/color-selection",
+    "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/LessonEight"
   }
 ]

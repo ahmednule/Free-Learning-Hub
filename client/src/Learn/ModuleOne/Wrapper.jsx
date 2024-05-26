@@ -79,6 +79,7 @@ const Wrapper = () => {
             {lessonId === 'link-creation' && <Lesson progress={progress} id={5} perc={progressPercent} />}
             {lessonId === 'image-embedding' && <Lesson progress={progress} id={6} perc={progressPercent} />}
             {lessonId === 'list-creation' && <Lesson progress={progress} id={7} perc={progressPercent} />}
+            {lessonId === 'style-definition' && <Lesson progress={progress} id={8} perc={progressPercent} />}
         </Suspense>
       </div>
 
