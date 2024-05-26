@@ -133,5 +133,14 @@
     "textTwo": "UI Library Integration",
     "linkTwo": "/learn/html-css/ui-library-integration",
     "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson15"
+  },
+  {
+    "id": 16,
+    "videoID": "ScMzIvxBSi4",
+    "textOne": "Pseudo-Class Usage",
+    "linkOne": "/learn/html-css/pseudo-class-usage",
+    "textTwo": "Grid Layout Design",
+    "linkTwo": "/learn/html-css/grid-layout-design",
+    "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson16"
   }
 ]
