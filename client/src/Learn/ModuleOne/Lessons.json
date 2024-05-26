@@ -70,5 +70,14 @@
     "textTwo": "Color Selection",
     "linkTwo": "/learn/html-css/color-selection",
     "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/LessonEight"
+  },
+  {
+    "id": 9,
+    "videoID": "ScMzIvxBSi4",
+    "textOne": "Style Definition",
+    "linkOne": "/learn/html-css/style-definition",
+    "textTwo": "Display Properties",
+    "linkTwo": "/learn/html-css/display-properties",
+    "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/LessonNine"
   }
 ]
