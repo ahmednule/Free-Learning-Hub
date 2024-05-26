@@ -52,5 +52,14 @@
     "textTwo": "List Creation",
     "linkTwo": "/learn/html-css/list-creation",
     "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/LessonSix"
+  },
+  {
+    "id": 7,
+    "videoID": "ScMzIvxBSi4",
+    "textOne": "Image Embedding",
+    "linkOne": "/learn/html-css/image-embedding",
+    "textTwo": "Style Definition",
+    "linkTwo": "/learn/html-css/style-definition",
+    "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/LessonSeven"
   }
 ]
