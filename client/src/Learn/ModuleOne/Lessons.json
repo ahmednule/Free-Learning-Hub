@@ -115,5 +115,14 @@
     "textTwo": "Selector Types",
     "linkTwo": "/learn/html-css/selector-types",
     "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson13"
+  },
+  {
+    "id": 14,
+    "videoID": "ScMzIvxBSi4",
+    "textOne": "Class Implementation",
+    "linkOne": "/learn/html-css/class-implementation",
+    "textTwo": "Pseudo-Class Usage",
+    "linkTwo": "/learn/html-css/pseudo-class-usage",
+    "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson14"
   }
 ]
