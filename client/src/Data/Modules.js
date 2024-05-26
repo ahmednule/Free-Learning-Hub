@@ -59,4 +59,64 @@ export const allModules = [
       },
     ],
   },
+  {
+    "id": 2,
+    "unique": "python",
+    "name": "Python Programming",
+    "description": "Embark on your journey into the world of programming with our comprehensive Python module. Python is a powerful and versatile programming language known for its simplicity and readability, making it an ideal choice for beginners and seasoned developers alike. In this module, you'll learn the fundamentals of Python programming, including syntax, data types, control structures, functions, and object-oriented programming principles. Whether you're looking to build web applications, analyze data, or automate tasks, our Python module offers a solid foundation to help you achieve your goals.",
+    "linkOne": "/learn/python",
+    "linkTwo": "/learn/python/basics",
+    "objectives": [
+      {
+        "name": "Understand the basics of Python programming:",
+        "desc": "Gain insight into Python's syntax, data types, and control structures to start writing simple programs.",
+      },
+      {
+        "name": "Learn about functions and modules in Python:",
+        "desc": "Explore the concept of functions for code reusability and modular programming, along with built-in and user-defined modules.",
+      },
+      {
+        "name": "Comprehend object-oriented programming (OOP) concepts:",
+        "desc": "Understand the principles of OOP, including classes, objects, inheritance, encapsulation, and polymorphism.",
+      },
+      {
+        "name": "Practice problem-solving with Python:",
+        "desc": "Apply Python programming concepts to solve real-world problems and challenges.",
+      },
+      {
+        "name": "Explore Python's libraries and frameworks:",
+        "desc": "Discover popular libraries and frameworks in the Python ecosystem for web development, data analysis, machine learning, and more.",
+      },
+    ],
+    "whatYouWillLearn": [
+      {
+        "name": "Python Basics:",
+        "desc": "Covering variables, data types, operators, control flow, input/output, and basic error handling.",
+      },
+      {
+        "name": "Functions and Modules:",
+        "desc": "Including function definition, parameters, return values, scope, importing modules, and creating custom modules.",
+      },
+      {
+        "name": "Object-Oriented Programming (OOP):",
+        "desc": "Covering classes, objects, constructors, inheritance, method overriding, and class methods.",
+      },
+      {
+        "name": "File Handling in Python:",
+        "desc": "Introducing file operations, reading and writing files, handling exceptions, and working with file objects.",
+      },
+      {
+        "name": "Python Libraries and Frameworks:",
+        "desc": "Exploring popular libraries like NumPy, pandas, matplotlib, Django, Flask, TensorFlow, and more.",
+      },
+      {
+        "name": "Advanced Python Concepts:",
+        "desc": "Covering topics such as list comprehensions, generators, decorators, context managers, and asynchronous programming.",
+      },
+      {
+        "name": "Python Best Practices:",
+        "desc": "Including code organization, documentation, testing, debugging, and performance optimization techniques.",
+      },
+    ],
+  },
 ];

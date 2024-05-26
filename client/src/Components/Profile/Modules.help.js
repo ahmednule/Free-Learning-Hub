@@ -21,6 +21,17 @@ const createInProgress = (userData) => {
         progress = Object.keys(progress).length;
         progress = Math.round(progress / userData.htmlCss * 100);
         moduleProgress.push(progress);
+      } else if (name === 'python') {
+        moduleLinks.push('/learn/python/basic-syntax');
+        moduleNames.push('Python');
+        moduleUnique.push(name);
+        let progress = 0;
+        progress = userData.userProgress;
+        progress = getValuesForKey(progress, 'python');
+        progress = progress[0].progress;
+        progress = Object.keys(progress).length;
+        progress = Math.round(progress / userData.htmlCss * 100);
+        moduleProgress.push(progress);
       } else {
         return [];
       }
@@ -58,6 +69,17 @@ const createIsCompleted = (userData) => {
         let progress = 0;
         progress = userData.userProgress;
         progress = getValuesForKey(progress, 'html-css');
+        progress = progress[0].progress;
+        progress = Object.keys(progress).length;
+        progress = Math.round(progress / userData.htmlCss * 100);
+        moduleProgress.push(progress);
+      } else if (name === 'python') {
+        moduleLinks.push('/learn/python/basic-syntax');
+        moduleNames.push('Python');
+        moduleUnique.push(name);
+        let progress = 0;
+        progress = userData.userProgress;
+        progress = getValuesForKey(progress, 'python');
         progress = progress[0].progress;
         progress = Object.keys(progress).length;
         progress = Math.round(progress / userData.htmlCss * 100);
@@ -110,11 +132,19 @@ const createAllModules = (userData) => {
       moduleProgress.push(completedModule.progress);
       moduleType.push('done');
     } else {
-      moduleLinks.push('/learn/register/1');
-      moduleNames.push('HTML & CSS');
-      moduleProgress.push(0);
-      moduleUnique.push(eachModule.unique);
-      moduleType.push('register');
+      if (eachModule.unique === 'html-css') {
+        moduleLinks.push('/learn/register/1');
+        moduleNames.push('HTML & CSS');
+        moduleProgress.push(0);
+        moduleUnique.push(eachModule.unique);
+        moduleType.push('register');
+      } else if (eachModule.unique === 'python') {
+        moduleLinks.push('/learn/register/2');
+        moduleNames.push('Python');
+        moduleProgress.push(0);
+        moduleUnique.push(eachModule.unique);
+        moduleType.push('register');
+      }
     }
   });
 

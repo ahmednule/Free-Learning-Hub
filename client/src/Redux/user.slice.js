@@ -5,6 +5,7 @@ const initialState = {
   userData: '',
   userProgress: '',
   htmlCss: 5,
+  python: 1,
 }
 
 const userSlice = createSlice({

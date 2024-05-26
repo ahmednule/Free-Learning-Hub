@@ -1,0 +1,240 @@
+[
+  {
+    "id": 1,
+    "name": "Foundational Python",
+    "topics": [
+      {
+        "id": 1,
+        "name": "Basic Syntax",
+        "link": "/learn/python/basic-syntax"
+      },
+      {
+        "id": 2,
+        "name": "Data Types",
+        "link": "/learn/python/data-types"
+      },
+      {
+        "id": 3,
+        "name": "Variables and Constants",
+        "link": "/learn/python/variables-constants"
+      },
+      {
+        "id": 4,
+        "name": "Operators",
+        "link": "/learn/python/operators"
+      },
+      {
+        "id": 5,
+        "name": "Control Flow",
+        "link": "/learn/python/control-flow"
+      },
+      {
+        "id": 6,
+        "name": "Functions",
+        "link": "/learn/python/functions"
+      },
+      {
+        "id": 7,
+        "name": "Modules and Packages",
+        "link": "/learn/python/modules-packages"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Intermediate Python",
+    "topics": [
+      {
+        "id": 1,
+        "name": "Error Handling",
+        "link": "/learn/python/error-handling"
+      },
+      {
+        "id": 2,
+        "name": "File Handling",
+        "link": "/learn/python/file-handling"
+      },
+      {
+        "id": 3,
+        "name": "Regular Expressions",
+        "link": "/learn/python/regular-expressions"
+      },
+      {
+        "id": 4,
+        "name": "Object-Oriented Programming",
+        "link": "/learn/python/oop"
+      },
+      {
+        "id": 5,
+        "name": "Database Access",
+        "link": "/learn/python/database-access"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Advanced Python",
+    "topics": [
+      {
+        "id": 1,
+        "name": "Concurrency",
+        "link": "/learn/python/concurrency"
+      },
+      {
+        "id": 2,
+        "name": "Decorators",
+        "link": "/learn/python/decorators"
+      },
+      {
+        "id": 3,
+        "name": "Generators",
+        "link": "/learn/python/generators"
+      },
+      {
+        "id": 4,
+        "name": "Metaprogramming",
+        "link": "/learn/python/metaprogramming"
+      },
+      {
+        "id": 5,
+        "name": "Advanced Data Structures",
+        "link": "/learn/python/advanced-data-structures"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Python Libraries",
+    "topics": [
+      {
+        "id": 1,
+        "name": "NumPy",
+        "link": "/learn/python/numpy"
+      },
+      {
+        "id": 2,
+        "name": "Pandas",
+        "link": "/learn/python/pandas"
+      },
+      {
+        "id": 3,
+        "name": "Matplotlib",
+        "link": "/learn/python/matplotlib"
+      },
+      {
+        "id": 4,
+        "name": "Scikit-learn",
+        "link": "/learn/python/scikit-learn"
+      },
+      {
+        "id": 5,
+        "name": "Requests",
+        "link": "/learn/python/requests"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Python Web Development",
+    "topics": [
+      {
+        "id": 1,
+        "name": "Flask",
+        "link": "/learn/python/flask"
+      },
+      {
+        "id": 2,
+        "name": "Django",
+        "link": "/learn/python/django"
+      },
+      {
+        "id": 3,
+        "name": "RESTful APIs",
+        "link": "/learn/python/restful-apis"
+      },
+      {
+        "id": 4,
+        "name": "Web Scraping",
+        "link": "/learn/python/web-scraping"
+      },
+      {
+        "id": 5,
+        "name": "Deployment",
+        "link": "/learn/python/deployment"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Python Best Practices",
+    "topics": [
+      {
+        "id": 1,
+        "name": "Code Optimization",
+        "link": "/learn/python/code-optimization"
+      },
+      {
+        "id": 2,
+        "name": "Documentation",
+        "link": "/learn/python/documentation"
+      },
+      {
+        "id": 3,
+        "name": "Testing",
+        "link": "/learn/python/testing"
+      },
+      {
+        "id": 4,
+        "name": "Virtual Environments",
+        "link": "/learn/python/virtual-environments"
+      },
+      {
+        "id": 5,
+        "name": "Code Versioning",
+        "link": "/learn/python/code-versioning"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Python Data Science",
+    "topics": [
+      {
+        "id": 1,
+        "name": "Data Analysis",
+        "link": "/learn/python/data-analysis"
+      },
+      {
+        "id": 2,
+        "name": "Machine Learning",
+        "link": "/learn/python/machine-learning"
+      },
+      {
+        "id": 3,
+        "name": "Deep Learning",
+        "link": "/learn/python/deep-learning"
+      },
+      {
+        "id": 4,
+        "name": "Natural Language Processing",
+        "link": "/learn/python/nlp"
+      },
+      {
+        "id": 5,
+        "name": "Visualization",
+        "link": "/learn/python/visualization"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Additional Resources",
+    "topics": [
+      {
+        "id": 1,
+        "name": "Contributing Tutorial Submissions",
+        "link": "/resources/contributing-tutorial-submissions"
+      }
+    ]
+  }
+]

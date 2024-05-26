@@ -7,7 +7,10 @@ import 'react-circular-progressbar/dist/styles.css';
 
 const Mymodules = ({ progress, total }) => {
   let htmlCssProgress = progress['html-css'] ? progress['html-css'].progress : 0;
+  let pythonProgress = progress['python'] ? progress['python'].progress : 0;
+
   htmlCssProgress = Object.keys(htmlCssProgress).length;
+  pythonProgress = Object.keys(pythonProgress).length;
 
   const modules = Object.keys(progress);
   const filteredModules = allModules.filter(module => modules.includes(module.unique));
@@ -21,7 +24,12 @@ const Mymodules = ({ progress, total }) => {
       )}
       <div className="flex flex-wrap gap-3 mt-5 mb-36">
         {filteredModules.map((lang) => {
-          const progressPercent = lang.unique === 'html-css' ? Math.round(htmlCssProgress / total * 100) : 0;
+          let progressPercent = 0;
+          if (lang.unique === 'html-css') {
+            progressPercent = Math.round(htmlCssProgress / total * 100);
+          } else if (lang.unique === 'python') {
+            progressPercent = Math.round(pythonProgress / total * 100);
+          }
 
           return (
             <div key={lang.id} className="w-full max-w-sm bg-blue-500/5 border p-4 border-blue-500/15 rounded-2xl hover:bg-blue-500/10 hover:border-blue-500/20 duration-200">
@@ -45,7 +53,7 @@ const Mymodules = ({ progress, total }) => {
                   }}
                 />
               </div>
-              <Link to={`${lang.linkTwo}`}>
+              <Link to={`${lang.link}`}>
                 <button className="flex items-center mt-3 gap-[5px] text-blue-500 group">
                   <span>Continue learning</span>
                   <FaAngleRight className="group-hover:translate-x-1 duration-200 mt-[1px]" />
