@@ -142,5 +142,14 @@
     "textTwo": "Grid Layout Design",
     "linkTwo": "/learn/html-css/grid-layout-design",
     "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson16"
+  },
+  {
+    "id": 17,
+    "videoID": "ScMzIvxBSi4",
+    "textOne": "UI Library Integration",
+    "linkOne": "/learn/html-css/ui-library-integration",
+    "textTwo": "Tailwind CSS",
+    "linkTwo": "/learn/html-css/framework-introduction",
+    "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson17"
   }
 ]
