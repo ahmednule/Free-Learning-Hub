@@ -160,9 +160,12 @@ const Lesson = ({ progress, id, perc }) => {
 }
 
 Lesson.propTypes = {
-  progress: PropTypes.object.isRequired,
+  progress: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number
+  ]).isRequired,
   id: PropTypes.number.isRequired,
   perc: PropTypes.number.isRequired,
-}
+};
 
 export default Lesson;

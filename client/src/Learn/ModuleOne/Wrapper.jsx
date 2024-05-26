@@ -17,7 +17,7 @@ const Wrapper = () => {
   const [progress, setProgress] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
-  let htmlCssProgress = userDataMain.userProgress['html-css'] ? userDataMain.userProgress['html-css'].progress : 0;
+  let htmlCssProgress = userDataMain.userProgress['html-css'] ? userDataMain.userProgress['html-css'].progress : {};
   htmlCssProgress = Object.keys(htmlCssProgress).length;
   const progressPercent = Math.round(htmlCssProgress / userDataMain.htmlCss * 100);
 
@@ -36,7 +36,7 @@ const Wrapper = () => {
           const response = await Axios.post(url, { uid: userDataMain.userData.uid });
           const responseData = response.data;
           dispatch(updateProgressState({ userProgress: response.data }));
-          const htmlCssProgress = responseData['html-css'] ? responseData['html-css'].progress : 0;
+          const htmlCssProgress = responseData['html-css'] ? responseData['html-css'].progress : {};
           setProgress(htmlCssProgress);
         } catch (err) {
           console.log(err);
