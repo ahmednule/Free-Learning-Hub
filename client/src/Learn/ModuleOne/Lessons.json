@@ -169,5 +169,14 @@
     "textTwo": "Responsive Design",
     "linkTwo": "/learn/html-css/responsive-design",
     "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson19"
+  },
+  {
+    "id": 20,
+    "videoID": "ScMzIvxBSi4",
+    "textOne": "Utility Classes",
+    "linkOne": "/learn/html-css/utility-classes",
+    "textTwo": "Component Styling",
+    "linkTwo": "/learn/html-css/component-styling",
+    "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson20"
   }
 ]
