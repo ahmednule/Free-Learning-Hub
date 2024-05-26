@@ -79,5 +79,14 @@
     "textTwo": "Display Properties",
     "linkTwo": "/learn/html-css/display-properties",
     "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/LessonNine"
+  },
+  {
+    "id": 10,
+    "videoID": "ScMzIvxBSi4",
+    "textOne": "Color Selection",
+    "linkOne": "/learn/html-css/color-selection",
+    "textTwo": "Box Model Concept",
+    "linkTwo": "/learn/html-css/box-model-concept",
+    "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/LessonTen"
   }
 ]
