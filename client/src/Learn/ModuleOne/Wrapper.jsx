@@ -77,6 +77,7 @@ const Wrapper = () => {
             {lessonId === 'html-tags-attributes' && <Lesson progress={progress} id={3} perc={progressPercent} />}
             {lessonId === 'semantic-html' && <Lesson progress={progress} id={4} perc={progressPercent} />}
             {lessonId === 'link-creation' && <Lesson progress={progress} id={5} perc={progressPercent} />}
+            {lessonId === 'image-embedding' && <Lesson progress={progress} id={6} perc={progressPercent} />}
         </Suspense>
       </div>
 

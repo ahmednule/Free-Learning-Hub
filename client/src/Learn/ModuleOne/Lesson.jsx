@@ -19,6 +19,7 @@ const TutorialTwo = React.lazy(() => import('./LessonTwo/Tutorial'));
 const TutorialThree = React.lazy(() => import('./LessonThree/Tutorial'));
 const TutorialFour = React.lazy(() => import('./LessonFour/Tutorial'));
 const TutorialFive = React.lazy(() => import('./LessonFive/Tutorial'));
+const TutorialSix = React.lazy(() => import('./LessonSix/Tutorial'));
 
 const Lesson = ({ progress, id, perc }) => {
   const dispatch = useDispatch();
@@ -109,12 +110,12 @@ const Lesson = ({ progress, id, perc }) => {
           <h3 className='text-2xl font-semibold md:text-3xl'>HTML & CSS (Web Development)</h3>
           {userDataMain.isLoggedIn ? (
             isDone ? (
-              <p className='mt-3 text-green-500'>Complete</p>
+              <p className='mt-3 text-green-500'>Tutorial {id} - Complete</p>
             ) : (
-              <p className='mt-3'>Incomplete</p>
+              <p className='mt-3'>Tutorial {id} - Incomplete</p>
             )
           ) : (
-            <p className='mt-3 text-reds-400'>Login</p>
+            <p className='mt-3 text-reds-400'>Tutorial {id} - Login</p>
           )}
         </div>
       </div>
@@ -128,6 +129,7 @@ const Lesson = ({ progress, id, perc }) => {
           {id === 3 && <TutorialThree />}
           {id === 4 && <TutorialFour />}
           {id === 5 && <TutorialFive />}
+          {id === 6 && <TutorialSix />}
         </Suspense>
       </div>
 
