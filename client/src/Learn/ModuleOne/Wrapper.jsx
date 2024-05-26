@@ -95,6 +95,7 @@ const Wrapper = () => {
             {lessonId === 'component-styling' && <Lesson progress={progress} id={21} perc={progressPercent} />}
             {lessonId === 'table-designing' && <Lesson progress={progress} id={22} perc={progressPercent} />}
             {lessonId === 'iframe-embedding' && <Lesson progress={progress} id={23} perc={progressPercent} />}
+            {lessonId === 'svg-graphics-integration' && <Lesson progress={progress} id={24} perc={progressPercent} />}
         </Suspense>
       </div>
 

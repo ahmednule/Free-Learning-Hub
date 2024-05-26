@@ -205,5 +205,14 @@
     "textTwo": "SVG Graphics Integration",
     "linkTwo": "/learn/html-css/svg-graphics-integration",
     "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson23"
+  },
+  {
+    "id": 24,
+    "videoID": "ScMzIvxBSi4",
+    "textOne": "iFrame Embedding",
+    "linkOne": "/learn/html-css/iframe-embedding",
+    "textTwo": "Video Embedding",
+    "linkTwo": "/learn/html-css/video-embedding",
+    "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson24"
   }
 ]
