@@ -88,5 +88,14 @@
     "textTwo": "Box Model Concept",
     "linkTwo": "/learn/html-css/box-model-concept",
     "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/LessonTen"
+  },
+  {
+    "id": 11,
+    "videoID": "ScMzIvxBSi4",
+    "textOne": "Display Properties",
+    "linkOne": "/learn/html-css/display-properties",
+    "textTwo": "Font Styling",
+    "linkTwo": "/learn/html-css/font-styling",
+    "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/LessonEleven"
   }
 ]
