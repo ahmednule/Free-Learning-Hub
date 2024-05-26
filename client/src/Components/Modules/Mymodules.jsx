@@ -31,6 +31,12 @@ const Mymodules = ({ progress, total }) => {
             progressPercent = Math.round(pythonProgress / total * 100);
           }
 
+          if (lang.unique === 'html-css') {
+            lang.link = '/learn/html-css/basic-elements';
+          } else if (lang.unique === 'python') {
+            lang.link = '/learn/python/basic-syntax';
+          }
+
           return (
             <div key={lang.id} className="w-full max-w-sm bg-blue-500/5 border p-4 border-blue-500/15 rounded-2xl hover:bg-blue-500/10 hover:border-blue-500/20 duration-200">
               <p className="font-semibold text-xl">{lang.name}</p>
