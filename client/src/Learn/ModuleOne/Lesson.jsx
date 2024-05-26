@@ -25,6 +25,7 @@ const TutorialEight = React.lazy(() => import('./LessonEight/Tutorial'));
 const TutorialNine = React.lazy(() => import('./LessonNine/Tutorial'));
 const TutorialTen = React.lazy(() => import('./LessonTen/Tutorial'));
 const TutorialEleven = React.lazy(() => import('./LessonEleven/Tutorial'));
+const TutorialTwelve = React.lazy(() => import('./LessonTwelve/Tutorial'));
 
 const Lesson = ({ progress, id, perc }) => {
   const dispatch = useDispatch();
@@ -140,6 +141,7 @@ const Lesson = ({ progress, id, perc }) => {
           {id === 9 && <TutorialNine />}
           {id === 10 && <TutorialTen />}
           {id === 11 && <TutorialEleven />}
+          {id === 12 && <TutorialTwelve />}
         </Suspense>
       </div>
 
