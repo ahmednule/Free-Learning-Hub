@@ -124,5 +124,14 @@
     "textTwo": "Pseudo-Class Usage",
     "linkTwo": "/learn/html-css/pseudo-class-usage",
     "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson14"
+  },
+  {
+    "id": 15,
+    "videoID": "ScMzIvxBSi4",
+    "textOne": "Selector Types",
+    "linkOne": "/learn/html-css/selector-types",
+    "textTwo": "UI Library Integration",
+    "linkTwo": "/learn/html-css/ui-library-integration",
+    "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson15"
   }
 ]
