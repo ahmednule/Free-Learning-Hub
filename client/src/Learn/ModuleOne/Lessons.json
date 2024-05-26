@@ -160,5 +160,14 @@
     "textTwo": "Utility Classes",
     "linkTwo": "/learn/html-css/utility-classes",
     "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson18"
+  },
+  {
+    "id": 19,
+    "videoID": "ScMzIvxBSi4",
+    "textOne": "Tailwind CSS",
+    "linkOne": "/learn/html-css/framework-introduction",
+    "textTwo": "Responsive Design",
+    "linkTwo": "/learn/html-css/responsive-design",
+    "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson19"
   }
 ]
