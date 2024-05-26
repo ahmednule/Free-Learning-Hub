@@ -187,5 +187,14 @@
     "textTwo": "Table Designing",
     "linkTwo": "/learn/html-css/table-designing",
     "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson21"
+  },
+  {
+    "id": 22,
+    "videoID": "ScMzIvxBSi4",
+    "textOne": "Component Styling",
+    "linkOne": "/learn/html-css/component-styling",
+    "textTwo": "iFrame Embedding",
+    "linkTwo": "/learn/html-css/iframe-embedding",
+    "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson22"
   }
 ]
