@@ -268,5 +268,14 @@
     "textTwo": "Filter Application",
     "linkTwo": "/learn/html-css/filter-application",
     "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson30"
+  },
+  {
+    "id": 31,
+    "videoID": "ScMzIvxBSi4",
+    "textOne": "Advanced Selector Usage",
+    "linkOne": "/learn/html-css/advanced-selector-usage",
+    "textTwo": "Animation  Creation",
+    "linkTwo": "/learn/html-css/animation-creation",
+    "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson31"
   }
 ]

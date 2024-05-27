@@ -102,6 +102,7 @@ const Wrapper = () => {
             {lessonId === 'transition-effects' && <Lesson progress={progress} id={28} perc={progressPercent} />}
             {lessonId === 'media-query-implementation' && <Lesson progress={progress} id={29} perc={progressPercent} />}
             {lessonId === 'advanced-selector-usage' && <Lesson progress={progress} id={30} perc={progressPercent} />}
+            {lessonId === 'filter-application' && <Lesson progress={progress} id={31} perc={progressPercent} />}
         </Suspense>
       </div>
 
