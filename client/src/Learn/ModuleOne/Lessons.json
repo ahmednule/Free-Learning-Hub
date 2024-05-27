@@ -259,5 +259,14 @@
     "textTwo": "Advanced Selector Usage",
     "linkTwo": "/learn/html-css/advanced-selector-usage",
     "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson29"
+  },
+  {
+    "id": 30,
+    "videoID": "ScMzIvxBSi4",
+    "textOne": "Media Query Implementation",
+    "linkOne": "/learn/html-css/media-query-implementation",
+    "textTwo": "Filter Application",
+    "linkTwo": "/learn/html-css/filter-application",
+    "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson30"
   }
 ]

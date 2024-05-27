@@ -6,7 +6,7 @@ const initialState = {
   userCubes: 0,
   userData: '',
   userProgress: '',
-  htmlCss: 29,
+  htmlCss: 30,
   python: 1,
 }
 
