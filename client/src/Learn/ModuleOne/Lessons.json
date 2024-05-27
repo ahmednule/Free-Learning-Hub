@@ -274,8 +274,17 @@
     "videoID": "ScMzIvxBSi4",
     "textOne": "Advanced Selector Usage",
     "linkOne": "/learn/html-css/advanced-selector-usage",
-    "textTwo": "Animation  Creation",
+    "textTwo": "Animation Creation",
     "linkTwo": "/learn/html-css/animation-creation",
     "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson31"
+  },
+  {
+    "id": 32,
+    "videoID": "ScMzIvxBSi4",
+    "textOne": "Filter Application",
+    "linkOne": "/learn/html-css/filter-application",
+    "textTwo": "Flexbox Mastery",
+    "linkTwo": "/learn/html-css/flexbox-mastery",
+    "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson32"
   }
 ]
