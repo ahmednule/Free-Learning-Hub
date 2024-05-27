@@ -250,5 +250,14 @@
     "textTwo": "Media Query Implementation",
     "linkTwo": "/learn/html-css/media-query-implementation",
     "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson28"
+  },
+  {
+    "id": 29,
+    "videoID": "ScMzIvxBSi4",
+    "textOne": "Transition Effects",
+    "linkOne": "/learn/html-css/transition-effects",
+    "textTwo": "Advanced Selector Usage",
+    "linkTwo": "/learn/html-css/advanced-selector-usage",
+    "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson29"
   }
 ]
