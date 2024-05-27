@@ -107,6 +107,7 @@ const Wrapper = () => {
             {lessonId === 'flexbox-mastery' && <Lesson progress={progress} id={33} perc={progressPercent} />}
             {lessonId === 'custom-variable-utilization' && <Lesson progress={progress} id={34} perc={progressPercent} />}
             {lessonId === '3d-transformation-techniques' && <Lesson progress={progress} id={35} perc={progressPercent} />}
+            {lessonId === 'pseudo-element-utilization' && <Lesson progress={progress} id={36} perc={progressPercent} />}
         </Suspense>
       </div>
 

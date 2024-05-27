@@ -313,5 +313,14 @@
     "textTwo": "Pseudo Element Utilization",
     "linkTwo": "/learn/html-css/pseudo-element-utilization",
     "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson35"
+  },
+  {
+    "id": 36,
+    "videoID": "ScMzIvxBSi4",
+    "textOne": "3D Transformation Techniques",
+    "linkOne": "/learn/html-css/3d-tranformation-techniques",
+    "textTwo": "ALL MODULES",
+    "linkTwo": "/learn",
+    "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson36"
   }
 ]
