@@ -304,5 +304,14 @@
     "textTwo": "3D Transformation Techniques",
     "linkTwo": "/learn/html-css/3d-transformation-techniques",
     "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson34"
+  },
+  {
+    "id": 35,
+    "videoID": "ScMzIvxBSi4",
+    "textOne": "Flexbox Mastery",
+    "linkOne": "/learn/html-css/custom-variable-utilization",
+    "textTwo": "Pseudo Element Utilization",
+    "linkTwo": "/learn/html-css/pseudo-element-utilization",
+    "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson35"
   }
 ]
