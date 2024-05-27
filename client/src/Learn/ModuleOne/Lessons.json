@@ -286,5 +286,14 @@
     "textTwo": "Flexbox Mastery",
     "linkTwo": "/learn/html-css/flexbox-mastery",
     "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson32"
+  },
+  {
+    "id": 33,
+    "videoID": "ScMzIvxBSi4",
+    "textOne": "Animation Creation",
+    "linkOne": "/learn/html-css/animation-creation",
+    "textTwo": "Custom Variable Utilization",
+    "linkTwo": "/learn/html-css/custom-variable-utilization",
+    "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson33"
   }
 ]
