@@ -232,5 +232,14 @@
     "textTwo": "Responsive Design",
     "linkTwo": "/learn/html-css/responsive-design",
     "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson26"
+  },
+  {
+    "id": 27,
+    "videoID": "ScMzIvxBSi4",
+    "textOne": "Audio Playback",
+    "linkOne": "/learn/html-css/audio-playback",
+    "textTwo": "Transition Effects",
+    "linkTwo": "/learn/html-css/transition-effects",
+    "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson27"
   }
 ]
