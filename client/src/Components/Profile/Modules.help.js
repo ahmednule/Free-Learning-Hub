@@ -30,7 +30,7 @@ const createInProgress = (userData) => {
         progress = getValuesForKey(progress, 'python');
         progress = progress[0].progress;
         progress = Object.keys(progress).length;
-        progress = Math.round(progress / userData.htmlCss * 100);
+        progress = Math.round(progress / userData.python * 100);
         moduleProgress.push(progress);
       } else {
         return [];
@@ -82,7 +82,7 @@ const createIsCompleted = (userData) => {
         progress = getValuesForKey(progress, 'python');
         progress = progress[0].progress;
         progress = Object.keys(progress).length;
-        progress = Math.round(progress / userData.htmlCss * 100);
+        progress = Math.round(progress / userData.python * 100);
         moduleProgress.push(progress);
       } else {
         return [];

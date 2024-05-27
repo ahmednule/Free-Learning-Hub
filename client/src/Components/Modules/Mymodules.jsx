@@ -1,11 +1,14 @@
 import PropTypes from 'prop-types';
 import { FaAngleRight } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { getReduxUserData } from '../../Redux/user.slice';
 import { allModules } from '../../Data/Modules.js';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
-const Mymodules = ({ progress, total }) => {
+const Mymodules = ({ progress }) => {
+  const userDataMain = useSelector(getReduxUserData);
   let htmlCssProgress = progress['html-css'] ? progress['html-css'].progress : 0;
   let pythonProgress = progress['python'] ? progress['python'].progress : 0;
 
@@ -26,9 +29,9 @@ const Mymodules = ({ progress, total }) => {
         {filteredModules.map((lang) => {
           let progressPercent = 0;
           if (lang.unique === 'html-css') {
-            progressPercent = Math.round(htmlCssProgress / total * 100);
+            progressPercent = Math.round(htmlCssProgress / userDataMain.htmlCss * 100);
           } else if (lang.unique === 'python') {
-            progressPercent = Math.round(pythonProgress / total * 100);
+            progressPercent = Math.round(pythonProgress / userDataMain.python * 100);
           }
 
           if (lang.unique === 'html-css') {
@@ -75,7 +78,6 @@ const Mymodules = ({ progress, total }) => {
 
 Mymodules.propTypes = {
   progress: PropTypes.object.isRequired,
-  total: PropTypes.number.isRequired,
 };
 
 export default Mymodules;
