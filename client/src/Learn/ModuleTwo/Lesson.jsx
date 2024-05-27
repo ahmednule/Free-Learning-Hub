@@ -59,7 +59,7 @@ const Lesson = ({ progress, id, perc }) => {
     try {
       const response = await Axios.post(url, {
         uid: userDataMain.userData.uid,
-        module: 'html-css',
+        module: 'python',
         progress: level
       });
 
