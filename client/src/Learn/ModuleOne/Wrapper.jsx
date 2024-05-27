@@ -91,12 +91,13 @@ const Wrapper = () => {
             {lessonId === 'grid-layout-design' && <Lesson progress={progress} id={17} perc={progressPercent} />}
             {lessonId === 'framework-introduction' && <Lesson progress={progress} id={18} perc={progressPercent} />}
             {lessonId === 'utility-classes' && <Lesson progress={progress} id={19} perc={progressPercent} />}
-            {lessonId === 'responsive-design' && <Lesson progress={progress} id={20} perc={progressPercent} />}
+            {lessonId === 'responsive-design-tailwind' && <Lesson progress={progress} id={20} perc={progressPercent} />}
             {lessonId === 'component-styling' && <Lesson progress={progress} id={21} perc={progressPercent} />}
             {lessonId === 'table-designing' && <Lesson progress={progress} id={22} perc={progressPercent} />}
             {lessonId === 'iframe-embedding' && <Lesson progress={progress} id={23} perc={progressPercent} />}
             {lessonId === 'svg-graphics-integration' && <Lesson progress={progress} id={24} perc={progressPercent} />}
             {lessonId === 'video-embedding' && <Lesson progress={progress} id={25} perc={progressPercent} />}
+            {lessonId === 'audio-playback' && <Lesson progress={progress} id={26} perc={progressPercent} />}
         </Suspense>
       </div>
 

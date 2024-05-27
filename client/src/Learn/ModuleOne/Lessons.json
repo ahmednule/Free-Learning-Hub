@@ -167,7 +167,7 @@
     "textOne": "Tailwind CSS",
     "linkOne": "/learn/html-css/framework-introduction",
     "textTwo": "Responsive Design",
-    "linkTwo": "/learn/html-css/responsive-design",
+    "linkTwo": "/learn/html-css/responsive-design-tailwind",
     "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson19"
   },
   {
@@ -183,7 +183,7 @@
     "id": 21,
     "videoID": "ScMzIvxBSi4",
     "textOne": "Responsive Design",
-    "linkOne": "/learn/html-css/responsive-design",
+    "linkOne": "/learn/html-css/responsive-design-tailwind",
     "textTwo": "Table Designing",
     "linkTwo": "/learn/html-css/table-designing",
     "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson21"
@@ -223,5 +223,14 @@
     "textTwo": "Audio PLayback",
     "linkTwo": "/learn/html-css/audio-playback",
     "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson25"
+  },
+  {
+    "id": 26,
+    "videoID": "ScMzIvxBSi4",
+    "textOne": "Video Embedding",
+    "linkOne": "/learn/html-css/video-embedding",
+    "textTwo": "Responsive Design",
+    "linkTwo": "/learn/html-css/responsive-design",
+    "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson26"
   }
 ]
