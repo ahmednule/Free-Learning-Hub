@@ -241,5 +241,14 @@
     "textTwo": "Transition Effects",
     "linkTwo": "/learn/html-css/transition-effects",
     "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson27"
+  },
+  {
+    "id": 28,
+    "videoID": "ScMzIvxBSi4",
+    "textOne": "Responsive Design",
+    "linkOne": "/learn/html-css/responsive-design",
+    "textTwo": "Media Query Implementation",
+    "linkTwo": "/learn/html-css/media-query-implementation",
+    "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson28"
   }
 ]
