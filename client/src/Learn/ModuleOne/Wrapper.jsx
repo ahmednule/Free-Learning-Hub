@@ -105,6 +105,7 @@ const Wrapper = () => {
             {lessonId === 'filter-application' && <Lesson progress={progress} id={31} perc={progressPercent} />}
             {lessonId === 'animation-creation' && <Lesson progress={progress} id={32} perc={progressPercent} />}
             {lessonId === 'flexbox-mastery' && <Lesson progress={progress} id={33} perc={progressPercent} />}
+            {lessonId === 'custom-variable-utilization' && <Lesson progress={progress} id={34} perc={progressPercent} />}
         </Suspense>
       </div>
 

@@ -295,5 +295,14 @@
     "textTwo": "Custom Variable Utilization",
     "linkTwo": "/learn/html-css/custom-variable-utilization",
     "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson33"
+  },
+  {
+    "id": 34,
+    "videoID": "ScMzIvxBSi4",
+    "textOne": "Flexbox Mastery",
+    "linkOne": "/learn/html-css/flexbox-mastery",
+    "textTwo": "3D Transformation Techniques",
+    "linkTwo": "/learn/html-css/3d-transformation-techniques",
+    "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleOne/Lesson34"
   }
 ]
