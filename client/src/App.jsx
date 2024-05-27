@@ -13,7 +13,8 @@ const Signup = React.lazy(() => import('./Pages/Signup'));
 const Learn = React.lazy(() => import('./Pages/Learn'));
 const Profile = React.lazy(() => import('./Pages/Profile'));
 const Register = React.lazy(() => import('./Components/Modules/Register'));
-const Wrapper = React.lazy(() => import('./Learn/ModuleOne/Wrapper'));
+const Wrapper1 = React.lazy(() => import('./Learn/ModuleOne/Wrapper'));
+const Wrapper2 = React.lazy(() => import('./Learn/ModuleTwo/Wrapper'));
 const Tools = React.lazy(() => import('./Pages/Tools'));
 // const Editor = React.lazy(() => import('./Pages/Editor'));
 
@@ -34,7 +35,8 @@ const App = () => {
             <Route path='/learn' element={<Learn />} />
             <Route path='/learn/register/:moduleID' element={<Register />} />
             <Route path='/profile' element={<Profile />} />
-            <Route path='/learn/html-css/:lessonID' element={<Wrapper />} />
+            <Route path='/learn/html-css/:lessonID' element={<Wrapper1 />} />
+            <Route path='/learn/python/:lessonID' element={<Wrapper2 />} />
             <Route path='/tools' element={<Tools />} />
             {/* <Route path='/code-editor' element={<Editor />} /> */}
           </Routes>

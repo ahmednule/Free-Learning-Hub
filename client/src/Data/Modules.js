@@ -65,7 +65,7 @@ export const allModules = [
     "name": "Python Programming",
     "description": "Embark on your journey into the world of programming with our comprehensive Python module. Python is a powerful and versatile programming language known for its simplicity and readability, making it an ideal choice for beginners and seasoned developers alike. In this module, you'll learn the fundamentals of Python programming, including syntax, data types, control structures, functions, and object-oriented programming principles. Whether you're looking to build web applications, analyze data, or automate tasks, our Python module offers a solid foundation to help you achieve your goals.",
     "linkOne": "/learn/python",
-    "linkTwo": "/learn/python/basics",
+    "linkTwo": "/learn/python/basic-syntax",
     "objectives": [
       {
         "name": "Understand the basics of Python programming:",

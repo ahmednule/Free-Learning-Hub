@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "videoID": "ScMzIvxBSi4",
+    "textOne": "ALL MODULES",
+    "linkOne": "/learn",
+    "textTwo": "Data Types",
+    "linkTwo": "/learn/html-css/data-types",
+    "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleTwo/Lesson1"
+  }
+]
