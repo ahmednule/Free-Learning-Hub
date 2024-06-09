@@ -4,33 +4,27 @@ import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { errorCreator } from '../Utilities/Errors/createError.js';
 import { sucessCreator } from '../Utilities/Success/createSucess.js';
 
-export const signup = async (req, res) => {
+export const signup = async (req, res, next) => {
   const { fullName, username, email, password } = req.body;
 
-  // Validate email & password
   if (!email || !password) {
-    return res.status(400).json({ msg: 'Missing details.' });
+    next(errorCreator(200, 'Missing details'));
   }
 
-  // Validate email
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
   if (!emailRegex.test(email)) {
-    return res.status(400).json({ msg: 'Invalid email address' });
+    next(errorCreator(200, 'Invalid email'));
   }
 
-  // Validate password
   if (password.length < 8) {
-    return res.status(400).json({ msg: 'Short password.' });
+    next(errorCreator(200, 'Short password'));
   }
+  const newPassword = String(password.trim());
 
-  // Create user with google firebase
   try {
     const response = await createUserWithEmailAndPassword(auth, email, password);
-
-    // Check if the registration was successful
     if (!response || !response.user || !response.user.uid) {
-      return res.status(500).json({ msg: 'Failed to create user.' });
+      next(errorCreator(200, 'Something went wrong'));
     }
 
     const { uid } = response.user;
@@ -38,7 +32,6 @@ export const signup = async (req, res) => {
     const currentDate = new Date();
     const creationDate = currentDate.toLocaleDateString();
 
-    // Add extra data to Firestore
     const userDocRef = doc(db, 'users', uid);
     const fireUser = await setDoc(userDocRef, {
       fullName: fullName,
@@ -59,15 +52,11 @@ export const signup = async (req, res) => {
       photoURL: userImage,
       creationDate: creationDate,
     };
-
-    res.status(201).json({ message: 'User created successfully.', user: userData });
-
-    // Send verification email
-    // await sendEmailVerification(auth.currentUser);
-
+    const sucessMessage = sucessCreator(200, 'Account created', { user: userData });
+    return res.status(sucessMessage.statusCode).json(sucessMessage);
   } catch (err) {
     console.log(err);
-    return res.status(400).json({ msg: err.message });
+    next(errorCreator(500, 'Something went wrong'));
   }
 };
 

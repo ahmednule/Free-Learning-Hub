@@ -4,32 +4,35 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa6';
 import { Link, useNavigate } from 'react-router-dom';
 import { CgSpinnerTwoAlt } from 'react-icons/cg';
 import { FcGoogle } from 'react-icons/fc';
-import toast from 'react-hot-toast';
-import Axios from 'axios';
 import { saveUserDataToCookie } from '../../Helpers/handlecookie.js';
+import { Post } from '../../Utilities/DataService.jsx';
+import { useDispatch } from 'react-redux';
+import { updateUserState } from '../../Redux/user.slice.js';
+import toast from 'react-hot-toast';
 
 // Google Auth Imports
 import { signInWithPopup } from 'firebase/auth';
 import { auth, googleProvider } from '../../Config/firebase';
 import { signInWithGoogleHelper } from '../../Helpers/googleAuth.js';
-import { useDispatch } from 'react-redux';
-import { updateUserState } from '../../Redux/user.slice.js';
 
 const SignupComponent = ({ redirectUrl }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('')
-  const [fullName, setFullName] = useState('');
-  const [username, setUsername] = useState('');
-
-  const [emailError, setEmailError] = useState('');
-  const [passwordError, setPasswordError] = useState('');
-  const [fullNameError, setFullNameError] = useState('');
-  const [usernameError, setUsernameError] = useState('');
-
+  const [inputData, setInputData] = useState({
+    email: '',
+    password: '',
+    fullName: '',
+    username: '',
+  });
+  const [inputError, setInputError] = useState({
+    email: '',
+    password: '',
+    fullName: '',
+    username: '',
+  });
+  
   const signInWithGoogle = async () => {
     setIsLoading(true);
     try {
@@ -66,8 +69,11 @@ const SignupComponent = ({ redirectUrl }) => {
 
   const emailSignup = (e) => {
     e.preventDefault();
-
-    if (!emailError && !passwordError && !fullNameError && !usernameError && email && password && fullName && username) {
+    if (!inputError.email && inputData.email &&
+      !inputError.password && inputData.password &&
+      !inputError.fullName && inputData.fullName &&
+      !inputError.username && inputData.username
+    ) {
       emailSingupSender();
     } else {
       toast.error('Invalid user data.');
@@ -76,74 +82,109 @@ const SignupComponent = ({ redirectUrl }) => {
 
   const emailSingupSender = async () => {
     setIsLoading(true);
-    try {
-      const url = import.meta.env.VITE_BACKEND_URL + '/api/auth/signup';
-      const response = await Axios.post(url,{
-        fullName,
-        username,
-        email,
-        password
-      });
-      if (response.status === 201){
-        toast.success('User created.');
-        saveUserDataToCookie(response.data.user);
-        if (response.data.user) {
-          dispatch(updateUserState({
-            isLoggedIn: true,
-            userData: response.data.user,
-          }));
-        }
-        navigate(redirectUrl);
-      } else {
-        toast.error('User already exists.');
+    const apiUrl = '/api/auth/signup';
+    const fullName = inputData.fullName;
+    const username = inputData.username;
+    const email = inputData.email;
+    const password = inputData.password;
+    const apiData = {
+      fullName,
+      username,
+      email,
+      password,
+    };
+    const response = await Post(apiUrl, apiData);
+    setIsLoading(false);
+    if (response.success){
+      toast.success(response.message);
+      saveUserDataToCookie(response.data.user);
+      if (response.data.user) {
+        dispatch(updateUserState({
+          isLoggedIn: true,
+          userData: response.data.user,
+        }));
       }
-    } catch (err) {
-      console.log(err);
-      toast.error('Error creating user.');
-    } finally {
-      setIsLoading(false);
+      navigate(redirectUrl);
+    } else {
+      toast.error(response.message);
     }
   };
 
   const fullNameInput = (e) => {
-    const value = e.target.value.trim();
-    setFullName(value);
+    const value = e.target.value;
+    setInputData((current) => ({
+      ...current,
+      fullName: value,
+    }));
     if (value.split(' ').length < 2) {
-      setFullNameError('Full name is required.');
+      setInputError((current) => ({
+        ...current,
+        fullName: 'Full name is required',
+      }));
     } else {
-      setFullNameError('');
+      setInputError((current) => ({
+        ...current,
+        fullName: '',
+      }));
     }
   };
 
   const usernameInput = (e) => {
     const usernameRegex = /^[a-zA-Z0-9]{5,}$/;
     const value = e.target.value.trim();
-    setUsername(value);
+    setInputData((current) => ({
+      ...current,
+      username: value,
+    }));
     if (!usernameRegex.test(value)) {
-      setUsernameError('Invalid username.');
+      setInputError((current) => ({
+        ...current,
+        username: 'Invalid username',
+      }));
     } else {
-      setUsernameError('');
+      setInputError((current) => ({
+        ...current,
+        username: '',
+      }));
     }
   };
 
   const emailInput = (e) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const value = e.target.value.trim();
-    setEmail(value);
+    setInputData((current) => ({
+      ...current,
+      email: value,
+    }));
     if (!emailRegex.test(value)) {
-      setEmailError('Invalid email address');
+      setInputError((current) => ({
+        ...current,
+        email: 'Invalid email address',
+      }));
     } else {
-      setEmailError('');
+      setInputError((current) => ({
+        ...current,
+        email: '',
+      }));
     }
   };
 
   const passwordInput = (e) => {
     const value = e.target.value.trim();
-    setPassword(value);
+    setInputData((current) => ({
+      ...current,
+      password: value,
+    }));
     if (value.length < 8) {
-      setPasswordError('Short password.');
+      setInputError((current) => ({
+        ...current,
+        password: 'Short password',
+      }));
     } else {
-      setPasswordError('');
+      setInputError((current) => ({
+        ...current,
+        password: '',
+      }));
     }
   };
 
@@ -157,39 +198,39 @@ const SignupComponent = ({ redirectUrl }) => {
             type="text"
             className='inputOne'
             placeholder='Full Name'
-            // value={fullName}
+            value={inputData.fullName}
             onChange={fullNameInput}
           />
-          <p className='text-red-500 pl-2'>{fullNameError}</p>
+          <p className='text-red-500 pl-2'>{inputError.fullName}</p>
           <input
             type="text"
             className='inputOne'
             placeholder='Username'
-            value={username}
+            value={inputData.username}
             onChange={usernameInput}
           />
-          <p className='text-red-500 pl-2'>{usernameError}</p>
+          <p className='text-red-500 pl-2'>{inputError.username}</p>
           <input
             type="email"
             className='inputOne'
             placeholder='Email'
-            value={email}
+            value={inputData.email}
             onChange={emailInput}
           />
-          <p className='text-red-500 pl-2'>{emailError}</p>
+          <p className='text-red-500 pl-2'>{inputError.email}</p>
           <div className='inputOne flex justify-between items-center pr-2 gap-2'>
             <input
               type={showPassword ? 'text' : 'password'}
               className='w-full bg-transparent outline-none'
               placeholder='Password'
-              value={password}
+              value={inputData.password}
               onChange={passwordInput}
             />
             <span className='cursor-pointer' onClick={() => setShowPassword(!showPassword)}>
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </span>
           </div>
-          <p className='text-red-500 pl-2'>{passwordError}</p>
+          <p className='text-red-500 pl-2'>{inputError.password}</p>
           <button onClick={emailSignup} className='h-9 w-full bg-green-500 rounded mt-2 text-gray-950 font-semibold hover:bg-green-600 hover:text-gray-900 duration-200'>
             {isLoading? <CgSpinnerTwoAlt className='animate-spin mx-auto' size={24} /> : 'Sign Up'}
           </button>

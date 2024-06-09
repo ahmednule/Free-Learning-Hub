@@ -4,25 +4,30 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { CgSpinnerTwoAlt } from 'react-icons/cg';
 import { FcGoogle } from 'react-icons/fc';
-import toast from 'react-hot-toast';
 import { saveUserDataToCookie } from '../../Helpers/handlecookie';
 import { Post } from '../../Utilities/DataService.jsx';
+import { useDispatch } from 'react-redux';
+import { updateUserState } from '../../Redux/user.slice.js';
+import toast from 'react-hot-toast';
 
 // Google Auth Imports
 import { signInWithPopup } from 'firebase/auth';
 import { auth, googleProvider } from '../../Config/firebase';
 import { signInWithGoogleHelper } from '../../Helpers/googleAuth.js';
-import { useDispatch } from 'react-redux';
-import { updateUserState } from '../../Redux/user.slice.js';
 
 const LoginComponent = ({ redirectUrl }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [emailError, setEmailError] = useState('');
+  const [inputData, setInputData] = useState({
+    email: '',
+    password: '',
+  });
+  const [inputError, setInputError] = useState({
+    email: '',
+    password: '',
+  });
 
   const signInWithGoogle = async () => {
     setIsLoading(true);
@@ -60,8 +65,7 @@ const LoginComponent = ({ redirectUrl }) => {
 
   const emailLogin = (e) => {
     e.preventDefault();
-
-    if (!emailError && email) {
+    if (!inputError.email && inputData.email) {
       emailLoginSender();
     } else {
       toast.error('Invalid user data.');
@@ -71,6 +75,8 @@ const LoginComponent = ({ redirectUrl }) => {
   const emailLoginSender = async () => {
     setIsLoading(true);
     const apiUrl = '/api/auth/login';
+    const email = inputData.email;
+    const password = inputData.password;
     const apiData = {
       email,
       password,
@@ -95,17 +101,29 @@ const LoginComponent = ({ redirectUrl }) => {
   const emailInput = (e) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const value = e.target.value.trim();
-    setEmail(value);
+    setInputData((current) => ({
+      ...current,
+      email: value,
+    }));
     if (!emailRegex.test(value)) {
-      setEmailError('Invalid email address');
+      setInputError((current) => ({
+        ...current,
+        email: 'Invalid email address',
+      }));
     } else {
-      setEmailError('');
+      setInputError((current) => ({
+        ...current,
+        email: '',
+      }));
     }
   };
 
   const passwordInput = (e) => {
     const value = e.target.value.trim();
-    setPassword(value);
+    setInputData((current) => ({
+      ...current,
+      password: value,
+    }));
   };
 
   return (
@@ -118,22 +136,23 @@ const LoginComponent = ({ redirectUrl }) => {
             type='email'
             className='inputOne'
             placeholder='Email'
-            value={email}
+            value={inputData.email}
             onChange={emailInput}
           />
-          <p className='text-red-500 pl-2'>{emailError}</p>
+          <p className='text-red-500 pl-2'>{inputError.email}</p>
           <div className='inputOne flex justify-between items-center pr-2 gap-2'>
             <input
               type={showPassword ? 'text' : 'password'}
               className='w-full bg-transparent outline-none'
               placeholder='Password'
-              value={password}
+              value={inputData.password}
               onChange={passwordInput}
             />
             <span className='cursor-pointer' onClick={() => setShowPassword(!showPassword)}>
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </span>
           </div>
+          <p className='text-red-500 pl-2'>{inputError.password}</p>
           <p className='text-sm text-right w-full linkOne py-2'>
             <span><Link to={'/forgot-password'}>Forgot password?</Link></span>
           </p>
