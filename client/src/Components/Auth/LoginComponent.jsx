@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { FaEye, FaEyeSlash } from 'react-icons/fa6';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { CgSpinnerTwoAlt } from 'react-icons/cg';
 import { FcGoogle } from 'react-icons/fc';
 import toast from 'react-hot-toast';
-import Axios from 'axios';
 import { saveUserDataToCookie } from '../../Helpers/handlecookie';
+import { Post } from '../../Utilities/DataService.jsx';
 
 // Google Auth Imports
 import { signInWithPopup } from 'firebase/auth';
@@ -22,7 +22,6 @@ const LoginComponent = ({ redirectUrl }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
   const [emailError, setEmailError] = useState('');
 
   const signInWithGoogle = async () => {
@@ -39,7 +38,7 @@ const LoginComponent = ({ redirectUrl }) => {
       );
 
       if (message !== 'error') {
-        toast.success("Signin Successfull");
+        toast.success("Signin Successful");
         saveUserDataToCookie(message);
         if (message) {
           dispatch(updateUserState({
@@ -71,30 +70,25 @@ const LoginComponent = ({ redirectUrl }) => {
 
   const emailLoginSender = async () => {
     setIsLoading(true);
-    const url = import.meta.env.VITE_BACKEND_URL + '/api/auth/login';
-    try {
-      const response = await Axios.post(url,{
-        email,
-        password
-      });
-      if (response.status === 200){
-        toast.success('Logged in successfully.');
-        saveUserDataToCookie(response.data.user);
-        if (response.data.user) {
-          dispatch(updateUserState({
-            isLoggedIn: true,
-            userData: response.data.user,
-          }));
-        }
-        navigate(redirectUrl);
-      } else {
-        toast.error('Wrong email or password.');
+    const apiUrl = '/api/auth/login';
+    const apiData = {
+      email,
+      password,
+    };
+    const response = await Post(apiUrl, apiData);
+    setIsLoading(false);
+    if (response.success) {
+      toast.success(response.message);
+      saveUserDataToCookie(response.data.user);
+      if (response.data.user) {
+        dispatch(updateUserState({
+          isLoggedIn: true,
+          userData: response.data.user,
+        }));
       }
-    } catch (err) {
-      console.log(err);
-      toast.error('Error logging in.');
-    } finally {
-      setIsLoading(false);
+      navigate(redirectUrl);
+    } else {
+      toast.error(response.message);
     }
   };
 
@@ -117,7 +111,7 @@ const LoginComponent = ({ redirectUrl }) => {
   return (
     <div className='w-full flex justify-center'>
       <div className='w-[340px] py-5 px-3 border border-gray-700 rounded-md bg-gray-900'>
-        <form className='w-full'>
+        <form className='w-full' onSubmit={emailLogin}>
           <h2 className='text-xl font-semibold'>Log In</h2>
           <br />
           <input
@@ -140,9 +134,11 @@ const LoginComponent = ({ redirectUrl }) => {
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </span>
           </div>
-          <p className='text-sm text-right w-full linkOne py-2'><span><Link to={'/forgot-password'}>Forgot password?</Link></span></p>
-          <button onClick={emailLogin} className='h-9 w-full bg-green-500 rounded mt-2 text-gray-950 font-semibold hover:bg-green-600 hover:text-gray-900 duration-200'>
-            {isLoading? <CgSpinnerTwoAlt className='animate-spin mx-auto' size={24} /> : 'Log In'}
+          <p className='text-sm text-right w-full linkOne py-2'>
+            <span><Link to={'/forgot-password'}>Forgot password?</Link></span>
+          </p>
+          <button type='submit' className='h-9 w-full bg-green-500 rounded mt-2 text-gray-950 font-semibold hover:bg-green-600 hover:text-gray-900 duration-200'>
+            {isLoading ? <CgSpinnerTwoAlt className='animate-spin mx-auto' size={24} /> : 'Log In'}
           </button>
           <p className='mt-3 text-sm'>Don&apos;t have an account? <span className='linkOne'><Link to={'/signup'}>Sign Up</Link></span></p>
 
@@ -160,7 +156,6 @@ const LoginComponent = ({ redirectUrl }) => {
           </button>
         </div>
       </div>
-      
     </div>
   );
 }
