@@ -1,12 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
   @apply bg-gray-950 text-gray-100 container mx-auto;
-  font-family: "Outfit", sans-serif;
+  font-family: sans-serif;
 }
 
 /* Scrollbar styles */
@@ -29,4 +27,61 @@ body {
 
 .code {
   @apply text-sm border border-b-2 border-gray-500 text-blue-600 rounded-md cursor-default mx-1 font-extralight px-1;
+}
+
+.banner-img {
+  max-width: 150px;
+  height: 5rem;
+  padding: 0 40px;
+  object-fit: cover;
+}
+
+.banner-img:last-of-type {
+  padding-left: 0;
+}
+
+.inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 5rem;
+}
+
+.inner::before,
+.inner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 30%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.inner::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(3, 7, 18, 0.9), transparent);
+}
+
+.inner::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(3, 7, 18, 0.9), transparent);
+}
+
+@keyframes swipe {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.wrapper {
+  display: flex;
+}
+
+.section-banner {
+  display: flex;
+  animation: swipe var(--speed) linear infinite;
 }
