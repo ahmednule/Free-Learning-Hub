@@ -1,11 +1,16 @@
-import LoginComponent from '../Components/Auth/LoginComponent'
+import PropTypes from 'prop-types';
+import LoginComponent from '../Components/Auth/LoginComponent';
 
-const Login = () => {
+const Login = ({ redirectUrl = '/profile' }) => {
   return (
     <div className='mt-24'>
-      <LoginComponent />
+      <LoginComponent redirectUrl={redirectUrl} />
     </div>
   );
 }
+
+Login.propTypes = {
+  redirectUrl: PropTypes.string,
+};
 
 export default Login;

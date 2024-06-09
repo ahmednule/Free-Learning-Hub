@@ -1,5 +1,6 @@
-import { useState } from 'react'
-import { FaEye, FaEyeSlash } from 'react-icons/fa6'
+import PropTypes from 'prop-types';
+import { useState } from 'react';
+import { FaEye, FaEyeSlash } from 'react-icons/fa6';
 import { Link, useNavigate } from 'react-router-dom';
 import { CgSpinnerTwoAlt } from 'react-icons/cg';
 import { FcGoogle } from 'react-icons/fc';
@@ -14,7 +15,7 @@ import { signInWithGoogleHelper } from '../../Helpers/googleAuth.js';
 import { useDispatch } from 'react-redux';
 import { updateUserState } from '../../Redux/user.slice.js';
 
-const LoginComponent = () => {
+const LoginComponent = ({ redirectUrl }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
@@ -46,7 +47,7 @@ const LoginComponent = () => {
             userData: message,
           }));
         }
-        navigate('/profile');
+        navigate(redirectUrl);
       } else {
         toast.error("Couldn't sign you in!");
       }
@@ -85,7 +86,7 @@ const LoginComponent = () => {
             userData: response.data.user,
           }));
         }
-        navigate('/profile');
+        navigate(redirectUrl);
       } else {
         toast.error('Wrong email or password.');
       }
@@ -163,5 +164,9 @@ const LoginComponent = () => {
     </div>
   );
 }
+
+LoginComponent.propTypes = {
+  redirectUrl: PropTypes.string.isRequired,
+};
 
 export default LoginComponent;
