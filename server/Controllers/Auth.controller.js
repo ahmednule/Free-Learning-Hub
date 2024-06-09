@@ -1,6 +1,8 @@
 import { auth, db } from '../Config/firebase.js';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendEmailVerification } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { doc, setDoc, getDoc } from 'firebase/firestore';
+import { errorCreator } from '../Utilities/Errors/createError.js';
+import { sucessCreator } from '../Utilities/Success/createSucess.js';
 
 export const signup = async (req, res) => {
   const { fullName, username, email, password } = req.body;
@@ -69,45 +71,46 @@ export const signup = async (req, res) => {
   }
 };
 
-export const login = async (req, res) => {
+export const login = async (req, res, next) => {
   const { email, password } = req.body;
 
-  // Validate email & password
   if (!email || !password) {
-    return res.status(400).json({ msg: 'Missing details.' });
+    next(errorCreator(200, 'Missing details'));
   }
 
-  // Validate email
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
   if (!emailRegex.test(email)) {
-    return res.status(400).json({ msg: 'Invalid email address' });
+    next(errorCreator(200, 'Invalid email'));
   }
 
-  // Sign in user with email and password
-  try {
-    const response = await signInWithEmailAndPassword(auth, email, password);
+  const newPassword = String(password.trim());
 
+  try {
+    const response = await signInWithEmailAndPassword(auth, email, newPassword);
     if (!response || !response.user || !response.user.uid) {
-      return res.status(401).json({ msg: 'Invalid email or password.' });
+      next(errorCreator(500, 'Something went wrong'));
     }
 
     const { uid } = response.user;
     const userDocRef = doc(db, 'users', uid);
     const fireUser = await getDoc(userDocRef);
     const userData = {
-      uid: uid,
-      email: email,
+      uid,
+      email,
       isVerified: fireUser.data().isVerified,
       fullName: fireUser.data().fullName,
       username: fireUser.data().username,
       photoURL: fireUser.data().photoURL,
       creationDate: fireUser.data().creationDate,
     };
-    return res.status(200).json({ message: 'User logged in successfully.', user: userData });
+    const sucessMessage = sucessCreator(200, 'Login sucessful', { user: userData });
+    return res.status(sucessMessage.statusCode).json(sucessMessage);
   } catch (err) {
     console.log(err);
-    return res.status(400).json({ msg: err.message });
+    if (err.message.includes('auth/invalid-credential')) {
+      next(errorCreator(200, 'Invalid credentials'));
+    }
+    next(errorCreator(500, 'Something went wrong'));
   }
 };
 

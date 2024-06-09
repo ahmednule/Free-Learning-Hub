@@ -25,6 +25,16 @@ app.use('/api/learn', learnRoutes);
 app.use('/api/news', newsRoute);
 app.use('/api/user', userRoutes);
 
+app.use((err, req, res, next) => {
+  const statusCode = err.statusCode || 500;
+  const message = err.message || 'Something went wrong';
+  res.status(statusCode).json({
+    sucess: false,
+    statusCode,
+    message,
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`Hub is relaxing on port ${PORT}`);
 });
