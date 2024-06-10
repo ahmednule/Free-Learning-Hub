@@ -4,11 +4,11 @@ import { Link, useLocation } from 'react-router-dom';
 import { CgSpinnerTwoAlt } from "react-icons/cg";
 import { useSelector } from 'react-redux';
 import { getReduxUserData } from '../../Redux/user.slice';
-import Axios from 'axios';
+import { Post } from '../../Utilities/DataService.jsx';
 import toast from 'react-hot-toast';
 import Spinner from '../General/Spinner.jsx';
 
-const Register = () => {
+function Register() {
   const userDataMain = useSelector(getReduxUserData);
   const location = useLocation();
 
@@ -21,31 +21,26 @@ const Register = () => {
 
   const registerModule = async () => {
     setIsLoading(true);
-    const url = import.meta.env.VITE_BACKEND_URL + '/api/learn/register';
-    try {
-      const response = await Axios.post(url, {
-        uid: userDataMain.userData.uid,
-        module: toRegister.unique
-      });
-
-      if (response.status === 201) {
-        toast.success('Registered successfully');
-        setIsRegistered(true);
-      }
-    } catch (err) {
-      console.log(err);
-      toast.error('Couldn\'t register');
-    } finally {
-      setIsLoading(false);
+    const apiUrl = '/api/learn/register';
+    const apiData = {
+      uid: userDataMain.userData.uid,
+      module: toRegister.unique,
+    };
+    const response = await Post(apiUrl, apiData);
+    if (response.success) {
+      toast.success(response.message);
+      setIsRegistered(true);
+    } else {
+      toast.error(response.message);
     }
+    setIsLoading(false);
   };
 
   useEffect(() => {
     const getModuleToRegister = () => {
       let id = location.pathname.split('/');
       id = id[id.length - 1];
-
-      if (!isNaN(id)){
+      if (!isNaN(id)) {
         id = Number(id);
         const foundModule = allModules.find(module => module.id === id);
         if (foundModule) {
@@ -60,26 +55,19 @@ const Register = () => {
 
   useEffect(() => {
     const getUserData = async () => {
-      if (toRegister) {
-        const url = import.meta.env.VITE_BACKEND_URL + '/api/learn/progress';
-
-        if (userDataMain.userData) {
-          try {
-            const response = await Axios.post(url, { uid: userDataMain.userData.uid });
-            setProgress(response.data);
-          } catch (err) {
-            console.log(err);
-          } finally {
-            setPreLoader(false);
-          }
-        } else {
-          setPreLoader(false);
-        }
+      const apiUrl = '/api/learn/progress';
+      const apiData = {
+        uid: userDataMain.userData.uid,
+      };
+      const response = await Post(apiUrl, apiData);
+      if (response.success) {
+        setProgress(response.data.progress);
       }
+      setPreLoader(false);
     };
 
     getUserData();
-  }, [userDataMain.userData, toRegister]);
+  }, [userDataMain.userData]);
 
   useEffect(() => {
     if (toRegister && Object.keys(progress).length > 0) {
@@ -90,16 +78,14 @@ const Register = () => {
 
   if (!validURL || !toRegister) {
     return (
-      <div>
-        <div className='min-h-screen'>
-          {!userDataMain.isLoggedIn && (
-            <div className='bg-reds-400 mx-2 mt-2 p-2 text-gray-950 text-center rounded mb-5'>
-              <p>Login <Link to={'/login'} className='linkOne'>here</Link> to save your progress</p>
-            </div>
-          )}
-          <h3 className='text-center text-xl md:text-2xl underline underline-offset-[30px]'>Module Not Found</h3>
-          <p className='text-center mt-16'>Pick a module from <Link to={'/learn'} className='linkOne px-1'>here</Link> to register and start learning.</p>
-        </div>
+      <div className='min-h-screen'>
+        {!userDataMain.isLoggedIn && (
+          <div className='bg-reds-400 mx-2 mt-2 p-2 text-gray-950 text-center rounded mb-5'>
+            <p>Login <Link to={'/login'} className='linkOne'>here</Link> to save your progress</p>
+          </div>
+        )}
+        <h3 className='text-center text-xl md:text-2xl underline underline-offset-[30px]'>Module Not Found</h3>
+        <p className='text-center mt-16'>Pick a module from <Link to={'/learn'} className='linkOne px-1'>here</Link> to register and start learning.</p>
       </div>
     );
   }
@@ -140,18 +126,20 @@ const Register = () => {
         ))}
       </ul>
       <div className='flex justify-between gap-3 mt-32'>
-        <button className='bg-blue-500 py-2 px-6 rounded-md hover:bg-blue-600 hover:text-gray-950 duration-200'><Link to={'/learn'}>ALL MODULES</Link></button>
+        <button className='bg-blue-500 py-2 px-6 rounded-md hover:bg-blue-600 hover:text-gray-950 duration-200'>
+          <Link to={'/learn'}>ALL MODULES</Link>
+        </button>
         
         {!userDataMain.isLoggedIn ? (
-          <button className='bg-reds-400 py-2 px-6 rounded-md hover:bg-reds-400 hover:text-gray-950 duration-200'><Link to={'/login'}>LOGIN</Link></button>
+          <button className='bg-reds-400 py-2 px-6 rounded-md hover:bg-reds-400 hover:text-gray-950 duration-200'>
+            <Link to={'/login'}>LOGIN</Link>
+          </button>
         ) : (
-          <button className='bg-green-500 w-44 items-center text-center py-2 px-6 rounded-md hover:bg-green-600 hover:text-gray-950 duration-200'>
+          <button className='bg-green-500 w-44 items-center text-center py-2 px-6 rounded-md hover:bg-green-600 hover:text-gray-950 duration-200' onClick={registerModule}>
             {isRegistered ? (
               <span><Link to={toRegister.linkTwo}>CONTINUE</Link></span>
             ) : (
-              <span onClick={registerModule}>
-                {isLoading ? <CgSpinnerTwoAlt className='animate-spin mx-auto text-gray-950' size={26} /> : 'REGISTER'}
-              </span>
+              isLoading ? <CgSpinnerTwoAlt className='animate-spin mx-auto text-gray-950' size={26} /> : 'REGISTER'
             )}
           </button>
         )}

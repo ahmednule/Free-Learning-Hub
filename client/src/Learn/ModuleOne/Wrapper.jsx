@@ -1,10 +1,10 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import Loader from '../../Components/General/Loader';
-import Axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { getReduxUserData, updateProgressState } from '../../Redux/user.slice';
+import { Post } from '../../Utilities/DataService';
 import Spinner from '../../Components/General/Spinner';
+import Loader from '../../Components/General/Loader';
 
 const Lesson = React.lazy(() => import('./Lesson'));
 
@@ -17,7 +17,9 @@ const Wrapper = () => {
   const [progress, setProgress] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
-  let htmlCssProgress = userDataMain.userProgress['html-css'] ? userDataMain.userProgress['html-css'].progress : {};
+  console.log(userDataMain.userProgress);
+
+  let htmlCssProgress = userDataMain.userProgress.progress['html-css'] ? userDataMain.userProgress.progress['html-css'].progress : {};
   htmlCssProgress = Object.keys(htmlCssProgress).length;
   const progressPercent = Math.round(htmlCssProgress / userDataMain.htmlCss * 100);
 
@@ -29,25 +31,23 @@ const Wrapper = () => {
 
   useEffect(() => {
     const getUserData = async () => {
-      const url = import.meta.env.VITE_BACKEND_URL + '/api/learn/progress';
-
       if (userDataMain.userData) {
-        try {
-          const response = await Axios.post(url, { uid: userDataMain.userData.uid });
-          const responseData = response.data;
+        const apiUrl = '/api/learn/progress';
+        const apiData = {
+          uid: userDataMain.userData.uid,
+        };
+        const response = await Post(apiUrl, apiData);
+        if (response.success) {
           dispatch(updateProgressState({ userProgress: response.data }));
-          const htmlCssProgress = responseData['html-css'] ? responseData['html-css'].progress : {};
+          const allProgress = response.data.progress;
+          const htmlCssProgress = allProgress['html-css'] ? allProgress['html-css'].progress : {};
           setProgress(htmlCssProgress);
-        } catch (err) {
-          console.log(err);
-        } finally {
+          setIsLoading(false);
+        } else {
           setIsLoading(false);
         }
-      } else {
-        setIsLoading(false);
       }
-    };
-
+    }
     getUserData();
   }, [userDataMain.userData, dispatch]);
 

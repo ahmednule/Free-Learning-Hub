@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getReduxUserData, updateProgressState } from '../../Redux/user.slice';
+import { Post } from '../../Utilities/DataService';
 import Allmodules from './Allmodules';
 import Mymodules from './Mymodules';
-import Axios from 'axios';
-import { Link } from 'react-router-dom';
 import Spinner from '../General/Spinner';
 
 const Modules = () => {
@@ -18,24 +18,23 @@ const Modules = () => {
   useEffect(() => {
     const getUserProgress = async () => {
       if (userDataMain.userData) {
-        const url = `${import.meta.env.VITE_BACKEND_URL}/api/learn/progress`;
-
-        try {
-          const response = await Axios.post(url, { uid: userDataMain.userData.uid });
+        const apiUrl = '/api/learn/progress';
+        const apiData = {
+          uid: userDataMain.userData.uid,
+        };
+        const response = await Post(apiUrl, apiData);
+        if (response.success) {
           setProgress(response.data);
           dispatch(updateProgressState({ userProgress: response.data }));
-        } catch (err) {
-          console.error('Error fetching user progress:', err);
-        } finally {
-          setIsLoading(false);
         }
+        setIsLoading(false);
       } else {
         setIsLoading(false);
       }
     };
 
     getUserProgress();
-  }, [userDataMain, dispatch]);
+  }, []);
 
   return (
     <div className='border border-gray-700 rounded-md'>
@@ -67,8 +66,8 @@ const Modules = () => {
           </div>
         ) : (
           <>
-            {activeTab === 1 && <Allmodules progress={progress} />}
-            {activeTab === 2 && <Mymodules progress={progress} />}
+            {activeTab === 1 && <Allmodules progress={progress.progress} />}
+            {activeTab === 2 && <Mymodules progress={progress.progress} />}
           </>
         )}
       </div>

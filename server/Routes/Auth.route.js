@@ -6,6 +6,6 @@ const router = express.Router();
 router.post('/login', login);
 router.post('/signup', signup);
 router.post('/logout', logout);
-router.post('/isverified', checkUserEmailVerification);
+router.post('/check-email-verification', checkUserEmailVerification);
 
 export default router;

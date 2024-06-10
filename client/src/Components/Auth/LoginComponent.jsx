@@ -83,19 +83,21 @@ const LoginComponent = ({ redirectUrl }) => {
     };
     const response = await Post(apiUrl, apiData);
     setIsLoading(false);
-    if (response.success) {
-      toast.success(response.message);
-      saveUserDataToCookie(response.data.user);
-      if (response.data.user) {
-        dispatch(updateUserState({
-          isLoggedIn: true,
-          userData: response.data.user,
-        }));
-      }
-      navigate(redirectUrl);
-    } else {
+
+    if (!response.success) {
       toast.error(response.message);
+      return;
     }
+
+    toast.success(response.message);
+    saveUserDataToCookie(response.data.user);
+
+    if (response.data.user) dispatch(updateUserState({
+      isLoggedIn: true,
+      userData: response.data.user,
+    }));
+
+    navigate(redirectUrl);
   };
 
   const emailInput = (e) => {

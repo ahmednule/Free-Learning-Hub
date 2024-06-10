@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUserState, getReduxUserData } from '../../Redux/user.slice';
 import { fetchUserDataFromCookie } from '../../Helpers/handlecookie.js';
-import Spinner from './Spinner.jsx';
 import { FaBarsStaggered } from 'react-icons/fa6';
 import { IoMdClose } from 'react-icons/io';
+import Spinner from './Spinner.jsx';
 
 const Header = () => {
   const dispatch = useDispatch();

@@ -1,23 +1,23 @@
 import { db } from '../Config/firebase.js';
 import { doc, setDoc } from 'firebase/firestore';
+import { errorCreator } from '../Utilities/Errors/createError.js';
+import { sucessCreator } from '../Utilities/Success/createSucess.js';
 
 export const registerNewsletter = async (req, res) => {
   const { email } = req.body;
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!email) {
-    return res.status(400).json({ msg: 'Missing email.' });
-  }
   if (!emailRegex.test(email)) {
-    return res.status(400).json({ msg: 'Invalid email address' });
+    next(errorCreator(200, 'Invalid email'));
   }
 
   try {
     const newsletterDocRef = doc(db, 'newsletter', email);
     await setDoc(newsletterDocRef, { email });
-    return res.status(201).json({ message: 'You have been added to the newsletter list.' });
+    const sucessMessage = sucessCreator(200, 'You\'ve been added to the newsletter', '');
+    return res.status(sucessMessage.statusCode).json(sucessMessage);
   } catch (err) {
-    console.error(err);
-    return res.status(400).json({ msg: "Couldn't add you to the newsletter list" });
+    console.log(err);
+    next(errorCreator(500, 'Something went wrong'));
   }
 };

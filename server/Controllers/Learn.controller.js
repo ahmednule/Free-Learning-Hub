@@ -1,21 +1,23 @@
 import { updateDoc, doc, getDoc } from "firebase/firestore";
 import { db } from '../Config/firebase.js';
+import { errorCreator } from '../Utilities/Errors/createError.js';
+import { sucessCreator } from '../Utilities/Success/createSucess.js';
 
-export const registerModule = async (req, res) => {
+export const registerModule = async (req, res, next) => {
   const { uid, module} = req.body;
 
   if(!uid) {
-    return res.status(400).json({ msg: 'Signin to save' });
+    next(errorCreator(200, 'Signin failure'));
   }
 
   if(!module) {
-    return res.status(400).json({ msg: 'Module not found' });
+    next(errorCreator(200, 'Module not found'));
   }
 
   const languageProgress = {
     progress: 0
   };
-
+  
   let pastCubes = await getCubes(uid);
   pastCubes += 5;
 
@@ -25,24 +27,23 @@ export const registerModule = async (req, res) => {
       [`modules.${module}`]: languageProgress,
       cubes: pastCubes,
     });
-
-    return res.status(201).json({ message: 'Module registered successfully.' });
-
+    const sucessMessage = sucessCreator(200, 'Module registered', '');
+    return res.status(sucessMessage.statusCode).json(sucessMessage);
   } catch (err) {
-    return res.status(500).json({ msg: 'Something went wrong.' });
+    console.log(err);
+    next(errorCreator(500, 'Something went wrong'));
   }
-
 };
 
-export const updateProgress = async (req, res) => {
+export const updateProgress = async (req, res, next) => {
   const { uid, module, progress } = req.body;
 
   if(!uid) {
-    return res.status(400).json({ msg: 'Signin to save' });
+    next(errorCreator(200, 'Signin failure'));
   }
 
   if(!module) {
-    return res.status(400).json({ msg: 'Module not found' });
+    next(errorCreator(200, 'Module not found'));
   }
 
   let pastCubes = await getCubes(uid);
@@ -54,37 +55,33 @@ export const updateProgress = async (req, res) => {
       [`modules.${module}.progress.${progress}.done`]: true,
       cubes: pastCubes,
     });
-
-    return res.status(201).json({ message: 'Progress updated successfully.' });
-
+    const sucessMessage = sucessCreator(200, 'Progress updated', '');
+    return res.status(sucessMessage.statusCode).json(sucessMessage);
   } catch (err) {
-    return res.status(500).json({ msg: 'Something went wrong.' });
+    console.log(err);
+    next(errorCreator(500, 'Something went wrong'));
   }
-
 };
 
 export const getUserProgress = async (req, res) => {
   const { uid } = req.body;
 
   if (!uid) {
-    return res.status(400).json({ msg: 'Sign in to fetch user data' });
+    next(errorCreator(200, 'Signin failure'));
   }
 
   try {
     const userDocRef = doc(db, 'users', uid);
     const userDocSnapshot = await getDoc(userDocRef);
-
     if (!userDocSnapshot.exists()) {
-      return res.status(404).json({ msg: 'User not found' });
+      next(errorCreator(200, 'User not found'));
     }
-
     const userData = userDocSnapshot.data();
-
-    return res.status(200).json(userData.modules);
-
+    const sucessMessage = sucessCreator(200, 'Progress fetched', { progress: userData.modules });
+    return res.status(sucessMessage.statusCode).json(sucessMessage);
   } catch (err) {
-    console.error('Error fetching user data:', err);
-    return res.status(500).json({ msg: 'Something went wrong.' });
+    console.log(err);
+    next(errorCreator(500, 'Something went wrong'));
   }
 };
 
@@ -96,13 +93,10 @@ export const getCubes = async (uid) => {
     if (!userDocSnapshot.exists()) {
       return;
     }
-
     const userData = userDocSnapshot.data();
     return userData.cubes;
-
   } catch (err) {
-    console.error('Error fetching cubes:', err);
+    console.log(err);
     return;
   }
-
 };

@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Dashboard from '../Components/Profile/Dashboard';
-import Logout from '../Components/Profile/Logout';
 import { useSelector, useDispatch } from 'react-redux';
 import { getReduxUserData, updateProgressState, updateCubesState } from '../Redux/user.slice';
+import { Post } from '../Utilities/DataService';
 import { RiDashboardFill } from 'react-icons/ri';
 import { PiBookOpenTextFill } from 'react-icons/pi';
 import { FaCodeMerge, FaGraduationCap, FaAward, FaAngleDown } from 'react-icons/fa6';
@@ -12,7 +11,8 @@ import { IoIosNotifications } from 'react-icons/io';
 import { MdContactSupport } from 'react-icons/md';
 import { LuLogOut } from 'react-icons/lu';
 import Modules from '../Components/Profile/Modules';
-import Axios from 'axios';
+import Dashboard from '../Components/Profile/Dashboard';
+import Logout from '../Components/Profile/Logout';
 import Spinner from '../Components/General/Spinner';
 
 const Profile = () => {
@@ -24,19 +24,6 @@ const Profile = () => {
   const [dropdown, setDropdown] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  const getUserCubes = async () => {
-    if (userDataMain.userData) {
-      const url = `${import.meta.env.VITE_BACKEND_URL}/api/user/cubes`;
-
-      try {
-        const response = await Axios.post(url, { uid: userDataMain.userData.uid });
-        dispatch(updateCubesState({ userCubes: response.data.cubes }));
-      } catch (err) {
-        console.error('Error fetching user progress:', err);
-      }
-    }
-  };
-  
   useEffect(() => {
     if (!userDataMain.isLoggedIn) {
       navigate('/login');
@@ -44,19 +31,31 @@ const Profile = () => {
   }, [userDataMain, navigate]);
 
   useEffect(() => {
+    const getUserCubes = async () => {
+      if (userDataMain.userData) {
+        const apiUrl = '/api/user/cubes';
+        const apiData = {
+          uid: userDataMain.userData.uid,
+        };
+        const response = await Post(apiUrl, apiData);
+        if (response.success) {
+          dispatch(updateCubesState({ userCubes: response.data.cubes }));
+        }
+      }
+    };
+
     const getUserProgress = async () => {
       if (userDataMain.userData) {
-        const url = `${import.meta.env.VITE_BACKEND_URL}/api/learn/progress`;
-
-        try {
-          const response = await Axios.post(url, { uid: userDataMain.userData.uid });
+        const apiUrl = '/api/learn/progress';
+        const apiData = {
+          uid: userDataMain.userData.uid,
+        };
+        const response = await Post(apiUrl, apiData);
+        if (response.success) {
           dispatch(updateProgressState({ userProgress: response.data }));
           getUserCubes();
-        } catch (err) {
-          console.error('Error fetching user progress:', err);
-        } finally {
-          setIsLoading(false);
         }
+        setIsLoading(false);
       } else {
         setIsLoading(false);
       }
@@ -64,6 +63,8 @@ const Profile = () => {
 
     getUserProgress();
   }, [userDataMain.userData, dispatch]);
+
+  console.log(userDataMain);
 
   const profNavs = [
     {

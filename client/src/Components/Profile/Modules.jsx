@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 const Modules = () => {
   const userDataMain = useSelector(getReduxUserData);
-
   const inProgress = createInProgress(userDataMain);
   const isComplete = createIsCompleted(userDataMain);
   const allModules = createAllModules(userDataMain);

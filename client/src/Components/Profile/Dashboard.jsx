@@ -8,8 +8,7 @@ import 'react-circular-progressbar/dist/styles.css';
 
 const Dashboard = () => {
   const userDataMain = useSelector(getReduxUserData);
-  const modules = Object.keys(userDataMain.userProgress).length;
-
+  const modules = Object.keys(userDataMain.userProgress.progress).length;
   const cubesPercentage = Math.floor(userDataMain.userCubes / userDataMain.cubes * 100);
 
   return (

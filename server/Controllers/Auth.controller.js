@@ -1,6 +1,7 @@
 import { auth, db } from '../Config/firebase.js';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { doc, setDoc, getDoc } from 'firebase/firestore';
+import { profilePhotoDummies } from '../Utilities/Data/Data.js';
 import { errorCreator } from '../Utilities/Errors/createError.js';
 import { sucessCreator } from '../Utilities/Success/createSucess.js';
 
@@ -22,9 +23,9 @@ export const signup = async (req, res, next) => {
   const newPassword = String(password.trim());
 
   try {
-    const response = await createUserWithEmailAndPassword(auth, email, password);
+    const response = await createUserWithEmailAndPassword(auth, email, newPassword);
     if (!response || !response.user || !response.user.uid) {
-      next(errorCreator(200, 'Something went wrong'));
+      next(errorCreator(500, 'Something went wrong'));
     }
 
     const { uid } = response.user;
@@ -106,50 +107,46 @@ export const login = async (req, res, next) => {
 export const logout = async (req, res) => {
   try {
     await signOut(auth);
-    return res.status(200).json({ message: 'User logged out successfully.' });
+    const sucessMessage = sucessCreator(200, 'Logout sucessful', '');
+    return res.status(sucessMessage.statusCode).json(sucessMessage);
   } catch (err) {
     console.log(err);
-    return res.status(400).json({ msg: err.message });
+    next(errorCreator(500, 'Something went wrong'));
   }
 };
 
-
-export const checkUserEmailVerification = async (req, res) => {
-  const { email } = req.body;
+export const checkUserEmailVerification = async (req, res, next) => {
+  const { uid } = req.body;
 
   try {
-    const userRecord = await auth.getUserByEmail(email);
+    const userDocRef = doc(db, 'users', uid);
+    const fireUser = await getDoc(userDocRef);
+    const isVerified = fireUser.data().isVerified;
 
-    if (userRecord.emailVerified) {
-      return res.status(200).json({ message: 'Email verified.' });
-    } else {
-      return res.status(400).json({ message: 'Email not verified.' });
+    if (isVerified) {
+      const sucessMessage = sucessCreator(200, 'Email verified', '');
+      return res.status(sucessMessage.statusCode).json(sucessMessage);
     }
-  } catch (error) {
-    console.error('Error fetching user data:', error);
-    if (error.code === 'auth/user-not-found') {
-      return res.status(404).json({ message: 'User not found.' });
-    } else {
-      return res.status(500).json({ message: 'Internal server error.' });
-    }
+    next(errorCreator(200, 'Email not verified'));
+  } catch (err) {
+    console.log(err);
+    next(errorCreator(500, 'Something went wrong'));
   }
 };
 
 const createPhotoURL = () => {
   const randomNumber = Math.floor(Math.random() * 5) + 1;
   let photoURL = '';
-
   if (randomNumber === 1) {
-    photoURL = 'https://raw.githubusercontent.com/developer-assets/public-hosting/main/freeLearningHub/Profiles/one.png'
+    photoURL = profilePhotoDummies[0];
   } else if (randomNumber === 2) {
-    photoURL = 'https://raw.githubusercontent.com/developer-assets/public-hosting/main/freeLearningHub/Profiles/two.png'
+    photoURL = profilePhotoDummies[1];
   } else if (randomNumber === 3) {
-    photoURL = 'https://raw.githubusercontent.com/developer-assets/public-hosting/main/freeLearningHub/Profiles/three.png'
+    photoURL = profilePhotoDummies[2];
   } else if (randomNumber === 4) {
-    photoURL = 'https://raw.githubusercontent.com/developer-assets/public-hosting/main/freeLearningHub/Profiles/four.png'
+    photoURL = profilePhotoDummies[3];
   } else {
-    photoURL = 'https://raw.githubusercontent.com/developer-assets/public-hosting/main/freeLearningHub/Profiles/five.png'
+    photoURL = profilePhotoDummies[4];
   }
-
   return photoURL;
 };
