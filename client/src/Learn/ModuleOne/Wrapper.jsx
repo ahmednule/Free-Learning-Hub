@@ -17,12 +17,17 @@ const Wrapper = () => {
   const [progress, setProgress] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
-  console.log(userDataMain.userProgress);
-
-  let htmlCssProgress = userDataMain.userProgress.progress['html-css'] ? userDataMain.userProgress.progress['html-css'].progress : {};
-  htmlCssProgress = Object.keys(htmlCssProgress).length;
-  const progressPercent = Math.round(htmlCssProgress / userDataMain.htmlCss * 100);
-
+  /* This code made me mad */
+  const htmlCssKey = 'html-css';
+  let htmlCssProgressCount = 0;
+  if (userDataMain && userDataMain.userProgress && userDataMain.userProgress.progress[htmlCssKey] && userDataMain.userProgress.progress[htmlCssKey].progress) {
+    const htmlCssProgress = userDataMain.userProgress.progress[htmlCssKey].progress;
+    htmlCssProgressCount = Object.keys(htmlCssProgress).length;
+  }
+  const totalHtmlCssModules = userDataMain.htmlCss || 1;
+  const progressPercent = Math.round((htmlCssProgressCount / totalHtmlCssModules) * 100);
+  /* End of crazy code */
+  
   useEffect(() => {
     const urlParts = location.pathname.split('/');
     const newLessonId = urlParts[urlParts.length - 1];
