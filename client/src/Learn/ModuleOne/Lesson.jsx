@@ -6,14 +6,13 @@ import { CgSpinnerTwoAlt } from 'react-icons/cg';
 import { getReduxUserData, updateProgressState } from '../../Redux/user.slice';
 import { useDispatch, useSelector } from 'react-redux';
 import { CircularProgressbar } from 'react-circular-progressbar';
-import Subfooter from '../../Components/Modules/Subfooter';
 import { Post } from '../../Utilities/DataService';
+import Subfooter from '../../Components/Modules/Subfooter';
 import toast from 'react-hot-toast';
 import lessons from './Lessons.json';
 import Spinner from '../../Components/General/Spinner';
 import 'react-circular-progressbar/dist/styles.css';
 
-// Lazily import tutorials
 const Tutorial1 = React.lazy(() => import('./LessonOne/Tutorial'));
 const Tutorial2 = React.lazy(() => import('./LessonTwo/Tutorial'));
 const Tutorial3 = React.lazy(() => import('./LessonThree/Tutorial'));

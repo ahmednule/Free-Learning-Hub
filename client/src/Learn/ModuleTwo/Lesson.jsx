@@ -1,20 +1,19 @@
-import React, { useState, useEffect, Suspense } from 'react';
 import PropTypes from 'prop-types';
-import Subfooter from '../../Components/Modules/Subfooter';
+import React, { useState, useEffect, Suspense } from 'react';
+import { Link } from 'react-router-dom';
 import { TiTick } from 'react-icons/ti';
 import { CgSpinnerTwoAlt } from 'react-icons/cg';
-import { Link } from 'react-router-dom';
-import Axios from 'axios';
-import toast from 'react-hot-toast';
-import lessons from './Lessons.json';
 import { getReduxUserData, updateProgressState } from '../../Redux/user.slice';
 import { useDispatch, useSelector } from 'react-redux';
-import Spinner from '../../Components/General/Spinner';
 import { CircularProgressbar } from 'react-circular-progressbar';
+import { Post } from '../../Utilities/DataService';
+import Subfooter from '../../Components/Modules/Subfooter';
+import toast from 'react-hot-toast';
+import lessons from './Lessons.json';
+import Spinner from '../../Components/General/Spinner';
 import 'react-circular-progressbar/dist/styles.css';
 
-// Lazily import tutorials
-const TutorialOne = React.lazy(() => import('./Lesson1/Tutorial'));
+const Tutorial1 = React.lazy(() => import('./Lesson1/Tutorial'));
 
 const Lesson = ({ progress, id, perc }) => {
   const dispatch = useDispatch();
@@ -41,41 +40,35 @@ const Lesson = ({ progress, id, perc }) => {
   }, [progressTwo, level, progress]);
 
   const fetchProgress = async () => {
-    const url = import.meta.env.VITE_BACKEND_URL + '/api/learn/progress';
-
     if (userDataMain.userData) {
-      try {
-        const response = await Axios.post(url, { uid: userDataMain.userData.uid });
+      const apiUrl = '/api/learn/progress';
+      const apiData = {
+        uid: userDataMain.userData.uid,
+      };
+      const response = await Post(apiUrl, apiData);
+      if (response.success) {
         dispatch(updateProgressState({ userProgress: response.data }));
-      } catch (err) {
-        console.log(err);
       }
     }
   }
   
   const handleUpdateProgress = async () => {
     setIsLoading(true);
-    const url = import.meta.env.VITE_BACKEND_URL + '/api/learn/update';
-    try {
-      const response = await Axios.post(url, {
-        uid: userDataMain.userData.uid,
-        module: 'python',
-        progress: level
-      });
-
-      if (response.status === 201) {
-        toast.success('Progress updated successfully');
-        setIsDone(true);
-        fetchProgress();
-      } else {
-        toast.error('Error updating progress');
-      }
-    } catch (err) {
-      console.log(err);
-      toast.error('Error updating progress');
-    } finally {
-      setIsLoading(false);
+    const apiUrl = '/api/learn/update';
+    const apiData = {
+      uid: userDataMain.userData.uid,
+      module: 'python',
+      progress: level,
+    };
+    const response = await Post(apiUrl, apiData);
+    if (response.success) {
+      toast.success(response.message);
+      setIsDone(true);
+      fetchProgress();
+    } else {
+      toast.error(response.message);
     }
+    setIsLoading(false);
   };
 
   return (
@@ -119,7 +112,7 @@ const Lesson = ({ progress, id, perc }) => {
         <Suspense fallback={<div className='w-full flex justify-center min-h-screen'>
           <Spinner width={40} />
         </div>}>
-          {id === 1 && <TutorialOne />}
+          {id === 1 && <Tutorial1 />}
         </Suspense>
       </div>
 

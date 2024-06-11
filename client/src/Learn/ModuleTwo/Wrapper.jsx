@@ -1,10 +1,10 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import Loader from '../../Components/General/Loader';
-import Axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { getReduxUserData, updateProgressState } from '../../Redux/user.slice';
+import { Post } from '../../Utilities/DataService';
 import Spinner from '../../Components/General/Spinner';
+import Loader from '../../Components/General/Loader';
 
 const Lesson = React.lazy(() => import('./Lesson'));
 
@@ -17,9 +17,13 @@ const Wrapper = () => {
   const [progress, setProgress] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
-  let pythonProgress = userDataMain.userProgress['python'] ? userDataMain.userProgress['python'].progress : {};
-  pythonProgress = Object.keys(pythonProgress).length;
-  const progressPercent = Math.round(pythonProgress / userDataMain.python * 100);
+  const pythonKey = 'python';
+  let pythonProgressCount = 0;
+  if (userDataMain && userDataMain.userProgress && userDataMain.userProgress.progress[pythonKey] && userDataMain.userProgress.progress[pythonKey].progress) {
+    const pythonProgress = userDataMain.userProgress.progress[pythonKey].progress;
+    pythonProgressCount = Object.keys(pythonProgress).length;
+  }
+  const progressPercent = Math.round((pythonProgressCount / userDataMain.python) * 100);
 
   useEffect(() => {
     const urlParts = location.pathname.split('/');
@@ -29,21 +33,18 @@ const Wrapper = () => {
 
   useEffect(() => {
     const getUserData = async () => {
-      const url = import.meta.env.VITE_BACKEND_URL + '/api/learn/progress';
-
       if (userDataMain.userData) {
-        try {
-          const response = await Axios.post(url, { uid: userDataMain.userData.uid });
-          const responseData = response.data;
+        const apiUrl = '/api/learn/progress';
+        const apiData = {
+          uid: userDataMain.userData.uid,
+        };
+        const response = await Post(apiUrl, apiData);
+        if (response.success) {
           dispatch(updateProgressState({ userProgress: response.data }));
-          const pythonProgress = responseData['python'] ? responseData['python'].progress : {};
+          const allProgress = response.data.progress;
+          const pythonProgress = allProgress['python'] ? allProgress['python'].progress : {};
           setProgress(pythonProgress);
-        } catch (err) {
-          console.log(err);
-        } finally {
-          setIsLoading(false);
         }
-      } else {
         setIsLoading(false);
       }
     };

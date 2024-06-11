@@ -99,7 +99,7 @@ function Register() {
   }
 
   return (
-    <div className='text-gray-300 mt-5'>
+    <div className='text-gray-300 mt-5 max-w-3xl mx-auto'>
       {!userDataMain.isLoggedIn && (
         <div className='bg-reds-400 mx-2 mt-2 p-2 text-gray-950 text-center rounded mb-5'>
           <p>Login <Link to={'/login'} className='linkOne'>here</Link> to save your progress</p>

@@ -17,17 +17,14 @@ const Wrapper = () => {
   const [progress, setProgress] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
-  /* This code made me mad */
   const htmlCssKey = 'html-css';
   let htmlCssProgressCount = 0;
   if (userDataMain && userDataMain.userProgress && userDataMain.userProgress.progress[htmlCssKey] && userDataMain.userProgress.progress[htmlCssKey].progress) {
     const htmlCssProgress = userDataMain.userProgress.progress[htmlCssKey].progress;
     htmlCssProgressCount = Object.keys(htmlCssProgress).length;
   }
-  const totalHtmlCssModules = userDataMain.htmlCss || 1;
-  const progressPercent = Math.round((htmlCssProgressCount / totalHtmlCssModules) * 100);
-  /* End of crazy code */
-  
+  const progressPercent = Math.round((htmlCssProgressCount / userDataMain.htmlCss) * 100);
+
   useEffect(() => {
     const urlParts = location.pathname.split('/');
     const newLessonId = urlParts[urlParts.length - 1];
@@ -47,10 +44,8 @@ const Wrapper = () => {
           const allProgress = response.data.progress;
           const htmlCssProgress = allProgress['html-css'] ? allProgress['html-css'].progress : {};
           setProgress(htmlCssProgress);
-          setIsLoading(false);
-        } else {
-          setIsLoading(false);
         }
+        setIsLoading(false);
       }
     }
     getUserData();
