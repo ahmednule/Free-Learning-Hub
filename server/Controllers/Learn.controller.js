@@ -27,7 +27,7 @@ export const registerModule = async (req, res, next) => {
       [`modules.${module}`]: languageProgress,
       cubes: pastCubes,
     });
-    const sucessMessage = sucessCreator(200, 'Module registered', '');
+    const sucessMessage = sucessCreator(200, 'Module registered', {});
     return res.status(sucessMessage.statusCode).json(sucessMessage);
   } catch (err) {
     console.log(err);
@@ -55,7 +55,7 @@ export const updateProgress = async (req, res, next) => {
       [`modules.${module}.progress.${progress}.done`]: true,
       cubes: pastCubes,
     });
-    const sucessMessage = sucessCreator(200, 'Progress updated', '');
+    const sucessMessage = sucessCreator(200, 'Progress updated', {});
     return res.status(sucessMessage.statusCode).json(sucessMessage);
   } catch (err) {
     console.log(err);

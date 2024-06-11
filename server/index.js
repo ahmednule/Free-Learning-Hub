@@ -14,12 +14,10 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 3000;
 
-// DEFAULT ROUTE
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-// USED OR USEFULL ROUTES
 app.use('/api/auth', authRoutes);
 app.use('/api/learn', learnRoutes);
 app.use('/api/news', newsRoute);

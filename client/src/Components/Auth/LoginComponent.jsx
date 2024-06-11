@@ -75,11 +75,9 @@ const LoginComponent = ({ redirectUrl }) => {
   const emailLoginSender = async () => {
     setIsLoading(true);
     const apiUrl = '/api/auth/login';
-    const email = inputData.email;
-    const password = inputData.password;
     const apiData = {
-      email,
-      password,
+      email: inputData.email,
+      password: inputData.password,
     };
     const response = await Post(apiUrl, apiData);
     setIsLoading(false);

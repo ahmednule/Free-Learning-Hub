@@ -83,15 +83,11 @@ const SignupComponent = ({ redirectUrl }) => {
   const emailSingupSender = async () => {
     setIsLoading(true);
     const apiUrl = '/api/auth/signup';
-    const fullName = inputData.fullName;
-    const username = inputData.username;
-    const email = inputData.email;
-    const password = inputData.password;
     const apiData = {
-      fullName,
-      username,
-      email,
-      password,
+      fullName: inputData.fullName,
+      username: inputData.username,
+      email: inputData.email,
+      password: inputData.password,
     };
     const response = await Post(apiUrl, apiData);
     setIsLoading(false);

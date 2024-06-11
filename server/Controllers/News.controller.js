@@ -14,7 +14,7 @@ export const registerNewsletter = async (req, res) => {
   try {
     const newsletterDocRef = doc(db, 'newsletter', email);
     await setDoc(newsletterDocRef, { email });
-    const sucessMessage = sucessCreator(200, 'You\'ve been added to the newsletter', '');
+    const sucessMessage = sucessCreator(200, 'You\'ve been added to the newsletter', {});
     return res.status(sucessMessage.statusCode).json(sucessMessage);
   } catch (err) {
     console.log(err);

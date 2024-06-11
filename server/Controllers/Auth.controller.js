@@ -107,7 +107,7 @@ export const login = async (req, res, next) => {
 export const logout = async (req, res) => {
   try {
     await signOut(auth);
-    const sucessMessage = sucessCreator(200, 'Logout sucessful', '');
+    const sucessMessage = sucessCreator(200, 'Logout sucessful', {});
     return res.status(sucessMessage.statusCode).json(sucessMessage);
   } catch (err) {
     console.log(err);
@@ -124,7 +124,7 @@ export const checkUserEmailVerification = async (req, res, next) => {
     const isVerified = fireUser.data().isVerified;
 
     if (isVerified) {
-      const sucessMessage = sucessCreator(200, 'Email verified', '');
+      const sucessMessage = sucessCreator(200, 'Email verified', {});
       return res.status(sucessMessage.statusCode).json(sucessMessage);
     }
     next(errorCreator(200, 'Email not verified'));

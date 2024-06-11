@@ -1,31 +1,31 @@
-import React, { useState, useEffect, Suspense } from 'react';
 import PropTypes from 'prop-types';
-import Subfooter from '../../Components/Modules/Subfooter';
+import React, { useState, useEffect, Suspense } from 'react';
+import { Link } from 'react-router-dom';
 import { TiTick } from 'react-icons/ti';
 import { CgSpinnerTwoAlt } from 'react-icons/cg';
-import { Link } from 'react-router-dom';
-import Axios from 'axios';
-import toast from 'react-hot-toast';
-import lessons from './Lessons.json';
 import { getReduxUserData, updateProgressState } from '../../Redux/user.slice';
 import { useDispatch, useSelector } from 'react-redux';
-import Spinner from '../../Components/General/Spinner';
 import { CircularProgressbar } from 'react-circular-progressbar';
+import Subfooter from '../../Components/Modules/Subfooter';
+import { Post } from '../../Utilities/DataService';
+import toast from 'react-hot-toast';
+import lessons from './Lessons.json';
+import Spinner from '../../Components/General/Spinner';
 import 'react-circular-progressbar/dist/styles.css';
 
 // Lazily import tutorials
-const TutorialOne = React.lazy(() => import('./LessonOne/Tutorial'));
-const TutorialTwo = React.lazy(() => import('./LessonTwo/Tutorial'));
-const TutorialThree = React.lazy(() => import('./LessonThree/Tutorial'));
-const TutorialFour = React.lazy(() => import('./LessonFour/Tutorial'));
-const TutorialFive = React.lazy(() => import('./LessonFive/Tutorial'));
-const TutorialSix = React.lazy(() => import('./LessonSix/Tutorial'));
-const TutorialSeven = React.lazy(() => import('./LessonSeven/Tutorial'));
-const TutorialEight = React.lazy(() => import('./LessonEight/Tutorial'));
-const TutorialNine = React.lazy(() => import('./LessonNine/Tutorial'));
-const TutorialTen = React.lazy(() => import('./LessonTen/Tutorial'));
-const TutorialEleven = React.lazy(() => import('./LessonEleven/Tutorial'));
-const TutorialTwelve = React.lazy(() => import('./LessonTwelve/Tutorial'));
+const Tutorial1 = React.lazy(() => import('./LessonOne/Tutorial'));
+const Tutorial2 = React.lazy(() => import('./LessonTwo/Tutorial'));
+const Tutorial3 = React.lazy(() => import('./LessonThree/Tutorial'));
+const Tutorial4 = React.lazy(() => import('./LessonFour/Tutorial'));
+const Tutorial5 = React.lazy(() => import('./LessonFive/Tutorial'));
+const Tutorial6 = React.lazy(() => import('./LessonSix/Tutorial'));
+const Tutorial7 = React.lazy(() => import('./LessonSeven/Tutorial'));
+const Tutorial8 = React.lazy(() => import('./LessonEight/Tutorial'));
+const Tutorial9 = React.lazy(() => import('./LessonNine/Tutorial'));
+const Tutorial10 = React.lazy(() => import('./LessonTen/Tutorial'));
+const Tutorial11 = React.lazy(() => import('./LessonEleven/Tutorial'));
+const Tutorial12 = React.lazy(() => import('./LessonTwelve/Tutorial'));
 const Tutorial13 = React.lazy(() => import('./Lesson13/Tutorial'));
 const Tutorial14 = React.lazy(() => import('./Lesson14/Tutorial'));
 const Tutorial15 = React.lazy(() => import('./Lesson15/Tutorial'));
@@ -76,41 +76,35 @@ const Lesson = ({ progress, id, perc }) => {
   }, [progressTwo, level, progress]);
 
   const fetchProgress = async () => {
-    const url = import.meta.env.VITE_BACKEND_URL + '/api/learn/progress';
-
     if (userDataMain.userData) {
-      try {
-        const response = await Axios.post(url, { uid: userDataMain.userData.uid });
+      const apiUrl = '/api/learn/progress';
+      const apiData = {
+        uid: userDataMain.userData.uid,
+      };
+      const response = await Post(apiUrl, apiData);
+      if (response.success) {
         dispatch(updateProgressState({ userProgress: response.data }));
-      } catch (err) {
-        console.log(err);
       }
     }
   }
   
   const handleUpdateProgress = async () => {
     setIsLoading(true);
-    const url = import.meta.env.VITE_BACKEND_URL + '/api/learn/update';
-    try {
-      const response = await Axios.post(url, {
-        uid: userDataMain.userData.uid,
-        module: 'html-css',
-        progress: level
-      });
-
-      if (response.status === 201) {
-        toast.success('Progress updated successfully');
-        setIsDone(true);
-        fetchProgress();
-      } else {
-        toast.error('Error updating progress');
-      }
-    } catch (err) {
-      console.log(err);
-      toast.error('Error updating progress');
-    } finally {
-      setIsLoading(false);
+    const apiUrl = '/api/learn/update';
+    const apiData = {
+      uid: userDataMain.userData.uid,
+      module: 'html-css',
+      progress: level,
+    };
+    const response = await Post(apiUrl, apiData);
+    if (response.success) {
+      toast.success(response.message);
+      setIsDone(true);
+      fetchProgress();
+    } else {
+      toast.error(response.message);
     }
+    setIsLoading(false);
   };
 
   return (
@@ -154,18 +148,18 @@ const Lesson = ({ progress, id, perc }) => {
         <Suspense fallback={<div className='w-full flex justify-center min-h-screen'>
           <Spinner width={40} />
         </div>}>
-          {id === 1 && <TutorialOne />}
-          {id === 2 && <TutorialTwo />}
-          {id === 3 && <TutorialThree />}
-          {id === 4 && <TutorialFour />}
-          {id === 5 && <TutorialFive />}
-          {id === 6 && <TutorialSix />}
-          {id === 7 && <TutorialSeven />}
-          {id === 8 && <TutorialEight />}
-          {id === 9 && <TutorialNine />}
-          {id === 10 && <TutorialTen />}
-          {id === 11 && <TutorialEleven />}
-          {id === 12 && <TutorialTwelve />}
+          {id === 1 && <Tutorial1 />}
+          {id === 2 && <Tutorial2 />}
+          {id === 3 && <Tutorial3 />}
+          {id === 4 && <Tutorial4 />}
+          {id === 5 && <Tutorial5 />}
+          {id === 6 && <Tutorial6 />}
+          {id === 7 && <Tutorial7 />}
+          {id === 8 && <Tutorial8 />}
+          {id === 9 && <Tutorial9 />}
+          {id === 10 && <Tutorial10 />}
+          {id === 11 && <Tutorial11 />}
+          {id === 12 && <Tutorial12 />}
           {id === 13 && <Tutorial13 />}
           {id === 14 && <Tutorial14 />}
           {id === 15 && <Tutorial15 />}
