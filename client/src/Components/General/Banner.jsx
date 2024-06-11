@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 const Banner = ({ images, speed = 5000 }) => {
   return (
     <div className="inner">
-      <div className="wrapper">
+      <div className="flex">
         <section className='section-banner' style={{ "--speed": `${speed}ms` }}>
           {images.map(({ id, image }) => (
             <div className="image" key={id}>

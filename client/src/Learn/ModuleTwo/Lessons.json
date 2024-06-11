@@ -5,7 +5,16 @@
     "textOne": "ALL MODULES",
     "linkOne": "/learn",
     "textTwo": "Data Types",
-    "linkTwo": "/learn/html-css/data-types",
+    "linkTwo": "/learn/python/data-types",
     "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleTwo/Lesson1"
+  },
+  {
+    "id": 2,
+    "videoID": "ScMzIvxBSi4",
+    "textOne": "Basic Syntax",
+    "linkOne": "/learn/python/basic-syntax",
+    "textTwo": "Variables & Constants",
+    "linkTwo": "/learn/python/variables-constants",
+    "edit": "https://github.com/developer-assets/Free-Learning-Hub/tree/main/client/src/Learn/ModuleTwo/Lesson2"
   }
 ]

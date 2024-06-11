@@ -7,7 +7,7 @@ const initialState = {
   userData: '',
   userProgress: '',
   htmlCss: 36,
-  python: 1,
+  python: 2,
 }
 
 const userSlice = createSlice({

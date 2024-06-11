@@ -6,23 +6,20 @@ const backendURL = import.meta.env.VITE_BACKEND_URL;
 const Post = async (apiUrl, apiData) => {
   try {
     const response = await Axios.post(`${backendURL}${apiUrl}`, apiData);
-    if(!response || !response.data) {
-      return returnMessageCreator(false, false, {}, 'Something went wrong');
-    }
-    if (!response.data.success) {
-      return returnMessageCreator(false, false, {}, response.data.message | 'Something went wrong');
-    }
-    if (Object.keys(response.data.data).length < 1) {
-      return returnMessageCreator(true, false, {}, response.data.message);
-    }
-    return returnMessageCreator(true, true, response.data.data, response.data.message);
+    const { success, data, message } = response.data;
+
+    if (!response || !response.data) return createReturnMessage(false, false, {}, 'Something went wrong');
+    if (!success) return createReturnMessage(false, false, {}, message || 'Something went wrong');
+    if (Object.keys(data).length < 1) return createReturnMessage(true, false, {}, message);
+    
+    return createReturnMessage(true, true, data, message);
   } catch (err) {
     console.log(err);
-    return returnMessageCreator(false, false, {}, 'Something went wrong');
+    return createReturnMessage(false, false, {}, 'Something went wrong');
   }
 };
 
-function returnMessageCreator(success, isRequired, data, message) {
+function createReturnMessage(success, isRequired, data, message) {
   return {
     success,
     isRequired,

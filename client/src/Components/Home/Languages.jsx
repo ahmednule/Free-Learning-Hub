@@ -22,7 +22,7 @@ app.listen(3000, () => {
   return (
     <div className="flex flex-col lg:flex-row justify-between">
       <div className="lg:max-w-[47%] w-full flex flex-col gap-5">
-        <h3 className="text-blue-500">Languages</h3>
+        <h3 className="text-secondary">MODULES</h3>
         <p className="text-xl sm:text-3xl lg:text-6xl">Pick your <span className="text-blue-500">module</span> and start learning</p>
         <p>Unlock comprehensive learning modules, where simplicity meets depth. Don&apos;t miss out on the opportunity to level up your knowledge!</p>
         <div className="lg:pl-3">

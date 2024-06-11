@@ -74,6 +74,7 @@ const Wrapper = () => {
             <Loader />
           </div>}>
             {lessonId === 'basic-syntax' && <Lesson progress={progress}  id={1} perc={progressPercent} />}
+            {lessonId === 'data-types' && <Lesson progress={progress} id={2} perc={progressPercent} />}
         </Suspense>
       </div>
 

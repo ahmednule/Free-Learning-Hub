@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { FaAngleRight } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 
@@ -27,6 +28,14 @@ const Subfooter = ({ t1, l1, t2, l2, edit }) => {
       </p>
     </div>
   );
+}
+
+Subfooter.propTypes = {
+  t1: PropTypes.string.isRequired,
+  t2: PropTypes.string.isRequired,
+  l1: PropTypes.string.isRequired,
+  l2: PropTypes.string.isRequired,
+  edit: PropTypes.string.isRequired,
 }
 
 export default Subfooter;

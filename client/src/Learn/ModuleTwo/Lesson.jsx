@@ -14,6 +14,7 @@ import Spinner from '../../Components/General/Spinner';
 import 'react-circular-progressbar/dist/styles.css';
 
 const Tutorial1 = React.lazy(() => import('./Lesson1/Tutorial'));
+const Tutorial2 = React.lazy(() => import('./Lesson2/Tutorial'));
 
 const Lesson = ({ progress, id, perc }) => {
   const dispatch = useDispatch();
@@ -113,6 +114,7 @@ const Lesson = ({ progress, id, perc }) => {
           <Spinner width={40} />
         </div>}>
           {id === 1 && <Tutorial1 />}
+          {id === 2 && <Tutorial2 />}
         </Suspense>
       </div>
 

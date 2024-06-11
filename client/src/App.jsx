@@ -6,7 +6,6 @@ import Footer from './Components/General/Footer';
 import Loader from './Components/General/Loader';
 import ScrollToTop from './Components/General/Forceup';
 
-// Lazy loading components
 const Home = React.lazy(() => import('./Pages/Home'));
 const Login = React.lazy(() => import('./Pages/Login'));
 const Signup = React.lazy(() => import('./Pages/Signup'));
@@ -23,7 +22,7 @@ const App = () => {
     <HashRouter>
       <div><Toaster/></div>
       <ScrollToTop />
-      <div className='fixed top-0 left-0 right-0 w-full z-10 bg-gray-950'>
+      <div className='fixed top-0 left-0 right-0 w-full z-10 bg-primary-900'>
         <Header />
       </div>
       <div className='pt-16 mx-3'>

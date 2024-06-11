@@ -2,6 +2,10 @@ import PropTypes from 'prop-types';
 import React, { useState, useEffect, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import { TiTick } from 'react-icons/ti';
+import { IoVideocam } from 'react-icons/io5';
+import { MdQuiz } from 'react-icons/md';
+import { FaCodeMerge } from 'react-icons/fa6';
+import { IoMdClose } from 'react-icons/io';
 import { CgSpinnerTwoAlt } from 'react-icons/cg';
 import { getReduxUserData, updateProgressState } from '../../Redux/user.slice';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,33 +14,35 @@ import { Post } from '../../Utilities/DataService';
 import Subfooter from '../../Components/Modules/Subfooter';
 import toast from 'react-hot-toast';
 import lessons from './Lessons.json';
+import Quickquiz from './Quickquiz';
+import Youtubevideo from './Youtubevideo';
 import Spinner from '../../Components/General/Spinner';
 import 'react-circular-progressbar/dist/styles.css';
 
-const Tutorial1 = React.lazy(() => import('./LessonOne/Tutorial'));
-const Tutorial2 = React.lazy(() => import('./LessonTwo/Tutorial'));
-const Tutorial3 = React.lazy(() => import('./LessonThree/Tutorial'));
-const Tutorial4 = React.lazy(() => import('./LessonFour/Tutorial'));
-const Tutorial5 = React.lazy(() => import('./LessonFive/Tutorial'));
-const Tutorial6 = React.lazy(() => import('./LessonSix/Tutorial'));
-const Tutorial7 = React.lazy(() => import('./LessonSeven/Tutorial'));
-const Tutorial8 = React.lazy(() => import('./LessonEight/Tutorial'));
-const Tutorial9 = React.lazy(() => import('./LessonNine/Tutorial'));
-const Tutorial10 = React.lazy(() => import('./LessonTen/Tutorial'));
-const Tutorial11 = React.lazy(() => import('./LessonEleven/Tutorial'));
-const Tutorial12 = React.lazy(() => import('./LessonTwelve/Tutorial'));
-const Tutorial13 = React.lazy(() => import('./Lesson13/Tutorial'));
-const Tutorial14 = React.lazy(() => import('./Lesson14/Tutorial'));
-const Tutorial15 = React.lazy(() => import('./Lesson15/Tutorial'));
-const Tutorial16 = React.lazy(() => import('./Lesson16/Tutorial'));
-const Tutorial17 = React.lazy(() => import('./Lesson17/Tutorial'));
-const Tutorial18 = React.lazy(() => import('./Lesson18/Tutorial'));
-const Tutorial19 = React.lazy(() => import('./Lesson19/Tutorial'));
-const Tutorial20 = React.lazy(() => import('./Lesson20/Tutorial'));
-const Tutorial21 = React.lazy(() => import('./Lesson21/Tutorial'));
-const Tutorial22 = React.lazy(() => import('./Lesson22/Tutorial'));
-const Tutorial23 = React.lazy(() => import('./Lesson23/Tutorial'));
-const Tutorial24 = React.lazy(() => import('./Lesson24/Tutorial'));
+const Tutorial1 = React.lazy(() => import('./Lessons/Tutorial1'));
+const Tutorial2 = React.lazy(() => import('./Lessons/Tutorial2'));
+const Tutorial3 = React.lazy(() => import('./Lessons/Tutorial3'));
+const Tutorial4 = React.lazy(() => import('./Lessons/Tutorial4'));
+const Tutorial5 = React.lazy(() => import('./Lessons/Tutorial5'));
+const Tutorial6 = React.lazy(() => import('./Lessons/Tutorial6'));
+const Tutorial7 = React.lazy(() => import('./Lessons/Tutorial7'));
+const Tutorial8 = React.lazy(() => import('./Lessons/Tutorial8'));
+const Tutorial9 = React.lazy(() => import('./Lessons/Tutorial9'));
+const Tutorial10 = React.lazy(() => import('./Lessons/Tutorial10'));
+const Tutorial11 = React.lazy(() => import('./Lessons/Tutorial11'));
+const Tutorial12 = React.lazy(() => import('./Lessons/Tutorial12'));
+const Tutorial13 = React.lazy(() => import('./Lessons/Tutorial13'));
+const Tutorial14 = React.lazy(() => import('./Lessons/Tutorial14'));
+const Tutorial15 = React.lazy(() => import('./Lessons/Tutorial15'));
+const Tutorial16 = React.lazy(() => import('./Lessons/Tutorial16'));
+const Tutorial17 = React.lazy(() => import('./Lessons/Tutorial17'));
+const Tutorial18 = React.lazy(() => import('./Lessons/Tutorial18'));
+const Tutorial19 = React.lazy(() => import('./Lessons/Tutorial19'));
+const Tutorial20 = React.lazy(() => import('./Lessons/Tutorial20'));
+const Tutorial21 = React.lazy(() => import('./Lessons/Tutorial21'));
+const Tutorial22 = React.lazy(() => import('./Lessons/Tutorial22'));
+const Tutorial23 = React.lazy(() => import('./Lessons/Tutorial23'));
+const Tutorial24 = React.lazy(() => import('./Lessons/Tutorial24'));
 const Tutorial25 = React.lazy(() => import('./Lesson25/Tutorial'));
 const Tutorial26 = React.lazy(() => import('./Lesson26/Tutorial'));
 const Tutorial27 = React.lazy(() => import('./Lesson27/Tutorial'));
@@ -55,6 +61,8 @@ const Lesson = ({ progress, id, perc }) => {
   const userDataMain = useSelector(getReduxUserData);
 
   const [progressTwo, setProgressTwo] = useState(progress);
+  const [sudoPopup, setSudoPopup] = useState(false);
+  const [popupData, setPopupData] = useState(1);
   const [isDone, setIsDone] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -186,21 +194,58 @@ const Lesson = ({ progress, id, perc }) => {
         </Suspense>
       </div>
 
+      {sudoPopup && (
+        <div className='bg-gray-950 h-screen fixed w-screen z-50 top-0 left-0 overflow-hidden'>
+          <div className='relative w-full'>
+            <div
+              className='absolute top-3 right-3 p-2 hover:bg-gray-500/40 cursor-pointer rounded-full'
+              onClick={() => setSudoPopup(!sudoPopup)}
+            >
+              <IoMdClose size={22} />
+            </div>
+            {popupData === 1 && <Youtubevideo />}
+            {popupData === 2 && <Quickquiz />}
+          </div>
+        </div>
+      )}
+
+      <div
+        className='flex items-center text-blue-500 gap-2 mb-5 w-fit cursor-pointer'
+        onClick={() => {setSudoPopup(!sudoPopup); setPopupData(1)}}
+      >
+        <IoVideocam className='text-gray-300' size={20} />
+        <p>Watch video.</p>
+      </div>
+
+      <div
+        className='flex items-center text-blue-500 gap-2 mb-5 w-fit cursor-pointer'
+        onClick={() => {setSudoPopup(!sudoPopup); setPopupData(2)}}
+      >
+        <MdQuiz className='text-gray-300' size={20} />
+        <p>Take quiz.</p>
+      </div>
+
       {userDataMain.isLoggedIn ? (
         isDone ? (
-          <div className='text-green-500 mb-10 text-xl flex gap-2 items-center'>
-            <TiTick className='text-green-500 border border-green-700 rounded-full p-[1px]' size={25} />
+          <div className='text-green-500 w-fit flex gap-2 items-center'>
+            <TiTick className='text-green-500 border border-green-700 rounded-full p-[1px]' size={20} />
             <p>Already completed.</p>
           </div>
         ) : (
-          <div onClick={handleUpdateProgress} className={isLoading ? 'text-blue-500 mb-10 text-xl flex gap-2 items-center cursor-not-allowed' : 'text-blue-500 mb-10 text-xl flex gap-2 items-center cursor-pointer'}>
-            {isLoading ? <CgSpinnerTwoAlt className='text-gray-300 animate-spin' /> : <TiTick className='text-gray-300 border border-gray-700 rounded-full p-[1px]' size={25} />}
+          <div onClick={handleUpdateProgress} className={isLoading ? 'text-blue-500 w-fit flex gap-2 items-center cursor-not-allowed' : 'text-blue-500 w-fit flex gap-2 items-center cursor-pointer'}>
+            {isLoading ? <CgSpinnerTwoAlt className='text-gray-300 animate-spin' size={20} /> : <TiTick className='text-gray-300 border border-gray-700 rounded-full p-[1px]' size={20} />}
             <p>{isLoading ? 'Updating...' : 'Mark as done.'}</p>
           </div>
         )
       ) : (
-        <p className='text-red-500 mb-10'>Login <span className='linkOne'><Link to={'/login'}>here</Link></span> to save progress.</p>
+        <p className='text-red-500 w-fit'>Login <span className='linkOne'><Link to={'/login'}>here</Link></span> to save progress.</p>
       )}
+
+      <div className='flex items-center text-blue-500 gap-2 mb-10 mt-5 w-fit cursor-pointer'>
+        <FaCodeMerge className='text-gray-300' size={20} />
+        <p><Link to={'/profile'}>See projects.</Link></p>
+      </div>
+
       <div>
         <Subfooter
           t1={activeTutorial.textOne}

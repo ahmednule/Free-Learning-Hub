@@ -225,16 +225,5 @@
         "link": "/learn/python/visualization"
       }
     ]
-  },
-  {
-    "id": 8,
-    "name": "Additional Resources",
-    "topics": [
-      {
-        "id": 1,
-        "name": "Contributing Tutorial Submissions",
-        "link": "/resources/contributing-tutorial-submissions"
-      }
-    ]
   }
 ]

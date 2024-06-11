@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import { FiClipboard } from 'react-icons/fi';
+import { FaRegCopy } from 'react-icons/fa6';
 import { TiTick } from 'react-icons/ti';
 
 const Snippet = ({ codeString, lang, title }) => {
@@ -17,20 +17,18 @@ const Snippet = ({ codeString, lang, title }) => {
   };
 
   return (
-    <div className='rounded-[6px] border w-[90vw] md:w-full container border-gray-700 overflow-hidden mr-3'>
-      <div className='bg-slate-800 h-10 rounded-t-[6px] flex items-center justify-between px-3'>
+    <div className='rounded-[6px] border w-[90vw] md:w-full container border-primary overflow-hidden mr-3'>
+      <div className='bg-primary-600 h-7 rounded-t-[6px] flex items-center justify-between px-3'>
         <p>{title} Code</p>
         <div className='cursor-pointer'>
           {
             copy? (
-              <div className='flex justify-end text-green-500 items-center gap-1'>
-                <TiTick size={20} />
-                <p>Copied!</p>
+              <div className='flex justify-end text-green-500 items-center gap-1 p-2'>
+                <TiTick size={16} />
               </div>
             ) : (
-              <div onClick={copyCode} className='flex justify-end items-center gap-1'>
-                <FiClipboard size={20} />
-                <p>Copy</p>
+              <div onClick={copyCode} className='flex justify-end items-center gap-1 p-[5px] hover:bg-primary-700/80 duration-200 rounded-md'>
+                <FaRegCopy size={16} />
               </div>
             )
           }
@@ -40,7 +38,7 @@ const Snippet = ({ codeString, lang, title }) => {
         language={lang} 
         style={atomOneDark}
         customStyle={{
-          padding: '15px 10px',
+          padding: '8px 6px',
           backgroundColor: '#030712',
           borderRadius: '6px',
           fontSize: '13px'

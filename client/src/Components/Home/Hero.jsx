@@ -14,7 +14,7 @@ const Hero = () => {
 
   return (
     <>
-      <div className='flex flex-col lg:flex-row items-center justify-between gap-5 pt-10'>
+      <div className='flex flex-col lg:flex-row items-center justify-between gap-5 pt-10 lg:pt-0'>
         <div className='lg:max-w-[45%] flex flex-col gap-5'>
           <h2 className='text-2xl sm:text-4xl lg:text-6xl text-center lg:text-left'>
             <span className='text-blue-500'>Learn Faster</span> with comprehensive tutorials.
@@ -42,7 +42,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <div className='mt-10 lg:mt-2 border-b border-l rounded-bl-3xl border-gray-800 bg-gradient-to-bl from-transparent via-25% via-transparent pr-20 pl-6 to-gray-900'>
+        <div className='mt-10 lg:mt-2 border-b border-l rounded-bl-3xl border-primary-600 bg-gradient-to-bl from-transparent via-25% via-transparent pr-20 pl-6 to-primary-700'>
           <img src="./landing-top.png" alt="Landing Page Top Image" className='w-full h-full object-cover' />
         </div>
       </div>
