@@ -14,6 +14,7 @@ import Modules from '../Components/Profile/Modules';
 import Dashboard from '../Components/Profile/Dashboard';
 import Logout from '../Components/Profile/Logout';
 import Spinner from '../Components/General/Spinner';
+import fetchParams from '../Utilities/fetchParams';
 
 const Profile = () => {
   const userDataMain = useSelector(getReduxUserData);
@@ -26,9 +27,25 @@ const Profile = () => {
 
   useEffect(() => {
     if (!userDataMain.isLoggedIn) {
-      navigate('/login');
+      navigate('/login?redirect=/profile');
     }
   }, [userDataMain, navigate]);
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    const params = fetchParams(hash);
+    if (Object.keys(params).length > 0 && params.tab) {
+      if (params.tab === 'dashboard') setActiveTab(1);
+      if (params.tab === 'modules') setActiveTab(2);
+      if (params.tab === 'projects') setActiveTab(3);
+      if (params.tab === 'certifications') setActiveTab(4);
+      if (params.tab === 'badges') setActiveTab(5);
+      if (params.tab === 'customize') setActiveTab(6);
+      if (params.tab === 'notifications') setActiveTab(7);
+      if (params.tab === 'support') setActiveTab(8);
+      if (params.tab === 'logout') setActiveTab(9);
+    }
+  }, []);
 
   useEffect(() => {
     const getUserCubes = async () => {
@@ -63,8 +80,6 @@ const Profile = () => {
 
     getUserProgress();
   }, [userDataMain.userData, dispatch]);
-
-  console.log(userDataMain);
 
   const profNavs = [
     {
@@ -117,13 +132,13 @@ const Profile = () => {
   return (
     <div className='flex justify-start gap-10 pt-5'>
 
-      <div className='hidden bg-gray-900 rounded w-64 h-fit sticky px-2 top-20 py-5 md:flex flex-col gap-3'>
+      <div className='hidden bg-primary-700 rounded w-64 h-fit sticky px-2 top-20 py-5 md:flex flex-col gap-3'>
         {profNavs.map((nav) => {
           return (
             <div
               key={nav.id}
               onClick={() => setActiveTab(nav.id)}
-              className={activeTab === nav.id ? 'flex gap-5 bg-gray-500/40 hover:bg-gray-500/55 py-2 px-3 duration-200 rounded-md items-center cursor-pointer' : 'flex hover:bg-gray-500/20 duration-200 py-2 px-3 rounded-md gap-5 items-center cursor-pointer'}
+              className={activeTab === nav.id ? 'flex gap-5 bg-primary hover:bg-primary-400/50 py-2 px-3 duration-200 rounded-md items-center cursor-pointer' : 'flex hover:bg-primary/50 duration-200 py-2 px-3 rounded-md gap-5 items-center cursor-pointer'}
             >
               {nav.icon}
               <span>{nav.name}</span>
@@ -133,7 +148,7 @@ const Profile = () => {
       </div>
 
       <div className='w-full pb-20'>
-        <div className='md:hidden bg-gray-900 mb-4 p-2 sticky top-14 rounded-sm'>
+        <div className='md:hidden bg-primary-700 mb-4 p-2 sticky top-14 rounded-sm'>
           <div
             className='flex justify-around items-center cursor-pointer'
             onClick={() => setDropdown(!dropdown)}
@@ -141,7 +156,7 @@ const Profile = () => {
             <p className='font-semibold'>OPTIONS</p>
             <FaAngleDown
               size={22}
-              className={dropdown ? 'text-gray-300 rotate-180' : 'text-gray-300'}
+              className={dropdown ? 'text-primary-200 rotate-180' : 'text-primary-200'}
             />
           </div>
           {dropdown && (
@@ -151,7 +166,7 @@ const Profile = () => {
                   <div
                     key={nav.id}
                     onClick={() => { setActiveTab(nav.id); setDropdown(!dropdown)}}
-                    className={activeTab === nav.id ? 'flex gap-3 bg-gray-500/40 hover:bg-gray-500/55 py-2 px-3 duration-200 rounded-md items-center cursor-pointer' : 'flex hover:bg-gray-500/20 duration-200 py-2 px-3 rounded-md gap-3 items-center cursor-pointer'}
+                    className={activeTab === nav.id ? 'flex gap-3 bg-primary hover:bg-primary-400/50 py-2 px-3 duration-200 rounded-md items-center cursor-pointer' : 'flex hover:bg-primary/50 duration-200 py-2 px-3 rounded-md gap-3 items-center cursor-pointer'}
                   >
                     {nav.icon}
                     <span>{nav.name}</span>
@@ -163,7 +178,7 @@ const Profile = () => {
         </div>
 
         {isLoading ? (
-          <div className='flex px-3 py-6 bg-gray-900 rounded-sm justify-center w-full'>
+          <div className='flex px-3 py-6 bg-primary-700 rounded-sm justify-center w-full'>
             <Spinner width={25} />
           </div>
         ) : (

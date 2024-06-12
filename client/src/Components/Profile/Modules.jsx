@@ -10,12 +10,12 @@ const Modules = () => {
   const allModules = createAllModules(userDataMain);
 
   return (
-    <div className='w-full bg-gray-900 px-2 py-5 rounded-sm pb-56'>
+    <div className='w-full bg-primary-700 px-2 py-5 rounded-sm pb-56'>
       <div>
         <h3 className='text-xl md:text-2xl text-yellow-500'>In progress</h3>
-        <div className='border border-gray-700 rounded mt-5'>
+        <div className='border border-primary-400 rounded mt-5'>
           <div 
-            className='grid md:text-xl bg-gray-700 p-2 rounded-t border-b border-gray-700'
+            className='grid md:text-xl bg-primary-900 p-2 rounded-t border-b border-gray-700'
             style={{ gridTemplateColumns: '2fr 1fr 1fr' }}
           >
             <p>Name</p>
@@ -23,7 +23,7 @@ const Modules = () => {
             <p>Action</p>
           </div>
           {Array.isArray(inProgress) && inProgress.length === 0 ? (
-            <div className='px-2 py-4 bg-gray-500/20'>
+            <div className='px-2 py-4 bg-primary'>
               <p>You don&apos;t have any registered modules</p>
             </div>
           ) : (
@@ -31,7 +31,7 @@ const Modules = () => {
               return (
                 <div
                   key={index}
-                  className='p-2 grid border-b border-gray-700'
+                  className='p-2 grid border-b border-primary-400'
                   style={{ gridTemplateColumns: '2fr 1fr 1fr' }}
                 >
                   <p className='mt-1'>{index + 1}. {item.name}</p>
@@ -46,9 +46,9 @@ const Modules = () => {
         </div>
         
         <h3 className='text-xl md:text-2xl text-green-500 mt-20'>Completed</h3>
-        <div className='border border-gray-700 rounded mt-5'>
+        <div className='border border-primary-400 rounded mt-5'>
           <div 
-            className='grid md:text-xl bg-gray-700 p-2 rounded-t border-b border-gray-700'
+            className='grid md:text-xl bg-primary-900 p-2 rounded-t border-b border-gray-700'
             style={{ gridTemplateColumns: '2fr 1fr 1fr' }}
           >
             <p>Name</p>
@@ -56,7 +56,7 @@ const Modules = () => {
             <p>Action</p>
           </div>
           {Array.isArray(isComplete) && isComplete.length === 0 ? (
-            <div className='px-2 py-4 bg-gray-500/20'>
+            <div className='px-2 py-4 bg-primary'>
               <p>You haven&apos;t completed any modules</p>
             </div>
           ) : (
@@ -64,7 +64,7 @@ const Modules = () => {
               return (
                 <div
                   key={index}
-                  className='p-2 grid border-b border-gray-700'
+                  className='p-2 grid border-b border-primary-400'
                   style={{ gridTemplateColumns: '2fr 1fr 1fr' }}
                 >
                   <p className='mt-1'>{index + 1}. {item.name}</p>
@@ -79,9 +79,9 @@ const Modules = () => {
         </div>
 
         <h3 className='text-xl md:text-2xl mt-20'>All modules</h3>
-        <div className='border border-gray-700 rounded mt-5'>
+        <div className='border border-primary-400 rounded mt-5'>
           <div 
-            className='grid md:text-xl bg-gray-700 p-2 rounded-t border-b border-gray-700'
+            className='grid md:text-xl bg-primary-900 p-2 rounded-t border-b border-gray-700'
             style={{ gridTemplateColumns: '2fr 1fr 1fr' }}
           >
             <p>Name</p>
@@ -89,7 +89,7 @@ const Modules = () => {
             <p>Action</p>
           </div>
           {Array.isArray(allModules) && allModules.length === 0 ? (
-            <div className='px-2 py-4 bg-gray-500/20'>
+            <div className='px-2 py-4 bg-primary'>
               <p>No modules are available</p>
             </div>
           ) : (
@@ -97,7 +97,7 @@ const Modules = () => {
               return (
                 <div
                   key={index}
-                  className='p-2 grid border-b border-gray-700'
+                  className='p-2 grid border-b border-primary-400'
                   style={{ gridTemplateColumns: '2fr 1fr 1fr' }}
                 >
                   <p className='mt-1'>{index + 1}. {item.name}</p>

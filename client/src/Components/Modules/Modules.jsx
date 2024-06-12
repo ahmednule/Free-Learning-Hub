@@ -6,6 +6,7 @@ import { Post } from '../../Utilities/DataService';
 import Allmodules from './Allmodules';
 import Mymodules from './Mymodules';
 import Spinner from '../General/Spinner';
+import fetchParams from '../../Utilities/fetchParams';
 
 const Modules = () => {
   const dispatch = useDispatch();
@@ -14,6 +15,15 @@ const Modules = () => {
   const [progress, setProgress] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [activeTab, setActiveTab] = useState(1);
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    const params = fetchParams(hash);
+    if (Object.keys(params).length > 0 && params.tab) {
+      if (params.tab === 'all-modules') setActiveTab(1);
+      if (params.tab === 'registered') setActiveTab(2);
+    }
+  }, []);
 
   useEffect(() => {
     const getUserProgress = async () => {
@@ -35,25 +45,25 @@ const Modules = () => {
   }, [dispatch, userDataMain.userData, userDataMain.isLoggedIn]);
 
   return (
-    <div className='border border-gray-700 rounded-md'>
-      <div className='border-b border-gray-700 sticky top-14 bg-slate-950 flex items-center font-semibold justify-start gap-5 px-2 rounded-t-md pt-5'>
+    <div className='border border-primary rounded-md'>
+      <div className='border-b border-primary sticky top-14 bg-primary-900 flex items-center font-semibold justify-start gap-5 px-2 rounded-t-md pt-5'>
         <div
           onClick={() => setActiveTab(1)}
-          className={activeTab === 1 ? 'border-b-2 border-reds-400 pb-2 px-2 cursor-pointer' : 'border-b-2 border-transparent pb-2 px-2 cursor-pointer'}
+          className={activeTab === 1 ? 'border-b-2 border-reds pb-2 px-2 cursor-pointer' : 'border-b-2 border-transparent pb-2 px-2 cursor-pointer'}
         >
-          <span className='hover:bg-gray-500/50 p-1 duration-200 rounded'>ALL MODULES</span>
+          <span className='hover:bg-primary-600 pb-1 pt-3 px-1 duration-200 rounded'>ALL MODULES</span>
         </div>
         <div
           onClick={() => setActiveTab(2)}
-          className={activeTab === 2 ? 'border-b-2 border-reds-400 pb-2 px-2 cursor-pointer' : 'border-b-2 border-transparent pb-2 px-2 cursor-pointer'}
+          className={activeTab === 2 ? 'border-b-2 border-reds pb-2 px-2 cursor-pointer' : 'border-b-2 border-transparent pb-2 px-2 cursor-pointer'}
         >
-          <span className='hover:bg-gray-500/50 p-1 duration-200 rounded'>REGISTERED</span>
+          <span className='hover:bg-primary-600 pb-1 pt-3 px-1 duration-200 rounded'>REGISTERED</span>
         </div>
       </div>
       
       {!userDataMain.isLoggedIn && (
-        <div className='bg-reds-400 mx-2 mt-2 p-2 text-gray-950 text-center rounded'>
-          <p>Login <Link to={'/login'} className='linkOne'>here</Link> to save your progress</p>
+        <div className='bg-reds mx-2 mt-2 p-2 text-primary-900 text-center rounded'>
+          <p>Login <Link to={'/login?redirect=/learn'} className='linkOne'>here</Link> to save your progress</p>
         </div>
       )}
 

@@ -80,8 +80,8 @@ function Register() {
     return (
       <div className='min-h-screen'>
         {!userDataMain.isLoggedIn && (
-          <div className='bg-reds-400 mx-2 mt-2 p-2 text-gray-950 text-center rounded mb-5'>
-            <p>Login <Link to={'/login'} className='linkOne'>here</Link> to save your progress</p>
+          <div className='bg-reds mx-2 mt-2 p-2 text-primary-900 text-center rounded mb-5'>
+            <p>Login <Link to={'/login?redirect=/learn'} className='linkOne'>here</Link> to save your progress</p>
           </div>
         )}
         <h3 className='text-center text-xl md:text-2xl underline underline-offset-[30px]'>Module Not Found</h3>
@@ -99,29 +99,29 @@ function Register() {
   }
 
   return (
-    <div className='text-gray-300 mt-5 max-w-3xl mx-auto'>
+    <div className='text-primary-200 mt-5 max-w-3xl mx-auto'>
       {!userDataMain.isLoggedIn && (
-        <div className='bg-reds-400 mx-2 mt-2 p-2 text-gray-950 text-center rounded mb-5'>
-          <p>Login <Link to={'/login'} className='linkOne'>here</Link> to save your progress</p>
+        <div className='bg-reds mx-2 mt-2 p-2 text-primary-900 text-center rounded mb-5'>
+          <p>Login <Link to={'/login?redirect=/learn'} className='linkOne'>here</Link> to save your progress</p>
         </div>
       )}
       <h3 className='text-center text-2xl md:text-3xl lg:text-4xl underline underline-offset-[30px] pb-24'>{toRegister.name}</h3>
       <p>{toRegister.description}</p>
-      <h4 className='mt-20 mb-1 text-blue-500 text-xl md:text-2xl'>Objectives:</h4>
+      <h4 className='mt-20 mb-1 text-blue-500/60 text-xl md:text-2xl'>Objectives:</h4>
       <ul className='list-disc'>
         {toRegister.objectives.map((objective, index) => (
           <li className='ml-10' key={index}>
             <span>{objective.name}</span>
-            <span className='pl-3 font-extralight text-blue-400'>{objective.desc}</span>
+            <span className='pl-3 font-extralight text-blue-500/60'>{objective.desc}</span>
           </li>
         ))}
       </ul>
-      <h4 className='mt-20 mb-1 text-blue-500 text-xl md:text-2xl'>What You Will Learn:</h4>
+      <h4 className='mt-20 mb-1 text-blue-500/60 text-xl md:text-2xl'>What You Will Learn:</h4>
       <ul className='list-disc'>
         {toRegister.whatYouWillLearn.map((learn, index) => (
           <li className='ml-10' key={index}>
             <span>{learn.name}</span>
-            <span className='pl-3 font-extralight text-blue-400'>{learn.desc}</span>
+            <span className='pl-3 font-extralight text-blue-500/60'>{learn.desc}</span>
           </li>
         ))}
       </ul>

@@ -11,12 +11,35 @@ const Dashboard = () => {
   const modules = Object.keys(userDataMain.userProgress.progress).length;
   const cubesPercentage = Math.floor(userDataMain.userCubes / userDataMain.cubes * 100);
 
+  const noName = [
+    {
+      name: 'Certifications',
+      count: '0',
+      icons: <FaGraduationCap size={30} />,
+    },
+    {
+      name: 'Your modules',
+      count: modules,
+      icons: <PiBookOpenTextFill size={30} />,
+    },
+    {
+      name: 'All modules',
+      count: '2',
+      icons: <TbTextPlus size={30} />,
+    },
+    {
+      name: 'Badges',
+      count: '0',
+      icons: <FaAward size={30} />,
+    },
+  ]
+
   return (
-    <div className='w-full bg-gray-900 px-2 py-5 rounded-sm'>
+    <div className='w-full bg-primary-700 px-2 py-5 rounded-sm'>
 
       <div className='flex flex-col md:flex-row flex-wrap gap-8'>
 
-        <div className='bg-gray-500/15 rounded-md py-4 px-7'>
+        <div className='bg-primary-600 rounded-md py-4 px-7'>
           <h2 className='text-2xl md:text-3xl text-center sm:text-left'>Your progress</h2>
           <div className='flex flex-col sm:flex-row items-center gap-10'>
             <div className="w-32 h-32 mt-5">
@@ -45,35 +68,18 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className='w-[340px] py-4 px-6 bg-gray-500/15 rounded-md grid grid-cols-2 gap-5'>
-          <div className='h-[90px] w-[140px] bg-gray-500/25 border cursor-pointer border-gray-500/40 hover:scale-105 hover:bg-gray-900 duration-200 rounded'>
-            <div className='flex items-center gap-4 px-4 mt-2'>
-              <FaGraduationCap size={30} />
-              <span className='text-3xl'>0</span>
-            </div>
-            <p className='pl-4 mt-2'>Certifications</p>
-          </div>
-          <div className='h-[90px] w-[140px] bg-gray-500/25 border cursor-pointer border-gray-500/40 hover:scale-105 hover:bg-gray-900 duration-200 rounded'>
-          <div className='flex items-center gap-4 px-4 mt-2'>
-              <PiBookOpenTextFill size={30} />
-              <span className='text-3xl'>{modules}</span>
-            </div>
-            <p className='pl-4 mt-2'>Your Modules</p>
-          </div>
-          <div className='h-[90px] w-[140px] bg-gray-500/25 border cursor-pointer border-gray-500/40 hover:scale-105 hover:bg-gray-900 duration-200 rounded'>
-          <div className='flex items-center gap-4 px-4 mt-2'>
-              <TbTextPlus size={30} />
-              <span className='text-3xl'>2</span>
-            </div>
-            <p className='pl-4 mt-2'>All Modules</p>
-          </div>
-          <div className='h-[90px] w-[140px] bg-gray-500/25 border cursor-pointer border-gray-500/40 hover:scale-105 hover:bg-gray-900 duration-200 rounded'>
-          <div className='flex items-center gap-4 px-4 mt-2'>
-              <FaAward size={30} />
-              <span className='text-3xl'>0</span>
-            </div>
-            <p className='pl-4 mt-2'>Badges</p>
-          </div>
+        <div className='w-[340px] py-4 px-6 bg-primary-600 rounded-md grid grid-cols-2 gap-5'>
+          {noName.map((item, index) => {
+            return (
+              <div key={index} className='h-[90px] w-[140px] bg-primary-400/30 border cursor-pointer border-primary-300/50 hover:scale-105 hover:bg-primary-700 duration-200 rounded'>
+                <div className='flex items-center gap-4 px-4 mt-2'>
+                  {item.icons}
+                  <span className='text-3xl'>{item.count}</span>
+                </div>
+                <p className='pl-4 mt-2'>{item.name}</p>
+              </div>
+            )
+          })}
         </div>
 
       </div>

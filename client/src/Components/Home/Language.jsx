@@ -45,8 +45,8 @@ const Language = () => {
             </Link>
           </span>
         </div>
-        <div className="w-full h-20 bg-gradient-to-b mt-14 from-transparent relative to-gray-900 border-b border-gray-600">
-          <div className='hidden md:block absolute bottom-0 left-0 -translate-x-[14px] translate-y-[14px] text-white'>
+        <div className="w-full h-20 bg-gradient-to-b mt-14 from-transparent relative to-primary-700 via-primary-700 border-b border-primary-300">
+          <div className='hidden md:block absolute bottom-0 left-0 -translate-x-[14px] translate-y-[14px] text-primary-200'>
             <TfiPlus size={30} />
           </div>
         </div>
