@@ -30,7 +30,7 @@ const Language = () => {
               <Link to={`/learn/register/${lang.id}`}>
                 <button className="mr-auto flex items-center gap-[5px] text-blue-500 group">
                   <span>Get Started</span>
-                  <FaAngleRight className="group-hover:translate-x-1 duration-200 mt-[1px]" />
+                  <FaAngleRight className="group-hover:translate-x-1 duration-200" />
                 </button>
               </Link>
             </div>

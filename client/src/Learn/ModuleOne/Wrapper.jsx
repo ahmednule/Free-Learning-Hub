@@ -19,7 +19,7 @@ const Wrapper = () => {
 
   const htmlCssKey = 'html-css';
   let htmlCssProgressCount = 0;
-  if (userDataMain && userDataMain.userProgress && userDataMain.userProgress.progress[htmlCssKey] && userDataMain.userProgress.progress[htmlCssKey].progress) {
+  if (userDataMain.isLoggedIn && userDataMain.userProgress && userDataMain.userProgress.progress[htmlCssKey] && userDataMain.userProgress.progress[htmlCssKey].progress) {
     const htmlCssProgress = userDataMain.userProgress.progress[htmlCssKey].progress;
     htmlCssProgressCount = Object.keys(htmlCssProgress).length;
   }
@@ -33,7 +33,7 @@ const Wrapper = () => {
 
   useEffect(() => {
     const getUserData = async () => {
-      if (userDataMain.userData) {
+      if (userDataMain.userData && userDataMain.isLoggedIn) {
         const apiUrl = '/api/learn/progress';
         const apiData = {
           uid: userDataMain.userData.uid,
@@ -45,11 +45,11 @@ const Wrapper = () => {
           const htmlCssProgress = allProgress['html-css'] ? allProgress['html-css'].progress : {};
           setProgress(htmlCssProgress);
         }
-        setIsLoading(false);
       }
+      setIsLoading(false);
     }
     getUserData();
-  }, [userDataMain.userData, dispatch]);
+  }, [userDataMain.userData, userDataMain.isLoggedIn, dispatch]);
 
   if (isLoading) {
     return (

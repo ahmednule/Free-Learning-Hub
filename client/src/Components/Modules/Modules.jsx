@@ -17,7 +17,7 @@ const Modules = () => {
 
   useEffect(() => {
     const getUserProgress = async () => {
-      if (userDataMain.userData) {
+      if (userDataMain.userData && userDataMain.isLoggedIn) {
         const apiUrl = '/api/learn/progress';
         const apiData = {
           uid: userDataMain.userData.uid,
@@ -27,14 +27,12 @@ const Modules = () => {
           setProgress(response.data);
           dispatch(updateProgressState({ userProgress: response.data }));
         }
-        setIsLoading(false);
-      } else {
-        setIsLoading(false);
       }
+      setIsLoading(false);
     };
 
     getUserProgress();
-  }, [dispatch, userDataMain.userData]);
+  }, [dispatch, userDataMain.userData, userDataMain.isLoggedIn]);
 
   return (
     <div className='border border-gray-700 rounded-md'>
