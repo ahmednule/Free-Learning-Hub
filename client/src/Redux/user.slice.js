@@ -4,8 +4,8 @@ const initialState = {
   isLoggedIn: false,
   cubes: 500,
   userCubes: 0,
-  userData: '',
-  userProgress: '',
+  userData: {},
+  userProgress: {},
   htmlCss: 36,
   python: 2,
 }

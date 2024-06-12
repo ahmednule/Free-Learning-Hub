@@ -34,7 +34,7 @@ const Modules = () => {
     };
 
     getUserProgress();
-  }, []);
+  }, [dispatch, userDataMain.userData]);
 
   return (
     <div className='border border-gray-700 rounded-md'>
@@ -66,8 +66,8 @@ const Modules = () => {
           </div>
         ) : (
           <>
-            {activeTab === 1 && <Allmodules progress={progress.progress} />}
-            {activeTab === 2 && <Mymodules progress={progress.progress} />}
+            {activeTab === 1 && <Allmodules progress={progress.progress ? progress.progress : {}} />}
+            {activeTab === 2 && <Mymodules progress={progress.progress ? progress.progress : {}} />}
           </>
         )}
       </div>
