@@ -14,6 +14,7 @@
 <br><br>
 
 <a id="about"></a>
+
 ## About 🚀
 
 - Free Learning Hub - [Website](https://free-learning-hub.vercel.app/)
@@ -25,6 +26,7 @@
 <br><br>
 
 <a id="features"></a>
+
 ## Features 💪
 
 - Open tutorials that arent tied to progress if you dont have one, hence good for quick reference.
@@ -37,16 +39,19 @@
 <br><br>
 
 <a id="contributing"></a>
+
 ## Contributing 👨‍💻
 
 <br><br>
 
 <a id="contributors"></a>
+
 ## Contributors 🤝
 
 <br><br>
 
 <a id="support"></a>
+
 ## Support 🙏
 
 Thank you for contributing to our open-source project! We appreciate your support 🚀 <br>

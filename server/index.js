@@ -15,7 +15,7 @@ app.use(express.json());
 const PORT = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+	res.send('Hello World!');
 });
 
 app.use('/api/auth', authRoutes);
@@ -24,15 +24,15 @@ app.use('/api/news', newsRoute);
 app.use('/api/user', userRoutes);
 
 app.use((err, req, res, next) => {
-  const statusCode = err.statusCode || 500;
-  const message = err.message || 'Something went wrong';
-  res.status(statusCode).json({
-    sucess: false,
-    statusCode,
-    message,
-  });
+	const statusCode = err.statusCode || 500;
+	const message = err.message || 'Something went wrong';
+	res.status(statusCode).json({
+		sucess: false,
+		statusCode,
+		message,
+	});
 });
 
 app.listen(PORT, () => {
-  console.log(`Hub is relaxing on port ${PORT}`);
+	console.log(`Hub is relaxing on port ${PORT}`);
 });

@@ -3,56 +3,56 @@
 @tailwind utilities;
 
 body {
-  @apply bg-primary-800 text-primary-100 container mx-auto;
-  font-family: sans-serif;
+	@apply bg-primary-800 text-primary-100 container mx-auto;
+	font-family: sans-serif;
 }
 
 ::-webkit-scrollbar {
-  @apply w-[6px] h-[6px] bg-primary-900 rounded-3xl;
+	@apply w-[6px] h-[6px] bg-primary-900 rounded-3xl;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-primary-700 hover:bg-primary duration-300 rounded-3xl;
-  margin-left: 2px;
+	@apply bg-primary-700 hover:bg-primary duration-300 rounded-3xl;
+	margin-left: 2px;
 }
 
 .inputOne {
-  @apply w-full rounded bg-gray-950 h-9 outline-none border border-gray-500 pl-2 mt-2 focus-within:border-blue-500 duration-200;
+	@apply w-full rounded bg-gray-950 h-9 outline-none border border-gray-500 pl-2 mt-2 focus-within:border-blue-500 duration-200;
 }
 .linkOne {
-  @apply text-blue-500 hover:text-blue-600 duration-200 cursor-pointer;
+	@apply text-blue-500 hover:text-blue-600 duration-200 cursor-pointer;
 }
 .code {
-  @apply text-sm border border-b-2 border-gray-500 text-blue-600 rounded-md cursor-default mx-1 font-extralight px-1;
+	@apply text-sm border border-b-2 border-gray-500 text-blue-600 rounded-md cursor-default mx-1 font-extralight px-1;
 }
 .banner-img {
-  @apply max-w-[150px] h-[5rem] px-[40px] object-cover;
+	@apply max-w-[150px] h-[5rem] px-[40px] object-cover;
 }
 .banner-img:last-of-type {
-  @apply pl-0;
+	@apply pl-0;
 }
 .inner {
-  @apply relative w-full overflow-hidden h-[5rem];
+	@apply relative w-full overflow-hidden h-[5rem];
 }
 .inner::before,
 .inner::after {
-  @apply absolute top-0 w-[30%] h-full z-[1] pointer-events-none;
-  content: '';
+	@apply absolute top-0 w-[30%] h-full z-[1] pointer-events-none;
+	content: '';
 }
 .inner::before {
-  @apply left-0 bg-gradient-to-r from-primary-800 to-transparent;
+	@apply left-0 bg-gradient-to-r from-primary-800 to-transparent;
 }
 .inner::after {
- @apply right-0 bg-gradient-to-l from-primary-800 to-transparent;
+	@apply right-0 bg-gradient-to-l from-primary-800 to-transparent;
 }
 .section-banner {
-  display: flex;
-  animation: swipe var(--speed) linear infinite;
+	display: flex;
+	animation: swipe var(--speed) linear infinite;
 }
 @keyframes swipe {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-100%);
+	}
 }

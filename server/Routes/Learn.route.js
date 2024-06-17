@@ -1,5 +1,9 @@
 import express from 'express';
-import { registerModule, updateProgress, getUserProgress } from '../Controllers/Learn.controller.js'
+import {
+	registerModule,
+	updateProgress,
+	getUserProgress,
+} from '../Controllers/Learn.controller.js';
 
 const router = express.Router();
 

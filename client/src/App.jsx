@@ -18,34 +18,63 @@ const Tools = React.lazy(() => import('./Pages/Tools'));
 // const Editor = React.lazy(() => import('./Pages/Editor'));
 
 const App = () => {
-  return (
-    <HashRouter>
-      <div><Toaster/></div>
-      <ScrollToTop />
-      <div className='fixed top-0 left-0 right-0 w-full z-10 bg-primary-900'>
-        <Header />
-      </div>
-      <div className='pt-16 mx-3'>
-        <Suspense fallback={<Loader />}>
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/signup' element={<Signup />} />
-            <Route path='/learn' element={<Learn />} />
-            <Route path='/learn/register/:moduleID' element={<Register />} />
-            <Route path='/profile' element={<Profile />} />
-            <Route path='/learn/html-css/:lessonID' element={<Wrapper1 />} />
-            <Route path='/learn/python/:lessonID' element={<Wrapper2 />} />
-            <Route path='/tools' element={<Tools />} />
-            {/* <Route path='/code-editor' element={<Editor />} /> */}
-          </Routes>
-        </Suspense>
-      </div>
-      <div className='mt-72'>
-        <Footer />
-      </div>
-    </HashRouter>
-  );
-}
+	return (
+		<HashRouter>
+			<div>
+				<Toaster />
+			</div>
+			<ScrollToTop />
+			<div className='fixed top-0 left-0 right-0 w-full z-10 bg-primary-900'>
+				<Header />
+			</div>
+			<div className='pt-16 mx-3'>
+				<Suspense fallback={<Loader />}>
+					<Routes>
+						<Route
+							path='/'
+							element={<Home />}
+						/>
+						<Route
+							path='/login'
+							element={<Login />}
+						/>
+						<Route
+							path='/signup'
+							element={<Signup />}
+						/>
+						<Route
+							path='/learn'
+							element={<Learn />}
+						/>
+						<Route
+							path='/learn/register/:moduleID'
+							element={<Register />}
+						/>
+						<Route
+							path='/profile'
+							element={<Profile />}
+						/>
+						<Route
+							path='/learn/html-css/:lessonID'
+							element={<Wrapper1 />}
+						/>
+						<Route
+							path='/learn/python/:lessonID'
+							element={<Wrapper2 />}
+						/>
+						<Route
+							path='/tools'
+							element={<Tools />}
+						/>
+						{/* <Route path='/code-editor' element={<Editor />} /> */}
+					</Routes>
+				</Suspense>
+			</div>
+			<div className='mt-72'>
+				<Footer />
+			</div>
+		</HashRouter>
+	);
+};
 
 export default App;

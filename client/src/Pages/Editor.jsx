@@ -1,10 +1,5 @@
-
 const Editor = () => {
-  return (
-    <div>
-htyey
-    </div>
-  );
-}
+	return <div>htyey</div>;
+};
 
 export default Editor;

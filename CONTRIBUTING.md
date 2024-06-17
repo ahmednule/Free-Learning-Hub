@@ -5,8 +5,9 @@
 First you need Node.js and Git installed on your computer.
 
 Grap them from this links if you don't have them.
- - Node.js [official website](https://nodejs.org/en/download).
- - Git [official website](https://git-scm.com/downloads).
+
+- Node.js [official website](https://nodejs.org/en/download).
+- Git [official website](https://git-scm.com/downloads).
 
 Once you have the two utilities you can fire up your terminal and run this command:
 
